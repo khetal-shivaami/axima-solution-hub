@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const usefulLinks = [
-    { label: "Home", href: "/" },
-    { label: "About us", href: "/about" },
-    { label: "Microsoft 365 Email Solutions", href: "/services" },
-    { label: "FAQ's", href: "#faqs" },
-    { label: "Contact Us", href: "#contact" },
+    { label: "About", href: "/about" },
+    { label: "Products", href: "/products" },
+    { label: "Services", href: "/services" },
+    { label: "Plans & Pricing", href: "#pricing" },
+    { label: "Case Study", href: "#case-study" },
+    { label: "Support", href: "#support" },
+    { label: "Contact Us", href: "/contact" },
   ];
 
   const socialLinks = [
@@ -49,13 +51,23 @@ const Footer = () => {
             <ul className="space-y-2">
               {usefulLinks.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-gray-300 hover:text-axima-blue transition-colors flex items-center"
-                  >
-                    <span className="mr-2">›</span>
-                    {link.label}
-                  </Link>
+                  {link.href.startsWith('#') ? (
+                    <a
+                      href={link.href}
+                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center"
+                    >
+                      <span className="mr-2">›</span>
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center"
+                    >
+                      <span className="mr-2">›</span>
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
