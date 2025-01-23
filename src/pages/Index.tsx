@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { Stats } from "@/components/Stats";
 import { TrustedBy } from "@/components/TrustedBy";
 import { Vision } from "@/components/Vision";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <Stats />
       <Vision />
       <TrustedBy />
+      <Footer />
     </div>
   );
 };

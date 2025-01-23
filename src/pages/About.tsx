@@ -1,11 +1,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Navbar } from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gray-900 tech-background p-8">
-      <div className="max-w-7xl mx-auto space-y-8 animate-fade-in">
-        <h1 className="text-4xl font-bold text-white text-center mb-12">About Us</h1>
-        
+    <div className="min-h-screen bg-gray-900 tech-background">
+      <Navbar />
+      <div className="pt-20 p-8">
+        <div className="max-w-7xl mx-auto space-y-8 animate-fade-in">
+          <h1 className="text-4xl font-bold text-white text-center mb-12">About Us</h1>
+          
         <Card className="bg-black/40 border-none text-white">
           <CardHeader>
             <CardTitle>Company Profile</CardTitle>
@@ -70,7 +74,9 @@ const About = () => {
             ))}
           </CardContent>
         </Card>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };
