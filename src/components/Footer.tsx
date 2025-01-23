@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -18,6 +18,12 @@ const Footer = () => {
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
   ];
 
+  const handleAddressClick = () => {
+    const address = "1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080";
+    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+    window.open(mapsUrl, '_blank');
+  };
+
   return (
     <footer className="w-full bg-black/40 border-t border-white/10 py-16">
       <div className="container mx-auto px-4">
@@ -25,20 +31,30 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-bold text-white mb-4">AXIMA CORPORATION</h3>
-            <address className="text-gray-300 not-italic">
+            <address 
+              className="text-gray-300 not-italic flex items-start gap-2 cursor-pointer hover:text-axima-blue transition-colors"
+              onClick={handleAddressClick}
+            >
+              <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
               1001, 10th Floor, Runwal R Square,<br />
               LBS Road, Mulund West, Mumbai - 400080
             </address>
             <div className="mt-4 space-y-2">
-              <p className="text-gray-300">
-                <span className="font-semibold">Phone:</span>{" "}
-                <a href="tel:+917758741333" className="hover:text-axima-blue transition-colors">
-                  +91 775 784 1333
+              <p className="text-gray-300 flex items-center gap-2">
+                <Phone className="w-5 h-5" />
+                <a 
+                  href="tel:+917758741333" 
+                  className="hover:text-axima-blue transition-colors"
+                >
+                  +91 775 874 1333
                 </a>
               </p>
-              <p className="text-gray-300">
-                <span className="font-semibold">Email:</span>{" "}
-                <a href="mailto:info@axima.com" className="hover:text-axima-blue transition-colors">
+              <p className="text-gray-300 flex items-center gap-2">
+                <Mail className="w-5 h-5" />
+                <a 
+                  href="mailto:info@axima.com" 
+                  className="hover:text-axima-blue transition-colors"
+                >
                   info@axima.com
                 </a>
               </p>
