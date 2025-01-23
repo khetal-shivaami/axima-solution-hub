@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
@@ -13,9 +13,22 @@ const navItems = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 w-full bg-white shadow-md z-50">
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      scrolled ? "bg-black shadow-lg" : "bg-white shadow-md"
+    }`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <a href="/" className="flex items-center">
@@ -28,7 +41,11 @@ export const Navbar = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-gray-600 hover:text-axima-blue transition-colors duration-200"
+                className={`transition-colors duration-200 ${
+                  scrolled 
+                    ? "text-axima-blue hover:text-axima-blue/80" 
+                    : "text-gray-600 hover:text-axima-blue"
+                }`}
               >
                 {item.label}
               </a>
@@ -41,7 +58,11 @@ export const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? (
+              <X size={24} className={scrolled ? "text-axima-blue" : "text-gray-600"} />
+            ) : (
+              <Menu size={24} className={scrolled ? "text-axima-blue" : "text-gray-600"} />
+            )}
           </button>
         </div>
 
@@ -52,7 +73,11 @@ export const Navbar = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="block py-2 text-gray-600 hover:text-axima-blue"
+                className={`block py-2 transition-colors duration-200 ${
+                  scrolled 
+                    ? "text-axima-blue hover:text-axima-blue/80" 
+                    : "text-gray-600 hover:text-axima-blue"
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
