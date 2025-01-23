@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
-const AnimatedNumber = ({ value, duration = 2 }: { value: number | string; duration?: number }) => {
+const AnimatedNumber = ({ value, duration = 1 }: { value: number | string; duration?: number }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref);
@@ -10,12 +10,15 @@ const AnimatedNumber = ({ value, duration = 2 }: { value: number | string; durat
     if (isInView) {
       let start = 0;
       const end = parseInt(value.toString(), 10);
-      const incrementTime = (duration * 1000) / end;
+      // Increase speed by reducing the total steps to 50
+      const steps = 50;
+      const increment = end / steps;
+      const incrementTime = (duration * 1000) / steps;
       
       const timer = setInterval(() => {
-        start += 1;
-        setCount(start);
-        if (start === end) clearInterval(timer);
+        start = Math.min(start + increment, end);
+        setCount(Math.floor(start));
+        if (start >= end) clearInterval(timer);
       }, incrementTime);
 
       return () => clearInterval(timer);
