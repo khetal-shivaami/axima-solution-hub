@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
@@ -28,10 +28,11 @@ export const Navbar = () => {
   }, []);
 
   const isExternalLink = (href: string) => href.startsWith('#');
+  const isCurrentPage = (href: string) => location.pathname === href;
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? "bg-black shadow-lg" : "bg-white shadow-md"
+      scrolled ? "bg-black/90 backdrop-blur-sm shadow-lg" : "bg-transparent"
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
@@ -46,11 +47,7 @@ export const Navbar = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className={`transition-colors duration-200 ${
-                    scrolled 
-                      ? "text-axima-blue hover:text-axima-blue/80" 
-                      : "text-gray-600 hover:text-axima-blue"
-                  }`}
+                  className={`transition-colors duration-200 text-white hover:text-axima-blue relative py-2`}
                 >
                   {item.label}
                 </a>
@@ -58,13 +55,19 @@ export const Navbar = () => {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className={`transition-colors duration-200 ${
-                    scrolled 
-                      ? "text-axima-blue hover:text-axima-blue/80" 
-                      : "text-gray-600 hover:text-axima-blue"
-                  } ${location.pathname === item.href ? "font-semibold" : ""}`}
+                  className={`transition-colors duration-200 text-white hover:text-axima-blue relative py-2 ${
+                    isCurrentPage(item.href) ? "font-semibold text-axima-blue" : ""
+                  }`}
                 >
-                  {item.label}
+                  <span className="flex items-center gap-1">
+                    {item.label}
+                    {isCurrentPage(item.href) && (
+                      <ChevronDown className="w-4 h-4 animate-bounce" />
+                    )}
+                  </span>
+                  {isCurrentPage(item.href) && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-axima-blue transform origin-left transition-transform duration-300"></span>
+                  )}
                 </Link>
               )
             ))}
@@ -72,31 +75,27 @@ export const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="md:hidden text-white"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X size={24} className={scrolled ? "text-axima-blue" : "text-gray-600"} />
+              <X size={24} />
             ) : (
-              <Menu size={24} className={scrolled ? "text-axima-blue" : "text-gray-600"} />
+              <Menu size={24} />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-6 animate-fade-in">
+          <div className="md:hidden pb-6 animate-fade-in bg-black/95 rounded-lg mt-2">
             {navItems.map((item) => (
               isExternalLink(item.href) ? (
                 <a
                   key={item.label}
                   href={item.href}
-                  className={`block py-2 transition-colors duration-200 ${
-                    scrolled 
-                      ? "text-axima-blue hover:text-axima-blue/80" 
-                      : "text-gray-600 hover:text-axima-blue"
-                  }`}
+                  className="block py-2 px-4 text-white hover:text-axima-blue"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
@@ -105,14 +104,17 @@ export const Navbar = () => {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className={`block py-2 transition-colors duration-200 ${
-                    scrolled 
-                      ? "text-axima-blue hover:text-axima-blue/80" 
-                      : "text-gray-600 hover:text-axima-blue"
-                  } ${location.pathname === item.href ? "font-semibold" : ""}`}
+                  className={`block py-2 px-4 text-white hover:text-axima-blue ${
+                    isCurrentPage(item.href) ? "font-semibold text-axima-blue bg-white/5" : ""
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
-                  {item.label}
+                  <span className="flex items-center gap-1">
+                    {item.label}
+                    {isCurrentPage(item.href) && (
+                      <ChevronDown className="w-4 h-4 animate-bounce" />
+                    )}
+                  </span>
                 </Link>
               )
             ))}
