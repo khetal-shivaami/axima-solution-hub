@@ -15,7 +15,7 @@ export const Vision = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -24,9 +24,9 @@ export const Vision = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center mb-16"
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Vision</h2>
+          <h2 className="text-3xl font-bold text-white mb-6">Our Vision</h2>
           <div className="w-24 h-1 bg-axima-blue mx-auto mb-6"></div>
-          <p className="text-xl text-gray-700 leading-relaxed">
+          <p className="text-xl text-gray-300 leading-relaxed">
             With a passion and conviction to succeed, our vision is to be the leading email solution provider in India.
           </p>
         </motion.div>
@@ -38,7 +38,7 @@ export const Vision = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Why Choose Axima</h2>
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">Why Choose Axima</h2>
           <div className="w-24 h-1 bg-axima-blue mx-auto mb-12"></div>
           
           <div className="grid gap-4">
@@ -49,10 +49,10 @@ export const Vision = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex items-start gap-4 bg-gray-50 p-4 rounded-lg"
+                className="flex items-start gap-4 bg-black/40 backdrop-blur-sm p-4 rounded-lg border border-gray-800"
               >
                 <Check className="w-6 h-6 text-axima-blue flex-shrink-0 mt-1" />
-                <p className="text-gray-700">{benefit}</p>
+                <p className="text-gray-300">{benefit}</p>
               </motion.div>
             ))}
           </div>
