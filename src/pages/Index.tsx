@@ -6,7 +6,7 @@ import { Vision } from "@/components/Vision";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white tech-background">
+    <div className="min-h-screen bg-gray-900 tech-background">
       <Navbar />
       <Hero />
       <Stats />
