@@ -18,6 +18,9 @@ const Footer = () => {
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
   ];
 
+  const address = "1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080";
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+
   return (
     <footer className="w-full bg-black/40 border-t border-white/10 py-16">
       <div className="container mx-auto px-4">
@@ -26,8 +29,15 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold text-white mb-4">AXIMA CORPORATION</h3>
             <address className="text-gray-300 not-italic">
-              1001, 10th Floor, Runwal R Square,<br />
-              LBS Road, Mulund West, Mumbai - 400080
+              <a 
+                href={googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-axima-blue transition-colors"
+              >
+                1001, 10th Floor, Runwal R Square,<br />
+                LBS Road, Mulund West, Mumbai - 400080
+              </a>
             </address>
             <div className="mt-4 space-y-2">
               <p className="text-gray-300">
