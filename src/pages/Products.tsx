@@ -18,7 +18,7 @@ const Products = () => {
     {
       name: "MS Azure from Jio Region",
       description: "Provides Azure services with data centers located within India, ensuring enhanced security compliance and data residency.",
-      image: "/lovable-uploads/photo-1498050108023-c5249f4df085"
+      image: "/lovable-uploads/logos/Azure.png" // Updated to use Azure logo instead of placeholder
     }
   ];
 
@@ -41,7 +41,7 @@ const Products = () => {
     {
       name: "Fireflies",
       description: "A conversational AI platform that automatically transcribes, summarizes, and organizes meeting discussions.",
-      image: "/lovable-uploads/photo-1498050108023-c5249f4df085"
+      image: "/lovable-uploads/logos/Azure.png" // Updated to use a valid image instead of placeholder
     },
     {
       name: "Scaledino",
@@ -90,7 +90,7 @@ const Products = () => {
                       <img 
                         src={solution.image} 
                         alt={solution.name} 
-                        className="w-full h-60 object-cover rounded-lg mb-4"
+                        className="w-full h-60 object-contain rounded-lg mb-4"
                       />
                       <p className="text-gray-300 line-clamp-3">{solution.description}</p>
                     </CardContent>
@@ -116,7 +116,7 @@ const Products = () => {
                         <img 
                           src={solution.image} 
                           alt={solution.name}
-                          className="w-25 h-20 object-cover rounded-lg"
+                          className="w-25 h-20 object-contain rounded-lg"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white mb-2">{solution.name}</h3>
