@@ -1,75 +1,73 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Services = () => {
   return (
-    <div className="min-h-screen bg-gray-900 tech-background">
+    <div className="min-h-screen bg-gray-900">
       <Navbar />
-      <div className="pt-20 p-8">
+      <div 
+        className="pt-20 p-8 bg-cover bg-center bg-fixed" 
+        style={{ 
+          backgroundImage: 'url("https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80")', 
+          backgroundBlendMode: 'overlay', 
+          backgroundColor: 'rgba(0,0,0,0.7)' 
+        }}
+      >
         <div className="max-w-7xl mx-auto space-y-8 animate-fade-in">
-          <h1 className="text-4xl font-bold text-white text-center mb-12">Our Services</h1>
+          <motion.h1 
+            className="text-4xl font-bold text-white text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Our Services
+          </motion.h1>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-black/40 border-none text-white">
-              <CardHeader>
-                <CardTitle>Change Management</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <img 
-                  src="/lovable-uploads/photo-1487058792275-0ad4aaf24ca7" 
-                  alt="Change Management" 
-                  className="w-full h-48 object-cover rounded-lg mb-4"
-                />
-                <div className="space-y-4">
-                  {[1, 2, 3].map((item) => (
-                    <div key={item} className="p-3 rounded-lg bg-gray-800/50">
-                      <p className="text-sm">Service Feature {item}</p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-black/40 border-none text-white">
-              <CardHeader>
-                <CardTitle>Managed Services</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <img 
-                  src="/lovable-uploads/photo-1519389950473-47ba0277781c" 
-                  alt="Managed Services" 
-                  className="w-full h-48 object-cover rounded-lg mb-4"
-                />
-                <div className="space-y-4">
-                  {[1, 2, 3].map((item) => (
-                    <div key={item} className="p-3 rounded-lg bg-gray-800/50">
-                      <p className="text-sm">Managed Service {item}</p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-black/40 border-none text-white">
-              <CardHeader>
-                <CardTitle>Support Packages</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {[1, 2, 3].map((item) => (
-                    <div key={item} className="p-6 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition cursor-pointer">
-                      <h3 className="text-lg font-semibold mb-2">Package {item}</h3>
-                      <ul className="space-y-2 text-sm text-gray-300">
-                        <li>• Feature 1</li>
-                        <li>• Feature 2</li>
-                        <li>• Feature 3</li>
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "Cloud Migration",
+                description: "Seamless transition to cloud infrastructure with minimal disruption to your business operations.",
+                image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&q=80"
+              },
+              {
+                title: "Microsoft 365 Implementation",
+                description: "Expert deployment and configuration of Microsoft 365 suite for your organization.",
+                image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&q=80"
+              },
+              {
+                title: "IT Consulting",
+                description: "Strategic technology consulting to align your IT infrastructure with business goals.",
+                image: "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?auto=format&fit=crop&q=80"
+              },
+              {
+                title: "Technical Support",
+                description: "24/7 technical support and maintenance for all your cloud solutions.",
+                image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80"
+              }
+            ].map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="bg-black/40 border-none text-white backdrop-blur-sm hover:bg-black/50 transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle>{service.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div 
+                      className="w-full h-48 bg-cover bg-center rounded-lg mb-4"
+                      style={{ backgroundImage: `url("${service.image}")` }}
+                    />
+                    <p className="text-gray-300">{service.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
