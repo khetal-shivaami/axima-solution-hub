@@ -8,12 +8,12 @@ const Products = () => {
     {
       name: "Microsoft 365",
       description: "Microsoft 365 is a cloud-based service that is designed to help meet your organization's needs for robust security, reliability, and user productivity.",
-      image: "/lovable-uploads/photo-1486312338219-ce68d2c6f44d"
+      image: "/lovable-uploads/logos/Microsoft_365.png"
     },
     {
       name: "MS Azure",
       description: "A comprehensive cloud platform that provides scalable, on-demand computing resources and services, enabling businesses to build, deploy, and manage applications efficiently.",
-      image: "/lovable-uploads/photo-1487058792275-0ad4aaf24ca7"
+      image: "/lovable-uploads/logos/Azure.png"
     },
     {
       name: "MS Azure from Jio Region",
@@ -26,17 +26,17 @@ const Products = () => {
     {
       name: "Jumpcloud",
       description: "A directory-as-a-service platform that simplifies user management, authentication, and device control across diverse IT environments.",
-      image: "/lovable-uploads/photo-1485827404703-89b55fcc595e"
+      image: "/lovable-uploads/logos/Jumpcloud-01.png"
     },
     {
       name: "Atera",
       description: "An all-in-one remote monitoring and management (RMM) platform designed for IT professionals to streamline patch management, automate tasks, and manage clients efficiently.",
-      image: "/lovable-uploads/photo-1486312338219-ce68d2c6f44d"
+      image: "/lovable-uploads/logos/Atera-01.png"
     },
     {
       name: "Spin AI",
       description: "Enhances cyber resilience, security operations, and cost efficiency with an all-in-one SaaS security platform that protects your SaaS data from loss, ransomware, risky apps, misconfigurations, and non-compliance.",
-      image: "/lovable-uploads/photo-1487058792275-0ad4aaf24ca7"
+      image: "/lovable-uploads/logos/Spin.ai.png"
     },
     {
       name: "Fireflies",
@@ -46,22 +46,22 @@ const Products = () => {
     {
       name: "Scaledino",
       description: "Provides a scalable cloud infrastructure platform designed to optimize and automate Email signatures.",
-      image: "/lovable-uploads/photo-1485827404703-89b55fcc595e"
+      image: "/lovable-uploads/logos/ScaleDino.png"
     },
     {
       name: "HYCU",
       description: "Delivers data protection and backup-as-a-service, tailored for multi-cloud and hybrid environments.",
-      image: "/lovable-uploads/photo-1486312338219-ce68d2c6f44d"
+      image: "/lovable-uploads/logos/Hycu-2-01.png"
     },
     {
       name: "ZOOM",
       description: "A leading video communication platform that facilitates seamless virtual meetings, webinars, and collaboration.",
-      image: "/lovable-uploads/photo-1487058792275-0ad4aaf24ca7"
+      image: "/lovable-uploads/logos/Zoom-01.png"
     },
     {
       name: "1Password",
       description: "A secure password manager that helps users store, manage, and share passwords.",
-      image: "/lovable-uploads/photo-1498050108023-c5249f4df085"
+      image: "/lovable-uploads/logos/OnePassword-01.png"
     }
   ];
 
@@ -90,7 +90,7 @@ const Products = () => {
                       <img 
                         src={solution.image} 
                         alt={solution.name} 
-                        className="w-full h-48 object-cover rounded-lg mb-4"
+                        className="w-full h-60 object-cover rounded-lg mb-4"
                       />
                       <p className="text-gray-300 line-clamp-3">{solution.description}</p>
                     </CardContent>
@@ -116,7 +116,7 @@ const Products = () => {
                         <img 
                           src={solution.image} 
                           alt={solution.name}
-                          className="w-16 h-16 object-cover rounded-lg"
+                          className="w-25 h-20 object-cover rounded-lg"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white mb-2">{solution.name}</h3>
