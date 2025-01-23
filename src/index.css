@@ -104,14 +104,14 @@
 .tech-background {
   background: linear-gradient(
     45deg,
-    rgba(0, 163, 255, 0.08) 0%,
-    rgba(0, 0, 0, 0.2) 25%,
-    rgba(0, 163, 255, 0.08) 50%,
-    rgba(0, 0, 0, 0.2) 75%,
-    rgba(0, 163, 255, 0.08) 100%
+    rgba(0, 163, 255, 0.15) 0%,
+    rgba(0, 0, 0, 0.3) 25%,
+    rgba(0, 163, 255, 0.15) 50%,
+    rgba(0, 0, 0, 0.3) 75%,
+    rgba(0, 163, 255, 0.15) 100%
   );
   background-size: 400% 400%;
-  animation: techFlow 15s ease infinite;
+  animation: techFlow 10s ease infinite;
   position: relative;
 }
 
@@ -124,11 +124,11 @@
   bottom: 0;
   background: radial-gradient(
     circle at 50% 50%,
-    rgba(0, 163, 255, 0.15) 0%,
-    transparent 50%
+    rgba(0, 163, 255, 0.25) 0%,
+    transparent 70%
   );
-  opacity: 0.6;
-  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  opacity: 0.8;
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes techFlow {
@@ -145,9 +145,9 @@
 
 @keyframes pulse {
   0%, 100% {
-    opacity: 0.6;
+    opacity: 0.8;
   }
   50% {
-    opacity: 0.3;
+    opacity: 0.4;
   }
 }
