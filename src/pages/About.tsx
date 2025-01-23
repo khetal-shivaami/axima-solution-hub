@@ -10,21 +10,21 @@ const About = () => {
         <div className="max-w-7xl mx-auto space-y-8 animate-fade-in">
           <h1 className="text-4xl font-bold text-white text-center mb-12">About Us</h1>
           
-        <Card className="bg-black/40 border-none text-white">
-          <CardHeader>
-            <CardTitle>Company Profile</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <img 
-              src="/lovable-uploads/photo-1581092795360-fd1ca04f0952" 
-              alt="Company Profile" 
-              className="w-full h-64 object-cover rounded-lg mb-4"
-            />
-            <p className="text-gray-300">
-              [Your company profile content will go here]
-            </p>
-          </CardContent>
-        </Card>
+          <Card className="bg-black/40 border-none text-white">
+            <CardHeader>
+              <CardTitle>Company Profile</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <img 
+                src="/lovable-uploads/photo-1581092795360-fd1ca04f0952" 
+                alt="Company Profile" 
+                className="w-full h-64 object-cover rounded-lg mb-4"
+              />
+              <p className="text-gray-300">
+                Axima Corporation is a certified Microsoft 365 partner, dedicated to helping businesses leverage the benefits of cloud solutions. In today's competitive landscape, companies seek collaborative tools that provide a strategic advantage. Microsoft 365 delivers exactly that. With Axima's expertise in integrating Microsoft 365, your business gains enhanced flexibility and agility, empowering you to stay ahead in the market.
+              </p>
+            </CardContent>
+          </Card>
 
         <Card className="bg-black/40 border-none text-white">
           <CardHeader>
@@ -74,6 +74,7 @@ const About = () => {
             ))}
           </CardContent>
         </Card>
+
         </div>
       </div>
       <Footer />
