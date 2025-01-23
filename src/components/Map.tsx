@@ -1,62 +1,18 @@
-import React, { useEffect, useRef } from 'react';
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
+import React from 'react';
 
 const Map = () => {
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
-
-  useEffect(() => {
-    if (!mapContainer.current) return;
-
-    try {
-      // Initialize map with a valid token
-      mapboxgl.accessToken = 'pk.eyJ1IjoibG92YWJsZSIsImEiOiJjbHRwOWYyZWowMDJqMnFxbDZ0ZjBwcXpnIn0.Zm1GhRXXmxNCml6M2SK27Q';
-      
-      if (!map.current) {
-        map.current = new mapboxgl.Map({
-          container: mapContainer.current,
-          style: 'mapbox://styles/mapbox/dark-v11',
-          center: [72.94661491490255, 19.17165698703431], // Mulund West coordinates
-          zoom: 15,
-          pitch: 45,
-        });
-
-        // Add navigation controls after map is loaded
-        map.current.on('load', () => {
-          if (map.current) {
-            map.current.addControl(
-              new mapboxgl.NavigationControl(),
-              'top-right'
-            );
-
-            // Add marker for office location
-            new mapboxgl.Marker({ color: '#00A3FF' })
-              .setLngLat([72.94661491490255, 19.17165698703431])
-              .setPopup(
-                new mapboxgl.Popup({ offset: 25 })
-                  .setHTML('<h3 class="text-sm font-bold">Axima Office</h3><p class="text-xs">Runwal R Square, Mulund West</p>')
-              )
-              .addTo(map.current);
-          }
-        });
-      }
-    } catch (error) {
-      console.error('Error initializing map:', error);
-    }
-
-    // Cleanup function
-    return () => {
-      if (map.current) {
-        map.current.remove();
-        map.current = null;
-      }
-    };
-  }, []);
-
   return (
     <div className="w-full h-64 rounded-lg overflow-hidden shadow-lg">
-      <div ref={mapContainer} className="w-full h-full" />
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15073.738850809548!2d72.9602999!3d19.1762063!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8507eb997a5fd141!2sShivaami!5e0!3m2!1sen!2sin!4v1658986881738!5m2!1sen!2sin"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen={false}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        className="rounded-lg"
+      />
     </div>
   );
 };
