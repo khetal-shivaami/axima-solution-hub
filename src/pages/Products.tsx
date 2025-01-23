@@ -15,35 +15,19 @@ const Products = () => {
             <h3 className="text-xl">Explore Our Microsoft Solutions</h3>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="bg-black/40 border-none text-white">
               <CardHeader>
                 <CardTitle>Microsoft 365</CardTitle>
               </CardHeader>
               <CardContent>
                 <img 
-                  src="/lovable-uploads/photo-1488590528505-98d2b5aba04b" 
+                  src="/lovable-uploads/photo-1486312338219-ce68d2c6f44d" 
                   alt="Microsoft 365" 
                   className="w-full h-48 object-cover rounded-lg mb-4"
                 />
                 <p className="text-gray-300">
                   Microsoft 365 is a cloud-based service that is designed to help meet your organization's needs for robust security, reliability, and user productivity.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-black/40 border-none text-white">
-              <CardHeader>
-                <CardTitle>MS Azure from Jio Region</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <img 
-                  src="/lovable-uploads/photo-1461749280684-dccba630e2f6" 
-                  alt="JioCloud" 
-                  className="w-full h-48 object-cover rounded-lg mb-4"
-                />
-                <p className="text-gray-300">
-                  Provides Azure services with data centers located within India, ensuring enhanced security compliance and data residency.
                 </p>
               </CardContent>
             </Card>
@@ -63,6 +47,22 @@ const Products = () => {
                 </p>
               </CardContent>
             </Card>
+
+            <Card className="bg-black/40 border-none text-white">
+              <CardHeader>
+                <CardTitle>MS Azure from Jio Region</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <img 
+                  src="/lovable-uploads/photo-1498050108023-c5249f4df085" 
+                  alt="MS Azure Jio" 
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <p className="text-gray-300">
+                  Provides Azure services with data centers located within India, ensuring enhanced security compliance and data residency.
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
           <Card className="bg-black/40 border-none text-white mt-12">
@@ -74,40 +74,57 @@ const Products = () => {
                 {[
                   {
                     name: "Jumpcloud",
-                    description: "A directory-as-a-service platform that simplifies user management, authentication, and device control across diverse IT environments."
+                    description: "A directory-as-a-service platform that simplifies user management, authentication, and device control across diverse IT environments.",
+                    image: "/lovable-uploads/photo-1485827404703-89b55fcc595e"
                   },
                   {
                     name: "Atera",
-                    description: "An all-in-one remote monitoring and management (RMM) platform designed for IT professionals to streamline patch management, automate tasks, and manage clients efficiently."
+                    description: "An all-in-one remote monitoring and management (RMM) platform designed for IT professionals to streamline patch management, automate tasks, and manage clients efficiently.",
+                    image: "/lovable-uploads/photo-1486312338219-ce68d2c6f44d"
                   },
                   {
                     name: "Spin AI",
-                    description: "Enhances cyber resilience, security operations, and cost efficiency with an all-in-one SaaS security platform that protects your SaaS data from loss, ransomware, risky apps, misconfigurations, and non-compliance."
+                    description: "Enhances cyber resilience, security operations, and cost efficiency with an all-in-one SaaS security platform that protects your SaaS data from loss, ransomware, risky apps, misconfigurations, and non-compliance.",
+                    image: "/lovable-uploads/photo-1487058792275-0ad4aaf24ca7"
                   },
                   {
                     name: "Fireflies",
-                    description: "A conversational AI platform that automatically transcribes, summarizes, and organizes meeting discussions."
+                    description: "A conversational AI platform that automatically transcribes, summarizes, and organizes meeting discussions.",
+                    image: "/lovable-uploads/photo-1498050108023-c5249f4df085"
                   },
                   {
                     name: "Scaledino",
-                    description: "Provides a scalable cloud infrastructure platform designed to optimize and automate Email signatures."
+                    description: "Provides a scalable cloud infrastructure platform designed to optimize and automate Email signatures.",
+                    image: "/lovable-uploads/photo-1485827404703-89b55fcc595e"
                   },
                   {
                     name: "HYCU",
-                    description: "Delivers data protection and backup-as-a-service, tailored for multi-cloud and hybrid environments."
+                    description: "Delivers data protection and backup-as-a-service, tailored for multi-cloud and hybrid environments.",
+                    image: "/lovable-uploads/photo-1486312338219-ce68d2c6f44d"
                   },
                   {
                     name: "ZOOM",
-                    description: "A leading video communication platform that facilitates seamless virtual meetings, webinars, and collaboration."
+                    description: "A leading video communication platform that facilitates seamless virtual meetings, webinars, and collaboration.",
+                    image: "/lovable-uploads/photo-1487058792275-0ad4aaf24ca7"
                   },
                   {
                     name: "1Password",
-                    description: "A secure password manager that helps users store, manage, and share passwords."
+                    description: "A secure password manager that helps users store, manage, and share passwords.",
+                    image: "/lovable-uploads/photo-1498050108023-c5249f4df085"
                   }
                 ].map((product, index) => (
                   <div key={index} className="p-6 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition">
-                    <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-                    <p className="text-gray-300">{product.description}</p>
+                    <div className="flex items-center gap-4">
+                      <img 
+                        src={product.image} 
+                        alt={product.name}
+                        className="w-16 h-16 object-cover rounded-lg"
+                      />
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+                        <p className="text-gray-300">{product.description}</p>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
