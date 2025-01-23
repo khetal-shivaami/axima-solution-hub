@@ -19,12 +19,6 @@ export const Contact = () => {
     console.log("Form submitted:", formData);
   };
 
-  const handleAddressClick = () => {
-    const address = "1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080";
-    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-    window.open(mapsUrl, '_blank');
-  };
-
   return (
     <section id="contact" className="py-16 bg-black/40">
       <div className="container mx-auto px-4">
@@ -47,14 +41,11 @@ export const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-8"
           >
-            <div 
-              className="flex items-start space-x-4 cursor-pointer group"
-              onClick={handleAddressClick}
-            >
-              <MapPin className="w-6 h-6 text-axima-blue mt-1 group-hover:scale-110 transition-transform" />
+            <div className="flex items-start space-x-4">
+              <MapPin className="w-6 h-6 text-axima-blue mt-1" />
               <div>
                 <h3 className="text-white font-semibold mb-1">Location:</h3>
-                <p className="text-gray-300 group-hover:text-axima-blue transition-colors">
+                <p className="text-gray-300">
                   1001, 10th Floor, Runwal R Square, LBS Road, Mulund West,<br />
                   Mumbai - 400080
                 </p>
@@ -65,10 +56,7 @@ export const Contact = () => {
               <Mail className="w-6 h-6 text-axima-blue mt-1" />
               <div>
                 <h3 className="text-white font-semibold mb-1">Email:</h3>
-                <a 
-                  href="mailto:info@axima.com" 
-                  className="text-gray-300 hover:text-axima-blue transition-colors"
-                >
+                <a href="mailto:info@axima.com" className="text-gray-300 hover:text-axima-blue transition-colors">
                   info@axima.com
                 </a>
               </div>
@@ -78,11 +66,8 @@ export const Contact = () => {
               <Phone className="w-6 h-6 text-axima-blue mt-1" />
               <div>
                 <h3 className="text-white font-semibold mb-1">Call:</h3>
-                <a 
-                  href="tel:+917758741333" 
-                  className="text-gray-300 hover:text-axima-blue transition-colors"
-                >
-                  +91 775 874 1333
+                <a href="tel:+917758741333" className="text-gray-300 hover:text-axima-blue transition-colors">
+                  +91 775 784 1333
                 </a>
               </div>
             </div>
