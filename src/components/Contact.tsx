@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { MapPin, Mail, Phone } from "lucide-react";
+import Map from "./Map";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +16,6 @@ export const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log("Form submitted:", formData);
   };
 
@@ -72,17 +72,7 @@ export const Contact = () => {
               </div>
             </div>
 
-            <div className="w-full h-64 rounded-lg overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.1123850825173!2d72.94661491490255!3d19.17165698703431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8de0198c8b9%3A0x3fee6e7dd005e548!2sEcstasy%20Business%20Park!5e0!3m2!1sen!2sin!4v1647940434368!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
+            <Map />
           </motion.div>
 
           <motion.form
