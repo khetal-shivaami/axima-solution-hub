@@ -9,7 +9,7 @@ const navItems = [
   { label: "Plans & Pricing", href: "#pricing" },
   { label: "Case Study", href: "#case-study" },
   { label: "Support", href: "#support" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export const Navbar = () => {
