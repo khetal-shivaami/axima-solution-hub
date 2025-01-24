@@ -70,18 +70,22 @@ const Footer = () => {
                   {link.href.startsWith('#') ? (
                     <a
                       href={link.href}
-                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer"
+                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group"
                     >
-                      <span className="mr-2">›</span>
-                      {link.label}
+                      <span className="mr-2 group-hover:text-axima-blue">›</span>
+                      <span className="group-hover:translate-x-1 transition-transform">
+                        {link.label}
+                      </span>
                     </a>
                   ) : (
                     <Link
                       to={link.href}
-                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer"
+                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group"
                     >
-                      <span className="mr-2">›</span>
-                      {link.label}
+                      <span className="mr-2 group-hover:text-axima-blue">›</span>
+                      <span className="group-hover:translate-x-1 transition-transform">
+                        {link.label}
+                      </span>
                     </Link>
                   )}
                 </li>
