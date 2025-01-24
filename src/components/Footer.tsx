@@ -22,18 +22,18 @@ const Footer = () => {
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
   return (
-    <footer className="w-full bg-black/40 border-t border-white/10 py-16">
+    <footer className="relative w-full bg-black/40 border-t border-white/10 py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-12">
           {/* Company Info */}
-          <div>
+          <div className="relative z-10">
             <h3 className="text-xl font-bold text-white mb-4">AXIMA CORPORATION</h3>
             <address className="text-gray-300 not-italic">
               <a 
                 href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-axima-blue transition-colors cursor-pointer"
+                className="hover:text-axima-blue transition-colors cursor-pointer block"
               >
                 1001, 10th Floor, Runwal R Square,<br />
                 LBS Road, Mulund West, Mumbai - 400080
@@ -62,7 +62,7 @@ const Footer = () => {
           </div>
 
           {/* Useful Links */}
-          <div>
+          <div className="relative z-10">
             <h3 className="text-xl font-bold text-white mb-4">Useful Links</h3>
             <ul className="space-y-2">
               {usefulLinks.map((link) => (
@@ -70,9 +70,9 @@ const Footer = () => {
                   {link.href.startsWith('#') ? (
                     <a
                       href={link.href}
-                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group"
+                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative"
                     >
-                      <span className="mr-2 group-hover:text-axima-blue">›</span>
+                      <span className="mr-2 group-hover:text-axima-blue transition-colors">›</span>
                       <span className="group-hover:translate-x-1 transition-transform">
                         {link.label}
                       </span>
@@ -80,9 +80,9 @@ const Footer = () => {
                   ) : (
                     <Link
                       to={link.href}
-                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group"
+                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative"
                     >
-                      <span className="mr-2 group-hover:text-axima-blue">›</span>
+                      <span className="mr-2 group-hover:text-axima-blue transition-colors">›</span>
                       <span className="group-hover:translate-x-1 transition-transform">
                         {link.label}
                       </span>
@@ -94,7 +94,7 @@ const Footer = () => {
           </div>
 
           {/* Social Networks */}
-          <div>
+          <div className="relative z-10">
             <h3 className="text-xl font-bold text-white mb-4">Our Social Networks</h3>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
