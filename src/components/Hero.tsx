@@ -35,12 +35,12 @@ export const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Button
+            {/* <Button
               className="bg-axima-blue hover:bg-blue-600 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
               onClick={() => document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" })}
             >
               Explore Our Solutions <ArrowRight className="ml-2" />
-            </Button>
+            </Button> */}
           </motion.div>
         </motion.div>
       </div>
