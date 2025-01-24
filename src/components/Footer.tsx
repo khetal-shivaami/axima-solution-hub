@@ -33,7 +33,7 @@ const Footer = () => {
                 href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-axima-blue transition-colors"
+                className="hover:text-axima-blue transition-colors cursor-pointer"
               >
                 1001, 10th Floor, Runwal R Square,<br />
                 LBS Road, Mulund West, Mumbai - 400080
@@ -42,13 +42,19 @@ const Footer = () => {
             <div className="mt-4 space-y-2">
               <p className="text-gray-300">
                 <span className="font-semibold">Phone:</span>{" "}
-                <a href="tel:+917758741333" className="hover:text-axima-blue transition-colors">
-                  +91 775 784 1333
+                <a 
+                  href="tel:+917758741333" 
+                  className="hover:text-axima-blue transition-colors cursor-pointer"
+                >
+                  +91 775 874 1333
                 </a>
               </p>
               <p className="text-gray-300">
                 <span className="font-semibold">Email:</span>{" "}
-                <a href="mailto:info@axima.com" className="hover:text-axima-blue transition-colors">
+                <a 
+                  href="mailto:info@axima.com" 
+                  className="hover:text-axima-blue transition-colors cursor-pointer"
+                >
                   info@axima.com
                 </a>
               </p>
@@ -64,7 +70,7 @@ const Footer = () => {
                   {link.href.startsWith('#') ? (
                     <a
                       href={link.href}
-                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center"
+                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer"
                     >
                       <span className="mr-2">›</span>
                       {link.label}
@@ -72,7 +78,7 @@ const Footer = () => {
                   ) : (
                     <Link
                       to={link.href}
-                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center"
+                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer"
                     >
                       <span className="mr-2">›</span>
                       {link.label}
@@ -93,7 +99,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-axima-blue transition-colors"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-axima-blue transition-colors cursor-pointer"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5 text-white" />
