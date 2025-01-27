@@ -124,7 +124,7 @@ export const Microsoft365Benefits = () => {
                 className="w-12 h-12 mx-auto mb-2 object-contain"
               />
               <h3 className="font-semibold mb-1">{feature.name}</h3>
-              <p className="text-sm text-gray-400">{feature.description}</p>
+              {/* <p className="text-sm text-gray-400">{feature.description}</p> */}
             </div>
           ))}
         </motion.div>

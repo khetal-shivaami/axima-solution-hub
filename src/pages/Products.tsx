@@ -134,7 +134,7 @@ const Products = () => {
             ))}
           </div>
 
-          <Microsoft365Benefits />
+          {/* <Microsoft365Benefits /> */}
 
           {/* Other Innovative Solutions */}
           <div className="mt-16">
