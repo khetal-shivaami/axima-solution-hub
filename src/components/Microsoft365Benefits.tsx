@@ -21,9 +21,18 @@ const benefits = [
 ];
 
 const features = [
-  "Word", "Excel", "PowerPoint", "Teams",
-  "Outlook", "OneDrive", "SharePoint", "Exchange",
-  "Intune", "Azure Information Protection", "Publisher (PC only)", "Access (PC only)"
+  { name: "Word", description: "Create and edit professional documents" },
+  { name: "Excel", description: "Powerful spreadsheet and data analysis" },
+  { name: "PowerPoint", description: "Create impactful presentations" },
+  { name: "Teams", description: "Collaborate and communicate in real-time" },
+  { name: "Outlook", description: "Professional email and calendar management" },
+  { name: "OneDrive", description: "Secure cloud storage and file sharing" },
+  { name: "SharePoint", description: "Team collaboration and document management" },
+  { name: "Exchange", description: "Enterprise email and calendar server" },
+  { name: "Intune", description: "Mobile device and application management" },
+  { name: "Azure Information Protection", description: "Data protection and compliance" },
+  { name: "Publisher (PC only)", description: "Desktop publishing and design" },
+  { name: "Access (PC only)", description: "Database creation and management" }
 ];
 
 export const Microsoft365Benefits = () => {
@@ -61,7 +70,7 @@ export const Microsoft365Benefits = () => {
               key={index}
               className="bg-black/30 border border-axima-blue/20 rounded-lg p-3 text-center text-white"
             >
-              {feature}
+              {feature.name}
             </div>
           ))}
         </motion.div>
