@@ -122,13 +122,19 @@ const PlansAndPricing = () => {
           </div>
           
           <div className="flex items-center justify-center gap-4 mb-8">
-            <Tabs defaultValue="monthly" onValueChange={setBillingPeriod} className="w-[300px]">
+            <Tabs
+              defaultValue="monthly"
+              onValueChange={(value) => setBillingPeriod(value)}
+              className="w-[300px]"
+            >
               <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="monthly">Monthly</TabsTrigger>
-                <TabsTrigger value="yearly">Yearly</TabsTrigger>
+                <TabsTrigger value="monthly" className="tabs-trigger">Monthly</TabsTrigger>
+                <TabsTrigger value="yearly" className="tabs-trigger">Yearly</TabsTrigger>
               </TabsList>
             </Tabs>
           </div>
+
+
 
           <div className="grid md:grid-cols-3 gap-6">
             {plans.map((plan, index) => (
