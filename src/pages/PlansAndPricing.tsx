@@ -21,7 +21,7 @@ const PlansAndPricing = () => {
         "Standard security",
         "Anytime phone and web support"
       ],
-      image: "/lovable-uploads/logos/Microsoft_365.png"
+      // image: "/lovable-uploads/logos/Microsoft_365.png"
     },
     {
       name: "Microsoft 365 Business Standard",
@@ -34,7 +34,7 @@ const PlansAndPricing = () => {
         "Attendee registration and reporting tools",
         "Manage customer appointments"
       ],
-      image: "/lovable-uploads/logos/Microsoft_365.png"
+      // image: "/lovable-uploads/logos/Microsoft_365.png"
     },
     {
       name: "Microsoft 365 Business Premium",
@@ -46,7 +46,7 @@ const PlansAndPricing = () => {
         "Access and data control",
         "Cyberthreat protection"
       ],
-      image: "/lovable-uploads/logos/Microsoft_365.png"
+      // image: "/lovable-uploads/logos/Microsoft_365.png"
     }
   ];
 
@@ -63,7 +63,7 @@ const PlansAndPricing = () => {
               checked={isYearly}
               onCheckedChange={setIsYearly}
             />
-            <span className="text-white">Yearly (Save 20%)</span>
+            {/* <span className="text-white">Yearly (Save 20%)</span> */}
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -75,13 +75,7 @@ const PlansAndPricing = () => {
                       <CardTitle className="text-xl">{plan.name}</CardTitle>
                     </CardHeader>
                     <CardContent className="p-4">
-                      <img 
-                        src={plan.image} 
-                        alt={plan.name} 
-                        className="w-full h-40 object-contain rounded-lg mb-4"
-                        loading="eager"
-                        decoding="async"
-                      />
+                     
                       <p className="text-axima-blue font-semibold text-2xl mb-4">
                         {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
                         <span className="text-sm text-gray-400">/user/{isYearly ? 'year' : 'month'}</span>

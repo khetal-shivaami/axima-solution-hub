@@ -51,6 +51,16 @@ const innovativeSolutions = [
     name: "1Password",
     description: "A secure password manager that helps users store, manage, and share passwords.",
     image: "/lovable-uploads/logos/OnePassword-01.png"
+  },
+  {
+    name: "Scaledino",
+    description: "It provides a scalable cloud infrastructure platform designed to optimize and automate Email signatures",
+    image: "/lovable-uploads/logos/ScaleDino.png"
+  },
+  {
+    name: "Fireflies",
+    description: "It is a conversational AI platform that automatically transcribes, summarizes, and organizes meeting discussions.",
+    image: "/lovable-uploads/logos/fireflies.png"
   }
 ];
 
