@@ -2,89 +2,57 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Microsoft365Benefits } from "@/components/Microsoft365Benefits";
 
-  const microsoftSolutions = [
-    {
-      name: "Microsoft 365 Business Basic",
-      description: "Web and mobile versions of Office apps, email, calendar, file storage, and sharing.",
-      price: "₹250/user/month",
-      features: [
-        "Web and mobile versions of Office apps",
-        "Email and calendar",
-        "1 TB of cloud storage",
-        "Teams for collaboration"
-      ],
-      image: "/lovable-uploads/logos/Microsoft_365.png"
-    },
-    {
-      name: "Microsoft 365 Business Standard",
-      description: "Desktop versions of Office apps plus email, calendar, file storage, and sharing.",
-      price: "₹650/user/month",
-      features: [
-        "Desktop, web, and mobile versions of Office apps",
-        "Email and calendar",
-        "1 TB of cloud storage",
-        "Teams for collaboration"
-      ],
-      image: "/lovable-uploads/logos/Microsoft_365.png"
-    },
-    {
-      name: "Microsoft 365 Business Premium",
-      description: "Everything in Business Standard plus advanced security and device management.",
-      price: "₹1,320/user/month",
-      features: [
-        "All Business Standard features",
-        "Advanced security features",
-        "Device management",
-        "Information protection"
-      ],
-      image: "/lovable-uploads/logos/Microsoft_365.png"
-    }
-  ];
+const microsoftSolutions = [
+  {
+    name: "Microsoft 365",
+    description: "Microsoft 365 is a cloud-based service that is designed to help meet your organization's needs for robust security, reliability, and user productivity.",
+    image: "/lovable-uploads/logos/Microsoft_365.png"
+  },
+  {
+    name: "MS Azure",
+    description: "MS Azure is a comprehensive cloud platform that provides scalable, on-demand computing resources and services, enabling businesses to build, deploy, and manage applications efficiently.",
+    image: "/lovable-uploads/logos/Azure.png"
+  },
+  {
+    name: "MS Azure from Jio Region",
+    description: "MS Azure from Jio Region provides Azure services with data centers located within India, ensuring enhanced security compliance and data residency.",
+    image: "/lovable-uploads/logos/Azure.png"
+  }
+];
 
-  const innovativeSolutions = [
-    {
-      name: "Jumpcloud",
-      description: "A directory-as-a-service platform that simplifies user management, authentication, and device control across diverse IT environments.",
-      image: "/lovable-uploads/logos/Jumpcloud-01.png"
-    },
-    {
-      name: "Atera",
-      description: "An all-in-one remote monitoring and management (RMM) platform designed for IT professionals to streamline patch management, automate tasks, and manage clients efficiently.",
-      image: "/lovable-uploads/logos/Atera-01.png"
-    },
-    {
-      name: "Spin AI",
-      description: "Enhances cyber resilience, security operations, and cost efficiency with an all-in-one SaaS security platform that protects your SaaS data from loss, ransomware, risky apps, misconfigurations, and non-compliance.",
-      image: "/lovable-uploads/logos/Spin.ai.png"
-    },
-    {
-      name: "Fireflies",
-      description: "A conversational AI platform that automatically transcribes, summarizes, and organizes meeting discussions.",
-      image: "/lovable-uploads/logos/Azure.png" // Updated to use a valid image instead of placeholder
-    },
-    {
-      name: "Scaledino",
-      description: "Provides a scalable cloud infrastructure platform designed to optimize and automate Email signatures.",
-      image: "/lovable-uploads/logos/ScaleDino.png"
-    },
-    {
-      name: "HYCU",
-      description: "Delivers data protection and backup-as-a-service, tailored for multi-cloud and hybrid environments.",
-      image: "/lovable-uploads/logos/Hycu-2-01.png"
-    },
-    {
-      name: "ZOOM",
-      description: "A leading video communication platform that facilitates seamless virtual meetings, webinars, and collaboration.",
-      image: "/lovable-uploads/logos/Zoom-01.png"
-    },
-    {
-      name: "1Password",
-      description: "A secure password manager that helps users store, manage, and share passwords.",
-      image: "/lovable-uploads/logos/OnePassword-01.png"
-    }
-  ];
+const innovativeSolutions = [
+  {
+    name: "Jumpcloud",
+    description: "A directory-as-a-service platform that simplifies user management, authentication, and device control across diverse IT environments.",
+    image: "/lovable-uploads/logos/Jumpcloud-01.png"
+  },
+  {
+    name: "Atera",
+    description: "An all-in-one remote monitoring and management (RMM) platform designed for IT professionals to streamline patch management, automate tasks, and manage clients efficiently.",
+    image: "/lovable-uploads/logos/Atera-01.png"
+  },
+  {
+    name: "Spin AI",
+    description: "Enhances cyber resilience, security operations, and cost efficiency with an all-in-one SaaS security platform that protects your SaaS data from loss, ransomware, risky apps, misconfigurations, and non-compliance.",
+    image: "/lovable-uploads/logos/Spin.ai.png"
+  },
+  {
+    name: "HYCU",
+    description: "Delivers data protection and backup-as-a-service, tailored for multi-cloud and hybrid environments.",
+    image: "/lovable-uploads/logos/Hycu-2-01.png"
+  },
+  {
+    name: "ZOOM",
+    description: "A leading video communication platform that facilitates seamless virtual meetings, webinars, and collaboration.",
+    image: "/lovable-uploads/logos/Zoom-01.png"
+  },
+  {
+    name: "1Password",
+    description: "A secure password manager that helps users store, manage, and share passwords.",
+    image: "/lovable-uploads/logos/OnePassword-01.png"
+  }
+];
 
 const Products = () => {
   return (
@@ -99,7 +67,7 @@ const Products = () => {
             <h3 className="text-xl">Explore Our Microsoft Solutions</h3>
           </div>
 
-          {/* Microsoft Solutions - Updated with smaller cards and optimized images */}
+          {/* Microsoft Solutions */}
           <div className="grid md:grid-cols-3 gap-6">
             {microsoftSolutions.map((solution, index) => (
               <HoverCard key={index}>
@@ -116,25 +84,17 @@ const Products = () => {
                         loading="eager"
                         decoding="async"
                       />
-                      <p className="text-gray-300 text-sm line-clamp-2">{solution.description}</p>
-                      {/* <p className="text-axima-blue font-semibold mt-2">{solution.price}</p> */}
+                      <p className="text-gray-300 text-sm">{solution.description}</p>
                     </CardContent>
                   </Card>
                 </HoverCardTrigger>
                 <HoverCardContent className="w-80 bg-black/90 text-white border border-axima-blue">
                   <h4 className="font-semibold mb-2">{solution.name}</h4>
-                  <p className="text-sm text-gray-300 mb-2">{solution.description}</p>
-                  <ul className="text-sm space-y-1">
-                    {solution.features.map((feature, idx) => (
-                      <li key={idx} className="text-gray-300">• {feature}</li>
-                    ))}
-                  </ul>
+                  <p className="text-sm text-gray-300">{solution.description}</p>
                 </HoverCardContent>
               </HoverCard>
             ))}
           </div>
-
-          {/* <Microsoft365Benefits /> */}
 
           {/* Other Innovative Solutions */}
           <div className="mt-16">
