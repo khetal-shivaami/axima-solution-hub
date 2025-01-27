@@ -22,6 +22,29 @@ const microsoftSolutions = [
   }
 ];
 
+const innovativeSolutions = [
+  {
+    name: "Atera",
+    description: "Remote monitoring and management platform for IT professionals.",
+    image: "/lovable-uploads/logos/Atera-01.png"
+  },
+  {
+    name: "HYCU",
+    description: "Enterprise backup and recovery solution for multi-cloud environments.",
+    image: "/lovable-uploads/logos/Hycu-2-01.png"
+  },
+  {
+    name: "JumpCloud",
+    description: "Cloud directory platform for secure identity and access management.",
+    image: "/lovable-uploads/logos/Jumpcloud-01.png"
+  },
+  {
+    name: "1Password",
+    description: "Enterprise password management and secure credential sharing.",
+    image: "/lovable-uploads/logos/OnePassword-01.png"
+  }
+];
+
 const Products = () => {
   return (
     <div className="min-h-screen bg-gray-900 tech-background">
