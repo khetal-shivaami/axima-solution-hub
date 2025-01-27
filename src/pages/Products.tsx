@@ -117,7 +117,7 @@ const Products = () => {
                         decoding="async"
                       />
                       <p className="text-gray-300 text-sm line-clamp-2">{solution.description}</p>
-                      <p className="text-axima-blue font-semibold mt-2">{solution.price}</p>
+                      {/* <p className="text-axima-blue font-semibold mt-2">{solution.price}</p> */}
                     </CardContent>
                   </Card>
                 </HoverCardTrigger>
