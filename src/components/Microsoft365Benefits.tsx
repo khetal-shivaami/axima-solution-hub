@@ -121,20 +121,34 @@ export const Microsoft365Benefits = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-black/30 border border-axima-blue/20 rounded-lg p-4 text-center text-white hover:border-axima-blue transition-all duration-300 hover:bg-black/50 hover:scale-105"
-              >
-                <img 
-                  src={feature.logo} 
-                  alt={`${feature.name} logo`} 
-                  className="w-12 h-12 mx-auto mb-2 object-contain"
-                />
-                <h3 className="font-semibold mb-1">{feature.name}</h3>
-              </motion.div>
+              <HoverCard key={index}>
+                <HoverCardTrigger>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    className="group relative bg-black/30 border border-axima-blue/20 rounded-lg p-4 text-center text-white hover:border-axima-blue transition-all duration-300 hover:bg-black/50 hover:scale-105 cursor-pointer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <div className="relative z-10">
+                      <img 
+                        src={feature.logo} 
+                        alt={`${feature.name} logo`} 
+                        className="w-12 h-12 mx-auto mb-2 object-contain group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <h3 className="font-semibold mb-1 group-hover:text-axima-blue transition-colors duration-300">
+                        {feature.name}
+                      </h3>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-axima-blue/0 via-axima-blue/5 to-axima-blue/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                  </motion.div>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80 bg-black/90 border border-axima-blue text-white">
+                  <h4 className="font-semibold mb-2">{feature.name}</h4>
+                  <p className="text-sm text-gray-300">{feature.description}</p>
+                </HoverCardContent>
+              </HoverCard>
             ))}
           </motion.div>
         </div>
