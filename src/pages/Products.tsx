@@ -6,19 +6,40 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/h
 const Products = () => {
   const microsoftSolutions = [
     {
-      name: "Microsoft 365",
-      description: "Microsoft 365 is a cloud-based service that is designed to help meet your organization's needs for robust security, reliability, and user productivity.",
+      name: "Microsoft 365 Business Basic",
+      description: "Web and mobile versions of Office apps, email, calendar, file storage, and sharing.",
+      price: "₹250/user/month",
+      features: [
+        "Web and mobile versions of Office apps",
+        "Email and calendar",
+        "1 TB of cloud storage",
+        "Teams for collaboration"
+      ],
       image: "/lovable-uploads/logos/Microsoft_365.png"
     },
     {
-      name: "MS Azure",
-      description: "A comprehensive cloud platform that provides scalable, on-demand computing resources and services, enabling businesses to build, deploy, and manage applications efficiently.",
-      image: "/lovable-uploads/logos/Azure.png"
+      name: "Microsoft 365 Business Standard",
+      description: "Desktop versions of Office apps plus email, calendar, file storage, and sharing.",
+      price: "₹650/user/month",
+      features: [
+        "Desktop, web, and mobile versions of Office apps",
+        "Email and calendar",
+        "1 TB of cloud storage",
+        "Teams for collaboration"
+      ],
+      image: "/lovable-uploads/logos/Microsoft_365.png"
     },
     {
-      name: "MS Azure from Jio Region",
-      description: "Provides Azure services with data centers located within India, ensuring enhanced security compliance and data residency.",
-      image: "/lovable-uploads/logos/Azure.png" // Updated to use Azure logo instead of placeholder
+      name: "Microsoft 365 Business Premium",
+      description: "Everything in Business Standard plus advanced security and device management.",
+      price: "₹1,320/user/month",
+      features: [
+        "All Business Standard features",
+        "Advanced security features",
+        "Device management",
+        "Information protection"
+      ],
+      image: "/lovable-uploads/logos/Microsoft_365.png"
     }
   ];
 
@@ -141,3 +162,4 @@ const Products = () => {
 };
 
 export default Products;
+

@@ -9,6 +9,7 @@ const navItems = [
   { label: "Plans & Pricing", href: "#pricing" },
   { label: "Case Study", href: "#case-study" },
   { label: "Support", href: "#support" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact Us", href: "/contact" },
 ];
 
