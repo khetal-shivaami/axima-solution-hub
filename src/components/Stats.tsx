@@ -31,7 +31,7 @@ const AnimatedNumber = ({ value, duration = 1 }: { value: number | string; durat
 export const Stats = () => {
   const stats = [
     {
-      value: 20000,
+      value: 2000,
       label: "Satisfied Customers",
       suffix: "+",
       description: "Thousands of customers have relied on us for all their cloud-related requirements for decades."
