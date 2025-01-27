@@ -9,7 +9,6 @@ import Products from "./pages/Products";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
-import PlansAndPricing from "./pages/PlansAndPricing";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,7 +30,6 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/plans" element={<PlansAndPricing />} />
         </Routes>
         <Toaster />
         <Sonner />
