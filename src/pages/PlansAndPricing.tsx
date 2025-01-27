@@ -4,6 +4,7 @@ import { Switch } from "@/components/ui/switch";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { motion } from "framer-motion";
 
 const PlansAndPricing = () => {
   const [isYearly, setIsYearly] = useState(false);
@@ -81,11 +82,40 @@ const PlansAndPricing = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 tech-background">
       <Navbar />
-      <div className="pt-20 p-8">
-        <div className="max-w-7xl mx-auto space-y-8 animate-fade-in">
+      <motion.div 
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        className="pt-20 p-8"
+      >
+        <motion.div 
+          variants={itemVariants}
+          className="max-w-7xl mx-auto space-y-8"
+        >
           <div className="bg-axima-blue py-8 rounded-lg">
             <h1 className="text-4xl font-bold text-white text-center mb-2">Microsoft 365 Plans</h1>
             <p className="text-white/80 text-center">Choose the perfect plan for your business</p>
@@ -97,69 +127,75 @@ const PlansAndPricing = () => {
               checked={isYearly}
               onCheckedChange={() => setIsYearly(!isYearly)}
             />
-            <span className="text-white">Yearly</span>
+            <span className="text-white">Yearly (Save 20%)</span>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {plans.map((plan, index) => (
-              <HoverCard key={index}>
-                <HoverCardTrigger>
-                  <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue text-white transform transition-all duration-300 hover:scale-102 hover:bg-black/60">
-                    <CardHeader className="bg-axima-blue p-4 rounded-t-lg">
-                      <CardTitle className="text-xl text-white">{plan.name}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-4">
-                      <center>
-                      <p className="text-axima-blue font-semibold text-2xl mb-4">
-                        {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                        <span className="text-sm text-gray-400">/user/{isYearly ? 'year' : 'month'}</span>
-                      </p>
-                      
-                      <p className="text-sm text-gray-400 mb-1">(Advance yearly billing)</p>
-                      <p className="text-sm text-gray-400 mb-1">GST extras as applicable</p>
-                      <p className="text-sm text-gray-400 mb-1">{plan.licenceDescription}</p>
-                      </center>
-                      <br></br>
-                      <div className="space-y-2 mb-6">
-                        {plan.features.map((feature, idx) => (
-                          <p key={idx} className="text-gray-300 text-sm">• {feature}</p>
-                        ))}
-                      </div>
-                      
-                      <div className="border-t border-white/10 pt-4">
-                        <h4 className="text-sm font-semibold mb-3">Included Products:</h4>
-                        <div className="grid grid-cols-3 gap-2">
-                          {plan.products.map((product, idx) => (
-                            <div key={idx} className="flex flex-col items-center">
-                              <img 
-                                src={product.icon} 
-                                alt={product.name} 
-                                className="w-8 h-8 object-contain mb-1"
-                              />
-                              <span className="text-xs text-center text-gray-400">{product.name}</span>
-                            </div>
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="h-full"
+              >
+                <HoverCard>
+                  <HoverCardTrigger className="h-full">
+                    <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue text-white transform transition-all duration-300 hover:scale-102 hover:bg-black/60 h-full">
+                      <CardHeader className="bg-axima-blue p-4 rounded-t-lg">
+                        <CardTitle className="text-xl text-white">{plan.name}</CardTitle>
+                      </CardHeader>
+                      <CardContent className="p-4">
+                        <center>
+                          <p className="text-axima-blue font-semibold text-2xl mb-4">
+                            {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                            <span className="text-sm text-gray-400">/user/{isYearly ? 'year' : 'month'}</span>
+                          </p>
+                          
+                          <p className="text-sm text-gray-400 mb-1">(Advance yearly billing)</p>
+                          <p className="text-sm text-gray-400 mb-1">GST extras as applicable</p>
+                          <p className="text-sm text-gray-400 mb-1">{plan.licenceDescription}</p>
+                        </center>
+                        <br />
+                        <div className="space-y-2 mb-6">
+                          {plan.features.map((feature, idx) => (
+                            <p key={idx} className="text-gray-300 text-sm">• {feature}</p>
                           ))}
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-80 bg-black/90 text-white border border-axima-blue">
-                  <h4 className="font-semibold mb-2">{plan.name}</h4>
-                  <p className="text-sm text-gray-300 mb-2">
-                    Get started with our {plan.name.split(" ").pop()} plan
-                  </p>
-                  <ul className="text-sm space-y-1">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="text-gray-300">• {feature}</li>
-                    ))}
-                  </ul>
-                </HoverCardContent>
-              </HoverCard>
+                        
+                        <div className="border-t border-white/10 pt-4">
+                          <h4 className="text-sm font-semibold mb-3">Included Products:</h4>
+                          <div className="grid grid-cols-3 gap-2">
+                            {plan.products.map((product, idx) => (
+                              <div key={idx} className="flex flex-col items-center">
+                                <img 
+                                  src={product.icon} 
+                                  alt={product.name} 
+                                  className="w-8 h-8 object-contain mb-1"
+                                />
+                                <span className="text-xs text-center text-gray-400">{product.name}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-80 bg-black/90 text-white border border-axima-blue">
+                    <h4 className="font-semibold mb-2">{plan.name}</h4>
+                    <p className="text-sm text-gray-300 mb-2">
+                      Get started with our {plan.name.split(" ").pop()} plan
+                    </p>
+                    <ul className="text-sm space-y-1">
+                      {plan.features.map((feature, idx) => (
+                        <li key={idx} className="text-gray-300">• {feature}</li>
+                      ))}
+                    </ul>
+                  </HoverCardContent>
+                </HoverCard>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       <Footer />
     </div>
   );
