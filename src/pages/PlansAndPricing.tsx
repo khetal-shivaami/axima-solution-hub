@@ -77,7 +77,7 @@ const PlansAndPricing = () => {
             <span className="text-white">Monthly</span>
             <Switch
               checked={isYearly}
-              onCheckedChange={setIsYearly}
+              onCheckedChange={() => setIsYearly(!isYearly)}
             />
             <span className="text-white">Yearly (Save 20%)</span>
           </div>
@@ -87,8 +87,8 @@ const PlansAndPricing = () => {
               <HoverCard key={index}>
                 <HoverCardTrigger>
                   <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue text-white transform transition-all duration-300 hover:scale-102 hover:bg-black/60">
-                    <CardHeader className="p-4">
-                      <CardTitle className="text-xl">{plan.name}</CardTitle>
+                    <CardHeader className="bg-axima-blue p-4 rounded-t-lg">
+                      <CardTitle className="text-xl text-white">{plan.name}</CardTitle>
                     </CardHeader>
                     <CardContent className="p-4">
                       <p className="text-axima-blue font-semibold text-2xl mb-4">
