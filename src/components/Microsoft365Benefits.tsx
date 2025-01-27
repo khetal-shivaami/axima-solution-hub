@@ -21,18 +21,66 @@ const benefits = [
 ];
 
 const features = [
-  { name: "Word", description: "Create and edit professional documents" },
-  { name: "Excel", description: "Powerful spreadsheet and data analysis" },
-  { name: "PowerPoint", description: "Create impactful presentations" },
-  { name: "Teams", description: "Collaborate and communicate in real-time" },
-  { name: "Outlook", description: "Professional email and calendar management" },
-  { name: "OneDrive", description: "Secure cloud storage and file sharing" },
-  { name: "SharePoint", description: "Team collaboration and document management" },
-  { name: "Exchange", description: "Enterprise email and calendar server" },
-  { name: "Intune", description: "Mobile device and application management" },
-  { name: "Azure Information Protection", description: "Data protection and compliance" },
-  { name: "Publisher (PC only)", description: "Desktop publishing and design" },
-  { name: "Access (PC only)", description: "Database creation and management" }
+  { 
+    name: "Word", 
+    description: "Create and edit professional documents",
+    logo: "/lovable-uploads/logos/Microsoft_365.png"
+  },
+  { 
+    name: "Excel", 
+    description: "Powerful spreadsheet and data analysis",
+    logo: "/lovable-uploads/logos/Microsoft_365.png"
+  },
+  { 
+    name: "PowerPoint", 
+    description: "Create impactful presentations",
+    logo: "/lovable-uploads/logos/Microsoft_365.png"
+  },
+  { 
+    name: "Teams", 
+    description: "Collaborate and communicate in real-time",
+    logo: "/lovable-uploads/logos/Microsoft_365.png"
+  },
+  { 
+    name: "Outlook", 
+    description: "Professional email and calendar management",
+    logo: "/lovable-uploads/logos/Microsoft_365.png"
+  },
+  { 
+    name: "OneDrive", 
+    description: "Secure cloud storage and file sharing",
+    logo: "/lovable-uploads/logos/Microsoft_365.png"
+  },
+  { 
+    name: "SharePoint", 
+    description: "Team collaboration and document management",
+    logo: "/lovable-uploads/logos/Microsoft_365.png"
+  },
+  { 
+    name: "Exchange", 
+    description: "Enterprise email and calendar server",
+    logo: "/lovable-uploads/logos/Microsoft_365.png"
+  },
+  { 
+    name: "Intune", 
+    description: "Mobile device and application management",
+    logo: "/lovable-uploads/logos/Microsoft_365.png"
+  },
+  { 
+    name: "Azure Information Protection", 
+    description: "Data protection and compliance",
+    logo: "/lovable-uploads/logos/Azure.png"
+  },
+  { 
+    name: "Publisher (PC only)", 
+    description: "Desktop publishing and design",
+    logo: "/lovable-uploads/logos/Microsoft_365.png"
+  },
+  { 
+    name: "Access (PC only)", 
+    description: "Database creation and management",
+    logo: "/lovable-uploads/logos/Microsoft_365.png"
+  }
 ];
 
 export const Microsoft365Benefits = () => {
@@ -68,9 +116,15 @@ export const Microsoft365Benefits = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-black/30 border border-axima-blue/20 rounded-lg p-3 text-center text-white"
+              className="bg-black/30 border border-axima-blue/20 rounded-lg p-4 text-center text-white hover:border-axima-blue transition-all duration-300 hover:bg-black/50"
             >
-              {feature.name}
+              <img 
+                src={feature.logo} 
+                alt={`${feature.name} logo`} 
+                className="w-12 h-12 mx-auto mb-2 object-contain"
+              />
+              <h3 className="font-semibold mb-1">{feature.name}</h3>
+              <p className="text-sm text-gray-400">{feature.description}</p>
             </div>
           ))}
         </motion.div>
