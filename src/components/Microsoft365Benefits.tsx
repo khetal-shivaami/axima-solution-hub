@@ -87,50 +87,61 @@ export const Microsoft365Benefits = () => {
   return (
     <div className="py-12 bg-black/40">
       <div className="container mx-auto px-4">
-        <motion.div 
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-3xl font-bold text-white mb-4">Microsoft 365 (Formerly Microsoft Office 365)</h2>
-          <p className="text-gray-300 max-w-3xl mx-auto">
-            A cloud solution helps businesses work more efficiently and effectively by streamlining their processes. 
-            The most important benefit for companies was they would work anywhere and any time. 
-            As a result, if you're not on the cloud, you're out of the race.
-          </p>
-          <p className="text-gray-300 mt-4 max-w-3xl mx-auto">
-            Every organisation needs data. With the surge in its use and digital transformation in businesses, 
-            a solution to help businesses become more productive was required. This is where cloud computing solutions come in. 
-            Why choose Microsoft 365 when there are so many other cloud solutions? Microsoft 365 is a cloud-based software service that offers 
-            secure, anywhere access to emails and calendars, office web apps, instant messaging, video conferencing, and file sharing.
-          </p>
-        </motion.div>
-
-        <motion.div 
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          {features.map((feature, index) => (
-            <div 
-              key={index}
-              className="bg-black/30 border border-axima-blue/20 rounded-lg p-4 text-center text-white hover:border-axima-blue transition-all duration-300 hover:bg-black/50"
-            >
-              <img 
-                src={feature.logo} 
-                alt={`${feature.name} logo`} 
-                className="w-12 h-12 mx-auto mb-2 object-contain"
-              />
-              <h3 className="font-semibold mb-1">{feature.name}</h3>
-              {/* <p className="text-sm text-gray-400">{feature.description}</p> */}
+        <div className="grid md:grid-cols-2 gap-8 items-start">
+          {/* Left Column - Title and Description */}
+          <motion.div 
+            className="text-left"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl font-bold text-white mb-6">Microsoft 365 (Formerly Microsoft Office 365)</h2>
+            <div className="space-y-4 text-gray-300">
+              <p>
+                A cloud solution helps businesses work more efficiently and effectively by streamlining their processes. 
+                The most important benefit for companies was they would work anywhere and any time. 
+                As a result, if you're not on the cloud, you're out of the race.
+              </p>
+              <p>
+                Every organisation needs data. With the surge in its use and digital transformation in businesses, 
+                a solution to help businesses become more productive was required. This is where cloud computing solutions come in.
+              </p>
+              <p>
+                Why choose Microsoft 365 when there are so many other cloud solutions? Microsoft 365 is a cloud-based software service that offers 
+                secure, anywhere access to emails and calendars, office web apps, instant messaging, video conferencing, and file sharing.
+              </p>
             </div>
-          ))}
-        </motion.div>
+          </motion.div>
 
+          {/* Right Column - Product Grid */}
+          <motion.div 
+            className="grid grid-cols-2 sm:grid-cols-3 gap-4"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="bg-black/30 border border-axima-blue/20 rounded-lg p-4 text-center text-white hover:border-axima-blue transition-all duration-300 hover:bg-black/50 hover:scale-105"
+              >
+                <img 
+                  src={feature.logo} 
+                  alt={`${feature.name} logo`} 
+                  className="w-12 h-12 mx-auto mb-2 object-contain"
+                />
+                <h3 className="font-semibold mb-1">{feature.name}</h3>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Benefits Section */}
         <motion.h2 
-          className="text-2xl font-bold text-white text-center mb-8"
+          className="text-2xl font-bold text-white text-center mt-16 mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
