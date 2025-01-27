@@ -68,7 +68,7 @@ export const Contact = () => {
                   href="mailto:info@axima.com" 
                   className="text-gray-300 hover:text-axima-blue transition-colors"
                 >
-                  info@axima.com
+                  info@axima.in
                 </a>
               </div>
             </div>

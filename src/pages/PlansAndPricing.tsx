@@ -1,10 +1,11 @@
 import { useState } from "react";
+// import { Switch } from "@/components/ui/switch"; // Assuming you have a Switch component
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { motion } from "framer-motion";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import * as Switch from '@radix-ui/react-switch'
 
 const PlansAndPricing = () => {
   const [billingPeriod, setBillingPeriod] = useState("monthly");
@@ -89,9 +90,9 @@ const PlansAndPricing = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -99,50 +100,53 @@ const PlansAndPricing = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 }
-    }
+      transition: { duration: 0.6 },
+    },
   };
 
   return (
     <div className="min-h-screen bg-gray-900 tech-background">
       <Navbar />
-      <motion.div 
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-        className="pt-20 p-8"
-      >
-        <motion.div 
-          variants={itemVariants}
-          className="max-w-7xl mx-auto space-y-8"
-        >
+      <motion.div initial="hidden" animate="visible" variants={containerVariants} className="pt-20 p-8">
+        <motion.div variants={itemVariants} className="max-w-7xl mx-auto space-y-8">
           <div className="bg-axima-blue py-8 rounded-lg">
             <h1 className="text-4xl font-bold text-white text-center mb-2">Microsoft 365 Plans</h1>
             <p className="text-white/80 text-center">Choose the perfect plan for your business</p>
           </div>
-          
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <Tabs
-              defaultValue="monthly"
-              onValueChange={(value) => setBillingPeriod(value)}
-              className="w-[300px]"
-            >
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="monthly" className="tabs-trigger">Monthly</TabsTrigger>
-                <TabsTrigger value="yearly" className="tabs-trigger">Yearly</TabsTrigger>
-              </TabsList>
-            </Tabs>
+
+          {/* Toggle switch for billing period */}
+          <div className="flex items-center gap-4 mb-8">
+            <label className="text-white text-sm">Billing Period:</label>
+            <div className="flex bg-gray-800 rounded-md p-1">
+              <button
+                onClick={() => setBillingPeriod("monthly")}
+                className={`px-4 py-2 rounded-md text-sm ${
+                  billingPeriod === "monthly"
+                    ? "bg-blue-600 text-white"
+                    : "text-gray-300 hover:bg-gray-700"
+                }`}
+              >
+                Monthly
+              </button>
+              <button
+                onClick={() => setBillingPeriod("yearly")}
+                className={`px-4 py-2 rounded-md text-sm ${
+                  billingPeriod === "yearly"
+                    ? "bg-blue-600 text-white"
+                    : "text-gray-300 hover:bg-gray-700"
+                }`}
+              >
+                Yearly
+              </button>
+            </div>
+            <span className="text-sm text-white">{billingPeriod === "yearly" ? "Yearly" : "Monthly"}</span>
           </div>
 
 
 
           <div className="grid md:grid-cols-3 gap-6">
             {plans.map((plan, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="h-full"
-              >
+              <motion.div key={index} variants={itemVariants} className="h-full">
                 <HoverCard>
                   <HoverCardTrigger className="h-full">
                     <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue text-white transform transition-all duration-300 hover:scale-102 hover:bg-black/60 h-full">
@@ -153,9 +157,10 @@ const PlansAndPricing = () => {
                         <center>
                           <p className="text-axima-blue font-semibold text-2xl mb-4">
                             {billingPeriod === "yearly" ? plan.yearlyPrice : plan.monthlyPrice}
-                            <span className="text-sm text-gray-400">/user/{billingPeriod === "yearly" ? 'year' : 'month'}</span>
+                            <span className="text-sm text-gray-400">
+                              /user/{billingPeriod === "yearly" ? "year" : "month"}
+                            </span>
                           </p>
-                          
                           <p className="text-sm text-gray-400 mb-1">(Advance yearly billing)</p>
                           <p className="text-sm text-gray-400 mb-1">GST extras as applicable</p>
                           <p className="text-sm text-gray-400 mb-1">{plan.licenceDescription}</p>
@@ -166,17 +171,12 @@ const PlansAndPricing = () => {
                             <p key={idx} className="text-gray-300 text-sm">• {feature}</p>
                           ))}
                         </div>
-                        
                         <div className="border-t border-white/10 pt-4">
                           <h4 className="text-sm font-semibold mb-3">Included Products:</h4>
                           <div className="grid grid-cols-3 gap-2">
                             {plan.products.map((product, idx) => (
                               <div key={idx} className="flex flex-col items-center">
-                                <img 
-                                  src={product.icon} 
-                                  alt={product.name} 
-                                  className="w-8 h-8 object-contain mb-1"
-                                />
+                                <img src={product.icon} alt={product.name} className="w-8 h-8 object-contain mb-1" />
                                 <span className="text-xs text-center text-gray-400">{product.name}</span>
                               </div>
                             ))}

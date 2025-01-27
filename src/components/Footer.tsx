@@ -56,7 +56,7 @@ const Footer = () => {
                   href="mailto:info@axima.com" 
                   className="hover:text-axima-blue transition-colors cursor-pointer"
                 >
-                  info@axima.com
+                  info@axima.in
                 </a>
               </p>
             </div>
