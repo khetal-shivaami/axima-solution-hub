@@ -127,7 +127,7 @@ const PlansAndPricing = () => {
               checked={isYearly}
               onCheckedChange={() => setIsYearly(!isYearly)}
             />
-            <span className="text-white">Yearly (Save 20%)</span>
+            <span className="text-white">Yearly</span>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
