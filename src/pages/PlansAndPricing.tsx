@@ -21,7 +21,11 @@ const PlansAndPricing = () => {
         "Standard security",
         "Anytime phone and web support"
       ],
-      // image: "/lovable-uploads/logos/Microsoft_365.png"
+      products: [
+        { name: "Microsoft Teams", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_teams.png" },
+        { name: "Microsoft Exchange", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_exchange.png" },
+        { name: "Microsoft OneDrive", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png" },
+      ]
     },
     {
       name: "Microsoft 365 Business Standard",
@@ -34,7 +38,12 @@ const PlansAndPricing = () => {
         "Attendee registration and reporting tools",
         "Manage customer appointments"
       ],
-      // image: "/lovable-uploads/logos/Microsoft_365.png"
+      products: [
+        { name: "Microsoft Word", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png" },
+        { name: "Microsoft Excel", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_excel.png" },
+        { name: "Microsoft PowerPoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_powerpoint.png" },
+        { name: "Microsoft Outlook", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_outlook.png" },
+      ]
     },
     {
       name: "Microsoft 365 Business Premium",
@@ -46,7 +55,11 @@ const PlansAndPricing = () => {
         "Access and data control",
         "Cyberthreat protection"
       ],
-      // image: "/lovable-uploads/logos/Microsoft_365.png"
+      products: [
+        { name: "Microsoft Intune", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_intune.png" },
+        { name: "Azure Information Protection", icon: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png" },
+        { name: "SharePoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png" },
+      ]
     }
   ];
 
@@ -55,7 +68,10 @@ const PlansAndPricing = () => {
       <Navbar />
       <div className="pt-20 p-8">
         <div className="max-w-7xl mx-auto space-y-8 animate-fade-in">
-          <h1 className="text-4xl font-bold text-white text-center mb-12">Plans & Pricing</h1>
+          <div className="bg-axima-blue py-8 rounded-lg">
+            <h1 className="text-4xl font-bold text-white text-center mb-2">Microsoft 365 Plans</h1>
+            <p className="text-white/80 text-center">Choose the perfect plan for your business</p>
+          </div>
           
           <div className="flex items-center justify-center gap-4 mb-8">
             <span className="text-white">Monthly</span>
@@ -63,7 +79,7 @@ const PlansAndPricing = () => {
               checked={isYearly}
               onCheckedChange={setIsYearly}
             />
-            {/* <span className="text-white">Yearly (Save 20%)</span> */}
+            <span className="text-white">Yearly (Save 20%)</span>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -75,15 +91,35 @@ const PlansAndPricing = () => {
                       <CardTitle className="text-xl">{plan.name}</CardTitle>
                     </CardHeader>
                     <CardContent className="p-4">
-                     
                       <p className="text-axima-blue font-semibold text-2xl mb-4">
                         {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
                         <span className="text-sm text-gray-400">/user/{isYearly ? 'year' : 'month'}</span>
                       </p>
-                      <div className="space-y-2">
+                      
+                      <p className="text-sm text-gray-400 mb-2">Advance yearly billing</p>
+                      <p className="text-sm text-gray-400 mb-2">GST extras as applicable</p>
+                      <p className="text-sm text-gray-400 mb-4">Min 100 licence</p>
+                      
+                      <div className="space-y-2 mb-6">
                         {plan.features.map((feature, idx) => (
                           <p key={idx} className="text-gray-300 text-sm">• {feature}</p>
                         ))}
+                      </div>
+
+                      <div className="border-t border-white/10 pt-4">
+                        <h4 className="text-sm font-semibold mb-3">Included Products:</h4>
+                        <div className="grid grid-cols-3 gap-2">
+                          {plan.products.map((product, idx) => (
+                            <div key={idx} className="flex flex-col items-center">
+                              <img 
+                                src={product.icon} 
+                                alt={product.name} 
+                                className="w-8 h-8 object-contain mb-1"
+                              />
+                              <span className="text-xs text-center text-gray-400">{product.name}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
