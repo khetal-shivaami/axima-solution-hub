@@ -6,7 +6,7 @@ const Footer = () => {
     { label: "About", href: "/about" },
     { label: "Products", href: "/products" },
     { label: "Services", href: "/services" },
-    { label: "Plans & Pricing", href: "#pricing" },
+    { label: "Plans & Pricing", href: "/plans" },
     { label: "Case Study", href: "#case-study" },
     { label: "Support", href: "#support" },
     { label: "FAQ", href: "/faq" },
