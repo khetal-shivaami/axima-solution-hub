@@ -1,9 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Microsoft365Benefits } from "@/components/Microsoft365Benefits";
 
-const Products = () => {
   const microsoftSolutions = [
     {
       name: "Microsoft 365 Business Basic",
@@ -86,6 +86,7 @@ const Products = () => {
     }
   ];
 
+const Products = () => {
   return (
     <div className="min-h-screen bg-gray-900 tech-background">
       <Navbar />
@@ -132,6 +133,8 @@ const Products = () => {
               </HoverCard>
             ))}
           </div>
+
+          <Microsoft365Benefits />
 
           {/* Other Innovative Solutions */}
           <div className="mt-16">

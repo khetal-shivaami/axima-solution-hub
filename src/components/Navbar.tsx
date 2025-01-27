@@ -37,8 +37,9 @@ export const Navbar = () => {
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex flex-col items-center">
             <img src="/lovable-uploads/11f0b3fd-81f2-4bf5-a519-1b17d303755a.png" alt="Axima Corporation" className="h-12" />
+            <span className="text-xs text-white mt-1">Microsoft Cloud Solution Providers</span>
           </Link>
 
           {/* Desktop Menu */}
