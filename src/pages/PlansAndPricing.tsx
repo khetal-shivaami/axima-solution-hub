@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Switch } from "@/components/ui/switch";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { motion } from "framer-motion";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const PlansAndPricing = () => {
-  const [isYearly, setIsYearly] = useState(false);
+  const [billingPeriod, setBillingPeriod] = useState("monthly");
 
   const plans = [
     {
@@ -103,10 +103,6 @@ const PlansAndPricing = () => {
     }
   };
 
-  const handleToggleChange = (checked: boolean) => {
-    setIsYearly(checked);
-  };
-
   return (
     <div className="min-h-screen bg-gray-900 tech-background">
       <Navbar />
@@ -126,13 +122,12 @@ const PlansAndPricing = () => {
           </div>
           
           <div className="flex items-center justify-center gap-4 mb-8">
-            <span className="text-white">Monthly</span>
-            <Switch
-              checked={isYearly}
-              onCheckedChange={handleToggleChange}
-              className="cursor-pointer"
-            />
-            <span className="text-white">Yearly</span>
+            <Tabs defaultValue="monthly" onValueChange={setBillingPeriod} className="w-[300px]">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="monthly">Monthly</TabsTrigger>
+                <TabsTrigger value="yearly">Yearly</TabsTrigger>
+              </TabsList>
+            </Tabs>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -151,8 +146,8 @@ const PlansAndPricing = () => {
                       <CardContent className="p-4">
                         <center>
                           <p className="text-axima-blue font-semibold text-2xl mb-4">
-                            {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                            <span className="text-sm text-gray-400">/user/{isYearly ? 'year' : 'month'}</span>
+                            {billingPeriod === "yearly" ? plan.yearlyPrice : plan.monthlyPrice}
+                            <span className="text-sm text-gray-400">/user/{billingPeriod === "yearly" ? 'year' : 'month'}</span>
                           </p>
                           
                           <p className="text-sm text-gray-400 mb-1">(Advance yearly billing)</p>
