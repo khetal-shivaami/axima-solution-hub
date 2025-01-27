@@ -98,28 +98,36 @@ const Products = () => {
             <h3 className="text-xl">Explore Our Microsoft Solutions</h3>
           </div>
 
-          {/* Microsoft Solutions */}
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Microsoft Solutions - Updated with smaller cards and optimized images */}
+          <div className="grid md:grid-cols-3 gap-6">
             {microsoftSolutions.map((solution, index) => (
               <HoverCard key={index}>
                 <HoverCardTrigger>
-                  <Card className="bg-black/40 border-none text-white transform transition-all duration-300 hover:scale-105 hover:bg-black/60">
-                    <CardHeader>
-                      <CardTitle>{solution.name}</CardTitle>
+                  <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue text-white transform transition-all duration-300 hover:scale-102 hover:bg-black/60">
+                    <CardHeader className="p-4">
+                      <CardTitle className="text-xl">{solution.name}</CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="p-4">
                       <img 
                         src={solution.image} 
                         alt={solution.name} 
-                        className="w-full h-60 object-contain rounded-lg mb-4"
+                        className="w-full h-40 object-contain rounded-lg mb-4"
+                        loading="eager"
+                        decoding="async"
                       />
-                      <p className="text-gray-300 line-clamp-3">{solution.description}</p>
+                      <p className="text-gray-300 text-sm line-clamp-2">{solution.description}</p>
+                      <p className="text-axima-blue font-semibold mt-2">{solution.price}</p>
                     </CardContent>
                   </Card>
                 </HoverCardTrigger>
-                <HoverCardContent className="w-80 bg-black/90 text-white border-none">
+                <HoverCardContent className="w-80 bg-black/90 text-white border border-axima-blue">
                   <h4 className="font-semibold mb-2">{solution.name}</h4>
-                  <p className="text-sm text-gray-300">{solution.description}</p>
+                  <p className="text-sm text-gray-300 mb-2">{solution.description}</p>
+                  <ul className="text-sm space-y-1">
+                    {solution.features.map((feature, idx) => (
+                      <li key={idx} className="text-gray-300">• {feature}</li>
+                    ))}
+                  </ul>
                 </HoverCardContent>
               </HoverCard>
             ))}
@@ -132,12 +140,14 @@ const Products = () => {
               {innovativeSolutions.map((solution, index) => (
                 <HoverCard key={index}>
                   <HoverCardTrigger>
-                    <div className="p-6 rounded-lg bg-black/40 hover:bg-black/60 transition-all duration-300 transform hover:scale-105">
+                    <div className="p-4 rounded-lg bg-black/40 border border-axima-blue/20 hover:border-axima-blue hover:bg-black/60 transition-all duration-300 transform hover:scale-102">
                       <div className="flex flex-col items-center gap-4">
                         <img 
                           src={solution.image} 
                           alt={solution.name}
-                          className="w-25 h-20 object-contain rounded-lg"
+                          className="w-20 h-16 object-contain rounded-lg"
+                          loading="eager"
+                          decoding="async"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white mb-2">{solution.name}</h3>
@@ -146,7 +156,7 @@ const Products = () => {
                       </div>
                     </div>
                   </HoverCardTrigger>
-                  <HoverCardContent className="w-80 bg-black/90 text-white border-none">
+                  <HoverCardContent className="w-80 bg-black/90 text-white border border-axima-blue">
                     <h4 className="font-semibold mb-2">{solution.name}</h4>
                     <p className="text-sm text-gray-300">{solution.description}</p>
                   </HoverCardContent>
@@ -162,4 +172,3 @@ const Products = () => {
 };
 
 export default Products;
-
