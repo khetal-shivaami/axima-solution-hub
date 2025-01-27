@@ -103,6 +103,10 @@ const PlansAndPricing = () => {
     }
   };
 
+  const handleToggleChange = (checked: boolean) => {
+    setIsYearly(checked);
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 tech-background">
       <Navbar />
@@ -125,7 +129,8 @@ const PlansAndPricing = () => {
             <span className="text-white">Monthly</span>
             <Switch
               checked={isYearly}
-              onCheckedChange={() => setIsYearly(!isYearly)}
+              onCheckedChange={handleToggleChange}
+              className="cursor-pointer"
             />
             <span className="text-white">Yearly</span>
           </div>
