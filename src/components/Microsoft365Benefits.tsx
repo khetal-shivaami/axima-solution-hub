@@ -24,62 +24,62 @@ const features = [
   { 
     name: "Word", 
     description: "Create and edit professional documents",
-    logo: "/lovable-uploads/logos/Microsoft_365.png"
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png"
   },
   { 
     name: "Excel", 
     description: "Powerful spreadsheet and data analysis",
-    logo: "/lovable-uploads/logos/Microsoft_365.png"
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_excel.png"
   },
   { 
     name: "PowerPoint", 
     description: "Create impactful presentations",
-    logo: "/lovable-uploads/logos/Microsoft_365.png"
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_powerpoint.png"
   },
   { 
     name: "Teams", 
     description: "Collaborate and communicate in real-time",
-    logo: "/lovable-uploads/logos/Microsoft_365.png"
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_teams.png"
   },
   { 
     name: "Outlook", 
     description: "Professional email and calendar management",
-    logo: "/lovable-uploads/logos/Microsoft_365.png"
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_outlook.png"
   },
   { 
     name: "OneDrive", 
     description: "Secure cloud storage and file sharing",
-    logo: "/lovable-uploads/logos/Microsoft_365.png"
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png"
   },
   { 
     name: "SharePoint", 
     description: "Team collaboration and document management",
-    logo: "/lovable-uploads/logos/Microsoft_365.png"
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png"
   },
   { 
     name: "Exchange", 
     description: "Enterprise email and calendar server",
-    logo: "/lovable-uploads/logos/Microsoft_365.png"
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_exchange.png"
   },
   { 
     name: "Intune", 
     description: "Mobile device and application management",
-    logo: "/lovable-uploads/logos/Microsoft_365.png"
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_intune.png"
   },
   { 
     name: "Azure Information Protection", 
     description: "Data protection and compliance",
-    logo: "/lovable-uploads/logos/Azure.png"
+    logo: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png"
   },
   { 
     name: "Publisher (PC only)", 
     description: "Desktop publishing and design",
-    logo: "/lovable-uploads/logos/Microsoft_365.png"
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_publisher.png"
   },
   { 
     name: "Access (PC only)", 
     description: "Database creation and management",
-    logo: "/lovable-uploads/logos/Microsoft_365.png"
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_access.png"
   }
 ];
 
