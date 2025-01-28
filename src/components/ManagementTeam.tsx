@@ -44,7 +44,7 @@ export const ManagementTeam = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <Card className="p-6 space-y-4 group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-black/40 border-none backdrop-blur-sm">
+            <Card className="p-6 space-y-4 group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-black/40 border border-transparent hover:border-axima-blue backdrop-blur-sm">
               <div className="aspect-square w-48 mx-auto overflow-hidden rounded-full">
                 <img
                   src={member.image}
