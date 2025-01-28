@@ -59,7 +59,7 @@ export const TrustedBy = () => {
               <img
                 src={company.image}
                 alt={company.name}
-                className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                className="max-w-full max-h-full object-contain filter hover:grayscale-0 transition-all duration-300"
               />
             </motion.div>
           ))}
