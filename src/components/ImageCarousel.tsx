@@ -28,7 +28,7 @@ export const ImageCarousel = () => {
 
   return (
     <section id="products" className="py-0 animate-fadeIn">
-      <div className="relative max-w-7xl mx-auto h-[500px] w-full overflow-hidden rounded-xl cursor-pointer group">
+      <div className="relative max-w-[85rem] mx-auto h-[500px] w-full overflow-hidden rounded-xl cursor-pointer group">
         <AnimatePresence initial={false}>
           <motion.img
             key={currentIndex}

@@ -27,7 +27,7 @@ const teamMembers = [
     name: "Ashika Suresh",
     position: "Deputy General Manager",
     image: "/lovable-uploads/managementteam/AshikaSuresh.png",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/ashika-suresh-152515113?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     profile: "Specialized in operational excellence and team management"
   }
 ];

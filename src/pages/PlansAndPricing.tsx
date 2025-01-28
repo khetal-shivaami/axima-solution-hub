@@ -12,8 +12,8 @@ const PlansAndPricing = () => {
   const plans = [
     {
       name: "Microsoft 365 Business Basic",
-      monthlyPrice: "₹250",
-      yearlyPrice: "₹2,500",
+      monthlyPrice: "₹145",
+      yearlyPrice: "₹1,740",
       features: [
         "Chat, call, meet up to 300 attendees",
         "Web and mobile versions of Office apps",
@@ -28,13 +28,16 @@ const PlansAndPricing = () => {
         { name: "Microsoft PowerPoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_powerpoint.png" },
         { name: "Microsoft Outlook", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_outlook.png" },
         { name: "Microsoft Teams", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_teams.png" },
+        { name: "Microsoft Exchange", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_exchange.png" },
+        { name: "SharePoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png" },
+        { name: "Microsoft OneDrive", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png" },
       ],
       licenceDescription:"Min 100 licence"
     },
     {
       name: "Microsoft 365 Business Standard",
-      monthlyPrice: "₹650",
-      yearlyPrice: "₹6,500",
+      monthlyPrice: "₹770",
+      yearlyPrice: "₹9,240",
       features: [
         "Everything in Business Basic, plus:",
         "Desktop versions of Office apps with premium features",
@@ -50,13 +53,16 @@ const PlansAndPricing = () => {
         { name: "Microsoft Teams", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_teams.png" },
         { name: "Microsoft Exchange", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_exchange.png" },
         { name: "Microsoft OneDrive", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png" },
+        { name: "SharePoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png" },
+        { name: "Microsoft Loop", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_loop.png" },
+        { name: "Clipchamp", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_clipchamp.png" },
       ],
       licenceDescription:"Min 10 licence"
     },
     {
       name: "Microsoft 365 Business Premium",
-      monthlyPrice: "₹1,320",
-      yearlyPrice: "₹13,200",
+      monthlyPrice: "₹1,830",
+      yearlyPrice: "₹21,960",
       features: [
         "Everything in Business Standard, plus:",
         "Advanced security",
@@ -71,11 +77,31 @@ const PlansAndPricing = () => {
         { name: "Microsoft Teams", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_teams.png" },
         { name: "Microsoft Exchange", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_exchange.png" },
         { name: "Microsoft OneDrive", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png" },
-        { name: "Microsoft Access", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_access.png" },
         { name: "Microsoft Intune", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_intune.png" },
-        { name: "Azure Information Protection", icon: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png" },
         { name: "SharePoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png" },
-        { name: "Publisher", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_publisher.png" },
+        { name: "Microsoft Loop", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_loop.png" },
+        { name: "Clipchamp", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_clipchamp.png" },
+        { name: "Microsoft Defender", icon: "/lovable-uploads/logos/microsoft_logos/windows_defender.png" },
+        { name: "Microsoft Pureview", icon: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png" },
+      ],
+      licenceDescription:"Min 10 licence"
+    },
+    {
+      name: "Microsoft 365 Apps for business",
+      monthlyPrice: "₹685",
+      yearlyPrice: "₹8,220",
+      features: [
+        "Everything in Business Standard, plus:",
+        "Advanced security",
+        "Access and data control",
+        "Cyberthreat protection"
+      ],
+      products: [
+        { name: "Microsoft Word", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png" },
+        { name: "Microsoft Excel", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_excel.png" },
+        { name: "Microsoft PowerPoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_powerpoint.png" },
+        { name: "Microsoft Outlook", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_outlook.png" },
+        { name: "Microsoft OneDrive", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png" },
       ],
       licenceDescription:"Min 10 licence"
     }
@@ -138,13 +164,13 @@ const PlansAndPricing = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-4 gap-6">
             {plans.map((plan, index) => (
               <motion.div key={index} variants={itemVariants} className="h-full">
                 <HoverCard>
                   <HoverCardTrigger className="h-full">
                     <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue text-white transform transition-all duration-300 hover:scale-102 hover:bg-black/60 h-full">
-                      <CardHeader className="bg-axima-blue p-4 rounded-t-lg">
+                      <CardHeader className="bg-axima-blue p-7 rounded-t-lg">
                         <CardTitle className="text-xl text-white">{plan.name}</CardTitle>
                       </CardHeader>
                       <CardContent className="p-4">
