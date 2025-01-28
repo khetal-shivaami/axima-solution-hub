@@ -10,24 +10,24 @@ import {
 
 const teamMembers = [
   {
-    name: "John Smith",
-    position: "Chief Executive Officer",
-    image: "/lovable-uploads/photo-1497366754035-f200968a6e72.jpg",
-    linkedin: "https://linkedin.com/in/john-smith",
-    profile: "20+ years of experience in technology and business leadership"
+    name: "Punit Thakkar",
+    position: "Chairman",
+    image: "/lovable-uploads/managementteam/PunitThakkar.JPG",
+    linkedin: "https://www.linkedin.com/in/punitshivaami/?original_referer=https%3A%2F%2Fwww.shivaami.com%2F",
+    profile: "With over two decades of experience in the IT industry, Punit Thakkar has been instrumental in shaping Shiviom's vision and growth strategy. As a mentor and leader, his guidance has been key to establishing Shiviom as a leading cloud solutions provider. Punit's dedication to innovation and talent development continues to drive the company's success and impact across industries."
   },
   {
-    name: "Sarah Johnson",
-    position: "Chief Technology Officer",
-    image: "/lovable-uploads/photo-1497366216548-37526070297c.jpg",
-    linkedin: "https://linkedin.com/in/sarah-johnson",
-    profile: "Expert in cloud solutions and digital transformation"
+    name: "Akshay Thakkar",
+    position: "CEO",
+    image: "/lovable-uploads/managementteam/AkshayThakkar.png",
+    linkedin: "https://www.linkedin.com/in/akshay-thakkar-bb5112120/",
+    profile: "Akshay Thakkar is a visionary leader driving Shiviom's success with over 10 years of entrepreneurial expertise. He has been instrumental in embracing advanced technologies and expanding the company's service offerings to meet dynamic market demands. With a strong belief in the principle that 'organizations are bigger than individuals', his collaborative leadership inspires innovation, teamwork, and excellence."
   },
   {
-    name: "Michael Chen",
-    position: "Chief Operations Officer",
-    image: "/lovable-uploads/photo-1497366811353-6870744d04b2.jpg",
-    linkedin: "https://linkedin.com/in/michael-chen",
+    name: "Ashika Suresh",
+    position: "Deputy General Manager",
+    image: "/lovable-uploads/managementteam/AshikaSuresh.png",
+    linkedin: "",
     profile: "Specialized in operational excellence and team management"
   }
 ];
@@ -35,7 +35,7 @@ const teamMembers = [
 export const ManagementTeam = () => {
   return (
     <section className="space-y-8 py-12">
-      <h2 className="text-3xl font-bold text-center text-white">Our Leadership</h2>
+      <h2 className="text-3xl font-bold text-center text-white">Our Management Team</h2>
       <div className="grid md:grid-cols-3 gap-8">
         {teamMembers.map((member, index) => (
           <motion.div

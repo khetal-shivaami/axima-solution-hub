@@ -59,7 +59,7 @@ const About = () => {
                     <h3 className="text-xl font-semibold mb-2 group-hover:text-axima-blue transition-colors">
                       {location.city}
                     </h3>
-                    <p className="text-sm text-gray-400">{location.address}</p>
+                    {/* <p className="text-sm text-gray-400">{location.address}</p> */}
                   </motion.div>
                 ))}
               </div>
