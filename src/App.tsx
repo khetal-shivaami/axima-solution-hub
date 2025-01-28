@@ -10,6 +10,8 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import PlansAndPricing from "./pages/PlansAndPricing";
+import ProductDetails from "./pages/ProductDetails";
+import Copilot from "./pages/Copilot";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,6 +34,8 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/plans" element={<PlansAndPricing />} />
+          <Route path="/product/:productId" element={<ProductDetails />} />
+          <Route path="/copilot" element={<Copilot />} />
         </Routes>
         <Toaster />
         <Sonner />

@@ -1,17 +1,17 @@
 import { Facebook, Twitter, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const Footer = () => {
-  const usefulLinks = [
-    { label: "About", href: "/about" },
-    { label: "Products", href: "/products" },
-    { label: "Services", href: "/services" },
-    { label: "Plans & Pricing", href: "/plans" },
-    { label: "Case Study", href: "#case-study" },
-    { label: "Support", href: "#support" },
-    { label: "FAQ", href: "/faq" },
-    { label: "Contact Us", href: "/contact" },
-  ];
+const usefulLinks = [
+  { label: "About", href: "/about" },
+  { label: "Products", href: "/products" },
+  { label: "Services", href: "/services" },
+  { label: "Plans & Pricing", href: "/plans" },
+  { label: "Microsoft Copilot", href: "/copilot" },
+  { label: "Case Study", href: "#case-study" },
+  { label: "Support", href: "#support" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact Us", href: "/contact" },
+];
 
   const socialLinks = [
     { icon: Twitter, href: "https://twitter.com", label: "Twitter" },

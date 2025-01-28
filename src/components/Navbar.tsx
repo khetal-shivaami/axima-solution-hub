@@ -7,6 +7,7 @@ const navItems = [
   { label: "Products", href: "/products" },
   { label: "Services", href: "/services" },
   { label: "Plans & Pricing", href: "/plans" },
+  { label: "Microsoft Copilot", href: "/copilot" },
   { label: "Case Study", href: "#case-study" },
   { label: "Support", href: "#support" },
   { label: "FAQ", href: "/faq" },
