@@ -66,6 +66,7 @@ export const PlanComparison = () => {
   ];
 
   const handleToggle = () => {
+    console.log("Button clicked!");
     setIsExpanded(!isExpanded);
   };
 
