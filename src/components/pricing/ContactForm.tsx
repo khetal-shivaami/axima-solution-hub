@@ -23,73 +23,77 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto mt-16 p-8 bg-black/40 rounded-lg">
+    <div className="max-w-7xl mx-auto mt-16 p-8 bg-black/40 rounded-lg">
       <h3 className="text-2xl font-bold text-white mb-6 text-center">Contact Us</h3>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-            Your Name
-          </label>
-          <Input
-            id="name"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="bg-white/10 border-white/10 text-white"
-            required
-          />
-        </div>
-        
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-            Email Address
-          </label>
-          <Input
-            id="email"
-            type="email"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="bg-white/10 border-white/10 text-white"
-            required
-          />
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="space-y-6">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+              Your Name
+            </label>
+            <Input
+              id="name"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className="bg-white/10 border-white/10 text-white"
+              required
+            />
+          </div>
+          
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+              Email Address
+            </label>
+            <Input
+              id="email"
+              type="email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className="bg-white/10 border-white/10 text-white"
+              required
+            />
+          </div>
+
+          <div>
+            <label htmlFor="plan" className="block text-sm font-medium text-gray-300 mb-1">
+              Select Plan
+            </label>
+            <select
+              id="plan"
+              value={formData.selectedPlan}
+              onChange={(e) => setFormData({ ...formData, selectedPlan: e.target.value })}
+              className="w-full bg-white/10 border border-white/10 text-white rounded-md px-3 py-2"
+              required
+            >
+              <option value="basic">Microsoft 365 Business Basic</option>
+              <option value="standard">Microsoft 365 Business Standard</option>
+              <option value="premium">Microsoft 365 Business Premium</option>
+              <option value="apps">Microsoft 365 Apps for business</option>
+            </select>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="plan" className="block text-sm font-medium text-gray-300 mb-1">
-            Select Plan
-          </label>
-          <select
-            id="plan"
-            value={formData.selectedPlan}
-            onChange={(e) => setFormData({ ...formData, selectedPlan: e.target.value })}
-            className="w-full bg-white/10 border border-white/10 text-white rounded-md px-3 py-2"
-            required
+        <div className="space-y-6">
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
+              Message
+            </label>
+            <Textarea
+              id="message"
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              className="bg-white/10 border-white/10 text-white min-h-[208px]"
+              required
+            />
+          </div>
+
+          <Button
+            type="submit"
+            className="w-full bg-axima-blue hover:bg-blue-600 text-white transition-all duration-300"
           >
-            <option value="basic">Microsoft 365 Business Basic</option>
-            <option value="standard">Microsoft 365 Business Standard</option>
-            <option value="premium">Microsoft 365 Business Premium</option>
-            <option value="apps">Microsoft 365 Apps for business</option>
-          </select>
+            Send Message
+          </Button>
         </div>
-
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
-            Message
-          </label>
-          <Textarea
-            id="message"
-            value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            className="bg-white/10 border-white/10 text-white min-h-[120px]"
-            required
-          />
-        </div>
-
-        <Button
-          type="submit"
-          className="w-full bg-axima-blue hover:bg-blue-600 text-white transition-all duration-300"
-        >
-          Send Message
-        </Button>
       </form>
     </div>
   );

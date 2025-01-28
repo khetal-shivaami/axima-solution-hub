@@ -68,7 +68,7 @@ export const PlanComparison = () => {
     <div className="mt-12">
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="flex items-center gap-2 text-axima-blue hover:text-blue-400 transition-colors mx-auto"
+        className="flex items-center gap-2 text-axima-blue hover:text-blue-400 transition-colors mx-auto bg-black/40 px-4 py-2 rounded-lg border border-axima-blue/20 hover:border-axima-blue"
       >
         {isExpanded ? (
           <>
@@ -84,7 +84,7 @@ export const PlanComparison = () => {
       </button>
 
       {isExpanded && (
-        <div className="mt-8 overflow-x-auto">
+        <div className="mt-8 overflow-x-auto bg-black/40 rounded-lg border border-axima-blue/20">
           <table className="w-full min-w-[800px]">
             <thead>
               <tr className="border-b border-white/10">
@@ -99,7 +99,7 @@ export const PlanComparison = () => {
               {features.map((category, index) => (
                 <>
                   <tr key={`category-${index}`} className="bg-black/20">
-                    <td colSpan={5} className="p-4 font-semibold">{category.category}</td>
+                    <td colSpan={5} className="p-4 font-semibold text-axima-blue">{category.category}</td>
                   </tr>
                   {category.items.map((item, itemIndex) => (
                     <tr key={`item-${itemIndex}`} className="border-b border-white/10">

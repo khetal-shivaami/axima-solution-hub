@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 const productDetails: Record<string, {
   title: string;
@@ -97,49 +98,71 @@ const ProductDetails = () => {
           
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div 
-              className="bg-black/40 p-6 rounded-lg"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h2 className="text-2xl font-bold text-white mb-4">Features</h2>
-              <ul className="space-y-2">
-                {product.features.map((feature, index) => (
-                  <motion.li 
-                    key={index} 
-                    className="text-gray-300 flex items-center"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                  >
-                    <span className="mr-2 text-axima-blue">•</span>
-                    {feature}
-                  </motion.li>
-                ))}
-              </ul>
+              <HoverCard>
+                <HoverCardTrigger>
+                  <div className="bg-black/40 p-6 rounded-lg border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 cursor-pointer">
+                    <h2 className="text-2xl font-bold text-white mb-4">Features</h2>
+                    <ul className="space-y-2">
+                      {product.features.map((feature, index) => (
+                        <motion.li 
+                          key={index} 
+                          className="text-gray-300 flex items-center"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: index * 0.1 }}
+                        >
+                          <span className="mr-2 text-axima-blue">•</span>
+                          {feature}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80 bg-black/90 border-axima-blue">
+                  <h3 className="text-lg font-semibold mb-2 text-white">Key Features</h3>
+                  <p className="text-sm text-gray-300">
+                    Explore all the powerful features that make {product.title} essential for your business.
+                  </p>
+                </HoverCardContent>
+              </HoverCard>
             </motion.div>
             
             <motion.div 
-              className="bg-black/40 p-6 rounded-lg"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <h2 className="text-2xl font-bold text-white mb-4">Benefits</h2>
-              <ul className="space-y-2">
-                {product.benefits.map((benefit, index) => (
-                  <motion.li 
-                    key={index} 
-                    className="text-gray-300 flex items-center"
-                    initial={{ opacity: 0, x: 10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                  >
-                    <span className="mr-2 text-axima-blue">•</span>
-                    {benefit}
-                  </motion.li>
-                ))}
-              </ul>
+              <HoverCard>
+                <HoverCardTrigger>
+                  <div className="bg-black/40 p-6 rounded-lg border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 cursor-pointer">
+                    <h2 className="text-2xl font-bold text-white mb-4">Benefits</h2>
+                    <ul className="space-y-2">
+                      {product.benefits.map((benefit, index) => (
+                        <motion.li 
+                          key={index} 
+                          className="text-gray-300 flex items-center"
+                          initial={{ opacity: 0, x: 10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: index * 0.1 }}
+                        >
+                          <span className="mr-2 text-axima-blue">•</span>
+                          {benefit}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80 bg-black/90 border-axima-blue">
+                  <h3 className="text-lg font-semibold mb-2 text-white">Key Benefits</h3>
+                  <p className="text-sm text-gray-300">
+                    Discover how {product.title} can transform your business operations.
+                  </p>
+                </HoverCardContent>
+              </HoverCard>
             </motion.div>
           </div>
         </motion.div>
