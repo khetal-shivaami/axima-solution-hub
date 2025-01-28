@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
-  "/lovable-uploads/photo-1497366754035-f200968a6e72",
-  "/lovable-uploads/photo-1497366216548-37526070297c",
-  "/lovable-uploads/photo-1497366811353-6870744d04b2",
-  "/lovable-uploads/photo-1497215728101-856f4ea42174"
+  "/lovable-uploads/photo-1497366754035-f200968a6e72",  // Modern office space
+  "/lovable-uploads/photo-1497366216548-37526070297c",  // Tech workspace
+  "/lovable-uploads/photo-1497366811353-6870744d04b2",  // Server room
+  "/lovable-uploads/photo-1497215728101-856f4ea42174"   // Tech meeting room
 ];
 
 export const ImageCarousel = () => {
