@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
+import { Card } from "./ui/card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/tooltip";
 
 const teamMembers = [
   {
@@ -27,43 +34,56 @@ const teamMembers = [
 
 export const ManagementTeam = () => {
   return (
-    <div className="py-12">
-      <h2 className="text-3xl font-bold text-white text-center mb-8">Our Management Team</h2>
-      <div className="grid md:grid-cols-3 gap-6">
+    <section className="space-y-8 py-12">
+      <h2 className="text-3xl font-bold text-center text-white">Our Leadership</h2>
+      <div className="grid md:grid-cols-3 gap-8">
         {teamMembers.map((member, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-black/40 rounded-lg overflow-hidden group"
           >
-            <div className="aspect-w-4 aspect-h-3">
-              <img 
-                src={member.image} 
-                alt={member.name} 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-white group-hover:text-axima-blue transition-colors">
-                {member.name}
-              </h3>
-              <p className="text-gray-400 mb-2">{member.position}</p>
-              <p className="text-gray-300 text-sm mb-4">{member.profile}</p>
-              <a 
-                href={member.linkedin} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-400 hover:text-axima-blue transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-                <span>Connect on LinkedIn</span>
-              </a>
-            </div>
+            <Card className="p-6 space-y-4 group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-black/40 border-none backdrop-blur-sm">
+              <div className="aspect-square w-48 mx-auto overflow-hidden rounded-full">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-center">
+                <div className="relative inline-block group">
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <a 
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xl font-semibold inline-flex items-center justify-center gap-2 text-white group-hover:text-axima-blue transition-colors"
+                        >
+                          {member.name}
+                          <Linkedin 
+                            className="h-5 w-5 text-[#0077b5] opacity-0 group-hover:opacity-100 transition-opacity"
+                          />
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Visit LinkedIn</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </div>
+                <p className="text-muted-foreground text-center">{member.position}</p>
+                <p className="mt-4 text-muted-foreground text-center">
+                  {member.profile}
+                </p>
+              </div>
+            </Card>
           </motion.div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
