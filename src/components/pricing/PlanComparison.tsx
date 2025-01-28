@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, Check, Minus } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 export const PlanComparison = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -64,11 +65,16 @@ export const PlanComparison = () => {
     }
   ];
 
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <div className="mt-12">
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="flex items-center gap-2 text-axima-blue hover:text-blue-400 transition-colors mx-auto bg-black/40 px-4 py-2 rounded-lg border border-axima-blue/20 hover:border-axima-blue"
+      <Button
+        onClick={handleToggle}
+        variant="outline"
+        className="flex items-center gap-2 text-axima-blue hover:text-blue-400 transition-colors mx-auto bg-black/40 px-4 py-2 rounded-lg border border-axima-blue/20 hover:border-axima-blue cursor-pointer"
       >
         {isExpanded ? (
           <>
@@ -81,7 +87,7 @@ export const PlanComparison = () => {
             <ChevronDown className="w-4 h-4" />
           </>
         )}
-      </button>
+      </Button>
 
       {isExpanded && (
         <div className="mt-8 overflow-x-auto bg-black/40 rounded-lg border border-axima-blue/20">

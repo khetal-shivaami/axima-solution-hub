@@ -33,9 +33,11 @@ export const ContactForm = () => {
             </label>
             <Input
               id="name"
+              type="text"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className="bg-white/10 border-white/10 text-white"
+              placeholder="Enter your name"
               required
             />
           </div>
@@ -50,6 +52,7 @@ export const ContactForm = () => {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               className="bg-white/10 border-white/10 text-white"
+              placeholder="Enter your email"
               required
             />
           </div>
@@ -62,7 +65,7 @@ export const ContactForm = () => {
               id="plan"
               value={formData.selectedPlan}
               onChange={(e) => setFormData({ ...formData, selectedPlan: e.target.value })}
-              className="w-full bg-white/10 border border-white/10 text-white rounded-md px-3 py-2"
+              className="w-full bg-white/10 border border-white/10 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-axima-blue focus:border-transparent"
               required
             >
               <option value="basic">Microsoft 365 Business Basic</option>
@@ -82,7 +85,8 @@ export const ContactForm = () => {
               id="message"
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="bg-white/10 border-white/10 text-white min-h-[208px]"
+              className="bg-white/10 border-white/10 text-white min-h-[208px] focus:outline-none focus:ring-2 focus:ring-axima-blue focus:border-transparent"
+              placeholder="Enter your message"
               required
             />
           </div>
