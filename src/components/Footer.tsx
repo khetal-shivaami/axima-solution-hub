@@ -13,6 +13,7 @@ const usefulLinks = [
   { label: "Contact Us", href: "/contact" },
 ];
 
+const Footer = () => {
   const socialLinks = [
     { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
     { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
