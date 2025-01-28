@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { motion } from "framer-motion";
-import * as Switch from '@radix-ui/react-switch'
+import { PricingToggle } from "@/components/pricing/PricingToggle";
+import { PlanComparison } from "@/components/pricing/PlanComparison";
+import { ContactForm } from "@/components/pricing/ContactForm";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const PlansAndPricing = () => {
   const [billingPeriod, setBillingPeriod] = useState("monthly");
@@ -128,6 +131,22 @@ const PlansAndPricing = () => {
     },
   };
 
+  const productDescriptions: { [key: string]: string } = {
+    "Microsoft Word": "Create and edit professional documents",
+    "Microsoft Excel": "Analyze and visualize data with spreadsheets",
+    "Microsoft PowerPoint": "Create impactful presentations",
+    "Microsoft Outlook": "Manage emails, calendars, and contacts",
+    "Microsoft Teams": "Chat, meet, call, and collaborate",
+    "Microsoft Exchange": "Business-class email hosting",
+    "Microsoft OneDrive": "Cloud storage and file sharing",
+    "SharePoint": "Team collaboration and content management",
+    "Microsoft Loop": "Real-time collaborative workspaces",
+    "Clipchamp": "Create and edit videos easily",
+    "Microsoft Intune": "Cloud-based device management",
+    "Microsoft Defender": "Advanced security protection",
+    "Microsoft Pureview": "Information protection and governance"
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 tech-background">
       <Navbar />
@@ -138,31 +157,7 @@ const PlansAndPricing = () => {
             <p className="text-white/80 text-center">Choose the perfect plan for your business</p>
           </div>
 
-          {/* Tabs for billing period */}
-          <div className="flex justify-center gap-4 mb-8">
-            <div className="bg-black/40 p-1 rounded-lg flex">
-              <button
-                onClick={() => setBillingPeriod("monthly")}
-                className={`px-6 py-2 rounded-md transition-all ${
-                  billingPeriod === "monthly"
-                    ? "bg-axima-blue text-white"
-                    : "text-white/70 hover:text-white"
-                }`}
-              >
-                Monthly
-              </button>
-              <button
-                onClick={() => setBillingPeriod("yearly")}
-                className={`px-6 py-2 rounded-md transition-all ${
-                  billingPeriod === "yearly"
-                    ? "bg-axima-blue text-white"
-                    : "text-white/70 hover:text-white"
-                }`}
-              >
-                Yearly
-              </button>
-            </div>
-          </div>
+          <PricingToggle billingPeriod={billingPeriod} setBillingPeriod={setBillingPeriod} />
 
           <div className="grid md:grid-cols-4 gap-6">
             {plans.map((plan, index) => (
@@ -170,10 +165,10 @@ const PlansAndPricing = () => {
                 <HoverCard>
                   <HoverCardTrigger className="h-full">
                     <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue text-white transform transition-all duration-300 hover:scale-102 hover:bg-black/60 h-full">
-                      <CardHeader className="bg-axima-blue p-7 rounded-t-lg">
-                        <CardTitle className="text-xl text-white">{plan.name}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="p-4">
+                      <div className="bg-axima-blue p-7 rounded-t-lg">
+                        <h2 className="text-xl text-white">{plan.name}</h2>
+                      </div>
+                      <div className="p-4">
                         <center>
                           <p className="text-axima-blue font-semibold text-2xl mb-4">
                             {billingPeriod === "yearly" ? plan.yearlyPrice : plan.monthlyPrice}
@@ -195,14 +190,23 @@ const PlansAndPricing = () => {
                           <h4 className="text-sm font-semibold mb-3">Included Products:</h4>
                           <div className="grid grid-cols-3 gap-2">
                             {plan.products.map((product, idx) => (
-                              <div key={idx} className="flex flex-col items-center">
-                                <img src={product.icon} alt={product.name} className="w-8 h-8 object-contain mb-1" />
-                                <span className="text-xs text-center text-gray-400">{product.name}</span>
-                              </div>
+                              <TooltipProvider key={idx}>
+                                <Tooltip>
+                                  <TooltipTrigger>
+                                    <div className="flex flex-col items-center">
+                                      <img src={product.icon} alt={product.name} className="w-8 h-8 object-contain mb-1" />
+                                      <span className="text-xs text-center text-gray-400">{product.name}</span>
+                                    </div>
+                                  </TooltipTrigger>
+                                  <TooltipContent>
+                                    <p className="text-sm">{productDescriptions[product.name]}</p>
+                                  </TooltipContent>
+                                </Tooltip>
+                              </TooltipProvider>
                             ))}
                           </div>
                         </div>
-                      </CardContent>
+                      </div>
                     </Card>
                   </HoverCardTrigger>
                   <HoverCardContent className="w-80 bg-black/90 text-white border border-axima-blue">
@@ -220,6 +224,9 @@ const PlansAndPricing = () => {
               </motion.div>
             ))}
           </div>
+
+          <PlanComparison />
+          <ContactForm />
         </motion.div>
       </motion.div>
       <Footer />
