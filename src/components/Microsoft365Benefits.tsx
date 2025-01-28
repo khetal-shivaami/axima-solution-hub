@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const benefits = [
   {
@@ -84,6 +85,12 @@ const features = [
 ];
 
 export const Microsoft365Benefits = () => {
+  const navigate = useNavigate();
+
+  const handleProductClick = (productName: string) => {
+    navigate(`/product/${productName.toLowerCase()}`);
+  };
+
   return (
     <div className="py-12 bg-black/40">
       <div className="container mx-auto px-4">
@@ -130,6 +137,7 @@ export const Microsoft365Benefits = () => {
                     className="group relative bg-black/30 border border-axima-blue/20 rounded-lg p-4 text-center text-white hover:border-axima-blue transition-all duration-300 hover:bg-black/50 hover:scale-105 cursor-pointer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => handleProductClick(feature.name)}
                   >
                     <div className="relative z-10">
                       <img 

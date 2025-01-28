@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Vision } from "@/components/Vision";
+import { ManagementTeam } from "@/components/ManagementTeam";
 import { motion } from "framer-motion";
 
 const locations = [
@@ -38,6 +39,8 @@ const About = () => {
           </Card>
 
           <Vision />
+
+          <ManagementTeam />
 
           <Card className="bg-black/40 border-none text-white backdrop-blur-sm">
             <CardHeader>
