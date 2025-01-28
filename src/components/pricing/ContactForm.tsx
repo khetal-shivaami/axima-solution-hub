@@ -16,15 +16,6 @@ export const ContactForm = () => {
     e.preventDefault();
     console.log("Form submitted:", formData);
   };
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -37,7 +28,7 @@ export const ContactForm = () => {
   return (
     <section id="contact" className="py-0 bg-black/40">
       <h3 className="text-2xl font-bold text-white mb-6 text-center">Contact Us</h3>
-      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <motion.form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
@@ -54,7 +45,7 @@ export const ContactForm = () => {
               required
             />
           </div>
-          
+
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
               Email Address
@@ -106,17 +97,17 @@ export const ContactForm = () => {
               required
             />
           </div>
+        </div>
 
-            <div className="flex">
-              <Button
-                type="submit"
-                className="w-100px bg-axima-blue hover:bg-blue-600 text-white transition-all duration-300 ml-auto"
-              >
-                Send Message
-              </Button>
-            </div>
-
-          </motion.form>
+        <div className="flex">
+          <Button
+            type="submit"
+            className="w-100px bg-axima-blue hover:bg-blue-600 text-white transition-all duration-300 ml-auto"
+          >
+            Send Message
+          </Button>
+        </div>
+      </motion.form>
     </section>
   );
 };
