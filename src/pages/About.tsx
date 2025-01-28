@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Vision } from "@/components/Vision";
 import { ManagementTeam } from "@/components/ManagementTeam";
 import { motion } from "framer-motion";
+import { MapPin } from "lucide-react";
 
 const locations = [
   { city: "Mumbai", address: "1001, 10th Floor, Runwal R Square, LBS Road, Mulund West" },
@@ -56,10 +57,12 @@ const About = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="p-4 rounded-lg bg-black/40 hover:bg-black/60 transition-all duration-300 group cursor-pointer"
                   >
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-axima-blue transition-colors">
-                      {location.city}
-                    </h3>
-                    {/* <p className="text-sm text-gray-400">{location.address}</p> */}
+                    <div className="flex items-center gap-2 mb-2">
+                      <MapPin className="h-5 w-5 text-axima-blue" />
+                      <h3 className="text-xl font-semibold group-hover:text-axima-blue transition-colors">
+                        {location.city}
+                      </h3>
+                    </div>
                   </motion.div>
                 ))}
               </div>

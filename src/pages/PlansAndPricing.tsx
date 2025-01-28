@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { Switch } from "@/components/ui/switch"; // Assuming you have a Switch component
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -77,7 +76,6 @@ const PlansAndPricing = () => {
         { name: "Azure Information Protection", icon: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png" },
         { name: "SharePoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png" },
         { name: "Publisher", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_publisher.png" },
-        
       ],
       licenceDescription:"Min 10 licence"
     }
@@ -114,35 +112,31 @@ const PlansAndPricing = () => {
             <p className="text-white/80 text-center">Choose the perfect plan for your business</p>
           </div>
 
-          {/* Toggle switch for billing period */}
-          <div className="flex items-center gap-4 mb-8">
-            <label className="text-white text-sm">Billing Period:</label>
-            <div className="flex bg-gray-800 rounded-md p-1">
+          {/* Tabs for billing period */}
+          <div className="flex justify-center gap-4 mb-8">
+            <div className="bg-black/40 p-1 rounded-lg flex">
               <button
                 onClick={() => setBillingPeriod("monthly")}
-                className={`px-4 py-2 rounded-md text-sm ${
+                className={`px-6 py-2 rounded-md transition-all ${
                   billingPeriod === "monthly"
-                    ? "bg-blue-600 text-white"
-                    : "text-gray-300 hover:bg-gray-700"
+                    ? "bg-axima-blue text-white"
+                    : "text-white/70 hover:text-white"
                 }`}
               >
                 Monthly
               </button>
               <button
                 onClick={() => setBillingPeriod("yearly")}
-                className={`px-4 py-2 rounded-md text-sm ${
+                className={`px-6 py-2 rounded-md transition-all ${
                   billingPeriod === "yearly"
-                    ? "bg-blue-600 text-white"
-                    : "text-gray-300 hover:bg-gray-700"
+                    ? "bg-axima-blue text-white"
+                    : "text-white/70 hover:text-white"
                 }`}
               >
                 Yearly
               </button>
             </div>
-            <span className="text-sm text-white">{billingPeriod === "yearly" ? "Yearly" : "Monthly"}</span>
           </div>
-
-
 
           <div className="grid md:grid-cols-3 gap-6">
             {plans.map((plan, index) => (

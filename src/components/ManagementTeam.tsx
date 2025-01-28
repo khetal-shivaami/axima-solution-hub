@@ -43,8 +43,9 @@ export const ManagementTeam = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="h-full"
           >
-            <Card className="p-6 space-y-4 group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-black/40 border border-transparent hover:border-axima-blue backdrop-blur-sm">
+            <Card className="p-6 space-y-4 group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-black/40 border border-transparent hover:border-axima-blue backdrop-blur-sm h-full flex flex-col">
               <div className="aspect-square w-48 mx-auto overflow-hidden rounded-full">
                 <img
                   src={member.image}
@@ -52,7 +53,7 @@ export const ManagementTeam = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="text-center">
+              <div className="text-center flex-grow flex flex-col">
                 <div className="relative inline-block group">
                   <TooltipProvider>
                     <Tooltip>
@@ -75,8 +76,8 @@ export const ManagementTeam = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </div>
-                <p className="text-muted-foreground text-center">{member.position}</p>
-                <p className="mt-4 text-muted-foreground text-center">
+                <p className="text-muted-foreground">{member.position}</p>
+                <p className="mt-4 text-muted-foreground flex-grow">
                   {member.profile}
                 </p>
               </div>
