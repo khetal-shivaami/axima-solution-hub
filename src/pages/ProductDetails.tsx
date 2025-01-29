@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Card } from "@/components/ui/card";
 import { Shield, Zap, Star, Trophy, Settings, Users, Rocket, CheckCircle } from "lucide-react";
 
@@ -104,7 +105,7 @@ const ProductDetails = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <h2 className="text-2xl font-bold text-white mb-4">Features</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {product.features.map((feature, index) => (
                   <motion.div 
                     key={index}
@@ -112,16 +113,17 @@ const ProductDetails = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
-                    <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue hover:bg-axima-blue/5 transition-all duration-300 group cursor-pointer h-full">
-                      <div className="p-4 flex items-center space-x-3">
-                        <div className="p-2 rounded-full bg-axima-blue/10 group-hover:bg-axima-blue/20 transition-colors duration-300">
-                          <CheckCircle className="h-5 w-5 text-axima-blue" />
-                        </div>
-                        <p className="text-gray-300 group-hover:text-axima-blue transition-colors duration-300">
-                          {feature}
-                        </p>
+                   <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 group cursor-pointer h-full">
+                    <div className="p-4 flex items-center space-x-3">
+                      <div className="p-2 rounded-full bg-axima-blue/10 flex items-center justify-center">
+                        <CheckCircle className="h-5 w-5 text-axima-blue" />
                       </div>
-                    </Card>
+                      <p className="text-gray-300 group-hover:text-axima-blue transition-colors duration-300">
+                        {feature}
+                      </p>
+                    </div>
+                  </Card>
+
                   </motion.div>
                 ))}
               </div>
@@ -133,7 +135,7 @@ const ProductDetails = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <h2 className="text-2xl font-bold text-white mb-4">Benefits</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {product.benefits.map((benefit, index) => (
                   <motion.div 
                     key={index}
@@ -141,16 +143,17 @@ const ProductDetails = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
-                    <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue hover:bg-axima-blue/5 transition-all duration-300 group cursor-pointer h-full">
+                    <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 group cursor-pointer h-full">
                       <div className="p-4 flex items-center space-x-3">
-                        <div className="p-2 rounded-full bg-axima-blue/10 group-hover:bg-axima-blue/20 transition-colors duration-300">
-                          <Star className="h-5 w-5 text-axima-blue" />
+                        <div className="p-2 rounded-full bg-axima-blue/10 flex items-center justify-center">
+                          <CheckCircle className="h-5 w-5 text-axima-blue" />
                         </div>
                         <p className="text-gray-300 group-hover:text-axima-blue transition-colors duration-300">
                           {benefit}
                         </p>
                       </div>
                     </Card>
+
                   </motion.div>
                 ))}
               </div>
