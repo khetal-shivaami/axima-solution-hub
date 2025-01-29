@@ -37,9 +37,9 @@ export const Stats = () => {
       description: "Thousands of customers have relied on us for all their cloud-related requirements for decades."
     },
     {
-      value: 7,
+      value: 5,
       label: "Offices in Key Cities",
-      description: "5 Offices in Key Indian Cities + 2 US Cities, leaving our footprint in multiple geographies to ease the way businesses do their business."
+      description: "5 Offices in Key Indian Cities, leaving our footprint in multiple geographies to ease the way businesses do their business."
     },
     {
       value: 24,

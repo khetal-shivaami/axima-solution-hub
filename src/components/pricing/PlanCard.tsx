@@ -76,7 +76,7 @@ export const PlanCard = ({
           </div>
         </Card>
       </HoverCardTrigger>
-      <HoverCardContent className="w-80 bg-black/90 text-white border border-axima-blue">
+      {/* <HoverCardContent className="w-80 bg-black/90 text-white border border-axima-blue">
         <h4 className="font-semibold mb-2">{name}</h4>
         <p className="text-sm text-gray-300 mb-2">
           Get started with our {name.split(" ").pop()} plan
@@ -86,7 +86,7 @@ export const PlanCard = ({
             <li key={idx} className="text-gray-300">• {feature}</li>
           ))}
         </ul>
-      </HoverCardContent>
+      </HoverCardContent> */}
     </HoverCard>
   );
 };
