@@ -88,9 +88,25 @@ export const Microsoft365Benefits = () => {
   const navigate = useNavigate();
 
   const handleProductClick = (productName: string) => {
-    navigate(`/product/${productName.toLowerCase()}`);
+    const staticRoutes: Record<string, string> = {
+      "Excel": "excel",
+      "Word": "word",
+      "PowerPoint": "powerpoint",
+      "Teams": "teams",
+      "Outlook": "outlook",
+      "OneDrive": "onedrive",
+      "Sharepoint": "sharepoint",
+      "Intune": "intune",
+      "Azure Information Protection": "aip",
+      "Publisher (PC only)": "publisher",
+      "Access (PC only)": "access",
+      "Exchange": "exchange",
+    };
+  
+    const route = staticRoutes[productName] || productName.toLowerCase();
+    navigate(`/product/${route}`);
   };
-
+  
   return (
     <div className="py-12 bg-black/40">
       <div className="container mx-auto px-4">
