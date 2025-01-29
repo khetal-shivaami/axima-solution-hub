@@ -31,6 +31,20 @@ export const Vision = () => {
           </p>
         </motion.div>
 
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center mb-16"
+        >
+          <h2 className="text-3xl font-bold text-white mb-6">Our Mission</h2>
+          <div className="w-24 h-1 bg-axima-blue mx-auto mb-6"></div>
+          <p className="text-xl text-gray-300 leading-relaxed">
+          In order to achieve our mission, Axima plans to help its clients by going an extra mile and helping them by understanding their needs and providing a solution. Collaborative and Innovative in our approach, we will enhance your business in terms of productivity and flexibility. Come see us today to know more.
+          </p>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
