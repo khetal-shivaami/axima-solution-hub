@@ -16,6 +16,10 @@ type Category = {
   name: string;
   features: CategoryFeature[];
   isExpanded: boolean;
+  basic: boolean;
+  standard: boolean;
+  premium: boolean;
+  apps: boolean;
 };
 
 export const PlanComparison = () => {
@@ -23,6 +27,10 @@ export const PlanComparison = () => {
     {
       name: "Essential Features",
       isExpanded: true,
+      basic: true,
+      standard: true,
+      premium: true,
+      apps: true,
       features: [
         {
           name: "Business-class email",
@@ -53,6 +61,10 @@ export const PlanComparison = () => {
     {
       name: "Collaboration Tools",
       isExpanded: false,
+      basic: true,
+      standard: true,
+      premium: true,
+      apps: false,
       features: [
         {
           name: "Microsoft Teams",
@@ -83,6 +95,10 @@ export const PlanComparison = () => {
     {
       name: "Security & Compliance",
       isExpanded: false,
+      basic: false,
+      standard: false,
+      premium: true,
+      apps: false,
       features: [
         {
           name: "Advanced Threat Protection",
@@ -113,6 +129,10 @@ export const PlanComparison = () => {
     {
       name: "Support & Services",
       isExpanded: false,
+      basic: false,
+      standard: true,
+      premium: true,
+      apps: false,
       features: [
         {
           name: "24/7 Phone Support",
@@ -175,7 +195,7 @@ export const PlanComparison = () => {
                   className="hover:bg-axima-blue/10 cursor-pointer"
                   onClick={() => toggleCategory(categoryIndex)}
                 >
-                  <TableCell colSpan={5} className="font-medium text-white">
+                  <TableCell colSpan={1} className="font-medium text-white">
                     <div className="flex items-center gap-2">
                       {category.isExpanded ? (
                         <ChevronUp className="h-4 w-4" />
@@ -184,6 +204,34 @@ export const PlanComparison = () => {
                       )}
                       {category.name}
                     </div>
+                  </TableCell>
+                  <TableCell className="text-center">
+                    {category.basic ? (
+                      <Check className="w-5 h-5 text-green-500 mx-auto" />
+                    ) : (
+                      <X className="w-5 h-5 text-gray-500 mx-auto" />
+                    )}
+                  </TableCell>
+                  <TableCell className="text-center">
+                    {category.standard ? (
+                      <Check className="w-5 h-5 text-green-500 mx-auto" />
+                    ) : (
+                      <X className="w-5 h-5 text-gray-500 mx-auto" />
+                    )}
+                  </TableCell>
+                  <TableCell className="text-center">
+                    {category.premium ? (
+                      <Check className="w-5 h-5 text-green-500 mx-auto" />
+                    ) : (
+                      <X className="w-5 h-5 text-gray-500 mx-auto" />
+                    )}
+                  </TableCell>
+                  <TableCell className="text-center">
+                    {category.apps ? (
+                      <Check className="w-5 h-5 text-green-500 mx-auto" />
+                    ) : (
+                      <X className="w-5 h-5 text-gray-500 mx-auto" />
+                    )}
                   </TableCell>
                 </TableRow>
                 {category.isExpanded && category.features.map((feature, featureIndex) => (
