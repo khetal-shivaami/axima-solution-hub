@@ -1,25 +1,38 @@
 import { useState } from 'react';
 import { Card } from "@/components/ui/card";
-import { Check, X, ChevronDown, ChevronUp } from "lucide-react";
+import { Check, X, ChevronDown, ChevronUp, Minus } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+type FeatureSupport = boolean | 'partial';
 
 type CategoryFeature = {
   name: string;
   description: string;
-  basic: boolean;
-  standard: boolean;
-  premium: boolean;
-  apps: boolean;
+  basic: FeatureSupport;
+  standard: FeatureSupport;
+  premium: FeatureSupport;
+  apps: FeatureSupport;
 };
 
 type Category = {
   name: string;
   features: CategoryFeature[];
   isExpanded: boolean;
-  basic: boolean;
-  standard: boolean;
-  premium: boolean;
-  apps: boolean;
+  basic: FeatureSupport;
+  standard: FeatureSupport;
+  premium: FeatureSupport;
+  apps: FeatureSupport;
+};
+
+const FeatureIcon = ({ support }: { support: FeatureSupport }) => {
+  if (support === 'partial') {
+    return <Minus className="w-5 h-5 text-yellow-500 mx-auto" />;
+  }
+  return support ? (
+    <Check className="w-5 h-5 text-green-500 mx-auto" />
+  ) : (
+    <X className="w-5 h-5 text-gray-500 mx-auto" />
+  );
 };
 
 export const PlanComparison = () => {
@@ -38,12 +51,12 @@ export const PlanComparison = () => {
           basic: true,
           standard: true,
           premium: true,
-          apps: true,
+          apps: 'partial',
         },
         {
           name: "Web versions of Office apps",
           description: "Create and edit via browser",
-          basic: true,
+          basic: 'partial',
           standard: true,
           premium: true,
           apps: true,
@@ -52,7 +65,7 @@ export const PlanComparison = () => {
           name: "Desktop versions of Office apps",
           description: "Full desktop applications",
           basic: false,
-          standard: true,
+          standard: 'partial',
           premium: true,
           apps: true,
         }
@@ -206,32 +219,16 @@ export const PlanComparison = () => {
                     </div>
                   </TableCell>
                   <TableCell className="text-center">
-                    {category.basic ? (
-                      <Check className="w-5 h-5 text-green-500 mx-auto" />
-                    ) : (
-                      <X className="w-5 h-5 text-gray-500 mx-auto" />
-                    )}
+                    <FeatureIcon support={category.basic} />
                   </TableCell>
                   <TableCell className="text-center">
-                    {category.standard ? (
-                      <Check className="w-5 h-5 text-green-500 mx-auto" />
-                    ) : (
-                      <X className="w-5 h-5 text-gray-500 mx-auto" />
-                    )}
+                    <FeatureIcon support={category.standard} />
                   </TableCell>
                   <TableCell className="text-center">
-                    {category.premium ? (
-                      <Check className="w-5 h-5 text-green-500 mx-auto" />
-                    ) : (
-                      <X className="w-5 h-5 text-gray-500 mx-auto" />
-                    )}
+                    <FeatureIcon support={category.premium} />
                   </TableCell>
                   <TableCell className="text-center">
-                    {category.apps ? (
-                      <Check className="w-5 h-5 text-green-500 mx-auto" />
-                    ) : (
-                      <X className="w-5 h-5 text-gray-500 mx-auto" />
-                    )}
+                    <FeatureIcon support={category.apps} />
                   </TableCell>
                 </TableRow>
                 {category.isExpanded && category.features.map((feature, featureIndex) => (
@@ -246,32 +243,16 @@ export const PlanComparison = () => {
                       </div>
                     </TableCell>
                     <TableCell className="text-center">
-                      {feature.basic ? (
-                        <Check className="w-5 h-5 text-green-500 mx-auto" />
-                      ) : (
-                        <X className="w-5 h-5 text-gray-500 mx-auto" />
-                      )}
+                      <FeatureIcon support={feature.basic} />
                     </TableCell>
                     <TableCell className="text-center">
-                      {feature.standard ? (
-                        <Check className="w-5 h-5 text-green-500 mx-auto" />
-                      ) : (
-                        <X className="w-5 h-5 text-gray-500 mx-auto" />
-                      )}
+                      <FeatureIcon support={feature.standard} />
                     </TableCell>
                     <TableCell className="text-center">
-                      {feature.premium ? (
-                        <Check className="w-5 h-5 text-green-500 mx-auto" />
-                      ) : (
-                        <X className="w-5 h-5 text-gray-500 mx-auto" />
-                      )}
+                      <FeatureIcon support={feature.premium} />
                     </TableCell>
                     <TableCell className="text-center">
-                      {feature.apps ? (
-                        <Check className="w-5 h-5 text-green-500 mx-auto" />
-                      ) : (
-                        <X className="w-5 h-5 text-gray-500 mx-auto" />
-                      )}
+                      <FeatureIcon support={feature.apps} />
                     </TableCell>
                   </TableRow>
                 ))}
