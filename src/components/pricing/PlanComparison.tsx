@@ -26,7 +26,12 @@ type Category = {
 
 const FeatureIcon = ({ support }: { support: FeatureSupport }) => {
   if (support === 'partial') {
-    return <Minus className="w-5 h-5 text-yellow-500 mx-auto" />;
+    return (
+      <div className="flex flex-col items-center">
+        <Minus className="w-5 h-5 text-yellow-500" />
+        <span className="text-xs text-yellow-500 mt-1">Limited Capabilities</span>
+      </div>
+    );
   }
   return support ? (
     <Check className="w-5 h-5 text-green-500 mx-auto" />
