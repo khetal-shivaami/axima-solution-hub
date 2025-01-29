@@ -36,7 +36,7 @@ const PlansAndPricing = () => {
         { name: "SharePoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png" },
         { name: "Microsoft OneDrive", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png" },
       ],
-      licenceDescription:"Min 100 licence"
+      licenceDescription:"Min 300 licence"
     },
     {
       name: "Microsoft 365 Business Standard",
@@ -61,7 +61,7 @@ const PlansAndPricing = () => {
         { name: "Microsoft Loop", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_loop.png" },
         { name: "Clipchamp", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_clipchamp.png" },
       ],
-      licenceDescription:"Min 10 licence"
+      licenceDescription:"Min 300 licence"
     },
     {
       name: "Microsoft 365 Business Premium",
@@ -88,7 +88,7 @@ const PlansAndPricing = () => {
         { name: "Microsoft Defender", icon: "/lovable-uploads/logos/microsoft_logos/windows_defender.png" },
         { name: "Microsoft Pureview", icon: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png" },
       ],
-      licenceDescription:"Min 10 licence"
+      licenceDescription:"Min 300 licence"
     },
     {
       name: "Microsoft 365 Apps for business",
@@ -107,7 +107,7 @@ const PlansAndPricing = () => {
         { name: "Microsoft Outlook", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_outlook.png" },
         { name: "Microsoft OneDrive", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png" },
       ],
-      licenceDescription:"Min 10 licence"
+      licenceDescription:"---"
     }
   ];
 
