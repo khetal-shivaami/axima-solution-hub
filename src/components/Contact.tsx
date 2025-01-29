@@ -96,6 +96,7 @@ export const Contact = () => {
             onSubmit={handleSubmit}
             className="space-y-6 bg-white/5 p-8 rounded-lg backdrop-blur-sm"
           >
+            <h2 className="text-2xl font-bold text-white mb-4 text-center">Contact Us</h2>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
@@ -150,12 +151,14 @@ export const Contact = () => {
               />
             </div>
 
-            <Button
-              type="submit"
-              className="w-full bg-axima-blue hover:bg-blue-600 text-white transition-all duration-300"
-            >
-              Send Message
-            </Button>
+            <div className="flex">
+              <Button
+                type="submit"
+                className="w-100px bg-axima-blue hover:bg-blue-600 text-white transition-all duration-300 ml-auto"
+              >
+                Send Message
+              </Button>
+          </div>
           </motion.form>
         </div>
       </div>

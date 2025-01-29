@@ -9,6 +9,7 @@ import { MapPin } from "lucide-react";
 const locations = [
   { city: "Mumbai", address: "1001, 10th Floor, Runwal R Square, LBS Road, Mulund West" },
   { city: "Bangalore", address: "Brigade Road, Central Business District" },
+  { city: "Chennai", address: "Ring Road, Surat" },
   { city: "Delhi", address: "Connaught Place, New Delhi" },
   { city: "Surat", address: "Ring Road, Surat" }
 ];
@@ -48,7 +49,7 @@ const About = () => {
               <CardTitle>Our Office Locations</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 {locations.map((location, index) => (
                   <motion.div 
                     key={index}
