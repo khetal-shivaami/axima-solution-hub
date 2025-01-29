@@ -42,7 +42,7 @@ export const ContactForm = () => {
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-                  Your Name
+                  Your Name <span style={{ color: 'red' }}>*</span>
                 </label>
                 <Input
                   id="name"
@@ -54,7 +54,7 @@ export const ContactForm = () => {
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-                  Your Email
+                  Your Email <span style={{ color: 'red' }}>*</span>
                 </label>
                 <Input
                   id="email"
@@ -69,7 +69,7 @@ export const ContactForm = () => {
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="contactNumber" className="block text-sm font-medium text-gray-300 mb-1">
-                  Contact Number
+                  Contact Number <span style={{ color: 'red' }}>*</span>
                 </label>
                 <Input
                   id="contactNumber"
@@ -81,7 +81,7 @@ export const ContactForm = () => {
               </div>
               <div>
                 <label htmlFor="selectedPlan" className="block text-sm font-medium text-gray-300 mb-1">
-                  Select Plan
+                  Select Plan <span style={{ color: 'red' }}>*</span>
                 </label>
                 <select
                   id="selectedPlan"
@@ -91,6 +91,7 @@ export const ContactForm = () => {
                    className="w-full bg-gray-700 text-white border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-axima-blue focus:border-transparent cursor-pointer"
                   required
                 >
+                  <option value="">Select Plan</option>
                   <option value="basic">Microsoft 365 Business Basic</option>
                   <option value="standard">Microsoft 365 Business Standard</option>
                   <option value="premium">Microsoft 365 Business Premium</option>
@@ -100,7 +101,7 @@ export const ContactForm = () => {
             </div>
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
-                Message
+                Message <span style={{ color: 'red' }}>*</span>
               </label>
               <Textarea
                 id="message"

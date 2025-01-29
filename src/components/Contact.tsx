@@ -100,8 +100,8 @@ export const Contact = () => {
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-                  Your Name
-                </label>
+                  Full Name <span style={{ color: 'red' }}>*</span>
+                </label> 
                 <Input
                   id="name"
                   value={formData.name}
@@ -112,10 +112,10 @@ export const Contact = () => {
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-                  Your Email
+                  Your Email <span style={{ color: 'red' }}>*</span>
                 </label>
                 <Input
-                  id="email"
+                  id="email" 
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -127,7 +127,7 @@ export const Contact = () => {
 
             <div>
               <label htmlFor="contactNumber" className="block text-sm font-medium text-gray-300 mb-1">
-                Contact Number
+                Contact Number <span style={{ color: 'red' }}>*</span>
               </label>
               <Input
                 id="contactNumber"
@@ -140,7 +140,7 @@ export const Contact = () => {
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
-                Message
+                Message <span style={{ color: 'red' }}>*</span>
               </label>
               <Textarea
                 id="message"

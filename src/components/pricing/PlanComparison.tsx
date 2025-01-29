@@ -28,7 +28,7 @@ const FeatureIcon = ({ support }: { support: FeatureSupport }) => {
   if (support === 'partial') {
     return (
       <div className="flex flex-col items-center">
-        <Minus className="w-5 h-5 text-yellow-500" />
+        <Check className="w-5 h-5 text-yellow-500" />
         <span className="text-xs text-yellow-500 mt-1">Limited Capabilities</span>
       </div>
     );
@@ -36,73 +36,215 @@ const FeatureIcon = ({ support }: { support: FeatureSupport }) => {
   return support ? (
     <Check className="w-5 h-5 text-green-500 mx-auto" />
   ) : (
-    <X className="w-5 h-5 text-gray-500 mx-auto" />
+    <X className="w-5 h-5 text-red-500 mx-auto" />
   );
 };
 
 export const PlanComparison = () => {
   const [categories, setCategories] = useState<Category[]>([
     {
-      name: "Essential Features",
+      name: "Email and calendar",
       isExpanded: true,
+      basic: true,
+      standard: true,
+      premium: true,
+      apps: false,
+      features: [
+        {
+          name: "Use a custom business email (name@yourbusiness.com)",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Host and administer email with a 50-GB mailbox",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Easily schedule meetings and respond to invitations using shared calendars",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Manage your calendar, share available meeting times, schedule meetings, and get reminders",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false,
+        }
+      ]
+    },
+    {
+      name: "File storage and sharing",
+      isExpanded: false,
+      basic: true,
+      standard: true,
+      premium: true,
+      apps: 'partial',
+      features: [
+        {
+          name: "Collaborate in the same file with real-time coauthoring and editing",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: true,
+        },
+        {
+          name: "Access your files from your computer, tablet, or phone",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: true,
+        },
+        {
+          name: "Keep your files securely stored, up to date, and accessible across devices",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Engage and inform with intelligent video using Microsoft Stream",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false,
+        }
+      ]
+    },
+    {
+      name: "Teamwork and communication",
+      isExpanded: false,
+      basic: true,
+      standard: true,
+      premium: true,
+      apps: false,
+      features: [
+        {
+          name: "Chat one-on-one or in a group chat, pin chats, and save messages for quick access",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Host secure, organized meetings with audio, video, screen-sharing, and the option to record",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Create team sites to share information, content, and files throughout your intranet using SharePoint",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Invite people outside of your business to your meetings—even those without Teams accounts",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false,
+        }
+      ]
+    },
+    {
+      name: "Standard security and compliance",
+      isExpanded: false,
       basic: true,
       standard: true,
       premium: true,
       apps: true,
       features: [
         {
-          name: "Business-class email",
-          description: "Professional email with 50GB mailbox",
+          name: "Help protect your business against spam and malware with cloud-based email filtering",
+          description: "",
           basic: true,
-          standard: true,
-          premium: true,
-          apps: 'partial',
-        },
-        {
-          name: "Web versions of Office apps",
-          description: "Create and edit via browser",
-          basic: 'partial',
           standard: true,
           premium: true,
           apps: true,
         },
         {
-          name: "Desktop versions of Office apps",
-          description: "Full desktop applications",
-          basic: false,
-          standard: 'partial',
+          name: "Manage security threats by creating password policies",
+          description: "",
+          basic: true,
+          standard: false,
+          premium: true,
+          apps: true,
+        },
+        {
+          name: "Secure access with multifactor authentication",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: true,
+        },
+        {
+          name: "Control access to business information with security groups and custom permissions",
+          description: "",
+          basic: true,
+          standard: true,
           premium: true,
           apps: true,
         }
       ]
     },
     {
-      name: "Collaboration Tools",
+      name: "Support and deployment",
       isExpanded: false,
       basic: true,
       standard: true,
       premium: true,
-      apps: false,
+      apps: true,
       features: [
         {
-          name: "Microsoft Teams",
-          description: "Chat, call, and video meetings",
+          name: "Contact phone and online support anytime",
+          description: "",
           basic: true,
           standard: true,
           premium: true,
-          apps: false,
+          apps: true,
         },
         {
-          name: "SharePoint",
-          description: "Intranet and team sites",
+          name: "Get technical support for installation, setup, configuration, and general usage",
+          description: "",
+          basic: true,
+          standard: false,
+          premium: true,
+          apps: true,
+        },
+        {
+          name: "Access help and troubleshooting tools, videos, articles, and forums",
+          description: "",
           basic: true,
           standard: true,
           premium: true,
-          apps: false,
+          apps: true,
         },
         {
-          name: "OneDrive for Business",
-          description: "1 TB cloud storage per user",
+          name: "Have peace of mind with a financially backed 99% uptime guarantee",
+          description: "",
           basic: true,
           standard: true,
           premium: true,
@@ -111,41 +253,151 @@ export const PlanComparison = () => {
       ]
     },
     {
-      name: "Security & Compliance",
+      name: "Web and mobile apps",
       isExpanded: false,
-      basic: false,
-      standard: false,
+      basic: true,
+      standard: true,
       premium: true,
-      apps: false,
+      apps: 'partial',
       features: [
         {
-          name: "Advanced Threat Protection",
-          description: "Protection against cyberthreats",
-          basic: false,
-          standard: false,
+          name: "Word, Excel, PowerPoint, OneNote",
+          description: "",
+          basic: true,
+          standard: true,
           premium: true,
-          apps: false,
+          apps: true,
         },
         {
-          name: "Information Protection",
-          description: "Data loss prevention",
-          basic: false,
+          name: "Outlook",
+          description: "",
+          basic: true,
           standard: false,
           premium: true,
-          apps: false,
+          apps: 'partial',
         },
         {
-          name: "Mobile Device Management",
-          description: "Secure device management",
-          basic: false,
-          standard: false,
+          name: "Teams, Bookings, Forms, Microsoft Lists, Planner, SharePoint, Stream",
+          description: "",
+          basic: true,
+          standard: true,
           premium: true,
           apps: false,
         }
       ]
     },
     {
-      name: "Support & Services",
+      name: "Installable desktop apps",
+      isExpanded: false,
+      basic: false,
+      standard: true,
+      premium: true,
+      apps: 'partial',
+      features: [
+        {
+          name: "Microsoft 365 apps for PC and Mac, including Word, Excel, PowerPoint, Outlook, and OneNote",
+          description: "",
+          basic: false,
+          standard: true,
+          premium: true,
+          apps: true,
+        },
+        {
+          name: "PC-only apps, including Microsoft Access and Microsoft Publisher",
+          description: "",
+          basic: false,
+          standard: false,
+          premium: true,
+          apps: 'partial',
+        }
+      ]
+    },
+    {
+      name: "AI powered assistance",
+      isExpanded: false,
+      basic: 'partial',
+      standard: 'partial',
+      premium: 'partial',
+      apps: 'partial',
+      features: [
+        {
+          name: "Get intelligent writing assistance with advanced grammar and style suggestions using Editor",
+          description: "",
+          basic: false,
+          standard: true,
+          premium: true,
+          apps: true,
+        },
+        {
+          name: "Use Microsoft Copilot, an everyday AI companion, with security, privacy, identity, and compliance inherited from your existing Microsoft 365 policies",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: true,
+        },
+        {
+          name: "Integrate your work content and context into AI-powered chat to boost creativity with Microsoft 365 Copilot in apps like in Word, PowerPoint, and Teams",
+          description: "",
+          basic: 'partial',
+          standard: 'partial',
+          premium: 'partial',
+          apps: 'partial',
+        }
+      ]
+    },
+    {
+      name: "Project and customer relationship management",
+      isExpanded: false,
+      basic: 'partial',
+      standard: true,
+      premium: true,
+      apps: true,
+      features: [
+        {
+          name: "Easily create, manage, and share schedules and tasks with your team",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Manage workflow and track important tasks with Microsoft Lists",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Quickly and easily create custom surveys and analyze results with Forms",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false
+        },
+        {
+          name: "Streamline client scheduling and manage appointments with Bookings",
+          description: "",
+          basic: true,
+          standard: true,
+          premium: true,
+          apps: false
+        },
+        {
+          name: "Collaborate in workspaces to organize your projects, both large and small, with Microsoft Loop ",
+          description: "",
+          basic: false,
+          standard: true,
+          premium: true,
+          apps: false
+        }
+      ]
+    },
+    {
+      name: "Video editing",
       isExpanded: false,
       basic: false,
       standard: true,
@@ -153,28 +405,138 @@ export const PlanComparison = () => {
       apps: false,
       features: [
         {
-          name: "24/7 Phone Support",
-          description: "Round-the-clock assistance",
+          name: "Edit videos using basic tools, such as trimming, cropping, and speed control",
+          description: "",
           basic: false,
           standard: true,
           premium: true,
           apps: false,
         },
         {
-          name: "FastTrack Deployment Support",
-          description: "Deployment assistance",
+          name: "Create high-quality recordings and set dimensions for upload to multiple platforms",
+          description: "",
+          basic: false,
+          standard: true,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Collaborate live or asynchronously in a video-editing workspace",
+          description: "",
+          basic: false,
+          standard: true,
+          premium: true,
+          apps: false,
+        }
+      ]
+    },
+    {
+      name: "Webinars and live events",
+      isExpanded: false,
+      basic: false,
+      standard: true,
+      premium: true,
+      apps: false,
+      features: [
+        {
+          name: "Schedule and host webinars for up to 300 people",
+          description: "",
+          basic: false,
+          standard: true,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Host webinars that include attendee registration pages and email confirmations",
+          description: "",
+          basic: false,
+          standard: true,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Get reporting data on webinar registration and meeting attendance",
+          description: "",
+          basic: false,
+          standard: true,
+          premium: true,
+          apps: false,
+        }
+      ]
+    },
+    {
+      name: "Advanced cyberattack protection",
+      isExpanded: false,
+      basic: false,
+      standard: true,
+      premium: true,
+      apps: false,
+      features: [
+        {
+          name: "Enable enterprise-grade endpoint security across devices to protect against ransomware and other cyberthreats",
+          description: "",
           basic: false,
           standard: false,
           premium: true,
           apps: false,
         },
         {
-          name: "99.9% Uptime Guarantee",
-          description: "Service reliability",
-          basic: true,
-          standard: true,
+          name: "Help protect against email threats, such as phishing that’s hidden in email attachments and links",
+          description: "",
+          basic: false,
+          standard: false,
           premium: true,
-          apps: true,
+          apps: false,
+        },
+        {
+          name: "Restrict access to sensitive business information with information rights management",
+          description: "",
+          basic: false,
+          standard: false,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Help employees securely access business apps wherever they work with conditional access, while helping prevent unauthorized access",
+          description: "",
+          basic: false,
+          standard: false,
+          premium: true,
+          apps: false,
+        }
+      ]
+    },
+    {
+      name: "Device management",
+      isExpanded: false,
+      basic: false,
+      standard: true,
+      premium: true,
+      apps: false,
+      features: [
+        {
+          name: "Apply security policies to help protect work data on company-owned and employee devices",
+          description: "",
+          basic: false,
+          standard: false,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Keep company data within approved apps across iOS, Android, and Windows PCs",
+          description: "",
+          basic: false,
+          standard: false,
+          premium: true,
+          apps: false,
+        },
+        {
+          name: "Remotely remove business data from lost or stolen devices",
+          description: "",
+          basic: false,
+          standard: false,
+          premium: true,
+          apps: false,
         }
       ]
     }
@@ -243,7 +605,7 @@ export const PlanComparison = () => {
                   >
                     <TableCell className="pl-8">
                       <div>
-                        <p className="text-white">{feature.name}</p>
+                        <p className="text-white text-sm">{feature.name}</p>
                         <p className="text-gray-400 text-sm">{feature.description}</p>
                       </div>
                     </TableCell>
