@@ -66,7 +66,6 @@ export const PlanComparison = () => {
   ];
 
   const handleToggle = () => {
-    console.log("Button clicked!");
     setIsExpanded(!isExpanded);
   };
 
@@ -95,11 +94,11 @@ export const PlanComparison = () => {
           <table className="w-full min-w-[800px]">
             <thead>
               <tr className="border-b border-white/10">
-                <th className="text-left p-4">Features</th>
-                <th className="p-4 text-center">Basic</th>
-                <th className="p-4 text-center">Standard</th>
-                <th className="p-4 text-center">Premium</th>
-                <th className="p-4 text-center">Apps</th>
+                <th className="text-left p-4 text-white">Features</th>
+                <th className="p-4 text-center text-white">Basic</th>
+                <th className="p-4 text-center text-white">Standard</th>
+                <th className="p-4 text-center text-white">Premium</th>
+                <th className="p-4 text-center text-white">Apps</th>
               </tr>
             </thead>
             <tbody>
@@ -110,7 +109,7 @@ export const PlanComparison = () => {
                   </tr>
                   {category.items.map((item, itemIndex) => (
                     <tr key={`item-${itemIndex}`} className="border-b border-white/10">
-                      <td className="p-4">{item.name}</td>
+                      <td className="p-4 text-white">{item.name}</td>
                       <td className="p-4 text-center">
                         {item.basic ? <Check className="w-5 h-5 text-green-500 mx-auto" /> : <Minus className="w-5 h-5 text-gray-500 mx-auto" />}
                       </td>

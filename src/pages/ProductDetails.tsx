@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Card } from "@/components/ui/card";
 
 const productDetails: Record<string, {
   title: string;
@@ -96,39 +97,31 @@ const ProductDetails = () => {
             </div>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-8">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <HoverCard>
-                <HoverCardTrigger>
-                  <div className="bg-black/40 p-6 rounded-lg border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 cursor-pointer">
-                    <h2 className="text-2xl font-bold text-white mb-4">Features</h2>
-                    <ul className="space-y-2">
-                      {product.features.map((feature, index) => (
-                        <motion.li 
-                          key={index} 
-                          className="text-gray-300 flex items-center"
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: index * 0.1 }}
-                        >
-                          <span className="mr-2 text-axima-blue">•</span>
+              <h2 className="text-2xl font-bold text-white mb-4">Features</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {product.features.map((feature, index) => (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
+                    <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 group cursor-pointer h-full">
+                      <div className="p-4">
+                        <p className="text-gray-300 group-hover:text-axima-blue transition-colors duration-300">
                           {feature}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-80 bg-black/90 border-axima-blue">
-                  <h3 className="text-lg font-semibold mb-2 text-white">Key Features</h3>
-                  <p className="text-sm text-gray-300">
-                    Explore all the powerful features that make {product.title} essential for your business.
-                  </p>
-                </HoverCardContent>
-              </HoverCard>
+                        </p>
+                      </div>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
             
             <motion.div 
@@ -136,33 +129,25 @@ const ProductDetails = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <HoverCard>
-                <HoverCardTrigger>
-                  <div className="bg-black/40 p-6 rounded-lg border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 cursor-pointer">
-                    <h2 className="text-2xl font-bold text-white mb-4">Benefits</h2>
-                    <ul className="space-y-2">
-                      {product.benefits.map((benefit, index) => (
-                        <motion.li 
-                          key={index} 
-                          className="text-gray-300 flex items-center"
-                          initial={{ opacity: 0, x: 10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: index * 0.1 }}
-                        >
-                          <span className="mr-2 text-axima-blue">•</span>
+              <h2 className="text-2xl font-bold text-white mb-4">Benefits</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {product.benefits.map((benefit, index) => (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
+                    <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 group cursor-pointer h-full">
+                      <div className="p-4">
+                        <p className="text-gray-300 group-hover:text-axima-blue transition-colors duration-300">
                           {benefit}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-80 bg-black/90 border-axima-blue">
-                  <h3 className="text-lg font-semibold mb-2 text-white">Key Benefits</h3>
-                  <p className="text-sm text-gray-300">
-                    Discover how {product.title} can transform your business operations.
-                  </p>
-                </HoverCardContent>
-              </HoverCard>
+                        </p>
+                      </div>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </motion.div>
