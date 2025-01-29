@@ -6,9 +6,12 @@ import { PricingToggle } from "@/components/pricing/PricingToggle";
 import { PlanComparison } from "@/components/pricing/PlanComparison";
 import { ContactForm } from "@/components/pricing/ContactForm";
 import { PlanCard } from "@/components/pricing/PlanCard";
+import { Button } from "@/components/ui/button";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const PlansAndPricing = () => {
   const [billingPeriod, setBillingPeriod] = useState("monthly");
+  const [showComparison, setShowComparison] = useState(true);
 
   const plans = [
     {
@@ -169,7 +172,25 @@ const PlansAndPricing = () => {
             ))}
           </div>
 
-          <PlanComparison />
+          <div className="flex justify-center">
+            <Button
+              variant="outline"
+              onClick={() => setShowComparison(!showComparison)}
+              className="text-white hover:text-white hover:bg-axima-blue/20 border-axima-blue"
+            >
+              {showComparison ? (
+                <>
+                  Hide Compare Plans Features <ChevronUp className="ml-2 h-4 w-4" />
+                </>
+              ) : (
+                <>
+                  Show Compare Plans Features <ChevronDown className="ml-2 h-4 w-4" />
+                </>
+              )}
+            </Button>
+          </div>
+
+          {showComparison && <PlanComparison />}
           <ContactForm />
         </motion.div>
       </motion.div>
