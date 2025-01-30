@@ -53,12 +53,20 @@ const Footer = () => {
               </p>
               <p className="text-gray-300">
                 <span className="font-semibold">Email:</span>{" "}
-                <a 
-                  href="mailto:info@axima.com" 
-                  className="hover:text-axima-blue transition-colors cursor-pointer"
-                >
-                  info@axima.in
-                </a>
+                <div className="space-y-1">
+                  <a 
+                    href="mailto:info@axima.in" 
+                    className="hover:text-axima-blue transition-colors cursor-pointer block"
+                  >
+                    info@axima.in
+                  </a>
+                  <a 
+                    href="mailto:support@axima.in" 
+                    className="hover:text-axima-blue transition-colors cursor-pointer block"
+                  >
+                    support@axima.in
+                  </a>
+                </div>
               </p>
             </div>
           </div>

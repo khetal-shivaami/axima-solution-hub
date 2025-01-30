@@ -64,12 +64,20 @@ export const Contact = () => {
               <Mail className="w-6 h-6 text-axima-blue mt-1" />
               <div>
                 <h3 className="text-white font-semibold mb-1">Email:</h3>
-                <a 
-                  href="mailto:info@axima.com" 
-                  className="text-gray-300 hover:text-axima-blue transition-colors"
-                >
-                  info@axima.in
-                </a>
+                <div className="space-y-2">
+                  <a 
+                    href="mailto:info@axima.in" 
+                    className="text-gray-300 hover:text-axima-blue transition-colors block"
+                  >
+                    info@axima.in
+                  </a>
+                  <a 
+                    href="mailto:support@axima.in" 
+                    className="text-gray-300 hover:text-axima-blue transition-colors block"
+                  >
+                    support@axima.in
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -158,7 +166,7 @@ export const Contact = () => {
               >
                 Send Message
               </Button>
-          </div>
+            </div>
           </motion.form>
         </div>
       </div>
