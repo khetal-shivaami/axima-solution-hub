@@ -96,6 +96,66 @@ const Copilot = () => {
           </motion.div>
         </div>
 
+        {/* Real-time Workflow Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-black/40 p-8 rounded-lg backdrop-blur-sm"
+        >
+          <h2 className="text-3xl font-bold text-white mb-8">How Copilot Works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                step: 1,
+                title: "User Input",
+                description: "User interacts with Microsoft 365 apps, asking questions or requesting assistance",
+                image: "/lovable-uploads/banner/copilotbackgrp.png"
+              },
+              {
+                step: 2,
+                title: "AI Processing",
+                description: "Copilot processes the request using advanced AI models and your organization's data",
+                image: "/lovable-uploads/banner/copilot-banner.jpg"
+              },
+              {
+                step: 3,
+                title: "Real-time Results",
+                description: "Delivers intelligent suggestions, content generation, and automated tasks instantly",
+                image: "/lovable-uploads/banner/m365app.png"
+              }
+            ].map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="relative"
+              >
+                <div className="bg-black/60 rounded-lg p-6 h-full flex flex-col items-center text-center">
+                  <div className="w-16 h-16 bg-axima-blue rounded-full flex items-center justify-center mb-4">
+                    <span className="text-2xl font-bold text-white">{step.step}</span>
+                  </div>
+                  <img
+                    src={step.image}
+                    alt={step.title}
+                    className="w-full h-48 object-cover rounded-lg mb-4"
+                  />
+                  <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
+                  <p className="text-gray-300">{step.description}</p>
+                  
+                  {index < 2 && (
+                    <div className="hidden md:block absolute -right-12 top-1/2 transform -translate-y-1/2 z-10">
+                      <div className="w-24 h-2 bg-axima-blue"></div>
+                      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 rotate-45 w-4 h-4 bg-axima-blue"></div>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
         {/* Key Features Grid */}
         <div className="grid md:grid-cols-3 gap-8 mt-16">
           {[
