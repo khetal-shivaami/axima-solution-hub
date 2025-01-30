@@ -177,7 +177,7 @@ const PlansAndPricing = () => {
           </div>
 
           <div className="flex justify-center">
-            <Button
+            {/* <Button
               variant="outline"
               onClick={toggleComparison}
               className="text-white hover:text-white hover:bg-axima-blue/20 border-axima-blue cursor-pointer"
@@ -191,7 +191,7 @@ const PlansAndPricing = () => {
                   Show Compare Plans Features <ChevronDown className="ml-2 h-4 w-4" />
                 </>
               )}
-            </Button>
+            </Button> */}
           </div>
 
           {showComparison && <PlanComparison />}
