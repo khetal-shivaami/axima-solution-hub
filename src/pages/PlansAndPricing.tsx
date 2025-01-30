@@ -148,6 +148,10 @@ const PlansAndPricing = () => {
     "Microsoft Pureview": "Information protection and governance"
   };
 
+  const toggleComparison = () => {
+    setShowComparison(prev => !prev);
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 tech-background">
       <Navbar />
@@ -175,8 +179,8 @@ const PlansAndPricing = () => {
           <div className="flex justify-center">
             <Button
               variant="outline"
-              onClick={() => setShowComparison(!showComparison)}
-              className="text-white hover:text-white hover:bg-axima-blue/20 border-axima-blue"
+              onClick={toggleComparison}
+              className="text-white hover:text-white hover:bg-axima-blue/20 border-axima-blue cursor-pointer"
             >
               {showComparison ? (
                 <>
