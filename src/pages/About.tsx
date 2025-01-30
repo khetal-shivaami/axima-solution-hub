@@ -31,7 +31,7 @@ const About = () => {
           
           <Card className="bg-black/40 border-none text-white backdrop-blur-sm">
             <CardHeader>
-              <CardTitle>Company Profile</CardTitle>
+              <CardTitle>Axima Corporation</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-gray-300">
