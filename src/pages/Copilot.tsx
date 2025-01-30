@@ -8,7 +8,6 @@ const Copilot = () => {
     <div className="min-h-screen bg-gray-900 tech-background">
       <Navbar />
       
-      {/* Hero Section with Banner */}
       <div className="relative h-[500px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900/90 to-blue-900/90 z-10" />
         <img 
@@ -37,7 +36,6 @@ const Copilot = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-16 space-y-12">
-        {/* Market Demand Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +67,6 @@ const Copilot = () => {
           </div>
         </motion.div>
 
-        {/* Feature Section with Robot Image */}
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -104,25 +101,35 @@ const Copilot = () => {
           className="bg-black/40 p-8 rounded-lg backdrop-blur-sm"
         >
           <h2 className="text-3xl font-bold text-white mb-8">How Copilot Works</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               {
                 step: 1,
-                title: "User Input",
-                description: "User interacts with Microsoft 365 apps, asking questions or requesting assistance",
-                image: "/lovable-uploads/banner/copilotbackgrp.png"
+                title: "User Input & Context",
+                description: "User interacts with Microsoft 365 apps, providing queries and context from workspace data",
+                image: "/lovable-uploads/banner/copilotbackgrp.png",
+                details: ["Natural Language Processing", "Context Gathering", "User Intent Analysis"]
               },
               {
                 step: 2,
-                title: "AI Processing",
-                description: "Copilot processes the request using advanced AI models and your organization's data",
-                image: "/lovable-uploads/banner/copilot-banner.jpg"
+                title: "Security & Compliance",
+                description: "Enterprise-grade security checks and compliance validation of user requests",
+                image: "/lovable-uploads/banner/copilot-banner.jpg",
+                details: ["Data Privacy Checks", "Permission Validation", "Compliance Filtering"]
               },
               {
                 step: 3,
-                title: "Real-time Results",
-                description: "Delivers intelligent suggestions, content generation, and automated tasks instantly",
-                image: "/lovable-uploads/banner/m365app.png"
+                title: "AI Processing Engine",
+                description: "Advanced language models process requests with organizational context",
+                image: "/lovable-uploads/banner/m365app.png",
+                details: ["Large Language Models", "Knowledge Integration", "Pattern Recognition"]
+              },
+              {
+                step: 4,
+                title: "Intelligent Response",
+                description: "Delivers contextual suggestions and automated actions in real-time",
+                image: "/lovable-uploads/banner/ai_copilot.png",
+                details: ["Response Generation", "Action Automation", "Real-time Updates"]
               }
             ].map((step, index) => (
               <motion.div
@@ -132,7 +139,7 @@ const Copilot = () => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 className="relative"
               >
-                <div className="bg-black/60 rounded-lg p-6 h-full flex flex-col items-center text-center">
+                <div className="bg-black/60 rounded-lg p-6 h-full flex flex-col">
                   <div className="w-16 h-16 bg-axima-blue rounded-full flex items-center justify-center mb-4">
                     <span className="text-2xl font-bold text-white">{step.step}</span>
                   </div>
@@ -142,9 +149,14 @@ const Copilot = () => {
                     className="w-full h-48 object-cover rounded-lg mb-4"
                   />
                   <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
-                  <p className="text-gray-300">{step.description}</p>
+                  <p className="text-gray-300 mb-4">{step.description}</p>
+                  <ul className="list-disc list-inside text-gray-300 mt-auto">
+                    {step.details.map((detail, idx) => (
+                      <li key={idx} className="text-sm">{detail}</li>
+                    ))}
+                  </ul>
                   
-                  {index < 2 && (
+                  {index < 3 && (
                     <div className="hidden md:block absolute -right-12 top-1/2 transform -translate-y-1/2 z-10">
                       <div className="w-24 h-2 bg-axima-blue"></div>
                       <div className="absolute right-0 top-1/2 transform -translate-y-1/2 rotate-45 w-4 h-4 bg-axima-blue"></div>
@@ -156,7 +168,6 @@ const Copilot = () => {
           </div>
         </motion.div>
 
-        {/* Key Features Grid */}
         <div className="grid md:grid-cols-3 gap-8 mt-16">
           {[
             {
