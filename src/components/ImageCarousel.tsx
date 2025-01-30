@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
 const images = [
-  "/lovable-uploads/banner/copilot-banner.jpg",
-  "/lovable-uploads/banner/M365-Blog-Banner.png",
+  "/lovable-uploads/banner/m365app.png",
+  "/lovable-uploads/banner/copilotbanner2.png",
 ];
 
 export const ImageCarousel = () => {
