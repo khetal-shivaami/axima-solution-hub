@@ -107,28 +107,28 @@ const Copilot = () => {
                 step: 1,
                 title: "User Input & Context",
                 description: "User interacts with Microsoft 365 apps, providing queries and context from workspace data",
-                image: "/lovable-uploads/banner/copilotbackgrp.png",
+                icon: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
                 details: ["Natural Language Processing", "Context Gathering", "User Intent Analysis"]
               },
               {
                 step: 2,
                 title: "Security & Compliance",
                 description: "Enterprise-grade security checks and compliance validation of user requests",
-                image: "/lovable-uploads/banner/copilot-banner.jpg",
+                icon: "/lovable-uploads/logos/microsoft_logos/windows_defender.png",
                 details: ["Data Privacy Checks", "Permission Validation", "Compliance Filtering"]
               },
               {
                 step: 3,
                 title: "AI Processing Engine",
                 description: "Advanced language models process requests with organizational context",
-                image: "/lovable-uploads/banner/m365app.png",
+                icon: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png",
                 details: ["Large Language Models", "Knowledge Integration", "Pattern Recognition"]
               },
               {
                 step: 4,
                 title: "Intelligent Response",
                 description: "Delivers contextual suggestions and automated actions in real-time",
-                image: "/lovable-uploads/banner/ai_copilot.png",
+                icon: "/lovable-uploads/logos/microsoft_logos/microsoft_loop.png",
                 details: ["Response Generation", "Action Automation", "Real-time Updates"]
               }
             ].map((step, index) => (
@@ -143,11 +143,13 @@ const Copilot = () => {
                   <div className="w-16 h-16 bg-axima-blue rounded-full flex items-center justify-center mb-4">
                     <span className="text-2xl font-bold text-white">{step.step}</span>
                   </div>
-                  <img
-                    src={step.image}
-                    alt={step.title}
-                    className="w-full h-48 object-cover rounded-lg mb-4"
-                  />
+                  <div className="mb-4">
+                    <img
+                      src={step.icon}
+                      alt={step.title}
+                      className="w-16 h-16 object-contain mx-auto"
+                    />
+                  </div>
                   <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
                   <p className="text-gray-300 mb-4">{step.description}</p>
                   <ul className="list-disc list-inside text-gray-300 mt-auto">
@@ -157,10 +159,17 @@ const Copilot = () => {
                   </ul>
                   
                   {index < 3 && (
-                    <div className="hidden md:block absolute -right-12 top-1/2 transform -translate-y-1/2 z-10">
-                      <div className="w-24 h-2 bg-axima-blue"></div>
-                      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 rotate-45 w-4 h-4 bg-axima-blue"></div>
-                    </div>
+                    <motion.div 
+                      className="hidden md:block absolute -right-12 top-1/2 transform -translate-y-1/2 z-10"
+                      initial={{ opacity: 0, scaleX: 0 }}
+                      whileInView={{ opacity: 1, scaleX: 1 }}
+                      transition={{ duration: 0.5, delay: index * 0.2 }}
+                    >
+                      <div className="flex items-center">
+                        <div className="w-24 h-2 bg-axima-blue"></div>
+                        <div className="w-4 h-4 bg-axima-blue transform rotate-45"></div>
+                      </div>
+                    </motion.div>
                   )}
                 </div>
               </motion.div>
