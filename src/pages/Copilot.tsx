@@ -4,41 +4,6 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Copilot = () => {
-  const flowAnimation = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: { opacity: 1, scale: 1 },
-    transition: { 
-      duration: 0.5,
-      repeat: Infinity,
-      repeatType: "reverse" as const,
-      repeatDelay: 0.5
-    }
-  };
-
-  const arrowAnimation = {
-    initial: { opacity: 0, scaleX: 0 },
-    animate: { opacity: 1, scaleX: 1 },
-    transition: { 
-      duration: 0.5,
-      repeat: Infinity,
-      repeatType: "reverse" as const,
-      repeatDelay: 0.5
-    }
-  };
-
-  const pulseAnimation = {
-    initial: { opacity: 0.5, scale: 0.95 },
-    animate: { 
-      opacity: 1, 
-      scale: 1,
-      transition: {
-        duration: 1,
-        repeat: Infinity,
-        repeatType: "reverse"
-      }
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gray-900 tech-background">
       <Navbar />
@@ -71,6 +36,64 @@ const Copilot = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-16 space-y-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-black/40 p-8 rounded-lg backdrop-blur-sm"
+        >
+          <h2 className="text-3xl font-bold text-white mb-6">Market Demand & Impact</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <p className="text-gray-300">
+                Microsoft Copilot has emerged as a game-changing AI solution in the enterprise market, with:
+              </p>
+              <ul className="list-disc list-inside text-gray-300 space-y-2">
+                <li>Over 40% of Fortune 100 companies participating in early access program</li>
+                <li>Reported 29% increase in productivity among early adopters</li>
+                <li>Potential to save up to 2-3 hours daily in routine tasks</li>
+                <li>Growing demand across various industries for AI-powered productivity tools</li>
+              </ul>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-2xl font-semibold text-white">Business Impact</h3>
+              <ul className="list-disc list-inside text-gray-300 space-y-2">
+                <li>Streamlined workflow automation</li>
+                <li>Enhanced decision-making capabilities</li>
+                <li>Improved team collaboration</li>
+                <li>Reduced time spent on repetitive tasks</li>
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-6"
+          >
+            <h2 className="text-3xl font-bold text-white">Transform Your Work with AI</h2>
+            <p className="text-gray-300 text-lg">
+              Microsoft Copilot combines the power of large language models with your organization's data to transform your work. It's integrated into the Microsoft 365 apps you use every day.
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="relative"
+          >
+            <img 
+              src="/lovable-uploads/banner/copilotbackgrp.png"
+              alt="Copilot AI Assistant"
+              className="w-full rounded-lg shadow-2xl"
+            />
+          </motion.div>
+        </div>
+
+        {/* Real-time Workflow Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -116,26 +139,17 @@ const Copilot = () => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 className="relative"
               >
-                <motion.div 
-                  className="bg-black/60 rounded-lg p-6 h-full flex flex-col"
-                  {...pulseAnimation}
-                >
-                  <motion.div 
-                    className="w-16 h-16 bg-axima-blue rounded-full flex items-center justify-center mb-4"
-                    {...flowAnimation}
-                  >
+                <div className="bg-black/60 rounded-lg p-6 h-full flex flex-col">
+                  <div className="w-16 h-16 bg-axima-blue rounded-full flex items-center justify-center mb-4">
                     <span className="text-2xl font-bold text-white">{step.step}</span>
-                  </motion.div>
-                  <motion.div 
-                    className="mb-4"
-                    {...flowAnimation}
-                  >
+                  </div>
+                  <div className="mb-4">
                     <img
                       src={step.icon}
                       alt={step.title}
                       className="w-16 h-16 object-contain mx-auto"
                     />
-                  </motion.div>
+                  </div>
                   <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
                   <p className="text-gray-300 mb-4">{step.description}</p>
                   <ul className="list-disc list-inside text-gray-300 mt-auto">
@@ -147,35 +161,17 @@ const Copilot = () => {
                   {index < 3 && (
                     <motion.div 
                       className="hidden md:block absolute -right-12 top-1/2 transform -translate-y-1/2 z-10"
-                      {...arrowAnimation}
+                      initial={{ opacity: 0, scaleX: 0 }}
+                      whileInView={{ opacity: 1, scaleX: 1 }}
+                      transition={{ duration: 0.5, delay: index * 0.2 }}
                     >
                       <div className="flex items-center">
-                        <motion.div 
-                          className="w-24 h-2 bg-axima-blue"
-                          initial={{ scaleX: 0 }}
-                          animate={{ scaleX: 1 }}
-                          transition={{
-                            duration: 1,
-                            repeat: Infinity,
-                            repeatType: "reverse"
-                          }}
-                        />
-                        <motion.div 
-                          className="w-4 h-4 bg-axima-blue transform rotate-45"
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [1, 0.8, 1]
-                          }}
-                          transition={{
-                            duration: 1,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        />
+                        <div className="w-24 h-2 bg-axima-blue"></div>
+                        <div className="w-4 h-4 bg-axima-blue transform rotate-45"></div>
                       </div>
                     </motion.div>
                   )}
-                </motion.div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -226,6 +222,7 @@ const Copilot = () => {
           ))}
         </div>
 
+        {/* Benefits Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
