@@ -9,7 +9,7 @@ export const Vision = () => {
     "Benefit from our experienced technical support team dedicated to meeting your needs",
     "Have a dedicated representative as your primary contact to ensure customer satisfaction",
     "Join over 2,000 satisfied customers across India",
-    "Leverage our decade-long experience and over 7+ years of expertise in Cloud Technology.",
+    "Leverage our decade-long experience of expertise in Cloud Technology.",
     "Our strong understanding of Cloud security",
     "Enjoy prompt and reliable customer support"
   ];
