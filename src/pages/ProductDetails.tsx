@@ -359,6 +359,7 @@ const ProductDetails = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 tech-background">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
       <div className="container mx-auto px-4 py-20">
         <motion.div
@@ -394,17 +395,16 @@ const ProductDetails = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
-                   <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 group cursor-pointer h-full">
-                    <div className="p-4 flex items-center space-x-3">
-                      <div className="p-2 rounded-full bg-axima-blue/10 flex items-center justify-center">
-                        <CheckCircle className="h-5 w-5 text-axima-blue" />
+                    <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 group cursor-pointer h-full">
+                      <div className="p-4 flex items-center space-x-3">
+                        <div className="p-2 rounded-full bg-axima-blue/10 flex items-center justify-center">
+                          <CheckCircle className="h-5 w-5 text-axima-blue" />
+                        </div>
+                        <p className="text-gray-300 group-hover:text-axima-blue transition-colors duration-300">
+                          {feature}
+                        </p>
                       </div>
-                      <p className="text-gray-300 group-hover:text-axima-blue transition-colors duration-300">
-                        {feature}
-                      </p>
-                    </div>
-                  </Card>
-
+                    </Card>
                   </motion.div>
                 ))}
               </div>
@@ -434,7 +434,6 @@ const ProductDetails = () => {
                         </p>
                       </div>
                     </Card>
-
                   </motion.div>
                 ))}
               </div>
@@ -446,7 +445,7 @@ const ProductDetails = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex justify-center mt-8"
+            className="flex justify-center mt-8 relative z-10"
           >
             <Button
               onClick={() => navigate('/contact')}
