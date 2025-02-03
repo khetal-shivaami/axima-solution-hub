@@ -110,35 +110,58 @@ export const Microsoft365Benefits = () => {
   return (
     <div className="py-12 bg-black/40">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          {/* Left Column - Title and Description */}
+        <motion.div 
+          className="max-w-3xl mx-auto text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-4xl font-bold text-white mb-6">Microsoft 365 Solutions</h2>
+          <p className="text-lg text-gray-300">
+            Transform your business with cloud-powered productivity tools and enterprise-grade security.
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           <motion.div 
-            className="text-left"
+            className="space-y-8"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl font-bold text-white mb-6">Microsoft 365 (Formerly Microsoft Office 365)</h2>
-            <div className="space-y-4 text-gray-300">
-              <p>
-                A cloud solution helps businesses work more efficiently and effectively by streamlining their processes. 
-                The most important benefit for companies was they would work anywhere and any time. 
-                As a result, if you're not on the cloud, you're out of the race.
-              </p>
-              <p>
-                Every organisation needs data. With the surge in its use and digital transformation in businesses, 
-                a solution to help businesses become more productive was required. This is where cloud computing solutions come in.
-              </p>
-              <p>
-                Why choose Microsoft 365 when there are so many other cloud solutions? Microsoft 365 is a cloud-based software service that offers 
-                secure, anywhere access to emails and calendars, office web apps, instant messaging, video conferencing, and file sharing.
-              </p>
+            <div className="bg-gradient-to-r from-axima-blue/20 to-transparent p-8 rounded-2xl border border-axima-blue/20">
+              <h3 className="text-2xl font-bold text-white mb-4">Why Choose Microsoft 365?</h3>
+              <div className="space-y-4 text-gray-300">
+                <p>
+                  Experience seamless collaboration and enhanced productivity with Microsoft 365's comprehensive cloud solution. 
+                  Work from anywhere, anytime with enterprise-grade security and reliability.
+                </p>
+                <p>
+                  From email and calendar management to advanced AI-powered tools, Microsoft 365 provides everything your 
+                  business needs to succeed in the digital age.
+                </p>
+              </div>
             </div>
+
+            {benefits.map((benefit, index) => (
+              <HoverCard key={index}>
+                <HoverCardTrigger>
+                  <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue transition-all duration-300">
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-semibold text-white mb-2">{benefit.title}</h3>
+                      <p className="text-gray-300">{benefit.description}</p>
+                    </CardContent>
+                  </Card>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80 bg-black/90 border border-axima-blue text-white">
+                  <p className="text-sm">{benefit.details}</p>
+                </HoverCardContent>
+              </HoverCard>
+            ))}
           </motion.div>
 
-          {/* Right Column - Product Grid */}
           <motion.div 
-            className="grid grid-cols-2 sm:grid-cols-3 gap-4"
+            className="grid grid-cols-2 sm:grid-cols-3 gap-4 content-start"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -147,10 +170,7 @@ export const Microsoft365Benefits = () => {
               <HoverCard key={index}>
                 <HoverCardTrigger>
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="group relative bg-black/30 border border-axima-blue/20 rounded-lg p-4 text-center text-white hover:border-axima-blue transition-all duration-300 hover:bg-black/50 hover:scale-105 cursor-pointer"
+                    className="group relative bg-black/30 border border-axima-blue/20 rounded-lg p-4 text-center hover:border-axima-blue transition-all duration-300 cursor-pointer overflow-hidden"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleProductClick(feature.name)}
@@ -161,11 +181,11 @@ export const Microsoft365Benefits = () => {
                         alt={`${feature.name} logo`} 
                         className="w-12 h-12 mx-auto mb-2 object-contain group-hover:scale-110 transition-transform duration-300"
                       />
-                      <h3 className="font-semibold mb-1 group-hover:text-axima-blue transition-colors duration-300">
+                      <h3 className="font-semibold text-white group-hover:text-axima-blue transition-colors duration-300">
                         {feature.name}
                       </h3>
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-axima-blue/0 via-axima-blue/5 to-axima-blue/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-axima-blue/0 via-axima-blue/5 to-axima-blue/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </motion.div>
                 </HoverCardTrigger>
                 <HoverCardContent className="w-80 bg-black/90 border border-axima-blue text-white">
@@ -175,42 +195,6 @@ export const Microsoft365Benefits = () => {
               </HoverCard>
             ))}
           </motion.div>
-        </div>
-
-        {/* Benefits Section */}
-        <motion.h2 
-          className="text-2xl font-bold text-white text-center mt-16 mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          Features of Microsoft 365
-        </motion.h2>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
-            >
-              <HoverCard>
-                <HoverCardTrigger>
-                  <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue text-white transform transition-all duration-300 hover:scale-102 hover:bg-black/60 cursor-pointer h-full">
-                    <CardContent className="p-6">
-                      <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
-                      <p className="text-sm text-gray-300">{benefit.description}</p>
-                    </CardContent>
-                  </Card>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-80 bg-black/90 text-white border border-axima-blue">
-                  <h4 className="font-semibold mb-2">{benefit.title}</h4>
-                  <p className="text-sm text-gray-300">{benefit.details}</p>
-                </HoverCardContent>
-              </HoverCard>
-            </motion.div>
-          ))}
         </div>
       </div>
     </div>
