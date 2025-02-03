@@ -18,13 +18,13 @@ export const Hero = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="flex items-center justify-center gap-2 mb-6"
           >
-            <span className="px-3 py-1 text-sm text-axima-blue bg-axima-blue/10 rounded-full">
+            <span className="px-4 py-2 text-sm bg-gradient-to-r from-axima-blue/20 to-axima-blue/10 rounded-full border border-axima-blue/20 text-axima-blue hover-lift">
               Authorized Microsoft Partner
             </span>
           </motion.div>
 
           <motion.h1 
-            className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500 mb-6"
+            className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500"
             initial={{ y: -20 }}
             animate={{ y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -50,7 +50,7 @@ export const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Button
-              className="bg-axima-blue hover:bg-blue-600 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group"
+              className="bg-axima-blue hover:bg-blue-600 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group hover-lift"
               onClick={() => document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })}
             >
               Explore Microsoft Solutions 
@@ -59,7 +59,7 @@ export const Hero = () => {
             
             <Button
               variant="outline"
-              className="border-white/20 hover:bg-white/10 text-white px-8 py-6 text-lg rounded-full"
+              className="glass-card px-8 py-6 text-lg rounded-full hover-lift"
               onClick={() => window.location.href = '/contact'}
             >
               Contact Sales
@@ -68,7 +68,7 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Decorative elements */}
+      {/* Enhanced decorative elements */}
       <div className="absolute inset-0 -z-10 h-full w-full bg-white/[0.02]" />
       <div className="absolute -top-1/2 left-0 -z-10 h-[200%] w-full">
         <div className="absolute -top-96 left-1/2 -translate-x-1/2 transform-gpu blur-3xl">

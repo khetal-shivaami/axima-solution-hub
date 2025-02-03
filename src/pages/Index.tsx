@@ -10,11 +10,13 @@ import { motion } from "framer-motion";
 const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+      {/* Subtle grid background */}
+      <div className="fixed inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
       
       <Navbar />
       
       <div className="relative">
+        {/* Hero section glow effect */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -26,6 +28,7 @@ const Index = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
+          className="relative z-10"
         >
           <Hero />
         </motion.div>
@@ -55,14 +58,16 @@ const Index = () => {
         transition={{ delay: 0.5, duration: 0.6 }}
         className="relative z-10"
       >
-        <Microsoft365Benefits />
+        <div className="tech-background">
+          <Microsoft365Benefits />
+        </div>
       </motion.div>
 
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.6 }}
-        className="relative z-10 bg-white/5 backdrop-blur-sm"
+        className="relative z-10 bg-black/40 backdrop-blur-sm"
       >
         <TrustedBy />
       </motion.div>
