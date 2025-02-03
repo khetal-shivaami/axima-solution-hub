@@ -44,7 +44,7 @@ const About = () => {
               <CardTitle>Axima Corporation</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-gray-300">
+              <p className="text-xl text-gray-300">
                 Axima Corporation is a certified Microsoft 365 partner, dedicated to helping businesses leverage the benefits of cloud solutions. In today's competitive landscape, companies seek collaborative tools that provide a strategic advantage. Microsoft 365 delivers exactly that. With Axima's expertise in integrating Microsoft 365, your business gains enhanced flexibility and agility, empowering you to stay ahead in the market.
               </p>
             </CardContent>
