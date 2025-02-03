@@ -61,6 +61,13 @@ const Copilot = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-16 space-y-12" ref={scope}>
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-4xl font-bold text-center text-white mb-12"
+        >
+          How Microsoft Copilot Works
+        </motion.h2>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -122,7 +129,14 @@ const Copilot = () => {
           ))}
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mt-16">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-4xl font-bold text-center text-white mt-24 mb-12"
+        >
+          Key Features & Benefits
+        </motion.h2>
+        <div className="grid md:grid-cols-3 gap-8">
           {[
             {
               title: "Enhanced Productivity",
