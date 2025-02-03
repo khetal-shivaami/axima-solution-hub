@@ -18,7 +18,7 @@ export const Hero = () => {
             animate={{ y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            Delivering Cloud Solutions for Your Success
+            Transform Your Business with Microsoft Solutions
           </motion.h1>
           <motion.p 
             className="text-xl text-gray-300 mb-8"
@@ -26,7 +26,7 @@ export const Hero = () => {
             animate={{ y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Axima Corporation is one of Microsoft's Trusted Cloud Solution Providers in India, dedicated to helping businesses leverage the benefits of cloud solutions.
+            Empower your organization with Microsoft's comprehensive suite of cloud solutions. As a trusted Microsoft Cloud Solution Provider, we deliver seamless integration, enhanced productivity, and robust security.
           </motion.p>
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -35,12 +35,12 @@ export const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {/* <Button
+            <Button
               className="bg-axima-blue hover:bg-blue-600 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
-              onClick={() => document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Explore Our Solutions <ArrowRight className="ml-2" />
-            </Button> */}
+              Explore Microsoft Solutions <ArrowRight className="ml-2" />
+            </Button>
           </motion.div>
         </motion.div>
       </div>

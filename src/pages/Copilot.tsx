@@ -16,165 +16,99 @@ const Copilot = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="relative z-20 h-full flex flex-col items-center justify-center text-white max-w-7xl mx-auto px-4">
-          <motion.h1 
-            className="text-5xl md:text-6xl font-bold text-center mb-6"
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            animate={{ 
+              opacity: 1, 
+              y: 0,
+              transition: {
+                duration: 0.8,
+                repeat: Infinity,
+                repeatType: "mirror"
+              }
+            }}
+            className="text-center"
           >
-            Microsoft Copilot
-          </motion.h1>
-          <motion.p 
-            className="text-xl md:text-2xl text-center text-gray-200"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            Your everyday AI companion for enhanced productivity
-          </motion.p>
+            <h1 className="text-5xl md:text-6xl font-bold text-center mb-6">
+              Microsoft Copilot
+            </h1>
+            <p className="text-xl md:text-2xl text-center text-gray-200">
+              Your AI-powered productivity companion
+            </p>
+          </motion.div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-16 space-y-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="bg-black/40 p-8 rounded-lg backdrop-blur-sm"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ 
+            opacity: 1, 
+            scale: 1,
+            transition: {
+              duration: 1,
+              repeat: Infinity,
+              repeatType: "mirror"
+            }
+          }}
+          className="grid md:grid-cols-4 gap-8"
         >
-          <h2 className="text-3xl font-bold text-white mb-6">Market Demand & Impact</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <p className="text-gray-300">
-                Microsoft Copilot has emerged as a game-changing AI solution in the enterprise market, with:
-              </p>
-              <ul className="list-disc list-inside text-gray-300 space-y-2">
-                <li>Over 40% of Fortune 100 companies participating in early access program</li>
-                <li>Reported 29% increase in productivity among early adopters</li>
-                <li>Potential to save up to 2-3 hours daily in routine tasks</li>
-                <li>Growing demand across various industries for AI-powered productivity tools</li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-2xl font-semibold text-white">Business Impact</h3>
-              <ul className="list-disc list-inside text-gray-300 space-y-2">
-                <li>Streamlined workflow automation</li>
-                <li>Enhanced decision-making capabilities</li>
-                <li>Improved team collaboration</li>
-                <li>Reduced time spent on repetitive tasks</li>
-              </ul>
-            </div>
-          </div>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
-          >
-            <h2 className="text-3xl font-bold text-white">Transform Your Work with AI</h2>
-            <p className="text-gray-300 text-lg">
-              Microsoft Copilot combines the power of large language models with your organization's data to transform your work. It's integrated into the Microsoft 365 apps you use every day.
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="relative"
-          >
-            <img 
-              src="/lovable-uploads/banner/copilotbackgrp.png"
-              alt="Copilot AI Assistant"
-              className="w-full rounded-lg shadow-2xl"
-            />
-          </motion.div>
-        </div>
-
-        {/* Real-time Workflow Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="bg-black/40 p-8 rounded-lg backdrop-blur-sm"
-        >
-          <h2 className="text-3xl font-bold text-white mb-8">How Copilot Works</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              {
-                step: 1,
-                title: "User Input & Context",
-                description: "User interacts with Microsoft 365 apps, providing queries and context from workspace data",
-                icon: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
-                details: ["Natural Language Processing", "Context Gathering", "User Intent Analysis"]
-              },
-              {
-                step: 2,
-                title: "Security & Compliance",
-                description: "Enterprise-grade security checks and compliance validation of user requests",
-                icon: "/lovable-uploads/logos/microsoft_logos/windows_defender.png",
-                details: ["Data Privacy Checks", "Permission Validation", "Compliance Filtering"]
-              },
-              {
-                step: 3,
-                title: "AI Processing Engine",
-                description: "Advanced language models process requests with organizational context",
-                icon: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png",
-                details: ["Large Language Models", "Knowledge Integration", "Pattern Recognition"]
-              },
-              {
-                step: 4,
-                title: "Intelligent Response",
-                description: "Delivers contextual suggestions and automated actions in real-time",
-                icon: "/lovable-uploads/logos/microsoft_logos/microsoft_loop.png",
-                details: ["Response Generation", "Action Automation", "Real-time Updates"]
-              }
-            ].map((step, index) => (
+          {[
+            {
+              step: 1,
+              title: "User Input",
+              icon: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
+              description: "Natural language processing of user requests"
+            },
+            {
+              step: 2,
+              title: "Security Check",
+              icon: "/lovable-uploads/logos/microsoft_logos/windows_defender.png",
+              description: "Enterprise-grade security validation"
+            },
+            {
+              step: 3,
+              title: "AI Processing",
+              icon: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png",
+              description: "Advanced language model processing"
+            },
+            {
+              step: 4,
+              title: "Smart Response",
+              icon: "/lovable-uploads/logos/microsoft_logos/microsoft_loop.png",
+              description: "Contextual suggestions and actions"
+            }
+          ].map((step, index) => (
+            <motion.div
+              key={index}
+              className="bg-black/60 rounded-lg p-6 relative overflow-hidden"
+              whileHover={{ scale: 1.05 }}
+            >
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="relative"
-              >
-                <div className="bg-black/60 rounded-lg p-6 h-full flex flex-col">
-                  <div className="w-16 h-16 bg-axima-blue rounded-full flex items-center justify-center mb-4">
-                    <span className="text-2xl font-bold text-white">{step.step}</span>
-                  </div>
-                  <div className="mb-4">
-                    <img
-                      src={step.icon}
-                      alt={step.title}
-                      className="w-16 h-16 object-contain mx-auto"
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
-                  <p className="text-gray-300 mb-4">{step.description}</p>
-                  <ul className="list-disc list-inside text-gray-300 mt-auto">
-                    {step.details.map((detail, idx) => (
-                      <li key={idx} className="text-sm">{detail}</li>
-                    ))}
-                  </ul>
-                  
-                  {index < 3 && (
-                    <motion.div 
-                      className="hidden md:block absolute -right-12 top-1/2 transform -translate-y-1/2 z-10"
-                      initial={{ opacity: 0, scaleX: 0 }}
-                      whileInView={{ opacity: 1, scaleX: 1 }}
-                      transition={{ duration: 0.5, delay: index * 0.2 }}
-                    >
-                      <div className="flex items-center">
-                        <div className="w-24 h-2 bg-axima-blue"></div>
-                        <div className="w-4 h-4 bg-axima-blue transform rotate-45"></div>
-                      </div>
-                    </motion.div>
-                  )}
+                className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10"
+                animate={{
+                  x: ["0%", "100%", "0%"],
+                  transition: {
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "loop"
+                  }
+                }}
+              />
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-axima-blue rounded-full flex items-center justify-center mb-4">
+                  <span className="text-2xl font-bold text-white">{step.step}</span>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                <img
+                  src={step.icon}
+                  alt={step.title}
+                  className="w-16 h-16 mx-auto mb-4"
+                />
+                <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
+                <p className="text-gray-300">{step.description}</p>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 mt-16">

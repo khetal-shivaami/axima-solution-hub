@@ -32,20 +32,21 @@ export const Stats = () => {
   const stats = [
     {
       value: 2000,
-      label: "Satisfied Customers",
+      label: "Microsoft Licenses Deployed",
       suffix: "+",
-      description: "Thousands of customers have relied on us for all their cloud-related requirements for decades."
+      description: "Successfully deployed Microsoft solutions to thousands of businesses across India."
     },
     {
-      value: 5,
-      label: "Offices in Key Cities",
-      description: "5 Offices in Key Indian Cities, leaving our footprint in multiple geographies to ease the way businesses do their business."
+      value: 99,
+      label: "Customer Satisfaction",
+      suffix: "%",
+      description: "Our customers trust us for reliable Microsoft product deployment and support."
     },
     {
       value: 24,
-      label: "Customer Support",
+      label: "Technical Support",
       suffix: " hrs",
-      description: "Highly qualified executives are available to solve your queries and fix your issues round the clock."
+      description: "Round-the-clock Microsoft-certified support team at your service."
     }
   ];
 
