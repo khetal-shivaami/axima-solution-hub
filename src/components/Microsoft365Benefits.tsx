@@ -121,23 +121,26 @@ export const Microsoft365Benefits = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="h-full"
               >
                 <HoverCard>
-                  <HoverCardTrigger>
+                  <HoverCardTrigger asChild>
                     <Card 
                       onClick={() => handleProductClick(feature.name)}
-                      className={`relative group cursor-pointer border-0 bg-gradient-to-br ${feature.color} backdrop-blur-sm hover:scale-105 transition-all duration-300`}
+                      className={`relative group cursor-pointer border-0 bg-gradient-to-br ${feature.color} backdrop-blur-sm hover:scale-105 transition-all duration-300 h-full flex flex-col`}
                     >
-                      <div className="p-6 flex flex-col items-center">
-                        <img 
-                          src={feature.logo} 
-                          alt={feature.name}
-                          className="w-16 h-16 mb-4 group-hover:scale-110 transition-transform duration-300"
-                        />
-                        <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-axima-blue transition-colors">
-                          {feature.name}
-                        </h3>
-                        <ArrowRight className="w-5 h-5 text-white/50 group-hover:text-axima-blue group-hover:translate-x-1 transition-all duration-300" />
+                      <div className="p-6 flex flex-col items-center justify-between h-full">
+                        <div className="flex flex-col items-center">
+                          <img 
+                            src={feature.logo} 
+                            alt={feature.name}
+                            className="w-16 h-16 mb-4 group-hover:scale-110 transition-transform duration-300"
+                          />
+                          <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-axima-blue transition-colors">
+                            {feature.name}
+                          </h3>
+                        </div>
+                        <ArrowRight className="w-5 h-5 text-white/50 group-hover:text-axima-blue group-hover:translate-x-1 transition-all duration-300 mt-4" />
                       </div>
                     </Card>
                   </HoverCardTrigger>
