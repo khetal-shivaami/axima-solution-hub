@@ -88,7 +88,7 @@ export const Microsoft365Benefits = () => {
   };
   
   return (
-    <div className="py-16 relative overflow-hidden">
+    <div id="microsoft365-benefits" className="py-16 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent" />

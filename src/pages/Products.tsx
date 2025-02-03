@@ -91,7 +91,7 @@ const Products = () => {
                         src={solution.image} 
                         alt={solution.name} 
                         className="w-full h-40 object-contain rounded-lg mb-4"
-                        loading="eager"
+                        loading="lazy"
                         decoding="async"
                       />
                       <p className="text-gray-300 text-sm">{solution.description}</p>
@@ -119,7 +119,7 @@ const Products = () => {
                           src={solution.image} 
                           alt={solution.name}
                           className="w-20 h-16 object-contain rounded-lg"
-                          loading="eager"
+                          loading="lazy"
                           decoding="async"
                         />
                         <div>

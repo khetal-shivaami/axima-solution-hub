@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 export const Hero = () => {
+  const scrollToProducts = () => {
+    const element = document.getElementById('microsoft365-benefits');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative overflow-hidden">
       <div className="container mx-auto px-4 py-20">
@@ -51,7 +58,7 @@ export const Hero = () => {
           >
             <Button
               className="bg-axima-blue hover:bg-blue-600 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group hover-lift"
-              onClick={() => document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={scrollToProducts}
             >
               Explore Microsoft Solutions 
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
