@@ -37,14 +37,23 @@ const companies = [
 
 export const TrustedBy = () => {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Trusted by Delivering Excellence and Reliability
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Trusted by Industry Leaders
           </h2>
-          <div className="w-24 h-1 bg-axima-blue mx-auto"></div>
-        </div>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Join the growing list of businesses that trust us for their Microsoft solutions
+          </p>
+          <div className="w-24 h-1 bg-axima-blue mx-auto mt-6"></div>
+        </motion.div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
           {companies.map((company, index) => (
@@ -52,15 +61,18 @@ export const TrustedBy = () => {
               key={company.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="w-full max-w-[200px] h-24 flex items-center justify-center p-4"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="w-full max-w-[200px] h-24 relative group"
             >
-              <img
-                src={company.image}
-                alt={company.name}
-                className="max-w-full max-h-full object-contain filter hover:grayscale-0 transition-all duration-300"
-              />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+              <div className="relative h-full flex items-center justify-center p-4">
+                <img
+                  src={company.image}
+                  alt={company.name}
+                  className="max-w-full max-h-full object-contain transition-all duration-300 group-hover:scale-110 filter grayscale hover:grayscale-0"
+                />
+              </div>
             </motion.div>
           ))}
         </div>
