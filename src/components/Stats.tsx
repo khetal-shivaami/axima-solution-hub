@@ -32,19 +32,19 @@ export const Stats = () => {
   const stats = [
     {
       value: 2000,
-      label: "Microsoft Licenses Deployed",
+      label: "Satisfied Customers",
       suffix: "+",
       description: "Successfully deployed Microsoft solutions to thousands of businesses across India.",
       icon: Users,
       color: "from-blue-500/20 to-purple-500/20"
     },
     {
-      value: 99,
-      label: "Customer Satisfaction",
-      suffix: "%",
-      description: "Our customers trust us for reliable Microsoft product deployment and support.",
-      icon: Shield,
-      color: "from-green-500/20 to-emerald-500/20"
+      value: 5,
+      label: "Key Cities",
+      suffix: "+",
+      description: "Serving major metropolitan areas across India with local support teams.",
+      icon: TrendingUp,
+      color: "from-purple-500/20 to-pink-500/20"
     },
     {
       value: 24,

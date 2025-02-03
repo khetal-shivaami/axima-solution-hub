@@ -70,7 +70,7 @@ export const TrustedBy = () => {
                 <img
                   src={company.image}
                   alt={company.name}
-                  className="max-w-full max-h-full object-contain transition-all duration-300 group-hover:scale-110 filter grayscale hover:grayscale-0"
+                  className="max-w-full max-h-full object-contain transition-all duration-300 group-hover:scale-110 filter"
                 />
               </div>
             </motion.div>
