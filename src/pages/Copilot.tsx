@@ -25,7 +25,7 @@ const steps = [
   },
 ];
 
-export const Copilot = () => {
+const Copilot = () => {
   const [scope, animate] = useAnimate();
   const activeStep = useRef(0);
 
@@ -103,3 +103,5 @@ export const Copilot = () => {
     </div>
   );
 };
+
+export default Copilot;
