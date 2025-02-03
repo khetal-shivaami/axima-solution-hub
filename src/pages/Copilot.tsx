@@ -1,9 +1,36 @@
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useEffect } from "react";
 
 const Copilot = () => {
+  const [scope, animate] = useAnimate();
+
+  useEffect(() => {
+    const animateSteps = async () => {
+      while (true) {
+        // Step 1
+        await animate(".step-1", { scale: 1.05, backgroundColor: "rgba(0, 163, 255, 0.2)" }, { duration: 1 });
+        await animate(".step-1", { scale: 1, backgroundColor: "rgba(0, 0, 0, 0.6)" }, { duration: 1 });
+        
+        // Step 2
+        await animate(".step-2", { scale: 1.05, backgroundColor: "rgba(0, 163, 255, 0.2)" }, { duration: 1 });
+        await animate(".step-2", { scale: 1, backgroundColor: "rgba(0, 0, 0, 0.6)" }, { duration: 1 });
+        
+        // Step 3
+        await animate(".step-3", { scale: 1.05, backgroundColor: "rgba(0, 163, 255, 0.2)" }, { duration: 1 });
+        await animate(".step-3", { scale: 1, backgroundColor: "rgba(0, 0, 0, 0.6)" }, { duration: 1 });
+        
+        // Step 4
+        await animate(".step-4", { scale: 1.05, backgroundColor: "rgba(0, 163, 255, 0.2)" }, { duration: 1 });
+        await animate(".step-4", { scale: 1, backgroundColor: "rgba(0, 0, 0, 0.6)" }, { duration: 1 });
+      }
+    };
+
+    animateSteps();
+  }, [animate]);
+
   return (
     <div className="min-h-screen bg-gray-900 tech-background">
       <Navbar />
@@ -33,7 +60,7 @@ const Copilot = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-16 space-y-12">
+      <div className="max-w-7xl mx-auto px-4 py-16 space-y-12" ref={scope}>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -68,7 +95,7 @@ const Copilot = () => {
           ].map((step, index) => (
             <motion.div
               key={index}
-              className="bg-black/60 rounded-lg p-6 relative overflow-hidden group"
+              className={`step-${step.step} bg-black/60 rounded-lg p-6 relative overflow-hidden group`}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             >
