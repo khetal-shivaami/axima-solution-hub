@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
 const images = [
-  "/lovable-uploads/banner/m365app.png",
+  "/lovable-uploads/banner/Banner-06microsoft.jpg",
   "/lovable-uploads/banner/copilotbanner2.png",
 ];
 
