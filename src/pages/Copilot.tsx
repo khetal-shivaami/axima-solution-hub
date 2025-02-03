@@ -14,19 +14,13 @@ const Copilot = () => {
           src="/lovable-uploads/banner/ai_copilot.png"
           alt="Microsoft Copilot Banner"
           className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
         />
         <div className="relative z-20 h-full flex flex-col items-center justify-center text-white max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ 
-              opacity: 1, 
-              y: 0,
-              transition: {
-                duration: 0.8,
-                repeat: Infinity,
-                repeatType: "mirror"
-              }
-            }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
             className="text-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-center mb-6">
@@ -42,15 +36,8 @@ const Copilot = () => {
       <div className="max-w-7xl mx-auto px-4 py-16 space-y-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ 
-            opacity: 1, 
-            scale: 1,
-            transition: {
-              duration: 1,
-              repeat: Infinity,
-              repeatType: "mirror"
-            }
-          }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
           className="grid md:grid-cols-4 gap-8"
         >
           {[
@@ -81,28 +68,25 @@ const Copilot = () => {
           ].map((step, index) => (
             <motion.div
               key={index}
-              className="bg-black/60 rounded-lg p-6 relative overflow-hidden"
-              whileHover={{ scale: 1.05 }}
+              className="bg-black/60 rounded-lg p-6 relative overflow-hidden group"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10"
-                animate={{
-                  x: ["0%", "100%", "0%"],
-                  transition: {
-                    duration: 3,
-                    repeat: Infinity,
-                    repeatType: "loop"
-                  }
-                }}
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
               />
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-axima-blue rounded-full flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-axima-blue rounded-full flex items-center justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl font-bold text-white">{step.step}</span>
                 </div>
                 <img
                   src={step.icon}
                   alt={step.title}
                   className="w-16 h-16 mx-auto mb-4"
+                  loading="eager"
                 />
                 <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
                 <p className="text-gray-300">{step.description}</p>
@@ -143,10 +127,11 @@ const Copilot = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
             >
-              <Card className="bg-black/40 border-none text-white backdrop-blur-sm h-full hover:bg-black/50 transition-colors">
+              <Card className="bg-black/40 border-none text-white backdrop-blur-sm h-full hover:bg-black/50 transition-colors group">
                 <CardHeader>
-                  <CardTitle>{feature.title}</CardTitle>
+                  <CardTitle className="group-hover:text-axima-blue transition-colors">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-300">{feature.description}</p>
@@ -156,11 +141,11 @@ const Copilot = () => {
           ))}
         </div>
 
-        {/* Benefits Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
           className="bg-black/40 p-8 rounded-lg backdrop-blur-sm mt-16"
         >
           <h2 className="text-3xl font-bold text-white mb-6">Why Choose Microsoft Copilot?</h2>
