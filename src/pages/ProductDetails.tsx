@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Card } from "@/components/ui/card";
-import { Shield, Zap, Star, Trophy, Settings, Users, Rocket, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Shield, Zap, Star, Trophy, Settings, Users, Rocket, CheckCircle, ArrowRight } from "lucide-react";
 
 const productDetails: Record<string, {
   title: string;
@@ -28,7 +29,6 @@ const productDetails: Record<string, {
       "Voice Typing & Dictation",
       "PDF Support",
       "Add-ins & Macros"
-
     ],
     benefits: [
       "User-Friendly Interface",
@@ -338,13 +338,12 @@ const productDetails: Record<string, {
       "Custom Reports & Queries"
     ]
   },
-  // Add more products as needed
 };
 
 const ProductDetails = () => {
   const { productId } = useParams();
+  const navigate = useNavigate();
   const product = productId ? productDetails[productId.toLowerCase()] : null;
-  console.log(product)
 
   if (!product) {
     return (
@@ -441,6 +440,22 @@ const ProductDetails = () => {
               </div>
             </motion.div>
           </div>
+
+          {/* Contact Button */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex justify-center mt-8"
+          >
+            <Button
+              onClick={() => navigate('/contact')}
+              className="bg-axima-blue hover:bg-blue-600 text-white px-8 py-4 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+            >
+              Contact Us
+              <ArrowRight className="ml-2" />
+            </Button>
+          </motion.div>
         </motion.div>
       </div>
       <Footer />
