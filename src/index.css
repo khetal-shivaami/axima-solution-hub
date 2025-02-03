@@ -102,3 +102,8 @@
     opacity: 0.4;
   }
 }
+
+/* Gradient border animation */
+.border-gradient-to-r {
+  border-image: linear-gradient(to right, var(--tw-gradient-stops)) 1;
+}
