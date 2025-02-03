@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Shield, Zap, Star, Trophy, Settings, Users, Rocket, CheckCircle, ArrowRight } from "lucide-react";
 
 const productDetails: Record<string, {
