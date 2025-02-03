@@ -62,7 +62,7 @@
     rgba(0, 163, 255, 0.15) 100%
   );
   background-size: 400% 400%;
-  animation: techFlow 10s ease infinite;
+  animation: techFlow 15s ease infinite;
   position: relative;
 }
 
@@ -106,4 +106,21 @@
 /* Gradient border animation */
 .border-gradient-to-r {
   border-image: linear-gradient(to right, var(--tw-gradient-stops)) 1;
+}
+
+/* Floating animation for cards */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
