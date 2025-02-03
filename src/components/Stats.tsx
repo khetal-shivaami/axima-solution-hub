@@ -53,14 +53,6 @@ export const Stats = () => {
       description: "Round-the-clock Microsoft-certified support team at your service.",
       icon: Clock,
       color: "from-orange-500/20 to-red-500/20"
-    },
-    {
-      value: 12,
-      label: "Key Cities",
-      suffix: "+",
-      description: "Serving major metropolitan areas across India with local support teams.",
-      icon: TrendingUp,
-      color: "from-purple-500/20 to-pink-500/20"
     }
   ];
 
