@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Shield, Users, Clock } from "lucide-react";
+import { Users, Shield, Clock, TrendingUp } from "lucide-react";
 
 const AnimatedNumber = ({ value, duration = 1 }: { value: number | string; duration?: number }) => {
   const [count, setCount] = useState(0);
@@ -35,21 +35,24 @@ export const Stats = () => {
       label: "Microsoft Licenses Deployed",
       suffix: "+",
       description: "Successfully deployed Microsoft solutions to thousands of businesses across India.",
-      icon: Users
+      icon: Users,
+      color: "from-blue-500/20 to-purple-500/20"
     },
     {
       value: 99,
       label: "Customer Satisfaction",
       suffix: "%",
       description: "Our customers trust us for reliable Microsoft product deployment and support.",
-      icon: Shield
+      icon: Shield,
+      color: "from-green-500/20 to-emerald-500/20"
     },
     {
       value: 24,
       label: "Technical Support",
       suffix: " hrs",
       description: "Round-the-clock Microsoft-certified support team at your service.",
-      icon: Clock
+      icon: Clock,
+      color: "from-orange-500/20 to-red-500/20"
     }
   ];
 
@@ -68,9 +71,9 @@ export const Stats = () => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 className="relative group"
               >
-                <div className="absolute inset-0 bg-gradient-to-b from-axima-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl" />
+                <div className={`absolute inset-0 bg-gradient-to-b ${stat.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl`} />
                 
-                <div className="relative bg-white/5 border border-white/10 rounded-xl p-8 backdrop-blur-sm hover:border-axima-blue/50 transition-colors duration-300">
+                <div className="relative bg-black/40 border border-white/10 rounded-xl p-8 backdrop-blur-sm hover:border-axima-blue/50 transition-all duration-300">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="p-3 rounded-lg bg-axima-blue/20 text-axima-blue">
                       <Icon className="w-6 h-6" />
@@ -80,10 +83,13 @@ export const Stats = () => {
                       {stat.suffix}
                     </h2>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">{stat.label}</h3>
-                  <p className="text-gray-400">
+                  <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-axima-blue transition-colors duration-300">
+                    {stat.label}
+                  </h3>
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
                     {stat.description}
                   </p>
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-axima-blue to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               </motion.div>
             );
