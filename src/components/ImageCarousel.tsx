@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
 const images = [
   "/lovable-uploads/banner/Banner-06microsoft.jpg",
-  "/lovable-uploads/banner/copilotbanner2.png",
+  "/lovable-uploads/banner/Banner-04copilot.jpg",
 ];
 
 export const ImageCarousel = () => {
