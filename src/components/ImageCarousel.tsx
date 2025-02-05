@@ -1,15 +1,25 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
-const images = [
+const desktopImages = [
   "/lovable-uploads/banner/Banner-06microsoft.jpg",
   "/lovable-uploads/banner/Banner-04copilot.jpg",
   "/lovable-uploads/banner/Banner-09jioregion.jpg"
 ];
 
+const mobileImages = [
+  "/lovable-uploads/banner/mobile/Banner-06microsoft-mobile.jpg",
+  "/lovable-uploads/banner/mobile/Banner-04copilot-mobile.jpg",
+  "/lovable-uploads/banner/mobile/Banner-09jioregion-mobile.jpg"
+];
+
 export const ImageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const isMobile = useIsMobile();
+  
+  const images = isMobile ? mobileImages : desktopImages;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -17,7 +27,7 @@ export const ImageCarousel = () => {
     }, 5000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -29,7 +39,7 @@ export const ImageCarousel = () => {
 
   return (
     <section id="products" className="py-0 animate-fadeIn">
-      <div className="relative max-w-[85rem] mx-auto h-[500px] w-full overflow-hidden rounded-xl cursor-pointer group">
+      <div className="relative max-w-[85rem] mx-auto h-[500px] md:h-[500px] w-full overflow-hidden rounded-xl cursor-pointer group">
         <AnimatePresence initial={false}>
           <motion.img
             key={currentIndex}
