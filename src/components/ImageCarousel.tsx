@@ -4,15 +4,15 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const desktopImages = [
-  "/lovable-uploads/banner/Banner-06microsoft.jpg",
-  "/lovable-uploads/banner/Banner-04copilot.jpg",
-  "/lovable-uploads/banner/Banner-09jioregion.jpg"
+  "/lovable-uploads/banner/Banner-06microsoft_6_11zon.jpg",
+  "/lovable-uploads/banner/Banner-04copilot_5_11zon.jpg",
+  "/lovable-uploads/banner/Banner-09jioregion_4_11zon.jpg"
 ];
 
 const mobileImages = [
-  "/lovable-uploads/banner/mobilebanner/Banner-11microsoft.jpg",
-  "/lovable-uploads/banner/mobilebanner/Banner-14copilot.jpg",
-  "/lovable-uploads/banner/mobilebanner/Banner-12jioregion.jpg"
+  "/lovable-uploads/banner/mobilebanner/Banner-11microsoft_2_11zon.jpg",
+  "/lovable-uploads/banner/mobilebanner/Banner-14copilot_1_11zon.jpg",
+  "/lovable-uploads/banner/mobilebanner/Banner-12jioregion_3_11zon.jpg"
 ];
 
 export const ImageCarousel = () => {
