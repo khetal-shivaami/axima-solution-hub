@@ -2,6 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Skeleton } from "@/components/ui/skeleton";
+import { lazy, Suspense } from "react";
 
 const microsoftSolutions = [
   {
@@ -64,6 +66,19 @@ const innovativeSolutions = [
   }
 ];
 
+// Loading placeholder component
+const ProductCardSkeleton = () => (
+  <div className="p-4 rounded-lg bg-black/40 border border-axima-blue/20">
+    <div className="flex flex-col items-center gap-4">
+      <Skeleton className="w-20 h-16 rounded-lg" />
+      <div className="w-full">
+        <Skeleton className="h-6 w-3/4 mb-2" />
+        <Skeleton className="h-4 w-full" />
+      </div>
+    </div>
+  </div>
+);
+
 const Products = () => {
   return (
     <div className="min-h-screen bg-gray-900">
@@ -94,6 +109,8 @@ const Products = () => {
                         className="w-full h-40 object-contain rounded-lg mb-4"
                         loading="lazy"
                         decoding="async"
+                        width="160"
+                        height="160"
                       />
                       <p className="text-gray-300 text-sm">{solution.description}</p>
                     </CardContent>
@@ -112,29 +129,33 @@ const Products = () => {
             <h2 className="text-2xl font-bold text-white text-center mb-8">Other Innovative Solutions in Shiviom</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {innovativeSolutions.map((solution, index) => (
-                <HoverCard key={index}>
-                  <HoverCardTrigger>
-                    <div className="p-4 rounded-lg bg-black/40 border border-axima-blue/20 hover:border-axima-blue hover:bg-black/60 transition-all duration-300 transform hover:scale-102">
-                      <div className="flex flex-col items-center gap-4">
-                        <img 
-                          src={solution.image} 
-                          alt={solution.name}
-                          className="w-20 h-16 object-contain rounded-lg"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div>
-                          <h3 className="text-lg font-semibold text-white mb-2">{solution.name}</h3>
-                          <p className="text-gray-300 text-sm line-clamp-2">{solution.description}</p>
+                <Suspense key={index} fallback={<ProductCardSkeleton />}>
+                  <HoverCard>
+                    <HoverCardTrigger>
+                      <div className="p-4 rounded-lg bg-black/40 border border-axima-blue/20 hover:border-axima-blue hover:bg-black/60 transition-all duration-300 transform hover:scale-102">
+                        <div className="flex flex-col items-center gap-4">
+                          <img 
+                            src={solution.image} 
+                            alt={solution.name}
+                            className="w-20 h-16 object-contain rounded-lg"
+                            loading="lazy"
+                            decoding="async"
+                            width="80"
+                            height="64"
+                          />
+                          <div>
+                            <h3 className="text-lg font-semibold text-white mb-2">{solution.name}</h3>
+                            <p className="text-gray-300 text-sm line-clamp-2">{solution.description}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </HoverCardTrigger>
-                  <HoverCardContent className="w-80 bg-black/90 text-white border border-axima-blue">
-                    <h4 className="font-semibold mb-2">{solution.name}</h4>
-                    <p className="text-sm text-gray-300">{solution.description}</p>
-                  </HoverCardContent>
-                </HoverCard>
+                    </HoverCardTrigger>
+                    <HoverCardContent className="w-80 bg-black/90 text-white border border-axima-blue">
+                      <h4 className="font-semibold mb-2">{solution.name}</h4>
+                      <p className="text-sm text-gray-300">{solution.description}</p>
+                    </HoverCardContent>
+                  </HoverCard>
+                </Suspense>
               ))}
             </div>
           </div>
