@@ -12,15 +12,27 @@ export const Hero = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,163,255,0.1),transparent_50%)]" />
-      
-      {/* Animated Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <div className="absolute inset-0 bg-black/60 z-10" /> {/* Overlay */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="w-full h-full object-cover"
+          poster="/lovable-uploads/banner/Banner-06microsoft.jpg"
+        >
+          <source 
+            src="https://cdn.gpteng.co/videos/tech-background.mp4" 
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
       {/* Content Container */}
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-20">
         <motion.div 
           className="text-center max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
@@ -57,7 +69,7 @@ export const Hero = () => {
           
           {/* Description */}
           <motion.p 
-            className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -101,8 +113,6 @@ export const Hero = () => {
           >
             {[
               { number: "98%", label: "Customer Satisfaction" },
-              // { number: "24/7", label: "Technical Support" },
-              // { number: "500+", label: "Active Clients" },
               { number: "15+", label: "Years Experience" }
             ].map((stat, index) => (
               <motion.div
