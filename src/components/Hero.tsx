@@ -78,7 +78,7 @@ export const Hero = () => {
               className="bg-axima-blue hover:bg-blue-600 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group hover:-translate-y-1"
               onClick={scrollToProducts}
             >
-              Explore Solutions 
+              Explore Products 
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             
