@@ -5,6 +5,7 @@ import { Microsoft365Benefits } from "@/components/Microsoft365Benefits";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { ParticleHero } from "@/components/ParticleHero";
+import { ImageCarousel } from "@/components/ImageCarousel";
 
 const Index = () => {
   return (
@@ -24,6 +25,16 @@ const Index = () => {
         
         <ParticleHero />
       </div>
+
+      {/* Banner Images Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.6 }}
+        className="relative z-10 py-12"
+      >
+        <ImageCarousel />
+      </motion.div>
 
       <motion.div
         initial={{ y: 20, opacity: 0 }}
