@@ -1,11 +1,10 @@
 import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
 import { Stats } from "@/components/Stats";
 import { TrustedBy } from "@/components/TrustedBy";
 import { Microsoft365Benefits } from "@/components/Microsoft365Benefits";
-import { ImageCarousel } from "@/components/ImageCarousel";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { ParticleHero } from "@/components/ParticleHero";
 
 const Index = () => {
   return (
@@ -16,7 +15,6 @@ const Index = () => {
       <Navbar />
       
       <div className="relative">
-        {/* Hero section glow effect */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -24,24 +22,8 @@ const Index = () => {
           className="absolute top-0 left-1/2 -translate-x-1/2 h-[310px] w-[310px] rounded-full bg-axima-blue/20 blur-[100px]"
         />
         
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="relative z-10"
-        >
-          <Hero />
-        </motion.div>
+        <ParticleHero />
       </div>
-
-      <motion.div
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        className="relative z-10 mt-12"
-      >
-        <ImageCarousel />
-      </motion.div>
 
       <motion.div
         initial={{ y: 20, opacity: 0 }}
