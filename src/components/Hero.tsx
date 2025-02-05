@@ -32,10 +32,11 @@ export const Hero = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-flex items-center gap-2 mb-8 bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-800 rounded-full p-1 pr-4"
+            className="flex items-center justify-center gap-2 mb-6"
           >
-            <span className="bg-axima-blue/20 px-3 py-1 rounded-full text-sm text-axima-blue">New</span>
-            <span className="text-sm text-gray-400">Microsoft Solutions Partner</span>
+            <span className="px-4 py-2 text-sm bg-gradient-to-r from-axima-blue/20 to-axima-blue/10 rounded-full border border-axima-blue/20 text-axima-blue hover-lift">
+              Authorized Microsoft Partner
+            </span>
           </motion.div>
 
           {/* Main Heading */}
@@ -96,12 +97,12 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-2 gap-8 mt-20 max-w-4xl mx-auto"
           >
             {[
               { number: "98%", label: "Customer Satisfaction" },
-              { number: "24/7", label: "Technical Support" },
-              { number: "500+", label: "Active Clients" },
+              // { number: "24/7", label: "Technical Support" },
+              // { number: "500+", label: "Active Clients" },
               { number: "15+", label: "Years Experience" }
             ].map((stat, index) => (
               <motion.div
