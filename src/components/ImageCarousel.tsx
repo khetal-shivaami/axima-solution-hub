@@ -10,9 +10,9 @@ const desktopImages = [
 ];
 
 const mobileImages = [
-  "/lovable-uploads/banner/mobile/Banner-06microsoft-mobile.jpg",
-  "/lovable-uploads/banner/mobile/Banner-04copilot-mobile.jpg",
-  "/lovable-uploads/banner/mobile/Banner-09jioregion-mobile.jpg"
+  "/lovable-uploads/banner/mobilebanner/Banner-11microsoft.jpg",
+  "/lovable-uploads/banner/mobilebanner/Banner-14copilot.jpg",
+  "/lovable-uploads/banner/mobilebanner/Banner-12jioregion.jpg"
 ];
 
 export const ImageCarousel = () => {
