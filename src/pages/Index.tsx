@@ -3,10 +3,21 @@ import { Stats } from "@/components/Stats";
 import { TrustedBy } from "@/components/TrustedBy";
 import { Microsoft365Benefits } from "@/components/Microsoft365Benefits";
 import Footer from "@/components/Footer";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ParticleHero } from "@/components/ParticleHero";
+import { useRef } from "react";
 
 const Index = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const imageOneY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const imageTwoY = useTransform(scrollYProgress, [0, 1], ["50%", "150%"]);
+  const imageThreeY = useTransform(scrollYProgress, [0, 1], ["100%", "200%"]);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black">
       {/* Subtle grid background */}
@@ -23,6 +34,46 @@ const Index = () => {
         />
         
         <ParticleHero />
+      </div>
+
+      {/* Overlapping Hero Section */}
+      <div ref={containerRef} className="relative h-[150vh] overflow-hidden">
+        <div className="sticky top-0 h-screen flex items-center justify-center">
+          <div className="relative w-full max-w-6xl mx-auto px-4">
+            <motion.div
+              style={{ y: imageOneY }}
+              className="absolute inset-0 w-full h-screen flex items-center justify-center"
+            >
+              <img
+                src="/lovable-uploads/banner/Banner-06microsoft_6_11zon.jpg"
+                alt="Microsoft Banner"
+                className="w-full max-w-4xl rounded-xl shadow-2xl"
+              />
+            </motion.div>
+            
+            <motion.div
+              style={{ y: imageTwoY }}
+              className="absolute inset-0 w-full h-screen flex items-center justify-center"
+            >
+              <img
+                src="/lovable-uploads/banner/Banner-04copilot_5_11zon.jpg"
+                alt="Copilot Banner"
+                className="w-full max-w-4xl rounded-xl shadow-2xl"
+              />
+            </motion.div>
+            
+            <motion.div
+              style={{ y: imageThreeY }}
+              className="absolute inset-0 w-full h-screen flex items-center justify-center"
+            >
+              <img
+                src="/lovable-uploads/banner/Banner-09jioregion_4_11zon.jpg"
+                alt="Jio Region Banner"
+                className="w-full max-w-4xl rounded-xl shadow-2xl"
+              />
+            </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* Masonry Layout for Banner Images */}
