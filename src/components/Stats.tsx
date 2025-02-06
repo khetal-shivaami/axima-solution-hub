@@ -58,7 +58,7 @@ export const Stats = () => {
       value: 98,
       label: "Customer Satisfaction",
       suffix: " %",
-      description: "Round-the-clock Microsoft-certified support team at your service.",
+      description: "Ensuring top-notch customer satisfaction with expert support and seamless service.",
       icon: Smile,
       color: "from-orange-500/20 to-red-500/20"
     },
@@ -66,7 +66,7 @@ export const Stats = () => {
       value: 15,
       label: "Years Experience",
       suffix: " +",
-      description: "Round-the-clock Microsoft-certified support team at your service.",
+      description: "Bringing over a decade of expertise to deliver reliable and professional service.",
       icon: Briefcase,
       color: "from-orange-500/20 to-red-500/20"
     },
