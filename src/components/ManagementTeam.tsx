@@ -36,12 +36,12 @@ export const ManagementTeam = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="h-full perspective"
+            className="group h-[500px] [perspective:1000px]"
           >
-            <div className="relative h-[500px] w-full transform-style-3d transition-transform duration-1000 hover:rotate-y-180">
+            <div className="relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
               {/* Front of card */}
-              <div className="absolute inset-0 backface-hidden">
-                <div className="h-full p-6 space-y-4 group bg-black/40 rounded-lg border border-transparent hover:border-axima-blue backdrop-blur-sm">
+              <div className="absolute inset-0 [backface-visibility:hidden]">
+                <div className="h-full p-6 space-y-4 rounded-lg border border-white/10 hover:border-axima-blue/50 bg-black/40 backdrop-blur-sm">
                   <div className="aspect-square w-48 mx-auto overflow-hidden rounded-full">
                     <img
                       src={member.image}
@@ -57,8 +57,8 @@ export const ManagementTeam = () => {
               </div>
 
               {/* Back of card */}
-              <div className="absolute inset-0 backface-hidden rotate-y-180">
-                <div className="h-full p-6 flex flex-col justify-between bg-black/40 rounded-lg border border-transparent hover:border-axima-blue backdrop-blur-sm">
+              <div className="absolute inset-0 h-full w-full [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                <div className="h-full p-6 flex flex-col justify-between rounded-lg border border-white/10 hover:border-axima-blue/50 bg-black/40 backdrop-blur-sm">
                   <div className="space-y-4">
                     <h3 className="text-xl font-semibold text-white">{member.name}</h3>
                     <p className="text-muted-foreground">{member.profile}</p>
