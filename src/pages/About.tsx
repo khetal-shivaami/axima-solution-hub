@@ -58,7 +58,7 @@ const About = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-axima-blue" />
-                Our Office Locations
+                Our Presence
               </CardTitle>
             </CardHeader>
             <CardContent>
