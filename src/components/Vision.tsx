@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Check, Target, Rocket } from "lucide-react";
+import { Card } from "./ui/card";
 
 export const Vision = () => {
   const benefits = [
@@ -74,23 +75,26 @@ export const Vision = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
+          className="max-w-7xl mx-auto"
         >
           <h2 className="text-3xl font-bold text-white mb-6 text-center">Why Choose Axima</h2>
           <div className="w-24 h-1 bg-axima-blue mx-auto mb-12"></div>
           
-          <div className="grid gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex items-start gap-4 bg-black/40 backdrop-blur-sm p-4 rounded-lg border border-gray-800 hover:border-axima-blue/40 transition-all duration-300"
               >
-                <Check className="w-6 h-6 text-axima-blue flex-shrink-0 mt-1" />
-                <p className="text-gray-300">{benefit}</p>
+                <Card className="h-full group hover:scale-105 transition-all duration-300 bg-black/40 border-gray-800 hover:border-axima-blue/40 backdrop-blur-sm">
+                  <div className="p-6 flex items-start gap-4">
+                    <Check className="w-6 h-6 text-axima-blue flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                    <p className="text-gray-300 group-hover:text-white transition-colors">{benefit}</p>
+                  </div>
+                </Card>
               </motion.div>
             ))}
           </div>

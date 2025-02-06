@@ -1,12 +1,5 @@
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
-import { Card } from "./ui/card";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "./ui/tooltip";
 
 const teamMembers = [
   {
@@ -43,45 +36,45 @@ export const ManagementTeam = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="h-full"
+            className="h-full perspective"
           >
-            <Card className="p-6 space-y-4 group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-black/40 border border-transparent hover:border-axima-blue backdrop-sm h-full flex flex-col">
-              <div className="aspect-square w-48 mx-auto overflow-hidden rounded-full">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="text-center flex-grow flex flex-col">
-                <div className="relative inline-block group">
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <a 
-                          href={member.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xl font-semibold inline-flex items-center justify-center gap-2 text-white group-hover:text-axima-blue transition-colors"
-                        >
-                          {member.name}
-                          <Linkedin 
-                            className="h-5 w-5 text-[#0077b5] opacity-0 group-hover:opacity-100 transition-opacity"
-                          />
-                        </a>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Visit LinkedIn</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
+            <div className="relative h-[500px] w-full transform-style-3d transition-transform duration-1000 hover:rotate-y-180">
+              {/* Front of card */}
+              <div className="absolute inset-0 backface-hidden">
+                <div className="h-full p-6 space-y-4 group bg-black/40 rounded-lg border border-transparent hover:border-axima-blue backdrop-blur-sm">
+                  <div className="aspect-square w-48 mx-auto overflow-hidden rounded-full">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-xl font-semibold text-white">{member.name}</h3>
+                    <p className="text-muted-foreground">{member.position}</p>
+                  </div>
                 </div>
-                <p className="text-muted-foreground">{member.position}</p>
-                <p className="mt-4 text-muted-foreground flex-grow">
-                  {member.profile}
-                </p>
               </div>
-            </Card>
+
+              {/* Back of card */}
+              <div className="absolute inset-0 backface-hidden rotate-y-180">
+                <div className="h-full p-6 flex flex-col justify-between bg-black/40 rounded-lg border border-transparent hover:border-axima-blue backdrop-blur-sm">
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-semibold text-white">{member.name}</h3>
+                    <p className="text-muted-foreground">{member.profile}</p>
+                  </div>
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 text-white hover:text-axima-blue transition-colors"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                    <span>Connect on LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>
