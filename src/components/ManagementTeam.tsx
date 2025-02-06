@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
-import { Card } from "./ui/card";
 import {
   Tooltip,
   TooltipContent,
@@ -43,18 +42,32 @@ export const ManagementTeam = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="h-full"
+            className="h-[400px] perspective"
           >
-            <Card className="p-6 space-y-4 group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-black/40 border border-transparent hover:border-axima-blue backdrop-sm h-full flex flex-col">
-              <div className="aspect-square w-48 mx-auto overflow-hidden rounded-full">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
+            <div className="relative w-full h-full transition-transform duration-700 transform-style-3d hover:rotate-y-180">
+              {/* Front of card */}
+              <div className="absolute w-full h-full backface-hidden">
+                <div className="h-full p-6 space-y-4 group bg-black/40 border border-transparent hover:border-axima-blue backdrop-blur-sm rounded-lg">
+                  <div className="aspect-square w-48 mx-auto overflow-hidden rounded-full">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-xl font-semibold text-white group-hover:text-axima-blue transition-colors">
+                      {member.name}
+                    </h3>
+                    <p className="text-gray-400">{member.position}</p>
+                  </div>
+                </div>
               </div>
-              <div className="text-center flex-grow flex flex-col">
-                <div className="relative inline-block group">
+              
+              {/* Back of card */}
+              <div className="absolute w-full h-full backface-hidden rotate-y-180">
+                <div className="h-full p-6 space-y-4 bg-black/40 border border-transparent hover:border-axima-blue backdrop-blur-sm rounded-lg flex flex-col">
+                  <p className="text-gray-400 flex-grow">{member.profile}</p>
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
@@ -62,26 +75,20 @@ export const ManagementTeam = () => {
                           href={member.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xl font-semibold inline-flex items-center justify-center gap-2 text-white group-hover:text-axima-blue transition-colors"
+                          className="inline-flex items-center justify-center gap-2 text-white hover:text-axima-blue transition-colors"
                         >
-                          {member.name}
-                          <Linkedin 
-                            className="h-5 w-5 text-[#0077b5] opacity-0 group-hover:opacity-100 transition-opacity"
-                          />
+                          <Linkedin className="h-6 w-6" />
+                          <span>Connect on LinkedIn</span>
                         </a>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Visit LinkedIn</p>
+                        <p>Visit LinkedIn Profile</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
                 </div>
-                <p className="text-muted-foreground">{member.position}</p>
-                <p className="mt-4 text-muted-foreground flex-grow">
-                  {member.profile}
-                </p>
               </div>
-            </Card>
+            </div>
           </motion.div>
         ))}
       </div>
