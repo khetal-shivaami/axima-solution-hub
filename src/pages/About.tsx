@@ -3,7 +3,6 @@ import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Vision } from "@/components/Vision";
 import { ManagementTeam } from "@/components/ManagementTeam";
-import { WhyChooseAxima } from "@/components/WhyChooseAxima";
 import { motion } from "framer-motion";
 import { Building2, MapPin } from "lucide-react";
 
@@ -52,8 +51,6 @@ const About = () => {
           </Card>
 
           <Vision />
-          
-          <WhyChooseAxima />
 
           <ManagementTeam />
 
