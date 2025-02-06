@@ -76,55 +76,6 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Masonry Layout for Banner Images */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        className="relative z-10 py-12 container mx-auto px-4"
-      >
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="relative break-inside-avoid hover-lift"
-          >
-            <img
-              src="/lovable-uploads/banner/Banner-06microsoft_6_11zon.jpg"
-              alt="Microsoft Banner"
-              className="w-full rounded-xl"
-            />
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="relative break-inside-avoid hover-lift"
-          >
-            <img
-              src="/lovable-uploads/banner/Banner-04copilot_5_11zon.jpg"
-              alt="Copilot Banner"
-              className="w-full rounded-xl"
-            />
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="relative break-inside-avoid hover-lift"
-          >
-            <img
-              src="/lovable-uploads/banner/Banner-09jioregion_4_11zon.jpg"
-              alt="Jio Region Banner"
-              className="w-full rounded-xl"
-            />
-          </motion.div>
-        </div>
-      </motion.div>
-
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
