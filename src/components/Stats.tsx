@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Users, Shield, Clock, TrendingUp } from "lucide-react";
+import { Users, Shield, Clock, TrendingUp,Smile,Briefcase } from "lucide-react";
 
 const AnimatedNumber = ({ value, duration = 1 }: { value: number | string; duration?: number }) => {
   const [count, setCount] = useState(0);
@@ -53,7 +53,31 @@ export const Stats = () => {
       description: "Round-the-clock Microsoft-certified support team at your service.",
       icon: Clock,
       color: "from-orange-500/20 to-red-500/20"
-    }
+    },
+    {
+      value: 98,
+      label: "Customer Satisfaction",
+      suffix: " %",
+      description: "Round-the-clock Microsoft-certified support team at your service.",
+      icon: Smile,
+      color: "from-orange-500/20 to-red-500/20"
+    },
+    {
+      value: 15,
+      label: "Years Experience",
+      suffix: " +",
+      description: "Round-the-clock Microsoft-certified support team at your service.",
+      icon: Briefcase,
+      color: "from-orange-500/20 to-red-500/20"
+    },
+    // {
+    //   value: 24,
+    //   label: "Technical Support",
+    //   suffix: " hrs",
+    //   description: "Round-the-clock Microsoft-certified support team at your service.",
+    //   icon: Clock,
+    //   color: "from-orange-500/20 to-red-500/20"
+    // }
   ];
 
   return (

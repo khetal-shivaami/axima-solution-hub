@@ -143,7 +143,9 @@ export const ParticleHero = () => {
           >
             <Button
               className="bg-axima-blue hover:bg-blue-600 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group hover:-translate-y-1"
-              onClick={scrollToProducts}
+              // onClick={scrollToProducts}
+              onClick={() => window.location.href = '/products'}
+
             >
               Explore Products 
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -154,13 +156,13 @@ export const ParticleHero = () => {
               className="glass-card px-8 py-6 text-lg rounded-full group hover:-translate-y-1 transition-all duration-300"
               onClick={() => window.location.href = '/contact'}
             >
-              Contact Sales
+              Book Demo
               <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>
 
           {/* Stats Section */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
@@ -183,7 +185,7 @@ export const ParticleHero = () => {
                 <div className="text-sm text-gray-400 mt-2">{stat.label}</div>
               </motion.div>
             ))}
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
     </div>

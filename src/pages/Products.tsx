@@ -60,10 +60,20 @@ const innovativeSolutions = [
     image: "/lovable-uploads/logos/ScaleDino.png"
   },
   {
-    name: "Fireflies",
-    description: "It is a conversational AI platform that automatically transcribes, summarizes, and organizes meeting discussions.",
-    image: "/lovable-uploads/logos/fireflies.png"
-  }
+    name: "Scalefusion",
+    description: "SpinOne provides SaaS security posture management (SSPM), SaaS data loss protection and data leak prevention (DLP),SaaS ransomware detection and response,and SaaS backup and recovery to enhance cyber resilience, streamline security operations, and reduce security costs.",
+    image: "/lovable-uploads/logos/Scalefusion-01.png"
+  },
+  {
+    name: "FlexiSign",
+    description: "FlexiSign is a digital signature and document management solution that streamlines the signing process for businesses of all sizes.",
+    image: "/lovable-uploads/logos/Flexisign-logo-02.png"
+  },
+  // {
+  //   name: "Fireflies",
+  //   description: "It is a conversational AI platform that automatically transcribes, summarizes, and organizes meeting discussions.",
+  //   image: "/lovable-uploads/logos/fireflies.png"
+  // }
 ];
 
 // Loading placeholder component
