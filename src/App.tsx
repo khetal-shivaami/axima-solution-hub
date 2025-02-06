@@ -24,9 +24,9 @@ const queryClient = new QueryClient({
 });
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <BrowserRouter>
+  <BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
@@ -41,9 +41,9 @@ const App = () => (
         </Routes>
         <Toaster />
         <Sonner />
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </BrowserRouter>
 );
 
 export default App;
