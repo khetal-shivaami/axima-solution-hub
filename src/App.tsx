@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,6 +14,9 @@ import FAQ from "./pages/FAQ";
 import PlansAndPricing from "./pages/PlansAndPricing";
 import ProductDetails from "./pages/ProductDetails";
 import Copilot from "./pages/Copilot";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsConditions from "./pages/TermsConditions";
+import RefundPolicy from "./pages/RefundPolicy";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,6 +42,9 @@ const App = () => (
           <Route path="/plans" element={<PlansAndPricing />} />
           <Route path="/product/:productId" element={<ProductDetails />} />
           <Route path="/copilot" element={<Copilot />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-conditions" element={<TermsConditions />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
         </Routes>
         <Toaster />
         <Sonner />

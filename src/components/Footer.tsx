@@ -15,8 +15,6 @@ const usefulLinks = [
 
 const Footer = () => {
   const socialLinks = [
-    // { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    // { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
     { icon: Linkedin, href: "https://www.linkedin.com/company/axima-corporation/posts/?feedView=all", label: "LinkedIn" },
     { icon: Instagram, href: "https://www.instagram.com/axima.in?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
   ];
@@ -124,10 +122,25 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 text-center">
-          <p className="text-gray-300">
-            © {new Date().getFullYear()} Axima Corporation. All rights reserved.
-          </p>
+        <div className="mt-12 pt-8 border-t border-white/10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-gray-300">
+              © {new Date().getFullYear()} Axima Corporation. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4">
+              <Link to="/privacy-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
+                Privacy Policy
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link to="/terms-conditions" className="text-gray-300 hover:text-axima-blue transition-colors">
+                Terms & Conditions
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link to="/refund-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
+                Refund Policy
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
