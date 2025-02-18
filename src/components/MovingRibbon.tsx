@@ -38,12 +38,12 @@ const companies = [
 
 export const MovingRibbon = () => {
   return (
-    <div className="bg-black/40 backdrop-blur-sm py-12">
+    <div className="bg-black/40 backdrop-blur-sm py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-16">
           Trusted by Industry Leaders
         </h2>
-        <div className="border-y border-white/10 py-8 overflow-hidden">
+        <div className="border-y border-white/10 py-16 overflow-hidden">
           <motion.div
             animate={{
               x: [0, -2000],
@@ -60,12 +60,12 @@ export const MovingRibbon = () => {
             {[...companies, ...companies].map((company, idx) => (
               <div
                 key={idx}
-                className="mx-8 flex items-center gap-4"
+                className="mx-12 flex items-center gap-4"
               >
                 <img 
                   src={company.image} 
                   alt={company.name}
-                  className="h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  className="h-24 md:h-32 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                 />
               </div>
             ))}
