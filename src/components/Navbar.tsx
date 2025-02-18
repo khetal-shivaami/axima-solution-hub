@@ -46,10 +46,7 @@ export const Navbar: FC = () => {
             <span className="text-white mt" style={{ fontSize: '8px' }}>Microsoft Cloud Solution Providers</span>
           </Link>
 
-          {/* Search Bar */}
-          <div className="hidden md:block">
-            <Searchbar />
-          </div>
+          
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
@@ -83,7 +80,10 @@ export const Navbar: FC = () => {
               )
             ))}
           </div>
-
+            {/* Search Bar */}
+          <div className="hidden md:block">
+            <Searchbar />
+          </div>
           {/* Mobile Menu Button */}
           <button
             className="md:hidden text-white"

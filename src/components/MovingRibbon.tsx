@@ -66,7 +66,7 @@ export const MovingRibbon = () => {
                   <img 
                     src={company.image} 
                     alt={company.name}
-                    className="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                    className="max-h-full max-w-full object-contain filter transition-all duration-300"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       console.error(`Failed to load image: ${target.src}`);

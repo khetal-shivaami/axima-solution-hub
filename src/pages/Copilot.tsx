@@ -77,13 +77,6 @@ const Copilot = () => {
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold text-center text-white mb-12"
-        >
-          Key Features & Benefits
-        </motion.h2>
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
           className="text-4xl font-bold text-center text-white mt-24 mb-12"
         >
           How Microsoft Copilot Works
