@@ -26,30 +26,14 @@ const RefundPolicy = () => {
               <CardTitle className="text-center text-2xl">Refund Policy</CardTitle>
             </CardHeader>
             <CardContent className="prose prose-invert max-w-none">
-              <p>Last updated: {new Date().toLocaleDateString()}</p>
-
-              <h2>1. Refund Eligibility</h2>
-              <p>We offer refunds under the following conditions:</p>
-              <ul>
-                <li>Service unavailability not caused by the customer</li>
-                <li>Technical issues preventing service delivery</li>
-                <li>Duplicate charges or billing errors</li>
-              </ul>
-
-              <h2>2. Refund Process</h2>
-              <p>To request a refund:</p>
-              <ul>
-                <li>Contact our support team within 30 days of purchase</li>
-                <li>Provide order details and reason for refund</li>
-                <li>Allow 5-7 business days for processing</li>
-              </ul>
-
-              <h2>3. Non-Refundable Items</h2>
-              <ul>
-                <li>Customized solutions</li>
-                <li>Used license keys</li>
-                <li>Services already rendered</li>
-              </ul>
+            <section className="mb-6">
+          <h2 className="text-1xl font-semibold mb-4 ">Overview</h2>
+          <p>Cloud software and products once sold will be not exchanged in any circumstances. We, unfortunately, don't offer a refund or exchange on any software or product.</p>
+        </section>
+        <section className="mb-6">
+          <h2 className="text-1xl font-semibold mb-4 ">What if auto-renewal fails</h2>
+          <p>In case auto-renewal fails due to an expired card or any other reason, a seven-day grace period will be applied to the subscription to give the user time to update their credit card information. Once the information is updated, your yearly subscription fee will be charged, and then your billing cycle will start.</p>
+        </section>
             </CardContent>
           </Card>
         </motion.div>
