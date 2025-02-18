@@ -1,11 +1,12 @@
 
 import { Navbar } from "@/components/Navbar";
 import { Stats } from "@/components/Stats";
-import { Microsoft365Benefits } from "@/components/Microsoft365Benefits";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { ParticleHero } from "@/components/ParticleHero";
 import { MovingRibbon } from "@/components/MovingRibbon";
+import { Building2 } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Index = () => {
   return (
@@ -84,14 +85,29 @@ const Index = () => {
         <Stats />
       </motion.div>
 
+      {/* About Section */}
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.6 }}
-        className="relative z-10"
+        className="relative z-10 py-16"
       >
-        <div className="tech-background">
-          <Microsoft365Benefits />
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="p-3 rounded-lg bg-axima-blue/20">
+              <Building2 className="w-8 h-8 text-axima-blue" />
+            </div>
+          </div>
+          <Card className="bg-black/40 border-white/10 text-white backdrop-blur-sm">
+            <CardHeader>
+              <CardTitle>Axima Corporation</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-xl text-gray-300">
+                Axima Corporation is a certified Microsoft 365 partner, dedicated to helping businesses leverage the benefits of cloud solutions. In today's competitive landscape, companies seek collaborative tools that provide a strategic advantage. Microsoft 365 delivers exactly that. With Axima's expertise in integrating Microsoft 365, your business gains enhanced flexibility and agility, empowering you to stay ahead in the market.
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </motion.div>
 

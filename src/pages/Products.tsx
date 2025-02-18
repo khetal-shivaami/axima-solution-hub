@@ -4,12 +4,14 @@ import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Skeleton } from "@/components/ui/skeleton";
 import { lazy, Suspense } from "react";
+import { useNavigate } from "react-router-dom";
 
 const microsoftSolutions = [
   {
     name: "Microsoft 365",
     description: "Microsoft 365 is a cloud-based service that is designed to help meet your organization's needs for robust security, reliability, and user productivity.",
-    image: "/lovable-uploads/logos/Microsoft_365.png"
+    image: "/lovable-uploads/logos/Microsoft_365.png",
+    route: "/microsoft-365"
   },
   {
     name: "MS Azure",
@@ -76,7 +78,6 @@ const innovativeSolutions = [
   // }
 ];
 
-// Loading placeholder component
 const ProductCardSkeleton = () => (
   <div className="p-4 rounded-lg bg-black/40 border border-axima-blue/20">
     <div className="flex flex-col items-center gap-4">
@@ -90,6 +91,8 @@ const ProductCardSkeleton = () => (
 );
 
 const Products = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gray-900">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
@@ -108,7 +111,10 @@ const Products = () => {
             {microsoftSolutions.map((solution, index) => (
               <HoverCard key={index}>
                 <HoverCardTrigger>
-                  <Card className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue text-white transform transition-all duration-300 hover:scale-102 hover:bg-black/60">
+                  <Card 
+                    className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue text-white transform transition-all duration-300 hover:scale-102 hover:bg-black/60 cursor-pointer"
+                    onClick={() => solution.route && navigate(solution.route)}
+                  >
                     <CardHeader className="p-4">
                       <CardTitle className="text-xl">{solution.name}</CardTitle>
                     </CardHeader>

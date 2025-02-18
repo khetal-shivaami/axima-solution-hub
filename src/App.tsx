@@ -17,6 +17,7 @@ import Copilot from "./pages/Copilot";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import RefundPolicy from "./pages/RefundPolicy";
+import Microsoft365 from "./pages/Microsoft365";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/microsoft-365" element={<Microsoft365 />} />
         </Routes>
         <Toaster />
         <Sonner />
