@@ -1,4 +1,5 @@
 
+import { FC } from "react";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -16,9 +17,9 @@ const navItems = [
   { label: "Contact Us", href: "/contact" },
 ];
 
-export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+export const Navbar: FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
   const location = useLocation();
 
   useEffect(() => {
