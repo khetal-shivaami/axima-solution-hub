@@ -55,18 +55,25 @@ export const MovingRibbon = () => {
                 ease: "linear",
               },
             }}
-            className="flex whitespace-nowrap"
+            className="flex whitespace-nowrap items-center"
           >
             {[...companies, ...companies].map((company, idx) => (
               <div
                 key={idx}
-                className="mx-12 flex items-center gap-4"
+                className="mx-12 flex items-center justify-center"
               >
-                <img 
-                  src={company.image} 
-                  alt={company.name}
-                  className="h-24 md:h-32 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                />
+                <div className="w-48 h-32 relative flex items-center justify-center">
+                  <img 
+                    src={company.image} 
+                    alt={company.name}
+                    className="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      console.error(`Failed to load image: ${target.src}`);
+                      target.style.display = 'none';
+                    }}
+                  />
+                </div>
               </div>
             ))}
           </motion.div>
