@@ -1,10 +1,11 @@
+
 import { Navbar } from "@/components/Navbar";
 import { Stats } from "@/components/Stats";
-import { TrustedBy } from "@/components/TrustedBy";
 import { Microsoft365Benefits } from "@/components/Microsoft365Benefits";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { ParticleHero } from "@/components/ParticleHero";
+import { MovingRibbon } from "@/components/MovingRibbon";
 
 const Index = () => {
   return (
@@ -98,9 +99,9 @@ const Index = () => {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.6 }}
-        className="relative z-10 bg-black/40 backdrop-blur-sm"
+        className="relative z-10"
       >
-        <TrustedBy />
+        <MovingRibbon />
       </motion.div>
 
       <motion.footer
