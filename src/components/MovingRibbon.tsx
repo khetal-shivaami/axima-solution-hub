@@ -1,15 +1,39 @@
 
 import { motion } from "framer-motion";
 
-const partners = [
-  "Microsoft Cloud Solution Provider",
-  "Microsoft 365 Certified Partner",
-  "Azure Cloud Expert",
-  "Microsoft Teams Specialist",
-  "Power Platform Professional",
-  "Security & Compliance Expert",
-  "Enterprise Mobility Partner",
-  "Microsoft Copilot Partner"
+const companies = [
+  {
+    name: "Goldiee Group",
+    image: "/lovable-uploads/6c3cda8d-517f-41ba-9cdb-ad94518d2120.png"
+  },
+  {
+    name: "Blue Dart",
+    image: "/lovable-uploads/accb3a4e-5dbf-4fb2-8c76-5e48e1b46999.png"
+  },
+  {
+    name: "Morde",
+    image: "/lovable-uploads/7e90294d-d89d-4e0d-ba80-c5dd0d981cf8.png"
+  },
+  {
+    name: "Saint-Gobain",
+    image: "/lovable-uploads/925c820c-4967-4cdc-9b5b-40b348aff929.png"
+  },
+  {
+    name: "JVM Spaces",
+    image: "/lovable-uploads/2bf1599b-73be-4276-90f3-6310c532b9a1.png"
+  },
+  {
+    name: "Gangar Eyenation",
+    image: "/lovable-uploads/5cf95f28-273b-49de-ba24-1a982f1a2739.png"
+  },
+  {
+    name: "Shriram Finance",
+    image: "/lovable-uploads/8769d21b-ef35-4f66-b33c-895afed0bff1.png"
+  },
+  {
+    name: "Sheth",
+    image: "/lovable-uploads/183a3e7c-73db-448e-a7f3-b5008eab91cc.png"
+  }
 ];
 
 export const MovingRibbon = () => {
@@ -21,20 +45,23 @@ export const MovingRibbon = () => {
         }}
         transition={{
           x: {
-            duration: 20,
+            duration: 30,
             repeat: Infinity,
             ease: "linear",
           },
         }}
         className="flex whitespace-nowrap"
       >
-        {[...partners, ...partners].map((partner, idx) => (
+        {[...companies, ...companies].map((company, idx) => (
           <div
             key={idx}
-            className="mx-8 flex items-center gap-2 text-white/80"
+            className="mx-8 flex items-center gap-4"
           >
-            <span className="text-axima-blue">•</span>
-            {partner}
+            <img 
+              src={company.image} 
+              alt={company.name}
+              className="h-12 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+            />
           </div>
         ))}
       </motion.div>
