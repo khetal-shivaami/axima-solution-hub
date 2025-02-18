@@ -65,7 +65,7 @@ export const MovingRibbon = () => {
                 <img 
                   src={company.image} 
                   alt={company.name}
-                  className="h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  className="h-16 object-contain filter  transition-all duration-300"
                 />
               </div>
             ))}
