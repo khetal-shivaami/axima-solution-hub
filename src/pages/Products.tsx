@@ -142,7 +142,7 @@ const Products = () => {
 
           {/* Other Innovative Solutions */}
           <div className="mt-16">
-            <h2 className="text-2xl font-bold text-white text-center mb-8">Other Innovative Solutions in Shiviom</h2>
+            <h2 className="text-2xl font-bold text-white text-center mb-8">Other Innovative Solutions</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {innovativeSolutions.map((solution, index) => (
                 <Suspense key={index} fallback={<ProductCardSkeleton />}>

@@ -98,6 +98,8 @@ const Index = () => {
               <Building2 className="w-8 h-8 text-axima-blue" />
             </div>
           </div>
+          <h1 className="text-4xl font-bold text-white mb-4 text-center">About Us</h1>
+
           <Card className="bg-black/40 border-white/10 text-white backdrop-blur-sm">
             <CardHeader>
               <CardTitle>Axima Corporation</CardTitle>

@@ -63,7 +63,7 @@ export const Stats = () => {
       color: "from-orange-500/20 to-red-500/20"
     },
     {
-      value: 15,
+      value: 10,
       label: "Years Experience",
       suffix: " +",
       description: "Bringing over a decade of expertise to deliver reliable and professional service.",
