@@ -13,6 +13,25 @@ const usefulLinks = [
   { label: "Contact Us", href: "/contact" },
 ];
 
+const productCategories = {
+  microsoft: [
+    { name: "Microsoft 365", route: "/microsoft-365" },
+    { name: "MS Azure", route: "#" },
+    { name: "MS Azure from Jio Region", route: "#" }
+  ],
+  other: [
+    { name: "Jumpcloud", route: "#" },
+    { name: "Atera", route: "#" },
+    { name: "Spin AI", route: "#" },
+    { name: "HYCU", route: "#" },
+    { name: "ZOOM", route: "#" },
+    { name: "1Password", route: "#" },
+    { name: "Scaledino", route: "#" },
+    { name: "Scalefusion", route: "#" },
+    { name: "FlexiSign", route: "#" }
+  ]
+};
+
 const Footer = () => {
   const socialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/company/axima-corporation/posts/?feedView=all", label: "LinkedIn" },
@@ -25,7 +44,7 @@ const Footer = () => {
   return (
     <footer className="relative w-full bg-black/40 border-t border-white/10 py-16">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="relative z-10">
             <h3 className="text-xl font-bold text-white mb-4">AXIMA CORPORATION</h3>
@@ -70,6 +89,46 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Microsoft Solutions */}
+          <div className="relative z-10">
+            <h3 className="text-xl font-bold text-white mb-4">Microsoft Solutions</h3>
+            <ul className="space-y-2">
+              {productCategories.microsoft.map((product) => (
+                <li key={product.name}>
+                  <Link
+                    to={product.route}
+                    className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative"
+                  >
+                    <span className="mr-2 group-hover:text-axima-blue transition-colors">›</span>
+                    <span className="group-hover:translate-x-1 transition-transform">
+                      {product.name}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Other Solutions */}
+          <div className="relative z-10">
+            <h3 className="text-xl font-bold text-white mb-4">Other Solutions</h3>
+            <ul className="space-y-2">
+              {productCategories.other.map((product) => (
+                <li key={product.name}>
+                  <Link
+                    to={product.route}
+                    className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative"
+                  >
+                    <span className="mr-2 group-hover:text-axima-blue transition-colors">›</span>
+                    <span className="group-hover:translate-x-1 transition-transform">
+                      {product.name}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Useful Links */}
           <div className="relative z-10">
             <h3 className="text-xl font-bold text-white mb-4">Useful Links</h3>
@@ -101,10 +160,12 @@ const Footer = () => {
               ))}
             </ul>
           </div>
+        </div>
 
-          {/* Social Networks */}
-          <div className="relative z-10">
-            <h3 className="text-xl font-bold text-white mb-4">Our Social Networks</h3>
+        {/* Social Networks */}
+        <div className="mt-12 pt-8 border-t border-white/10">
+          <div className="flex items-center mb-8">
+            <h3 className="text-xl font-bold text-white mr-4">Our Social Networks</h3>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
                 <a
@@ -120,9 +181,7 @@ const Footer = () => {
               ))}
             </div>
           </div>
-        </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-gray-300">
               © {new Date().getFullYear()} Axima Corporation. All rights reserved.
