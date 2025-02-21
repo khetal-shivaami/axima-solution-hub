@@ -75,18 +75,8 @@ const Index = () => {
           </motion.div>
         </div>
       </motion.div>
-
-      <motion.div
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.6 }}
-        className="relative z-10"
-      >
-        <Stats />
-      </motion.div>
-
-      {/* About Section */}
-      <motion.div
+{/* About Section */}
+<motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.6 }}
@@ -112,6 +102,16 @@ const Index = () => {
           </Card>
         </div>
       </motion.div>
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        className="relative z-10"
+      >
+        <Stats />
+      </motion.div>
+
+      
 
       <motion.div
         initial={{ y: 20, opacity: 0 }}
