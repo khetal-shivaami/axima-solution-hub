@@ -18,6 +18,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import RefundPolicy from "./pages/RefundPolicy";
 import Microsoft365 from "./pages/Microsoft365";
+import MSAzure from "./pages/MSAzure";
+import JioAzure from "./pages/JioAzure";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -47,6 +49,8 @@ const App = () => (
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/microsoft-365" element={<Microsoft365 />} />
+          <Route path="/microsoft-azure" element={<MSAzure />} />
+          <Route path="/microsoft-jioazure" element={<JioAzure />} />
         </Routes>
         <Toaster />
         <Sonner />

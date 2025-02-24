@@ -16,8 +16,8 @@ const usefulLinks = [
 const productCategories = {
   microsoft: [
     { name: "Microsoft 365", route: "/microsoft-365" },
-    { name: "MS Azure", route: "#" },
-    { name: "MS Azure from Jio Region", route: "#" }
+    { name: "MS Azure", route: "/microsoft-azure" },
+    { name: "MS Azure from Jio Region", route: "/microsoft-jioazure" }
   ],
   other: [
     { name: "Jumpcloud", route: "#" },

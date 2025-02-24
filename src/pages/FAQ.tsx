@@ -164,30 +164,20 @@ const FAQ = () => {
           <div className="w-24 h-1 bg-axima-blue mx-auto mt-6"></div>
         </motion.div>
         
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqItems.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <AccordionItem 
-                  value={`item-${index}`}
-                  className="bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 group hover:border-axima-blue/50 transition-all duration-300"
-                >
-                  <AccordionTrigger className="text-white px-4 group-hover:text-axima-blue">
-                    {item.question}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {faqItems.map((faq, index) => (
+              <Accordion type="single" collapsible className="bg-black/40 rounded-lg" key={index}>
+                <AccordionItem value={`item-${index}`} className="border-b border-white/10 last:border-0">
+                  <AccordionTrigger className="text-white hover:text-axima-blue px-4">
+                    {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-300 px-4 pb-4">
-                    {item.answer}
+                    {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
-              </motion.div>
+              </Accordion>
             ))}
-          </Accordion>
-        </div>
+          </div>
       </div>
       <Footer />
     </div>
