@@ -33,28 +33,86 @@ const queryClient = new QueryClient({
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-      <TooltipProvider>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/plans" element={<PlansAndPricing />} />
-          <Route path="/product/:productId" element={<ProductDetails />} />
-          <Route path="/copilot" element={<Copilot />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-conditions" element={<TermsConditions />} />
-          <Route path="/refund-policy" element={<RefundPolicy />} />
-          <Route path="/microsoft-365" element={<Microsoft365 />} />
-          <Route path="/microsoft-azure" element={<MSAzure />} />
-          <Route path="/microsoft-jioazure" element={<JioAzure />} />
-        </Routes>
-        <Toaster />
-        <Sonner />
-      </TooltipProvider>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={
+          <TooltipProvider>
+            <Index />
+          </TooltipProvider>
+        } />
+        <Route path="/about" element={
+          <TooltipProvider>
+            <About />
+          </TooltipProvider>
+        } />
+        <Route path="/products" element={
+          <TooltipProvider>
+            <Products />
+          </TooltipProvider>
+        } />
+        <Route path="/services" element={
+          <TooltipProvider>
+            <Services />
+          </TooltipProvider>
+        } />
+        <Route path="/contact" element={
+          <TooltipProvider>
+            <Contact />
+          </TooltipProvider>
+        } />
+        <Route path="/faq" element={
+          <TooltipProvider>
+            <FAQ />
+          </TooltipProvider>
+        } />
+        <Route path="/plans" element={
+          <TooltipProvider>
+            <PlansAndPricing />
+          </TooltipProvider>
+        } />
+        <Route path="/product/:productId" element={
+          <TooltipProvider>
+            <ProductDetails />
+          </TooltipProvider>
+        } />
+        <Route path="/copilot" element={
+          <TooltipProvider>
+            <Copilot />
+          </TooltipProvider>
+        } />
+        <Route path="/privacy-policy" element={
+          <TooltipProvider>
+            <PrivacyPolicy />
+          </TooltipProvider>
+        } />
+        <Route path="/terms-conditions" element={
+          <TooltipProvider>
+            <TermsConditions />
+          </TooltipProvider>
+        } />
+        <Route path="/refund-policy" element={
+          <TooltipProvider>
+            <RefundPolicy />
+          </TooltipProvider>
+        } />
+        <Route path="/microsoft-365" element={
+          <TooltipProvider>
+            <Microsoft365 />
+          </TooltipProvider>
+        } />
+        <Route path="/microsoft-azure" element={
+          <TooltipProvider>
+            <MSAzure />
+          </TooltipProvider>
+        } />
+        <Route path="/microsoft-jioazure" element={
+          <TooltipProvider>
+            <JioAzure />
+          </TooltipProvider>
+        } />
+      </Routes>
+      <Toaster />
+      <Sonner />
     </BrowserRouter>
   </QueryClientProvider>
 );
