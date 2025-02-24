@@ -20,15 +20,15 @@ const productCategories = {
     { name: "MS Azure from Jio Region", route: "/microsoft-jioazure" }
   ],
   other: [
-    { name: "Jumpcloud", route: "#" },
-    { name: "Atera", route: "#" },
-    { name: "Spin AI", route: "#" },
-    { name: "HYCU", route: "#" },
-    { name: "ZOOM", route: "#" },
-    { name: "1Password", route: "#" },
-    { name: "Scaledino", route: "#" },
-    { name: "Scalefusion", route: "#" },
-    { name: "FlexiSign", route: "#" }
+    { name: "Jumpcloud", route: "/product/jumpcloud" },
+    { name: "Atera", route: "/product/atera" },
+    { name: "Spin AI", route: "/product/spin-ai" },
+    { name: "HYCU", route: "/product/hycu" },
+    { name: "ZOOM", route: "/product/zoom" },
+    { name: "1Password", route: "/product/onepassword" },
+    { name: "Scaledino", route: "/product/scaledino" },
+    { name: "Scalefusion", route: "/product/scalefusion" },
+    { name: "FlexiSign", route: "/product/flexisign" }
   ]
 };
 

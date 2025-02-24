@@ -466,28 +466,28 @@ const productDetails: Record<string, {
       "Secure Communication"
     ]
   },
-  "onePassword": {
+  "onepassword": {
     title: "1Password",
-    description: "1Password to secure sign-ins to the applications and websites they use every day. We believe there shouldn’t be any conflict between security and productivity. That's why we build modern, accessible identity security and access management solutions designed for the way people work and live today.1Password safeguards people's most important data, wherever they use it. We make it easier for people and companies to stay safe online; so everyone can work, play, and stay productive – without worrying about their security or privacy.",
+    description: "1Password to secure sign-ins to the applications and websites they use every day. We believe there shouldn't be any conflict between security and productivity. That's why we build modern, accessible identity security and access management solutions designed for the way people work and live today.",
     image: "/lovable-uploads/logos/OnePassword-01.png",
     features: [
       "Password Vault",
-          "Cross-Platform Synchronization",
-          "Security Features",
-          "Password Auditing & Health",
-          "Browser Integration",
-          "Emergency Kit",
-          "Secure Notes",
-          "Multiple Vaults",
-          "Travel Mode"
+      "Cross-Platform Synchronization",
+      "Security Features",
+      "Password Auditing & Health",
+      "Browser Integration",
+      "Emergency Kit",
+      "Secure Notes",
+      "Multiple Vaults",
+      "Travel Mode"
     ],
     benefits: [
       "Enhanced Security",
-          "Convenience and Ease of Use",
-          "Password Management",
-          "Cross-Platform Support",
-          "Secure Notes and Document Storage",
-          "Family and Team Management"
+      "Convenience and Ease of Use",
+      "Password Management",
+      "Cross-Platform Support",
+      "Secure Notes and Document Storage",
+      "Family and Team Management"
     ]
   },
   "scaledino": {
