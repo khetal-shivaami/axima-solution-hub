@@ -16,14 +16,12 @@ const microsoftSolutions = [
   {
     name: "MS Azure",
     description: "MS Azure is a comprehensive cloud platform that provides scalable, on-demand computing resources and services, enabling businesses to build, deploy, and manage applications efficiently.",
-    image: "/lovable-uploads/logos/Azure.png",
-    route: "/ms-azure"
+    image: "/lovable-uploads/logos/Azure.png"
   },
   {
     name: "MS Azure from Jio Region",
     description: "MS Azure from Jio Region provides Azure services with data centers located within India, ensuring enhanced security compliance and data residency.",
-    image: "/lovable-uploads/logos/Azure.png",
-    route: "/jio-azure"
+    image: "/lovable-uploads/logos/Azure.png"
   }
 ];
 
@@ -31,57 +29,53 @@ const innovativeSolutions = [
   {
     name: "Jumpcloud",
     description: "A directory-as-a-service platform that simplifies user management, authentication, and device control across diverse IT environments.",
-    image: "/lovable-uploads/logos/Jumpcloud-01.png",
-    route: "/product/jumpcloud"
+    image: "/lovable-uploads/logos/Jumpcloud-01.png"
   },
   {
     name: "Atera",
     description: "An all-in-one remote monitoring and management (RMM) platform designed for IT professionals to streamline patch management, automate tasks, and manage clients efficiently.",
-    image: "/lovable-uploads/logos/Atera-01.png",
-    route: "/product/atera"
+    image: "/lovable-uploads/logos/Atera-01.png"
   },
   {
     name: "Spin AI",
     description: "Enhances cyber resilience, security operations, and cost efficiency with an all-in-one SaaS security platform that protects your SaaS data from loss, ransomware, risky apps, misconfigurations, and non-compliance.",
-    image: "/lovable-uploads/logos/Spin.ai.png",
-    route: "/product/spin-ai"
+    image: "/lovable-uploads/logos/Spin.ai.png"
   },
   {
     name: "HYCU",
     description: "Delivers data protection and backup-as-a-service, tailored for multi-cloud and hybrid environments.",
-    image: "/lovable-uploads/logos/Hycu-2-01.png",
-    route: "/product/hycu"
+    image: "/lovable-uploads/logos/Hycu-2-01.png"
   },
   {
     name: "ZOOM",
     description: "A leading video communication platform that facilitates seamless virtual meetings, webinars, and collaboration.",
-    image: "/lovable-uploads/logos/Zoom-01.png",
-    route: "/product/zoom"
+    image: "/lovable-uploads/logos/Zoom-01.png"
   },
   {
     name: "1Password",
     description: "A secure password manager that helps users store, manage, and share passwords.",
-    image: "/lovable-uploads/logos/OnePassword-01.png",
-    route: "/product/1password"
+    image: "/lovable-uploads/logos/OnePassword-01.png"
   },
   {
     name: "Scaledino",
     description: "It provides a scalable cloud infrastructure platform designed to optimize and automate Email signatures",
-    image: "/lovable-uploads/logos/ScaleDino.png",
-    route: "/product/scaledino"
+    image: "/lovable-uploads/logos/ScaleDino.png"
   },
   {
     name: "Scalefusion",
     description: "SpinOne provides SaaS security posture management (SSPM), SaaS data loss protection and data leak prevention (DLP),SaaS ransomware detection and response,and SaaS backup and recovery to enhance cyber resilience, streamline security operations, and reduce security costs.",
-    image: "/lovable-uploads/logos/Scalefusion-01.png",
-    route: "/product/scalefusion"
+    image: "/lovable-uploads/logos/Scalefusion-01.png"
   },
   {
     name: "FlexiSign",
     description: "FlexiSign is a digital signature and document management solution that streamlines the signing process for businesses of all sizes.",
-    image: "/lovable-uploads/logos/Flexisign-logo-02.png",
-    route: "/product/flexisign"
-  }
+    image: "/lovable-uploads/logos/Flexisign-logo-02.png"
+  },
+  // {
+  //   name: "Fireflies",
+  //   description: "It is a conversational AI platform that automatically transcribes, summarizes, and organizes meeting discussions.",
+  //   image: "/lovable-uploads/logos/fireflies.png"
+  // }
 ];
 
 const ProductCardSkeleton = () => (
@@ -154,10 +148,7 @@ const Products = () => {
                 <Suspense key={index} fallback={<ProductCardSkeleton />}>
                   <HoverCard>
                     <HoverCardTrigger>
-                      <div 
-                        className="p-4 rounded-lg bg-black/40 border border-axima-blue/20 hover:border-axima-blue hover:bg-black/60 transition-all duration-300 transform hover:scale-102 cursor-pointer"
-                        onClick={() => navigate(solution.route)}
-                      >
+                      <div className="p-4 rounded-lg bg-black/40 border border-axima-blue/20 hover:border-axima-blue hover:bg-black/60 transition-all duration-300 transform hover:scale-102">
                         <div className="flex flex-col items-center gap-4">
                           <img 
                             src={solution.image} 
