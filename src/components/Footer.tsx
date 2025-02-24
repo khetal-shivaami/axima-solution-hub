@@ -8,7 +8,7 @@ const usefulLinks = [
   { label: "Plans & Pricing", href: "/plans" },
   { label: "Microsoft Copilot", href: "/copilot" },
   { label: "Case Study", href: "#case-study" },
-  { label: "Support", href: "#support" },
+  // { label: "Support", href: "#support" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact Us", href: "/contact" },
 ];
