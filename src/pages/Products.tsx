@@ -62,7 +62,7 @@ const innovativeSolutions = [
     name: "1Password",
     description: "A secure password manager that helps users store, manage, and share passwords.",
     image: "/lovable-uploads/logos/OnePassword-01.png",
-    route: "/product/1password"
+    route: "/product/onePassword"
   },
   {
     name: "Scaledino",

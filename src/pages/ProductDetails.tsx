@@ -338,6 +338,224 @@ const productDetails: Record<string, {
       "Custom Reports & Queries"
     ]
   },
+  "jumpcloud": {
+    title: "Jumpcloud",
+    description: "JumpCloud is a cloud directory platform that helps companies manage users, devices, and applications. It unifies IT resources in a company's infrastructure, including on-premises devices and applications, cloud-based services, and more.JumpCloud is built for companies that use a diverse set of operating systems such as Mac OS and Linux, and/or communicate via Google Workspace. It partners and integrates with other organizations, including MiQ Digital, AkitaBox, and Classpass.",
+    image: "/lovable-uploads/logos/Jumpcloud-01.png",
+    features: [
+      "Directory-as-a-Service (DaaS)",
+      "Single Sign-On (SSO)",
+      "Multi-Factor Authentication (MFA)",
+      "User Lifecycle Management",
+      "Device Management",
+      "Active Directory Integrations",
+      "Audit Logs and Reporting",
+      "API Access",
+      "Cross-Platform Support",
+      "Integration with Cloud Services",
+      "Zero Trust Security"
+    ],
+    benefits: [
+      "Centralized Identity and Access Management",
+          "Remote and Hybrid Work Support",
+          "Automation of User Lifecycle Management",
+          "Integration with Cloud and On-Premises Services",
+          "Compliance and Auditing",
+          "Streamlined IT Operations",
+          "Seamless Integration with Existing IT Infrastructure"
+    ]
+  },
+  "atera": {
+    title: "Atera",
+    description: "Atera is a platform that offers a variety of tools for IT departments and MSPs, including Remote Monitoring and Management (RMM), Professional Services Automation (PSA), Help Desk, remote support, billing,and reporting.Atera can also integrate with third-party software, such as Splashtop, AnyDesk, TeamViewer,and ConnectWise. Some of the tools Atera offers include.",
+    image: "/lovable-uploads/logos/Atera-01.png",
+    features: [
+      "Remote Monitoring and Management (RMM)",
+          "Professional Services Automation (PSA)",
+          "Remote Access",
+          "Patch Management",
+          "IT Automation Rules",
+          "Network Discovery",
+          "Reporting and Analytics",
+          "Action AI",
+          "Helpdesk & Ticketing"
+    ],
+    benefits: [
+      "All-in-one solution for RMM (Remote Monitoring & Management) & PSA (Professional Services Automation)",
+      "Auto-Pilot: AI-driven ticket solutions,auto-resolution",
+      "Unlimited Devices - Pay Per Technician",
+      "Live chat support 24/7",
+      "Fully Customizable Reporting & Analytics",
+      "Real-Time Monitoring and Alerts",
+      "IT Reporting and analytics"
+    ]
+  },
+  "spin-ai": {
+    title: "Spin AI",
+    description: "Spin.ai is an advanced data security and protection platform that specializes in safeguarding data within SaaS applications.",
+    image: "/lovable-uploads/logos/Spin.ai.png",
+    features: [
+      "SaaS Data Backup",
+      "Granular Recovery",
+      "Data Security & Compliance",
+      "Automated Disaster Recovery",
+      "User Access Management",
+      "Data Integrity Management",
+      "Data Migration",
+      "Customizable Retention Policies",
+      "Multi-Account Management",
+      "Cross-platform Compatibility"
+    ],
+    benefits: [
+      "Comprehensive SaaS Data Protection",
+      "Improved Security and Compliance",
+      "Reduced Downtime",
+      "Cost-Effective Storage",
+      "Data Integrity Assurance",
+      "Simplified Disaster Recovery",
+      "Easy SaaS Data Migration",
+      "Centralized Management",
+      "Increased Productivity",
+      "Role-Based Access Control"
+    ]
+  },
+  "hycu": {
+    title: "HYCU",
+    description: "HYCU is a Data Protection as a Service (DaaS) platform.HYCU delivers a secure data protection service designed to give you full control, visibility,and availability of your protected applications and databases. HYCU's services include data protection, migration, disaster recovery, and ransomware protection for on-premises,cloud-native, and SaaS environments. HYCU's Protege platform supports a wide range of sources,including VMware, Nutanix, AWS, Microsoft, Azure,and Google Cloud.",
+    image: "/lovable-uploads/logos/Hycu-2-01.png",
+    features: [
+      "Backup & Recovery",
+          "Disaster Recovery",
+          "Ransomware Protection",
+          "Security & Compliance",
+          "Hybrid & Multi-Cloud"
+    ],
+    benefits: [
+      "Simple Deployment and Management",
+          "Multi-Cloud Support",
+          "Efficient Data Protection",
+          "Fast and Reliable Recovery",
+          "Cost Efficiency",
+          "Compliance and Security",
+          "Unified Data Management",
+          "No Vendor Lock-In",
+    ]
+  },
+  "zoom": {
+    title: "ZOOM",
+    description: "Zoom Workspace refers to the broader suite of collaboration tools and features offered by Zoom that go beyond just video meetings. It is designed to facilitate communication and collaboration within teams, businesses, and organizations. This includes features that help streamline workflows, communication, and project management. It is part of Zoom's move to provide a more integrated platform for businesses..",
+    image: "/lovable-uploads/logos/Zoom-01.png",
+    features: [
+      "Video Conferencing",
+          "Team Chat",
+          "Screen Sharing",
+          "Cloud Recording",
+          "Zoom Rooms",
+          "Security Features",
+          "Cross-Platform Compatibility",
+          "Multi-Language Support"
+    ],
+    benefits: [
+      "Easy to Use",
+      "High-Quality Video and Audio",
+      "Enhanced Collaboration",
+      "Scalable Solutions",
+      "Cost-Effective",
+      "Remote Work and Learning",
+      "Global Connectivity",
+      "Secure Communication"
+    ]
+  },
+  "onePassword": {
+    title: "1Password",
+    description: "1Password to secure sign-ins to the applications and websites they use every day. We believe there shouldn’t be any conflict between security and productivity. That's why we build modern, accessible identity security and access management solutions designed for the way people work and live today.1Password safeguards people's most important data, wherever they use it. We make it easier for people and companies to stay safe online; so everyone can work, play, and stay productive – without worrying about their security or privacy.",
+    image: "/lovable-uploads/logos/OnePassword-01.png",
+    features: [
+      "Password Vault",
+          "Cross-Platform Synchronization",
+          "Security Features",
+          "Password Auditing & Health",
+          "Browser Integration",
+          "Emergency Kit",
+          "Secure Notes",
+          "Multiple Vaults",
+          "Travel Mode"
+    ],
+    benefits: [
+      "Enhanced Security",
+          "Convenience and Ease of Use",
+          "Password Management",
+          "Cross-Platform Support",
+          "Secure Notes and Document Storage",
+          "Family and Team Management"
+    ]
+  },
+  "scaledino": {
+    title: "Scaledino",
+    description: "Scaledino is a scalable data management platform",
+    image: "/lovable-uploads/logos/Scalefusion-01.png",
+    features: [
+      "Cloud Storage",
+      "Data Management",
+      "Scalability"
+    ],
+    benefits: [
+      "Cost Effective",
+      "Reliable",
+      "Secure"
+    ]
+  },
+  "scalefusion": {
+    title: "Scalefusion",
+    description: "SpinOne provides SaaS security posture management (SSPM), SaaS data loss protection and data leak prevention (DLP),SaaS ransomware detection and response,and SaaS backup and recovery to enhance cyber resilience, streamline security operations, and reduce security costs.",
+    image: "/lovable-uploads/logos/Scalefusion-01.png",
+    features: [
+      "Compliance Risks",
+          "Data leak Prevention",
+          "Data loss Prevention",
+          "Insider Threat",
+          "Misconfiguration Management",
+          "Ransomeware Downtime",
+          "Shadow IT",
+          "Third-Party Risk"
+    ],
+    benefits: [
+      "Enhanced SaaS Security",
+          "Improved Security and Compliance",
+          "Automated SaaS Data Backup",
+          "Data Loss Prevention (DLP)",
+          "Regulatory Compliance Made Simple",
+          "Third-Party App Risk Assessment",
+          "Centralized SaaS Management",
+          "Simplified Disaster Recovery",
+          "Real-Time Threat Detection",
+          "Simplified Deployment"
+    ]
+  },
+  "flexisign": {
+    title: "Flexisign",
+    description: "FlexiSign is a digital signature and document management solution that streamlines the signing process for businesses of all sizes.",
+    image: "/lovable-uploads/logos/Flexisign-logo-02.png",
+    features: [
+      "Electronic signatures",
+      "Document workflow automation",
+      "Template management",
+      "Audit trails",
+      "Multi-party signing",
+      "Mobile signing capability",
+      "API integration",
+      "Compliance features"
+    ],
+    benefits: [
+      "Faster document processing",
+      "Reduced paper waste",
+      "Enhanced security",
+      "Improved compliance",
+      "Better tracking and management",
+      "Cost savings",
+      "Environmental sustainability"
+    ]
+  }
 };
 
 const ProductDetails = () => {
