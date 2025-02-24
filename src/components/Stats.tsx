@@ -1,20 +1,22 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Users, Shield, Clock, TrendingUp,Smile,Briefcase } from "lucide-react";
+import { Users, Shield, Clock, TrendingUp, Smile, Briefcase } from "lucide-react";
 
 const AnimatedNumber = ({ value, duration = 1 }: { value: number | string; duration?: number }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref);
-  
+
   useEffect(() => {
-    if (isInView) {
+    if (isInView && value !== "") {
       let start = 0;
       const end = parseInt(value.toString(), 10);
+      if (isNaN(end)) return; // Prevent NaN errors
+
       const steps = 50;
       const increment = end / steps;
       const incrementTime = (duration * 1000) / steps;
-      
+
       const timer = setInterval(() => {
         start = Math.min(start + increment, end);
         setCount(Math.floor(start));
@@ -25,7 +27,7 @@ const AnimatedNumber = ({ value, duration = 1 }: { value: number | string; durat
     }
   }, [value, duration, isInView]);
 
-  return <span ref={ref}>{count}</span>;
+  return <span ref={ref}>{value === "" ? "" : count}</span>;
 };
 
 export const Stats = () => {
@@ -70,14 +72,14 @@ export const Stats = () => {
       icon: Briefcase,
       color: "from-orange-500/20 to-red-500/20"
     },
-    // {
-    //   value: 24,
-    //   label: "Technical Support",
-    //   suffix: " hrs",
-    //   description: "Round-the-clock Microsoft-certified support team at your service.",
-    //   icon: Clock,
-    //   color: "from-orange-500/20 to-red-500/20"
-    // }
+    {
+      value: "",
+      label: "Microsoft Certified Professionals",
+      suffix: "",
+      description: "Expert Microsoft-certified professionals delivering top-tier service.",
+      icon: Shield,
+      color: "from-blue-500/20 to-green-500/20"
+    }
   ];
 
   return (
@@ -103,7 +105,7 @@ export const Stats = () => {
                       <Icon className="w-6 h-6" />
                     </div>
                     <h2 className="text-5xl font-bold text-white">
-                      <AnimatedNumber value={stat.value} />
+                      {stat.value !== "" ? <AnimatedNumber value={stat.value} /> : ""}
                       {stat.suffix}
                     </h2>
                   </div>
