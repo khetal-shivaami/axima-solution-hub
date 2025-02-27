@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -20,6 +19,7 @@ import RefundPolicy from "./pages/RefundPolicy";
 import Microsoft365 from "./pages/Microsoft365";
 import MSAzure from "./pages/MSAzure";
 import JioAzure from "./pages/JioAzure";
+import SupportPackages from "./pages/SupportPackages";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -108,6 +108,11 @@ const App = () => (
         <Route path="/microsoft-jioazure" element={
           <TooltipProvider>
             <JioAzure />
+          </TooltipProvider>
+        } />
+        <Route path="/support-packages" element={
+          <TooltipProvider>
+            <SupportPackages />
           </TooltipProvider>
         } />
       </Routes>

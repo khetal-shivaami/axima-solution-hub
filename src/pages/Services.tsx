@@ -1,8 +1,10 @@
+
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield, Users, Clock } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -14,7 +16,8 @@ const services = [
       "Training and development",
       "Process optimization"
     ],
-    icon: Users
+    icon: Users,
+    route: null
   },
   {
     title: "Managed Services",
@@ -25,7 +28,8 @@ const services = [
       "Security management",
       "Performance optimization"
     ],
-    icon: Shield
+    icon: Shield,
+    route: null
   },
   {
     title: "Support Packages",
@@ -36,11 +40,14 @@ const services = [
       "Regular updates",
       "Priority response"
     ],
-    icon: Clock
+    icon: Clock,
+    route: "/support-packages"
   }
 ];
 
 const Services = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
@@ -70,7 +77,10 @@ const Services = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card className="bg-black/40 border-white/10 text-white backdrop-blur-sm hover:bg-black/50 transition-all duration-300 h-full group relative overflow-hidden">
+                  <Card 
+                    className={`bg-black/40 border-white/10 text-white backdrop-blur-sm hover:bg-black/50 transition-all duration-300 h-full group relative overflow-hidden ${service.route ? 'cursor-pointer' : ''}`}
+                    onClick={() => service.route && navigate(service.route)}
+                  >
                     <div className="absolute inset-0 bg-gradient-to-r from-axima-blue/0 via-axima-blue/5 to-axima-blue/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <CardHeader>
                       <div className="flex items-center gap-4 mb-4">

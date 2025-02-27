@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import { Skeleton } from "@/components/ui/skeleton";
 import { lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Microsoft365ProductsModal } from "@/components/Microsoft365ProductsModal";
 
 const microsoftSolutions = [
   {
@@ -98,6 +100,12 @@ const ProductCardSkeleton = () => (
 
 const Products = () => {
   const navigate = useNavigate();
+  const [showM365Modal, setShowM365Modal] = useState(false);
+
+  const handleMicrosoft365Click = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowM365Modal(true);
+  };
 
   return (
     <div className="min-h-screen bg-gray-900">
@@ -112,14 +120,13 @@ const Products = () => {
             <h3 className="text-xl">Explore Our Microsoft Solutions</h3>
           </div>
 
-          {/* Microsoft Solutions */}
           <div className="grid md:grid-cols-3 gap-6">
             {microsoftSolutions.map((solution, index) => (
               <HoverCard key={index}>
                 <HoverCardTrigger>
                   <Card 
                     className="bg-black/40 border border-axima-blue/20 hover:border-axima-blue text-white transform transition-all duration-300 hover:scale-102 hover:bg-black/60 cursor-pointer"
-                    onClick={() => solution.route && navigate(solution.route)}
+                    onClick={(e) => solution.name === "Microsoft 365" ? handleMicrosoft365Click(e) : navigate(solution.route)}
                   >
                     <CardHeader className="p-4">
                       <CardTitle className="text-xl">{solution.name}</CardTitle>
@@ -146,7 +153,6 @@ const Products = () => {
             ))}
           </div>
 
-          {/* Other Innovative Solutions */}
           <div className="mt-16">
             <h2 className="text-2xl font-bold text-white text-center mb-8">Other Innovative Solutions</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -186,6 +192,10 @@ const Products = () => {
           </div>
         </div>
       </div>
+      <Microsoft365ProductsModal 
+        open={showM365Modal} 
+        onOpenChange={setShowM365Modal}
+      />
       <Footer />
     </div>
   );
