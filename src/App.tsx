@@ -20,6 +20,7 @@ import Microsoft365 from "./pages/Microsoft365";
 import MSAzure from "./pages/MSAzure";
 import JioAzure from "./pages/JioAzure";
 import SupportPackages from "./pages/SupportPackages";
+import CaseStudies from "./pages/CaseStudies";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -113,6 +114,11 @@ const App = () => (
         <Route path="/support-packages" element={
           <TooltipProvider>
             <SupportPackages />
+          </TooltipProvider>
+        } />
+        <Route path="/case-studies" element={
+          <TooltipProvider>
+            <CaseStudies />
           </TooltipProvider>
         } />
       </Routes>
