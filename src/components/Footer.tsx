@@ -1,5 +1,7 @@
-import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const usefulLinks = [
   { label: "About", href: "/about" },
@@ -15,11 +17,22 @@ const usefulLinks = [
 
 const productCategories = {
   microsoft: [
-    { name: "Microsoft 365", route: "/microsoft-365" },
-    { name: "MS Azure", route: "/microsoft-azure" },
-    { name: "MS Azure from Jio Region", route: "/microsoft-jioazure" }
+    { name: "Microsoft 365", route: "/microsoft-365" }
+  ],
+  microsoftProducts: [
+    { name: "Word", route: "/product/word" },
+    { name: "Excel", route: "/product/excel" },
+    { name: "PowerPoint", route: "/product/powerpoint" },
+    { name: "Teams", route: "/product/teams" },
+    { name: "Outlook", route: "/product/outlook" },
+    { name: "OneDrive", route: "/product/onedrive" },
+    { name: "SharePoint", route: "/product/sharepoint" },
+    { name: "Exchange", route: "/product/exchange" },
+    { name: "Intune", route: "/product/intune" }
   ],
   other: [
+    { name: "MS Azure", route: "/microsoft-azure" },
+    { name: "MS Azure from Jio Region", route: "/microsoft-jioazure" },
     { name: "Jumpcloud", route: "/product/jumpcloud" },
     { name: "Atera", route: "/product/atera" },
     { name: "Spin AI", route: "/product/spin-ai" },
@@ -33,6 +46,8 @@ const productCategories = {
 };
 
 const Footer = () => {
+  const [expandedMicrosoft365, setExpandedMicrosoft365] = useState(false);
+  
   const socialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/company/axima-corporation/posts/?feedView=all", label: "LinkedIn" },
     { icon: Instagram, href: "https://www.instagram.com/axima.in?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
@@ -40,6 +55,10 @@ const Footer = () => {
 
   const address = "1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080";
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+
+  const toggleMicrosoft365 = () => {
+    setExpandedMicrosoft365(!expandedMicrosoft365);
+  };
 
   return (
     <footer className="relative w-full bg-black/40 border-t border-white/10 py-16">
@@ -93,7 +112,66 @@ const Footer = () => {
           <div className="relative z-10">
             <h3 className="text-xl font-bold text-white mb-4">Microsoft Solutions</h3>
             <ul className="space-y-2">
-              {productCategories.microsoft.map((product) => (
+              <li>
+                <div className="relative">
+                  <button
+                    onClick={toggleMicrosoft365}
+                    className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative w-full text-left"
+                  >
+                    <span className="mr-2 group-hover:text-axima-blue transition-colors">›</span>
+                    <span className="group-hover:translate-x-1 transition-transform flex-1">
+                      Microsoft 365
+                    </span>
+                    <ChevronDown 
+                      className={`h-4 w-4 ml-2 transition-transform duration-300 ${expandedMicrosoft365 ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  
+                  <AnimatePresence>
+                    {expandedMicrosoft365 && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden ml-5 mt-2"
+                      >
+                        <ul className="space-y-1 border-l border-gray-700 pl-3">
+                          {productCategories.microsoftProducts.map((product) => (
+                            <li key={product.name}>
+                              <Link
+                                to={product.route}
+                                className="text-gray-400 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative text-sm py-1"
+                              >
+                                <span className="mr-1 text-xs group-hover:text-axima-blue transition-colors">•</span>
+                                <span className="group-hover:translate-x-0.5 transition-transform">
+                                  {product.name}
+                                </span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </li>
+              
+              {productCategories.microsoft.slice(1).map((product) => (
+                <li key={product.name}>
+                  <Link
+                    to={product.route}
+                    className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative"
+                  >
+                    <span className="mr-2 group-hover:text-axima-blue transition-colors">›</span>
+                    <span className="group-hover:translate-x-1 transition-transform">
+                      {product.name}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+              
+              {productCategories.other.slice(0, 2).map((product) => (
                 <li key={product.name}>
                   <Link
                     to={product.route}
@@ -113,7 +191,7 @@ const Footer = () => {
           <div className="relative z-10">
             <h3 className="text-xl font-bold text-white mb-4">Other Solutions</h3>
             <ul className="space-y-2">
-              {productCategories.other.map((product) => (
+              {productCategories.other.slice(2).map((product) => (
                 <li key={product.name}>
                   <Link
                     to={product.route}

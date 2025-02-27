@@ -9,6 +9,7 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface Microsoft365ProductsModalProps {
   open: boolean;
@@ -130,17 +131,22 @@ export function Microsoft365ProductsModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[90vw] max-h-[90vh] overflow-y-auto bg-gradient-to-br from-gray-900 to-black border border-axima-blue/50 rounded-xl shadow-xl p-0">
+      <DialogContent className="max-w-[85vw] max-h-[85vh] p-0 bg-gradient-to-br from-gray-900 to-black border border-axima-blue/50 rounded-xl shadow-xl overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] rounded-xl pointer-events-none" />
         
-        <DialogHeader className="p-8 border-b border-white/10">
+        <DialogHeader className="p-8 border-b border-white/10 bg-black/40 backdrop-blur-sm sticky top-0 z-10">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <img
-                src="/lovable-uploads/logos/Microsoft_365.webp"
-                alt="Microsoft 365"
-                className="w-12 h-12 object-contain"
-              />
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-axima-blue via-purple-500 to-axima-blue rounded-full blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                <div className="relative bg-black rounded-full p-1">
+                  <img
+                    src="/lovable-uploads/logos/Microsoft_365.webp"
+                    alt="Microsoft 365"
+                    className="w-12 h-12 object-contain"
+                  />
+                </div>
+              </div>
               <DialogTitle className="text-3xl font-bold text-white">
                 Microsoft 365 Products
               </DialogTitle>
@@ -154,47 +160,52 @@ export function Microsoft365ProductsModal({
           </p>
         </DialogHeader>
         
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-8"
-          variants={container}
-          initial="hidden"
-          animate="show"
-        >
-          {features.map((feature, index) => (
-            <motion.div key={index} variants={item}>
-              <Card
-                onClick={() => handleProductClick(feature.route)}
-                className={`relative overflow-hidden cursor-pointer border-0 h-full bg-gradient-to-br ${feature.color} backdrop-blur-sm hover:scale-105 transition-all duration-300 group`}
-              >
-                <div className="absolute inset-0 bg-black/40 group-hover:opacity-70 transition-opacity duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#9b87f5]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="p-6 flex flex-col items-center relative z-10 h-full">
-                  <div className="flex-1 flex flex-col items-center justify-center mb-4">
-                    <div className="p-4 rounded-full bg-white/10 mb-4 group-hover:bg-white/20 transition-colors duration-300">
-                      <img 
-                        src={feature.logo} 
-                        alt={feature.name}
-                        className="w-16 h-16 group-hover:scale-110 transition-transform duration-300"
-                      />
+        <ScrollArea className="h-[calc(85vh-150px)]" type="always">
+          <div className="p-8">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+              variants={container}
+              initial="hidden"
+              animate="show"
+            >
+              {features.map((feature, index) => (
+                <motion.div key={index} variants={item}>
+                  <Card
+                    onClick={() => handleProductClick(feature.route)}
+                    className={`relative overflow-hidden cursor-pointer border-0 h-full bg-gradient-to-br ${feature.color} backdrop-blur-sm hover:scale-105 transition-all duration-300 group`}
+                  >
+                    <div className="absolute inset-0 bg-black/40 group-hover:opacity-70 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#9b87f5]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    <div className="p-6 flex flex-col items-center relative z-10 h-full">
+                      <div className="flex-1 flex flex-col items-center justify-center mb-4">
+                        <div className="p-4 rounded-full bg-white/10 mb-4 group-hover:bg-white/20 transition-colors duration-300 relative overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                          <img 
+                            src={feature.logo} 
+                            alt={feature.name}
+                            className="w-16 h-16 group-hover:scale-110 transition-transform duration-300"
+                          />
+                        </div>
+                        <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-axima-blue transition-colors">
+                          {feature.name}
+                        </h3>
+                        <p className="text-gray-300 text-center text-sm mb-4">
+                          {feature.description}
+                        </p>
+                      </div>
+                      
+                      <div className="flex items-center mt-auto">
+                        <span className="text-white/70 text-sm font-medium group-hover:text-white transition-colors">View Details</span>
+                        <ArrowRight className="w-4 h-4 ml-2 text-white/50 group-hover:text-axima-blue group-hover:translate-x-1 transition-all duration-300" />
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-axima-blue transition-colors">
-                      {feature.name}
-                    </h3>
-                    <p className="text-gray-300 text-center text-sm mb-4">
-                      {feature.description}
-                    </p>
-                  </div>
-                  
-                  <div className="flex items-center mt-auto">
-                    <span className="text-white/70 text-sm font-medium group-hover:text-white transition-colors">View Details</span>
-                    <ArrowRight className="w-4 h-4 ml-2 text-white/50 group-hover:text-axima-blue group-hover:translate-x-1 transition-all duration-300" />
-                  </div>
-                </div>
-              </Card>
+                  </Card>
+                </motion.div>
+              ))}
             </motion.div>
-          ))}
-        </motion.div>
+          </div>
+        </ScrollArea>
       </DialogContent>
     </Dialog>
   );
