@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { ParticleHero } from "@/components/ParticleHero";
 import { MovingRibbon } from "@/components/MovingRibbon";
+import { Testimonials } from "@/components/Testimonials";
 import { Building2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -111,8 +112,6 @@ const Index = () => {
         <Stats />
       </motion.div>
 
-      
-
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -122,10 +121,19 @@ const Index = () => {
         <MovingRibbon />
       </motion.div>
 
-      <motion.footer
+      <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.7, duration: 0.6 }}
+        className="relative z-10"
+      >
+        <Testimonials />
+      </motion.div>
+
+      <motion.footer
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
         className="relative z-10"
       >
         <Footer />
