@@ -492,12 +492,11 @@ const productDetails: Record<string, {
   },
   "scaledino": {
     title: "Scaledino",
-    description: "Scaledino is a scalable data management platform",
-    image: "/lovable-uploads/logos/Scalefusion-01.webp",
+    description: "ScaleDino is a cloud-based marketing and business management platform that helps users with email signatures, CRM.",
+    image: "/lovable-uploads/logos/ScaleDino.webp",
     features: [
-      "Cloud Storage",
-      "Data Management",
-      "Scalability"
+      "Email signature",
+      "Lead management tool",
     ],
     benefits: [
       "Cost Effective",
@@ -507,29 +506,20 @@ const productDetails: Record<string, {
   },
   "scalefusion": {
     title: "Scalefusion",
-    description: "SpinOne provides SaaS security posture management (SSPM), SaaS data loss protection and data leak prevention (DLP),SaaS ransomware detection and response,and SaaS backup and recovery to enhance cyber resilience, streamline security operations, and reduce security costs.",
+    description: "Scalefusion is a mobile device management (MDM) and endpoint management platform designed to help businesses manage, secure, and monitor their devices, applications, and data. It is widely used across industries to streamline device management, enhance security, and ensure compliance.",
     image: "/lovable-uploads/logos/Scalefusion-01.webp",
     features: [
-      "Compliance Risks",
-          "Data leak Prevention",
-          "Data loss Prevention",
-          "Insider Threat",
-          "Misconfiguration Management",
-          "Ransomeware Downtime",
-          "Shadow IT",
-          "Third-Party Risk"
+      "Device Management",
+      "Security and Compliance",
+      "Location Tracking and Geofencing",
+      "BYOD (Bring Your Own Device) Management",
+      "Content Management"
     ],
     benefits: [
-      "Enhanced SaaS Security",
-          "Improved Security and Compliance",
-          "Automated SaaS Data Backup",
-          "Data Loss Prevention (DLP)",
-          "Regulatory Compliance Made Simple",
-          "Third-Party App Risk Assessment",
-          "Centralized SaaS Management",
-          "Simplified Disaster Recovery",
-          "Real-Time Threat Detection",
-          "Simplified Deployment"
+      "Cost-Effective",
+      "Simplified Device Management",
+      "Enhanced Security",
+      "Scalability"
     ]
   },
   "flexisign": {

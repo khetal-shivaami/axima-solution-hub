@@ -273,7 +273,7 @@ const Services = () => {
                 >
                   <Card 
                     className={`bg-black/40 border-white/10 text-white backdrop-blur-sm hover:bg-black/50 transition-all duration-300 h-full group relative overflow-hidden ${service.route ? 'cursor-pointer' : ''}`}
-                    onClick={() => service.route && navigate(service.route)}
+                    // onClick={() => service.route && navigate(service.route)}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-axima-blue/0 via-axima-blue/5 to-axima-blue/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <CardHeader>
