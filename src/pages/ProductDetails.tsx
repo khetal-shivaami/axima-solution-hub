@@ -499,9 +499,10 @@ const productDetails: Record<string, {
       "Lead management tool",
     ],
     benefits: [
-      "Cost Effective",
-      "Reliable",
-      "Secure"
+      "User Management",
+      "Brand Consistency",
+      "Centralized Management",
+      "Marketing & Promotions"
     ]
   },
   "scalefusion": {
