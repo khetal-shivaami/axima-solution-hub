@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,13 +8,19 @@ import { PlanComparison } from "@/components/pricing/PlanComparison";
 import { ContactForm } from "@/components/pricing/ContactForm";
 import { PlanCard } from "@/components/pricing/PlanCard";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Loader2 } from "lucide-react";
+import { useCSVData } from "@/hooks/useCSVData";
+import { productDescriptions } from "@/utils/csvUtils";
 
 const PlansAndPricing = () => {
   const [billingPeriod, setBillingPeriod] = useState("monthly");
   const [showComparison, setShowComparison] = useState(true);
+  
+  // Use our custom hook to load plans from CSV
+  const { plans, isLoading, error } = useCSVData('/data/plans.csv');
 
-  const plans = [
+  // Fallback data in case CSV loading fails
+  const fallbackPlans = [
     {
       name: "Microsoft 365 Business Basic",
       monthlyPrice: "₹145",
@@ -36,7 +43,7 @@ const PlansAndPricing = () => {
         { name: "SharePoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png" },
         { name: "Microsoft OneDrive", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png" },
       ],
-      licenceDescription:"Min 300 licence"
+      licenceDescription: "Min 300 licence"
     },
     {
       name: "Microsoft 365 Business Standard",
@@ -61,7 +68,7 @@ const PlansAndPricing = () => {
         { name: "Microsoft Loop", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_loop.png" },
         { name: "Clipchamp", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_clipchamp.png" },
       ],
-      licenceDescription:"Min 300 licence"
+      licenceDescription: "Min 300 licence"
     },
     {
       name: "Microsoft 365 Business Premium",
@@ -88,7 +95,7 @@ const PlansAndPricing = () => {
         { name: "Microsoft Defender", icon: "/lovable-uploads/logos/microsoft_logos/windows_defender.png" },
         { name: "Microsoft Pureview", icon: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png" },
       ],
-      licenceDescription:"Min 300 licence"
+      licenceDescription: "Min 300 licence"
     },
     {
       name: "Microsoft 365 Apps for business",
@@ -107,9 +114,12 @@ const PlansAndPricing = () => {
         { name: "Microsoft Outlook", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_outlook.png" },
         { name: "Microsoft OneDrive", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png" },
       ],
-      licenceDescription:"---"
+      licenceDescription: "---"
     }
   ];
+
+  // Decide which plans to use
+  const displayPlans = isLoading ? [] : (plans.length > 0 ? plans : fallbackPlans);
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -132,22 +142,6 @@ const PlansAndPricing = () => {
     },
   };
 
-  const productDescriptions: { [key: string]: string } = {
-    "Microsoft Word": "Create and edit professional documents",
-    "Microsoft Excel": "Analyze and visualize data with spreadsheets",
-    "Microsoft PowerPoint": "Create impactful presentations",
-    "Microsoft Outlook": "Manage emails, calendars, and contacts",
-    "Microsoft Teams": "Chat, meet, call, and collaborate",
-    "Microsoft Exchange": "Business-class email hosting",
-    "Microsoft OneDrive": "Cloud storage and file sharing",
-    "SharePoint": "Team collaboration and content management",
-    "Microsoft Loop": "Real-time collaborative workspaces",
-    "Clipchamp": "Create and edit videos easily",
-    "Microsoft Intune": "Cloud-based device management",
-    "Microsoft Defender": "Advanced security protection",
-    "Microsoft Pureview": "Information protection and governance"
-  };
-
   const toggleComparison = () => {
     setShowComparison(prev => !prev);
   };
@@ -165,17 +159,29 @@ const PlansAndPricing = () => {
 
           <PricingToggle billingPeriod={billingPeriod} setBillingPeriod={setBillingPeriod} />
 
-          <div className="grid md:grid-cols-4 gap-6">
-            {plans.map((plan, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <PlanCard
-                  {...plan}
-                  billingPeriod={billingPeriod}
-                  productDescriptions={productDescriptions}
-                />
-              </motion.div>
-            ))}
-          </div>
+          {isLoading ? (
+            <div className="flex justify-center items-center py-24">
+              <Loader2 className="h-10 w-10 text-axima-blue animate-spin" />
+              <p className="ml-3 text-white">Loading plans...</p>
+            </div>
+          ) : error ? (
+            <div className="p-6 bg-red-900/30 border border-red-500/50 rounded-lg text-center">
+              <p className="text-red-200">There was an error loading the plans: {error}</p>
+              <p className="text-white mt-2">Showing fallback data instead.</p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-4 gap-6">
+              {displayPlans.map((plan, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <PlanCard
+                    {...plan}
+                    billingPeriod={billingPeriod}
+                    productDescriptions={productDescriptions}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          )}
 
           <div className="flex justify-center">
             <Button

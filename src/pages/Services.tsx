@@ -3,11 +3,12 @@ import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Shield, Users, Clock, Check, X } from "lucide-react";
+import { Shield, Users, Clock, Check, X, BookOpen, ShieldCheck, FileText } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { securityAssessmentServices, trainingServices } from "@/data/securityAssessmentData";
 
 const services = [
   {
@@ -241,6 +242,7 @@ const renderCell = (value: any) => {
 const Services = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("managed-support");
+  const [securityTab, setSecurityTab] = useState("security-services");
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black">
@@ -273,7 +275,7 @@ const Services = () => {
                 >
                   <Card 
                     className={`bg-black/40 border-white/10 text-white backdrop-blur-sm hover:bg-black/50 transition-all duration-300 h-full group relative overflow-hidden ${service.route ? 'cursor-pointer' : ''}`}
-                    // onClick={() => service.route && navigate(service.route)}
+                    onClick={() => service.route && navigate(service.route)}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-axima-blue/0 via-axima-blue/5 to-axima-blue/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <CardHeader>
@@ -300,6 +302,75 @@ const Services = () => {
               );
             })}
           </div>
+
+          {/* Security Assessment Details */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-black/40 border border-white/10 rounded-xl p-8 backdrop-blur-sm"
+          >
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">Security Assessment Services</h2>
+            
+            <Tabs defaultValue="security-services" className="w-full" onValueChange={setSecurityTab}>
+              <TabsList className="grid grid-cols-2 mb-6">
+                <TabsTrigger value="security-services">Security Services</TabsTrigger>
+                <TabsTrigger value="training-services">Training Services</TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="security-services">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {securityAssessmentServices.map((service, index) => (
+                    <Card key={index} className="bg-black/60 border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 h-full">
+                      <CardHeader className="p-6">
+                        <div className="flex items-center gap-4 mb-2">
+                          <div className="p-3 rounded-full bg-axima-blue/20 text-axima-blue">
+                            {index === 0 ? <ShieldCheck className="w-5 h-5" /> : 
+                             index === 1 ? <FileText className="w-5 h-5" /> : 
+                             <Shield className="w-5 h-5" />}
+                          </div>
+                          <CardTitle className="text-lg text-white">{service.service}</CardTitle>
+                        </div>
+                        {service.price && (
+                          <div className="mt-2 bg-axima-blue/10 text-axima-blue px-3 py-1 rounded-full text-sm inline-block">
+                            {service.price}
+                          </div>
+                        )}
+                      </CardHeader>
+                      <CardContent className="p-6 pt-0">
+                        <p className="text-gray-300 text-sm">{service.description}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="training-services">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {trainingServices.map((service, index) => (
+                    <Card key={index} className="bg-black/60 border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 h-full">
+                      <CardHeader className="p-6">
+                        <div className="flex items-center gap-4 mb-2">
+                          <div className="p-3 rounded-full bg-axima-blue/20 text-axima-blue">
+                            <BookOpen className="w-5 h-5" />
+                          </div>
+                          <CardTitle className="text-lg text-white">{service.service}</CardTitle>
+                        </div>
+                        {service.price && (
+                          <div className="mt-2 bg-axima-blue/10 text-axima-blue px-3 py-1 rounded-full text-sm inline-block">
+                            {service.price}
+                          </div>
+                        )}
+                      </CardHeader>
+                      <CardContent className="p-6 pt-0">
+                        <p className="text-gray-300 text-sm">{service.description}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+            </Tabs>
+          </motion.div>
 
           {/* Support Package Comparison */}
           <motion.div
