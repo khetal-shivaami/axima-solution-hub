@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "0.0.0.0",
     port: 8080,
+    hmr: true,
     headers: {
     	// Add Cache-Control headers
 	'Cache-Control': 'public, max-age=31536000, immutable', // 1 year for static assets

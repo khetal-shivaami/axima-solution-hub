@@ -341,7 +341,7 @@ const productDetails: Record<string, {
   "jumpcloud": {
     title: "Jumpcloud",
     description: "JumpCloud is a cloud directory platform that helps companies manage users, devices, and applications. It unifies IT resources in a company's infrastructure, including on-premises devices and applications, cloud-based services, and more.JumpCloud is built for companies that use a diverse set of operating systems such as Mac OS and Linux, and/or communicate via Google Workspace. It partners and integrates with other organizations, including MiQ Digital, AkitaBox, and Classpass.",
-    image: "/lovable-uploads/logos/Jumpcloud-01.png",
+    image: "/lovable-uploads/logos/Jumpcloud-01.webp",
     features: [
       "Directory-as-a-Service (DaaS)",
       "Single Sign-On (SSO)",
@@ -368,7 +368,7 @@ const productDetails: Record<string, {
   "atera": {
     title: "Atera",
     description: "Atera is a platform that offers a variety of tools for IT departments and MSPs, including Remote Monitoring and Management (RMM), Professional Services Automation (PSA), Help Desk, remote support, billing,and reporting.Atera can also integrate with third-party software, such as Splashtop, AnyDesk, TeamViewer,and ConnectWise. Some of the tools Atera offers include.",
-    image: "/lovable-uploads/logos/Atera-01.png",
+    image: "/lovable-uploads/logos/Atera-01.webp",
     features: [
       "Remote Monitoring and Management (RMM)",
           "Professional Services Automation (PSA)",
@@ -393,7 +393,7 @@ const productDetails: Record<string, {
   "spin-ai": {
     title: "Spin AI",
     description: "Spin.ai is an advanced data security and protection platform that specializes in safeguarding data within SaaS applications.",
-    image: "/lovable-uploads/logos/Spin.ai.png",
+    image: "/lovable-uploads/logos/Spin.ai.webp",
     features: [
       "SaaS Data Backup",
       "Granular Recovery",
@@ -422,7 +422,7 @@ const productDetails: Record<string, {
   "hycu": {
     title: "HYCU",
     description: "HYCU is a Data Protection as a Service (DaaS) platform.HYCU delivers a secure data protection service designed to give you full control, visibility,and availability of your protected applications and databases. HYCU's services include data protection, migration, disaster recovery, and ransomware protection for on-premises,cloud-native, and SaaS environments. HYCU's Protege platform supports a wide range of sources,including VMware, Nutanix, AWS, Microsoft, Azure,and Google Cloud.",
-    image: "/lovable-uploads/logos/Hycu-2-01.png",
+    image: "/lovable-uploads/logos/Hycu-2-01.webp",
     features: [
       "Backup & Recovery",
           "Disaster Recovery",
@@ -444,7 +444,7 @@ const productDetails: Record<string, {
   "zoom": {
     title: "ZOOM",
     description: "Zoom Workspace refers to the broader suite of collaboration tools and features offered by Zoom that go beyond just video meetings. It is designed to facilitate communication and collaboration within teams, businesses, and organizations. This includes features that help streamline workflows, communication, and project management. It is part of Zoom's move to provide a more integrated platform for businesses..",
-    image: "/lovable-uploads/logos/Zoom-01.png",
+    image: "/lovable-uploads/logos/Zoom-01.webp",
     features: [
       "Video Conferencing",
           "Team Chat",
@@ -469,7 +469,7 @@ const productDetails: Record<string, {
   "onepassword": {
     title: "1Password",
     description: "1Password to secure sign-ins to the applications and websites they use every day. We believe there shouldn't be any conflict between security and productivity. That's why we build modern, accessible identity security and access management solutions designed for the way people work and live today.",
-    image: "/lovable-uploads/logos/OnePassword-01.png",
+    image: "/lovable-uploads/logos/OnePassword-01.webp",
     features: [
       "Password Vault",
       "Cross-Platform Synchronization",
@@ -493,7 +493,7 @@ const productDetails: Record<string, {
   "scaledino": {
     title: "Scaledino",
     description: "Scaledino is a scalable data management platform",
-    image: "/lovable-uploads/logos/Scalefusion-01.png",
+    image: "/lovable-uploads/logos/Scalefusion-01.webp",
     features: [
       "Cloud Storage",
       "Data Management",
@@ -508,7 +508,7 @@ const productDetails: Record<string, {
   "scalefusion": {
     title: "Scalefusion",
     description: "SpinOne provides SaaS security posture management (SSPM), SaaS data loss protection and data leak prevention (DLP),SaaS ransomware detection and response,and SaaS backup and recovery to enhance cyber resilience, streamline security operations, and reduce security costs.",
-    image: "/lovable-uploads/logos/Scalefusion-01.png",
+    image: "/lovable-uploads/logos/Scalefusion-01.webp",
     features: [
       "Compliance Risks",
           "Data leak Prevention",
@@ -535,7 +535,7 @@ const productDetails: Record<string, {
   "flexisign": {
     title: "Flexisign",
     description: "FlexiSign is a digital signature and document management solution that streamlines the signing process for businesses of all sizes.",
-    image: "/lovable-uploads/logos/Flexisign-logo-02.png",
+    image: "/lovable-uploads/logos/Flexisign-logo-02.webp",
     features: [
       "Electronic signatures",
       "Document workflow automation",
