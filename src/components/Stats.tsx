@@ -98,7 +98,7 @@ export const Stats = () => {
                       <Icon className="w-6 h-6" />
                     </div>
                     <h2 className="text-5xl font-bold text-white">
-                      {stat.value !== "" ? <AnimatedNumber value={stat.value} /> : ""}
+                      <AnimatedNumber value={stat.value} />
                       {stat.suffix}
                     </h2>
                   </div>
@@ -136,7 +136,7 @@ export const Stats = () => {
                       <Icon className="w-6 h-6" />
                     </div>
                     <h2 className="text-5xl font-bold text-white">
-                      {stat.value !== "" ? <AnimatedNumber value={stat.value} /> : ""}
+                      <AnimatedNumber value={stat.value} />
                       {stat.suffix}
                     </h2>
                   </div>
