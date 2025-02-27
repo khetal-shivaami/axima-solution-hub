@@ -9,7 +9,7 @@ const usefulLinks = [
   { label: "Microsoft Copilot", href: "/copilot" },
   { label: "Case Studies", href: "#case-study" },
   // { label: "Support", href: "#support" },
-  { label: "FAQ's", href: "/faq" },
+  // { label: "FAQ's", href: "/faq" },
   { label: "Contact Us", href: "/contact" },
 ];
 
