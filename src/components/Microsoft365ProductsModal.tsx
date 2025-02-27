@@ -49,6 +49,42 @@ const features = [
     description: "Secure cloud storage and file sharing",
     logo: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png",
     color: "from-sky-400/20 to-sky-500/20"
+  },
+  { 
+    name: "SharePoint", 
+    description: "Team collaboration and document management",
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png",
+    color: "from-teal-500/20 to-teal-600/20"
+  },
+  { 
+    name: "Exchange", 
+    description: "Enterprise email and calendar server",
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_exchange.png",
+    color: "from-blue-600/20 to-blue-700/20"
+  },
+  { 
+    name: "Intune", 
+    description: "Mobile device and application management",
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_intune.png",
+    color: "from-indigo-500/20 to-indigo-600/20"
+  },
+  { 
+    name: "Azure Information Protection", 
+    description: "Data protection and compliance",
+    logo: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png",
+    color: "from-cyan-500/20 to-cyan-600/20"
+  },
+  { 
+    name: "Publisher (PC only)", 
+    description: "Desktop publishing and design",
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_publisher.png",
+    color: "from-emerald-500/20 to-emerald-600/20"
+  },
+  { 
+    name: "Access (PC only)", 
+    description: "Database creation and management",
+    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_access.png",
+    color: "from-red-500/20 to-red-600/20"
   }
 ];
 
