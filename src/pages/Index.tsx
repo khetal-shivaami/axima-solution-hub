@@ -112,14 +112,14 @@ const Index = () => {
         <Stats />
       </motion.div>
 
-      <motion.div
+      {/* <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.6 }}
         className="relative z-10"
       >
         <MovingRibbon />
-      </motion.div>
+      </motion.div> */}
 
       <motion.div
         initial={{ y: 20, opacity: 0 }}
