@@ -43,7 +43,6 @@ const testimonials = [
 ];
 
 export const Testimonials = () => {
-  const [currentPage, setCurrentPage] = useState(0);
   const [width, setWidth] = useState(0);
   const carousel = useRef<HTMLDivElement>(null);
   
@@ -51,14 +50,6 @@ export const Testimonials = () => {
     if (carousel.current) {
       setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
     }
-  }, []);
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentPage(prev => (prev + 1) % testimonials.length);
-    }, 5000);
-    
-    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -68,26 +59,65 @@ export const Testimonials = () => {
           What Our Clients Say
         </h2>
         
-        <motion.div 
-          className="overflow-hidden"
-          ref={carousel}
-          whileTap={{ cursor: "grabbing" }}
-        >
+        <div className="overflow-hidden">
           <motion.div 
+            ref={carousel}
             className="flex"
             animate={{
-              x: -currentPage * (window.innerWidth > 768 ? 600 : window.innerWidth - 80)
+              x: [-width, 0]
             }}
-            transition={{ type: "spring", stiffness: 120, damping: 20 }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 30,
+                ease: "linear"
+              }
+            }}
           >
+            {/* First set of testimonials */}
             {testimonials.map((testimonial, index) => (
               <motion.div
-                key={index}
-                className={`flex-shrink-0 w-full md:w-[600px] p-6 md:mx-4 my-8 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-axima-blue/20`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                key={`first-${index}`}
+                className="flex-shrink-0 w-[85vw] md:w-[500px] p-6 mx-4 my-8 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-axima-blue/20"
+              >
+                <div className="relative">
+                  <div className="absolute -top-12 left-0 w-12 h-12 bg-axima-blue/20 rounded-full flex items-center justify-center">
+                    <Quote className="w-6 h-6 text-axima-blue" />
+                  </div>
+                  
+                  <div className="pl-16">
+                    <p className="text-gray-300 mb-6 italic relative">
+                      "{testimonial.content}"
+                    </p>
+                    
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-axima-blue/30">
+                        <img 
+                          src={testimonial.image} 
+                          alt={testimonial.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = "https://via.placeholder.com/100";
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <h4 className="text-white font-medium">{testimonial.name}</h4>
+                        <p className="text-gray-400 text-sm">{testimonial.position}, {testimonial.company}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+            
+            {/* Repeated set for seamless loop */}
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={`second-${index}`}
+                className="flex-shrink-0 w-[85vw] md:w-[500px] p-6 mx-4 my-8 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-axima-blue/20"
               >
                 <div className="relative">
                   <div className="absolute -top-12 left-0 w-12 h-12 bg-axima-blue/20 rounded-full flex items-center justify-center">
@@ -121,19 +151,6 @@ export const Testimonials = () => {
               </motion.div>
             ))}
           </motion.div>
-        </motion.div>
-        
-        <div className="flex justify-center mt-8 space-x-2">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentPage(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                currentPage === index ? "bg-axima-blue w-6" : "bg-gray-500"
-              }`}
-              aria-label={`Go to testimonial ${index + 1}`}
-            />
-          ))}
         </div>
       </div>
     </div>
