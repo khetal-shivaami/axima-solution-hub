@@ -19,27 +19,27 @@ const testimonials = [
     content: "We would like to extend our heartfelt thanks for the exceptional service and cooperation provided by you and your team. Your assistance in resolving our issue was outstanding,and we greatly appreciate the politeness and patience you extended throughout the process. Your excellent service has not gone unnoticed, and we are truly grateful.",
     image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
   },
-  // {
-  //   name: "Vikram Patel",
-  //   position: "Operations Manager",
-  //   company: "Global Logistics Ltd",
-  //   content: "We've been using Axima's managed IT services for over two years now. The proactive approach to maintenance and security has reduced our downtime significantly.",
-  //   image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
-  // },
-  // {
-  //   name: "Ananya Singh",
-  //   position: "CEO",
-  //   company: "Digital First Solutions",
-  //   content: "The training sessions conducted by Axima for our team on Microsoft 365 were comprehensive and well-structured. They tailored the content to our specific business needs.",
-  //   image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
-  // },
-  // {
-  //   name: "Sunil Kapoor",
-  //   position: "Finance Director",
-  //   company: "Investment Partners",
-  //   content: "Axima's security assessment revealed critical vulnerabilities in our system that we weren't aware of. Their remediation plan was thorough and effectively implemented.",
-  //   image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
-  // }
+  {
+    name: "Vikram Patel",
+    position: "Operations Manager",
+    company: "Global Logistics Ltd",
+    content: "We've been using Axima's managed IT services for over two years now. The proactive approach to maintenance and security has reduced our downtime significantly.",
+    image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
+  },
+  {
+    name: "Ananya Singh",
+    position: "CEO",
+    company: "Digital First Solutions",
+    content: "The training sessions conducted by Axima for our team on Microsoft 365 were comprehensive and well-structured. They tailored the content to our specific business needs.",
+    image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
+  },
+  {
+    name: "Sunil Kapoor",
+    position: "Finance Director",
+    company: "Investment Partners",
+    content: "Axima's security assessment revealed critical vulnerabilities in our system that we weren't aware of. Their remediation plan was thorough and effectively implemented.",
+    image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
+  }
 ];
 
 export const Testimonials = () => {
@@ -76,7 +76,7 @@ export const Testimonials = () => {
             }}
           >
             {/* First set of testimonials */}
-            {testimonials.map((testimonial, index) => (
+            {/* {testimonials.map((testimonial, index) => (
               <motion.div
                 key={`first-${index}`}
                 className="flex-shrink-0 w-[85vw] md:w-[500px] p-6 mx-4 my-8 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-axima-blue/20"
@@ -111,7 +111,7 @@ export const Testimonials = () => {
                   </div>
                 </div>
               </motion.div>
-            ))}
+            ))} */}
             
             {/* Repeated set for seamless loop */}
             {testimonials.map((testimonial, index) => (
@@ -130,7 +130,7 @@ export const Testimonials = () => {
                     </p>
                     
                     <div className="flex items-center">
-                      <div className="w-24 h-16 mr-4 bg-white/10 p-2 rounded-md border border-white/20 flex items-center justify-center">
+                      <div className="w-30 h-20 mr-4 bg-white/10 p-2 rounded-md border border-white/20 flex items-center justify-center">
                         <img 
                           src={testimonial.image} 
                           alt={`${testimonial.company} logo`}
