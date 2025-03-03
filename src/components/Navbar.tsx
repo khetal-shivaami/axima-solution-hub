@@ -11,7 +11,7 @@ const navItems = [
   { label: "Services", href: "/services" },
   { label: "Plans & Pricing", href: "/plans" },
   { label: "Microsoft Copilot", href: "/copilot" },
-  { label: "Case Studies", href: "/case-studies" },
+  // { label: "Case Studies", href: "/case-studies" },
   { label: "Contact Us", href: "/contact" },
 ];
 
