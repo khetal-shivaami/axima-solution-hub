@@ -21,7 +21,7 @@ const teamMembers = [
     position: "Deputy General Manager",
     image: "/lovable-uploads/managementteam/AshikaSuresh.png",
     linkedin: "https://www.linkedin.com/in/ashika-suresh-152515113?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    profile: "Specialized in operational excellence and team management"
+    profile: "Ashika Suresh is a Deputy General Manager at Axima Corporation with over 10 years of experience. She currently leads the sales strategy and execution for the Microsoft Suite of products, focusing on revenue growth and customer success. Ashika directs a high-performing team to meet the unique needs of clients, combining strategic leadership with a strong focus on customer outcomes. She builds lasting relationships and drives digital transformation by offering solutions and services that help clients unlock the full potential of the Microsoft suite."
   }
 ];
 
@@ -36,7 +36,7 @@ export const ManagementTeam = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group h-[360px] [perspective:1000px]"
+            className="group h-[420px] [perspective:1000px]"
           >
             <div className="relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
               {/* Front of card */}
