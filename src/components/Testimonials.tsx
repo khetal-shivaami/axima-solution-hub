@@ -9,7 +9,7 @@ const testimonials = [
     name: "Rohit G",
     position: "IT Manager",
     company: "Ercode - A Global eTailer",
-    content: "We are pleased to share that our department’s operations have been running smoothly, which has made it easy for clients to access all our services.This efficiency has been highly praised and is commendable. Should you require any assistance in the future, please feel free to contact us using the details provided.",
+    content: "We are pleased to share that our department's operations have been running smoothly, which has made it easy for clients to access all our services.This efficiency has been highly praised and is commendable. Should you require any assistance in the future, please feel free to contact us using the details provided.",
     image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
   },
   {
@@ -92,11 +92,11 @@ export const Testimonials = () => {
                     </p>
                     
                     <div className="flex items-center">
-                      <div className="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-axima-blue/30">
+                      <div className="w-24 h-16 mr-4 bg-white/10 p-2 rounded-md border border-white/20 flex items-center justify-center">
                         <img 
                           src={testimonial.image} 
-                          alt={testimonial.name}
-                          className="w-full h-full object-cover"
+                          alt={`${testimonial.company} logo`}
+                          className="max-w-full max-h-full object-contain"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
                             target.src = "https://via.placeholder.com/100";
@@ -130,11 +130,11 @@ export const Testimonials = () => {
                     </p>
                     
                     <div className="flex items-center">
-                      <div className="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-axima-blue/30">
+                      <div className="w-24 h-16 mr-4 bg-white/10 p-2 rounded-md border border-white/20 flex items-center justify-center">
                         <img 
                           src={testimonial.image} 
-                          alt={testimonial.name}
-                          className="w-full h-full object-cover"
+                          alt={`${testimonial.company} logo`}
+                          className="max-w-full max-h-full object-contain"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
                             target.src = "https://via.placeholder.com/100";
