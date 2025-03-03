@@ -6,40 +6,40 @@ import { Quote } from "lucide-react";
 // Sample testimonials data
 const testimonials = [
   {
-    name: "Rajesh Sharma",
-    position: "IT Director",
-    company: "Tech Solutions India",
-    content: "Axima's Microsoft 365 implementation was seamless. Their team's technical expertise and responsive support have helped us transform our workflow efficiency. Highly recommended!",
+    name: "Rohit G",
+    position: "IT Manager",
+    company: "Ercode - A Global eTailer",
+    content: "We are pleased to share that our department’s operations have been running smoothly, which has made it easy for clients to access all our services.This efficiency has been highly praised and is commendable. Should you require any assistance in the future, please feel free to contact us using the details provided.",
     image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
   },
   {
-    name: "Priya Mehta",
-    position: "CTO",
-    company: "Innovative Systems",
-    content: "The Microsoft Azure solutions provided by Axima Corporation have given us the scalability and security we needed for our growing business. Their support team is exceptional.",
+    name: "Abhilash K",
+    position: "IT Manager",
+    company: "Clardentity Learning And Development International",
+    content: "We would like to extend our heartfelt thanks for the exceptional service and cooperation provided by you and your team. Your assistance in resolving our issue was outstanding,and we greatly appreciate the politeness and patience you extended throughout the process. Your excellent service has not gone unnoticed, and we are truly grateful.",
     image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
   },
-  {
-    name: "Vikram Patel",
-    position: "Operations Manager",
-    company: "Global Logistics Ltd",
-    content: "We've been using Axima's managed IT services for over two years now. The proactive approach to maintenance and security has reduced our downtime significantly.",
-    image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
-  },
-  {
-    name: "Ananya Singh",
-    position: "CEO",
-    company: "Digital First Solutions",
-    content: "The training sessions conducted by Axima for our team on Microsoft 365 were comprehensive and well-structured. They tailored the content to our specific business needs.",
-    image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
-  },
-  {
-    name: "Sunil Kapoor",
-    position: "Finance Director",
-    company: "Investment Partners",
-    content: "Axima's security assessment revealed critical vulnerabilities in our system that we weren't aware of. Their remediation plan was thorough and effectively implemented.",
-    image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
-  }
+  // {
+  //   name: "Vikram Patel",
+  //   position: "Operations Manager",
+  //   company: "Global Logistics Ltd",
+  //   content: "We've been using Axima's managed IT services for over two years now. The proactive approach to maintenance and security has reduced our downtime significantly.",
+  //   image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
+  // },
+  // {
+  //   name: "Ananya Singh",
+  //   position: "CEO",
+  //   company: "Digital First Solutions",
+  //   content: "The training sessions conducted by Axima for our team on Microsoft 365 were comprehensive and well-structured. They tailored the content to our specific business needs.",
+  //   image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
+  // },
+  // {
+  //   name: "Sunil Kapoor",
+  //   position: "Finance Director",
+  //   company: "Investment Partners",
+  //   content: "Axima's security assessment revealed critical vulnerabilities in our system that we weren't aware of. Their remediation plan was thorough and effectively implemented.",
+  //   image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png" // Using a placeholder image
+  // }
 ];
 
 export const Testimonials = () => {
