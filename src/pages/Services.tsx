@@ -45,7 +45,7 @@ const services = [
       "Priority response"
     ],
     icon: Clock,
-    route: "/support-packages"
+    // route: "/support-packages"
   }
 ];
 

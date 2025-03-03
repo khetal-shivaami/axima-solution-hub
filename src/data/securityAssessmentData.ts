@@ -27,16 +27,16 @@ export const trainingServices: SecurityService[] = [
   {
     service: "M365 Admin Console Overview",
     description: "1 hour training",
-    price: "₹10,000 + GST"
+    // price: "₹10,000 + GST"
   },
   {
     service: "M365 Admin Level Training",
     description: "3 hours of training with full admin console features introductions",
-    price: "₹30,000 + GST"
+    // price: "₹30,000 + GST"
   },
   {
     service: "M365 User Level Training",
     description: "2 Hour training",
-    price: "₹20,000 + GST"
+    // price: "₹20,000 + GST"
   }
 ];
