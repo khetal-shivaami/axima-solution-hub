@@ -1,27 +1,140 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+import { Loader2 } from "lucide-react";
 
 interface FormData {
   name: string;
   email: string;
-  contactNumber: string;
+  contactnumber: string;
   message: string;
 }
 
 const ContactForm = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    contactNumber: "",
+    contactnumber: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Form validation function
+  const validateForm = (): boolean => {
+    // Email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!formData.name.trim()) {
+      toast({
+        title: "Name is required",
+        description: "Please enter your full name",
+        variant: "destructive",
+      });
+      return false;
+    }
+    
+    if (!formData.email.trim() || !emailRegex.test(formData.email)) {
+      toast({
+        title: "Valid email is required",
+        description: "Please enter a valid email address",
+        variant: "destructive",
+      });
+      return false;
+    }
+    
+    if (!formData.contactnumber.trim()) {
+      toast({
+        title: "Contact number is required",
+        description: "Please enter your contact number",
+        variant: "destructive",
+      });
+      return false;
+    }
+    
+    if (!formData.message.trim()) {
+      toast({
+        title: "Message is required",
+        description: "Please enter your message",
+        variant: "destructive",
+      });
+      return false;
+    }
+    
+    return true;
+  };
+
+  // Sanitize input to prevent XSS
+  const sanitizeInput = (input: string): string => {
+    return input
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    // Sanitize data before sending
+    const sanitizedData = {
+      name: sanitizeInput(formData.name),
+      email: sanitizeInput(formData.email),
+      contactnumber: sanitizeInput(formData.contactnumber),
+      message: sanitizeInput(formData.message),
+    };
+
+    try {
+      // Use the API endpoint provided
+      const response = await fetch("http://127.0.0.1:8000/get_aximawebsite_contact_details/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Add security headers
+          "X-Requested-With": "XMLHttpRequest",
+        },
+        body: JSON.stringify(sanitizedData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log("Form submitted successfully:", result);
+      
+      // Reset form after successful submission
+      setFormData({
+        name: "",
+        email: "",
+        contactnumber: "",
+        message: "",
+      });
+      
+      toast({
+        title: "Message sent!",
+        description: "Thank you for contacting us. We'll get back to you soon.",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Submission failed",
+        description: "There was a problem sending your message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -43,6 +156,7 @@ const ContactForm = () => {
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             className="bg-white/10 border-white/10 text-white"
+            maxLength={100}
             required
           />
         </div>
@@ -56,20 +170,22 @@ const ContactForm = () => {
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             className="bg-white/10 border-white/10 text-white"
+            maxLength={100}
             required
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="contactNumber" className="block text-sm font-medium text-gray-300 mb-1">
+        <label htmlFor="contactnumber" className="block text-sm font-medium text-gray-300 mb-1">
           Contact Number <span style={{ color: 'red' }}>*</span>
         </label>
         <Input
-          id="contactNumber"
-          value={formData.contactNumber}
-          onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
+          id="contactnumber"
+          value={formData.contactnumber}
+          onChange={(e) => setFormData({ ...formData, contactnumber: e.target.value })}
           className="bg-white/10 border-white/10 text-white"
+          maxLength={20}
           required
         />
       </div>
@@ -83,6 +199,7 @@ const ContactForm = () => {
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           className="bg-white/10 border-white/10 text-white min-h-[120px]"
+          maxLength={1000}
           required
         />
       </div>
@@ -91,8 +208,16 @@ const ContactForm = () => {
         <Button
           type="submit"
           className="w-100px bg-axima-blue hover:bg-blue-600 text-white transition-all duration-300 ml-auto"
+          disabled={isSubmitting}
         >
-          Send Message
+          {isSubmitting ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Sending...
+            </>
+          ) : (
+            "Send Message"
+          )}
         </Button>
       </div>
     </motion.form>
