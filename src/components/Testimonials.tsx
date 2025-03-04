@@ -8,36 +8,50 @@ const testimonials = [
     position: "IT Manager",
     company: "Ercode - A Global eTailer",
     content: "We are pleased to share that our department's operations have been running smoothly, which has made it easy for clients to access all our services. This efficiency has been highly praised and is commendable.",
-    image: "/lovable-uploads/erode.png",
+    image: "/lovable-uploads/testimonial/erode.png",
   },
   {
     name: "Abhilash K",
     position: "IT Manager",
     company: "Clardentity Learning And Development International",
     content: "We would like to extend our heartfelt thanks for the exceptional service and cooperation provided by you and your team.",
-    image: "/lovable-uploads/clar.png",
+    image: "/lovable-uploads/testimonial/clar.png",
   },
-  // {
-  //   name: "Vikram Patel",
-  //   position: "Operations Manager",
-  //   company: "Global Logistics Ltd",
-  //   content: "We've been using Axima's managed IT services for over two years now. The proactive approach to maintenance and security has reduced our downtime significantly.",
-  //   image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png",
-  // },
-  // {
-  //   name: "Ananya Singh",
-  //   position: "CEO",
-  //   company: "Digital First Solutions",
-  //   content: "The training sessions conducted by Axima for our team on Microsoft 365 were comprehensive and well-structured.",
-  //   image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png",
-  // },
-  // {
-  //   name: "Sunil Kapoor",
-  //   position: "Finance Director",
-  //   company: "Investment Partners",
-  //   content: "Axima's security assessment revealed critical vulnerabilities in our system that we weren't aware of. Their remediation plan was thorough and effectively implemented.",
-  //   image: "/lovable-uploads/975d52b5-3179-48b2-9089-8d510673df4a.png",
-  // },
+ {
+    name:"Suthandira Pandi",
+    position:"It Manager",
+    company:"Emil Pharmaceutical Industries Private Limited",
+    content:"We are so thankful for your support.You have done Greate Job , Complete Migration of our Previous RediffmailPro. We are very appreciative of your help.You have given good support Sunday and other working days any time.",
+    image:"/lovable-uploads/testimonial/emilpharma.png"
+ },
+ {
+    name:"Chiranjiv Kant",
+    position:"Project Manager",
+    company:"Capsicum Mediaworks LLP",
+    content:"Thank you so much for your support You demonstrated exceptional professionalism throughout the completion of this task, ensuring a smooth and efficient transition. Your technical expertise, attention to detail, and proactive approach made the entire process seamless. You also addressed all queries promptly, resolved challenges quickly, and maintained excellent communication.",
+    image:"/lovable-uploads/testimonial/capsicum.png"
+ },
+ {
+    name:"Pranita Shah",
+    position:"Finance Manager",
+    company:"Ariston Services Pte Ltd",
+    content:"I wanted to take a moment to express my sincere appreciation for the exceptional work you did in setting up the Microsoft email for our company. Your dedication, patience, and punctuality throughout the entire process have not gone unnoticed.You handled every step with a level of professionalism and attention to detail that truly impressed me. It was evident that you took great care in ensuring everything was set up correctly and efficiently, and you were always available to answer questions or provide guidance, no matter how small the concern.Your ability to manage the timeline and deliver on schedule is greatly appreciated, and we all feel confident that our email system is in great hands because of your expertise.Thank you again for your hard work and commitment.You've made a significant impact.",
+    image:"/lovable-uploads/testimonial/ariston.webp"
+ },
+ {
+    name:"Nagraj Nimbaragi",
+    position:"Product Support Manager",
+    company:"Sri Sai Earthmovers",
+    content:"Thank you for your guidance to set up the mail accounts and deployments",
+    image:"/lovable-uploads/testimonial/srisaiearth.png"
+ },
+ {
+    name:"Dinesh Dicholkar",
+    position:"IT HEAD",
+    company:"Chemspec Chemicals Private Limited",
+    content:"Team Axima,Thanks for making successful landing for us in our new MS email migration.You have proven your technical expertise, which I had discussed with my management during the selection of the partner.",
+    image:"/lovable-uploads/testimonial/chemspec.png"
+ }
 ];
 
 export const Testimonials = () => {
