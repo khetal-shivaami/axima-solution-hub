@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import emailjs from 'emailjs-com';
 import { Loader2 } from "lucide-react";
 
 export const ContactForm = () => {
@@ -24,39 +23,41 @@ export const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // You'll need to replace these IDs with your actual EmailJS IDs
-      const templateParams = {
-        name: formData.name,
-        email: formData.email,
-        contact: formData.contactNumber,
-        plans: formData.selectedPlan,
-        message: formData.message,
-        url: window.location.href,
-        title: "Plan Inquiry Form Submission from Axima Website"
-      };
+      // Prepare form data for submission
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('contact', formData.contactNumber);
+      formDataToSend.append('plans', formData.selectedPlan);
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('url', window.location.href);
+      formDataToSend.append('form', 'plan-inquiry');
+      formDataToSend.append('title', 'Plan Inquiry Form Submission from Axima Website');
 
-      // Replace with your actual EmailJS service ID, template ID, and user ID
-      await emailjs.send(
-        'YOUR_SERVICE_ID', 
-        'YOUR_TEMPLATE_ID', 
-        templateParams, 
-        'YOUR_USER_ID'
-      );
-
-      toast({
-        title: "Success!",
-        description: "Your inquiry has been sent. We'll contact you soon.",
-        variant: "default"
+      // You'll need to replace with your actual PHP endpoint
+      const response = await fetch('https://your-domain.com/send-email.php', {
+        method: 'POST',
+        body: formDataToSend,
       });
 
-      // Reset form after successful submission
-      setFormData({
-        name: "",
-        email: "",
-        contactNumber: "",
-        selectedPlan: "",
-        message: "",
-      });
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "Your inquiry has been sent. We'll contact you soon.",
+          variant: "default"
+        });
+
+        // Reset form after successful submission
+        setFormData({
+          name: "",
+          email: "",
+          contactNumber: "",
+          selectedPlan: "",
+          message: "",
+        });
+      } else {
+        throw new Error('Failed to send email');
+      }
     } catch (error) {
       console.error("Error sending email:", error);
       toast({
