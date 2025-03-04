@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Quote } from "lucide-react";
@@ -85,28 +86,30 @@ export const Testimonials = () => {
                 key={index}
                 className="flex-shrink-0 w-[85vw] md:w-[500px] p-6 mx-4 my-8 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-axima-blue/20"
               >
-                <div className="relative">
-                  <div className="absolute -top-12 left-0 w-12 h-12 bg-axima-blue/20 rounded-full flex items-center justify-center">
-                    <Quote className="w-6 h-6 text-axima-blue" />
+                <div className="relative flex flex-col h-full justify-between">
+                  <div>
+                    <div className="absolute -top-12 left-0 w-12 h-12 bg-axima-blue/20 rounded-full flex items-center justify-center">
+                      <Quote className="w-6 h-6 text-axima-blue" />
+                    </div>
+
+                    <div className="flex flex-col items-center text-center mb-4">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-30 h-14 object-contain border border-white/20 mb-4"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = "https://via.placeholder.com/100";
+                        }}
+                      />
+
+                      <p className="text-gray-300 italic">"{testimonial.content}"</p>
+                    </div>
                   </div>
 
-                  <div className="flex flex-col items-center text-center">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-30 h-14 object-contain border border-white/20 mb-4"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = "https://via.placeholder.com/100";
-                      }}
-                    />
-
-                    <p className="text-gray-300 mb-4 italic">"{testimonial.content}"</p>
-
-                    <div>
-                      <h4 className="text-white font-medium">{testimonial.name}</h4>
-                      <p className="text-gray-400 text-sm">{testimonial.position}, {testimonial.company}</p>
-                    </div>
+                  <div className="mt-auto text-center pt-4 border-t border-axima-blue/20">
+                    <h4 className="text-white font-medium">{testimonial.name}</h4>
+                    <p className="text-gray-400 text-sm">{testimonial.position}, {testimonial.company}</p>
                   </div>
                 </div>
               </motion.div>
