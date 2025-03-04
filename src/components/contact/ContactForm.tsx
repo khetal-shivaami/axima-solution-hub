@@ -1,8 +1,12 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
+import emailjs from 'emailjs-com';
+import { Loader2 } from "lucide-react";
 
 interface FormData {
   name: string;
@@ -18,10 +22,55 @@ const ContactForm = () => {
     contactNumber: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    try {
+      // You'll need to replace these IDs with your actual EmailJS IDs
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        contact: formData.contactNumber,
+        message: formData.message,
+        url: window.location.href,
+        title: "Contact Form Submission from Axima Website"
+      };
+
+      // Replace with your actual EmailJS service ID, template ID, and user ID
+      await emailjs.send(
+        'YOUR_SERVICE_ID', 
+        'YOUR_TEMPLATE_ID', 
+        templateParams, 
+        'YOUR_USER_ID'
+      );
+
+      toast({
+        title: "Success!",
+        description: "Your message has been sent. We'll contact you soon.",
+        variant: "default"
+      });
+
+      // Reset form after successful submission
+      setFormData({
+        name: "",
+        email: "",
+        contactNumber: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "Error!",
+        description: "There was a problem sending your message. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -36,7 +85,7 @@ const ContactForm = () => {
       <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-            Full Name <span style={{ color: 'red' }}>*</span>
+            Full Name <span className="text-red-500">*</span>
           </label>
           <Input
             id="name"
@@ -48,7 +97,7 @@ const ContactForm = () => {
         </div>
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-            Your Email <span style={{ color: 'red' }}>*</span>
+            Your Email <span className="text-red-500">*</span>
           </label>
           <Input
             id="email"
@@ -63,7 +112,7 @@ const ContactForm = () => {
 
       <div>
         <label htmlFor="contactNumber" className="block text-sm font-medium text-gray-300 mb-1">
-          Contact Number <span style={{ color: 'red' }}>*</span>
+          Contact Number <span className="text-red-500">*</span>
         </label>
         <Input
           id="contactNumber"
@@ -76,7 +125,7 @@ const ContactForm = () => {
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
-          Message <span style={{ color: 'red' }}>*</span>
+          Message <span className="text-red-500">*</span>
         </label>
         <Textarea
           id="message"
@@ -91,8 +140,15 @@ const ContactForm = () => {
         <Button
           type="submit"
           className="w-100px bg-axima-blue hover:bg-blue-600 text-white transition-all duration-300 ml-auto"
+          disabled={isSubmitting}
         >
-          Send Message
+          {isSubmitting ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending...
+            </>
+          ) : (
+            "Send Message"
+          )}
         </Button>
       </div>
     </motion.form>
