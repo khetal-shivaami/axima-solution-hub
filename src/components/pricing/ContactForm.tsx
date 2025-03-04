@@ -117,7 +117,7 @@ export const ContactForm = () => {
 
     try {
       // Use the API endpoint provided for plan contact
-      const response = await fetch("http://127.0.0.1:8000/get_aximawebsite_plancontact_details/", {
+      const response = await fetch("https://portal-api.shiviom.com/get_aximawebsite_plancontact_details/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
