@@ -144,8 +144,9 @@ export const ContactForm = () => {
       });
       
       toast({
-        title: "Message sent!",
+        title: "Message sent successfully!",
         description: "Thank you for your interest. We'll contact you about your selected plan soon.",
+        variant: "default",
       });
     } catch (error) {
       console.error("Error submitting form:", error);

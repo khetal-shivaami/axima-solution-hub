@@ -122,8 +122,9 @@ const ContactForm = () => {
       });
       
       toast({
-        title: "Message sent!",
+        title: "Message sent successfully!",
         description: "Thank you for contacting us. We'll get back to you soon.",
+        variant: "default",
       });
     } catch (error) {
       console.error("Error submitting form:", error);
