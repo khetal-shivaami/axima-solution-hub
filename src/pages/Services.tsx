@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Shield, Users, Clock, Check, X, BookOpen, ShieldCheck, FileText } from "lucide-react";
+import { Shield, Users, Clock, Check, X, BookOpen, ShieldCheck, FileText, Minus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { 
   Table, 
@@ -12,8 +12,8 @@ import {
   TableHead, 
   TableHeader, 
   TableRow,
-  ResponsiveTable,
-  ResponsiveTableRow 
+  CompactServiceTable,
+  CompactServiceRow
 } from "@/components/ui/table";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -252,6 +252,7 @@ const Services = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("managed-support");
   const [securityTab, setSecurityTab] = useState("security-services");
+  const [activeMobileCategory, setActiveMobileCategory] = useState(0);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black">
@@ -390,105 +391,105 @@ const Services = () => {
           >
             <h2 className="text-2xl font-bold text-white mb-6 text-center">Managed Services & Support Packages Comparison</h2>
             
-            <Tabs defaultValue="managed-support" className="w-full" onValueChange={setActiveTab}>
-              <TabsList className="grid grid-cols-4 mb-6">
-                <TabsTrigger value="managed-support">General</TabsTrigger>
-                <TabsTrigger value="response-times">Response Times</TabsTrigger>
-                <TabsTrigger value="additional-benefits">Additional Benefits</TabsTrigger>
-                <TabsTrigger value="value-adds">Value Adds</TabsTrigger>
-              </TabsList>
-              
-              {comparisonData.categories.map((category, index) => (
-                <TabsContent key={index} value={
-                  index === 0 ? "managed-support" : 
-                  index === 1 ? "response-times" : 
-                  index === 2 ? "additional-benefits" : "value-adds"
-                }>
-                  {/* Large screen table - hidden on mobile */}
-                  <div className="rounded-md border overflow-hidden hidden md:block">
-                    <div className="overflow-x-auto">
-                      <Table>
-                        <TableHeader className="bg-gray-800">
-                          <TableRow>
-                            <TableHead className="text-white w-[200px]">Feature</TableHead>
-                            <TableHead className="text-white text-center">Basic</TableHead>
-                            <TableHead className="text-white text-center">Standard</TableHead>
-                            <TableHead className="text-white text-center">Professional</TableHead>
-                            <TableHead className="text-white text-center">Enterprise</TableHead>
-                            <TableHead className="text-white text-center">Managed Service<br/>(Remote)</TableHead>
-                            <TableHead className="text-white text-center">Managed Service<br/>(Onsite)</TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {category.items.map((item, itemIndex) => (
-                            <TableRow key={itemIndex} className="border-t border-gray-700 hover:bg-gray-800/50">
-                              <TableCell className="font-medium text-white">{item.feature}</TableCell>
-                              <TableCell className="text-center text-gray-300">{renderCell(item.basic)}</TableCell>
-                              <TableCell className="text-center text-gray-300">{renderCell(item.standard)}</TableCell>
-                              <TableCell className="text-center text-gray-300">{renderCell(item.professional)}</TableCell>
-                              <TableCell className="text-center text-gray-300">{renderCell(item.enterprise)}</TableCell>
-                              <TableCell className="text-center text-gray-300">{renderCell(item.managedServiceRemote)}</TableCell>
-                              <TableCell className="text-center text-gray-300">{renderCell(item.managedServiceOnsite)}</TableCell>
+            {/* Desktop View - Complete Table */}
+            <div className="hidden md:block">
+              <Tabs defaultValue="managed-support" className="w-full" onValueChange={setActiveTab}>
+                <TabsList className="grid grid-cols-4 mb-6">
+                  <TabsTrigger value="managed-support">General</TabsTrigger>
+                  <TabsTrigger value="response-times">Response Times</TabsTrigger>
+                  <TabsTrigger value="additional-benefits">Additional Benefits</TabsTrigger>
+                  <TabsTrigger value="value-adds">Value Adds</TabsTrigger>
+                </TabsList>
+                
+                {comparisonData.categories.map((category, index) => (
+                  <TabsContent key={index} value={
+                    index === 0 ? "managed-support" : 
+                    index === 1 ? "response-times" : 
+                    index === 2 ? "additional-benefits" : "value-adds"
+                  }>
+                    <div className="rounded-md border overflow-hidden">
+                      <div className="overflow-x-auto">
+                        <Table>
+                          <TableHeader className="bg-gray-800">
+                            <TableRow>
+                              <TableHead className="text-white w-[200px]">Feature</TableHead>
+                              <TableHead className="text-white text-center">Basic</TableHead>
+                              <TableHead className="text-white text-center">Standard</TableHead>
+                              <TableHead className="text-white text-center">Professional</TableHead>
+                              <TableHead className="text-white text-center">Enterprise</TableHead>
+                              <TableHead className="text-white text-center">Managed Service<br/>(Remote)</TableHead>
+                              <TableHead className="text-white text-center">Managed Service<br/>(Onsite)</TableHead>
                             </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </div>
-                  </div>
-                  
-                  {/* Mobile view accordion-style table */}
-                  <div className="md:hidden rounded-md border border-gray-700 overflow-hidden">
-                    <div className="bg-gray-800 p-4 font-medium text-white">
-                      <h3 className="text-lg">{category.name} Features</h3>
+                          </TableHeader>
+                          <TableBody>
+                            {category.items.map((item, itemIndex) => (
+                              <TableRow key={itemIndex} className="border-t border-gray-700 hover:bg-gray-800/50">
+                                <TableCell className="font-medium text-white">{item.feature}</TableCell>
+                                <TableCell className="text-center text-gray-300">{renderCell(item.basic)}</TableCell>
+                                <TableCell className="text-center text-gray-300">{renderCell(item.standard)}</TableCell>
+                                <TableCell className="text-center text-gray-300">{renderCell(item.professional)}</TableCell>
+                                <TableCell className="text-center text-gray-300">{renderCell(item.enterprise)}</TableCell>
+                                <TableCell className="text-center text-gray-300">{renderCell(item.managedServiceRemote)}</TableCell>
+                                <TableCell className="text-center text-gray-300">{renderCell(item.managedServiceOnsite)}</TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </div>
                     </div>
                     
-                    {category.items.map((item, i) => (
-                      <div key={i} className="border-t border-gray-700">
-                        <div className="p-4 bg-black/60">
-                          <h4 className="font-medium text-white mb-3">{item.feature}</h4>
-                          
-                          <div className="space-y-3">
-                            <div className="flex justify-between items-center py-2 border-b border-gray-700/30">
-                              <span className="text-gray-400">Basic</span>
-                              <span className="text-gray-300">{renderCell(item.basic)}</span>
-                            </div>
-                            
-                            <div className="flex justify-between items-center py-2 border-b border-gray-700/30">
-                              <span className="text-gray-400">Standard</span>
-                              <span className="text-gray-300">{renderCell(item.standard)}</span>
-                            </div>
-                            
-                            <div className="flex justify-between items-center py-2 border-b border-gray-700/30">
-                              <span className="text-gray-400">Professional</span>
-                              <span className="text-gray-300">{renderCell(item.professional)}</span>
-                            </div>
-                            
-                            <div className="flex justify-between items-center py-2 border-b border-gray-700/30">
-                              <span className="text-gray-400">Enterprise</span>
-                              <span className="text-gray-300">{renderCell(item.enterprise)}</span>
-                            </div>
-                            
-                            <div className="flex justify-between items-center py-2 border-b border-gray-700/30">
-                              <span className="text-gray-400">MS (Remote)</span>
-                              <span className="text-gray-300">{renderCell(item.managedServiceRemote)}</span>
-                            </div>
-                            
-                            <div className="flex justify-between items-center py-2">
-                              <span className="text-gray-400">MS (Onsite)</span>
-                              <span className="text-gray-300">{renderCell(item.managedServiceOnsite)}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="mt-4 text-xs text-gray-400">
-                    * Additional ticket charges apply beyond this limit
-                  </div>
-                </TabsContent>
-              ))}
-            </Tabs>
+                    <div className="mt-4 text-xs text-gray-400">
+                      * Additional ticket charges apply beyond this limit
+                    </div>
+                  </TabsContent>
+                ))}
+              </Tabs>
+            </div>
+            
+            {/* Mobile View - Compact Service Cards */}
+            <div className="md:hidden space-y-6">
+              {/* Category Navigation */}
+              <div className="overflow-x-auto pb-2 -mx-2 px-2">
+                <div className="flex space-x-2 min-w-max">
+                  {comparisonData.categories.map((category, index) => (
+                    <button
+                      key={index}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                        activeMobileCategory === index
+                          ? "bg-axima-blue text-white"
+                          : "bg-gray-800/60 text-gray-300 hover:bg-gray-700"
+                      }`}
+                      onClick={() => setActiveMobileCategory(index)}
+                    >
+                      {category.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Selected Category Features */}
+              <div className="space-y-4">
+                {comparisonData.categories[activeMobileCategory].items.map((item, idx) => (
+                  <CompactServiceTable key={idx}>
+                    <CompactServiceRow
+                      feature={item.feature}
+                      plans={[
+                        { name: "Basic", value: renderCell(item.basic) },
+                        { name: "Standard", value: renderCell(item.standard) },
+                        { name: "Professional", value: renderCell(item.professional) },
+                        { name: "Enterprise", value: renderCell(item.enterprise) },
+                        { name: "MS (Remote)", value: renderCell(item.managedServiceRemote) },
+                        { name: "MS (Onsite)", value: renderCell(item.managedServiceOnsite) }
+                      ]}
+                    />
+                  </CompactServiceTable>
+                ))}
+              </div>
+              
+              <div className="text-xs text-gray-400 pt-2">
+                * Additional ticket charges apply beyond this limit
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

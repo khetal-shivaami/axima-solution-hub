@@ -106,7 +106,7 @@ const TableCaption = React.forwardRef<
 ))
 TableCaption.displayName = "TableCaption"
 
-// New responsive table components
+// Responsive table components
 const ResponsiveTable = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & { 
@@ -168,6 +168,68 @@ const ResponsiveTableRow = React.forwardRef<
 ))
 ResponsiveTableRow.displayName = "ResponsiveTableRow"
 
+// New compact mobile table components specifically for service comparison
+const CompactServiceTable = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & {
+    title?: string
+  }
+>(({ className, children, title, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "w-full overflow-hidden rounded-lg border border-gray-800 bg-black/60",
+      className
+    )}
+    {...props}
+  >
+    {title && (
+      <div className="bg-gray-800 p-4 text-center">
+        <h3 className="font-medium text-white text-lg">{title}</h3>
+      </div>
+    )}
+    <div className="divide-y divide-gray-800">
+      {children}
+    </div>
+  </div>
+))
+CompactServiceTable.displayName = "CompactServiceTable"
+
+const CompactServiceRow = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & {
+    feature: string,
+    plans: {
+      name: string,
+      value: React.ReactNode
+    }[]
+  }
+>(({ className, feature, plans, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "p-4 space-y-3",
+      className
+    )}
+    {...props}
+  >
+    <div className="font-medium text-white text-center border-b border-gray-700/50 pb-2">
+      {feature}
+    </div>
+    <div className="grid grid-cols-2 gap-3">
+      {plans.map((plan, idx) => (
+        <div key={idx} className="space-y-1">
+          <div className="text-xs text-gray-400">{plan.name}</div>
+          <div className="text-gray-200 flex justify-center">
+            {plan.value}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+))
+CompactServiceRow.displayName = "CompactServiceRow"
+
 export {
   Table,
   TableHeader,
@@ -178,5 +240,7 @@ export {
   TableCell,
   TableCaption,
   ResponsiveTable,
-  ResponsiveTableRow
+  ResponsiveTableRow,
+  CompactServiceTable,
+  CompactServiceRow
 }
