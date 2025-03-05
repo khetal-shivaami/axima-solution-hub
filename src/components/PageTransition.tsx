@@ -15,7 +15,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Increased duration to make the transition more noticeable
+    }, 2500); // Slightly longer duration for the transition effect
 
     // Simulate loading progress
     const interval = setInterval(() => {
@@ -24,7 +24,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
           clearInterval(interval);
           return 100;
         }
-        return prev + 5; // Slower progress to match the longer duration
+        return prev + 4; // Adjusted speed for smoother progress
       });
     }, 100);
 
@@ -41,42 +41,65 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
           key="loader"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          exit={{ 
+            opacity: 0,
+            transition: { duration: 0.5 }
+          }}
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            animate={{ 
+              opacity: 1, 
+              y: 0,
+              transition: { 
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1] 
+              }
+            }}
+            className="text-center"
           >
             <img 
               src="/lovable-uploads/11f0b3fd-81f2-4bf5-a519-1b17d303755a.png" 
               alt="Axima Corporation" 
-              className="h-24 mb-6" 
+              className="h-28 mb-8" 
             />
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="w-64 mb-4"
-          >
-            <Progress value={progress} className="h-2 bg-gray-800" />
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="flex items-center text-white text-sm"
-          >
-            <Loader2 className="mr-2 h-4 w-4 animate-spin text-axima-blue" />
-            <span className="text-xs uppercase tracking-widest font-light">Loading resources</span>
+            
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              animate={{ 
+                scaleX: progress/100,
+                transition: { 
+                  duration: 0.3,
+                  ease: "easeOut"
+                }
+              }}
+              className="w-64 h-0.5 bg-axima-blue origin-left mb-6"
+            />
+            
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: [0, 0.5, 1, 0.5],
+                transition: { 
+                  duration: 2,
+                  repeat: Infinity
+                }
+              }}
+              className="text-xs uppercase tracking-widest font-light text-white/80"
+            >
+              Loading Experience
+            </motion.div>
           </motion.div>
         </motion.div>
       ) : (
-        children
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          {children}
+        </motion.div>
       )}
     </AnimatePresence>
   );
