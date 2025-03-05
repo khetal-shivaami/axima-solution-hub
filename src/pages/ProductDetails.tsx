@@ -507,14 +507,16 @@ const productDetails: Record<string, {
   },
   "scalefusion": {
     title: "Scalefusion",
-    description: "Scalefusion is a mobile device management (MDM) and endpoint management platform designed to help businesses manage, secure, and monitor their devices, applications, and data. It is widely used across industries to streamline device management, enhance security, and ensure compliance.",
+    description: "Scalefusion is a powerful all-in-one solution that unifies endpoint management, zero trust access, and endpoint security into a single platform with one agent. Scalefusion offers a comprehensive suite of products engineered to simplify endpoint, user, and access management for IT teams.With over 10,000+ businesses in 120+ countries, Scalefusion ensures your business is always one step ahead.",
     image: "/lovable-uploads/logos/Scalefusion-01.webp",
     features: [
-      "Device Management",
-      "Security and Compliance",
-      "Location Tracking and Geofencing",
-      "BYOD (Bring Your Own Device) Management",
-      "Content Management"
+      "Application & Content Management",
+      "Automation & Workflows",
+      "Kiosk Mode",
+      "Conditional SSO",
+      "Device Authentication",
+      "Virtual Private Network Tunnel",
+      "Web Content Filtering (Secure Web Gateway)"
     ],
     benefits: [
       "Cost-Effective",

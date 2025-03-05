@@ -65,7 +65,7 @@ export const innovativeSolutions = [
   },
   {
     name: "Scalefusion",
-    description: "SpinOne provides SaaS security posture management (SSPM), SaaS data loss protection and data leak prevention (DLP),SaaS ransomware detection and response,and SaaS backup and recovery to enhance cyber resilience, streamline security operations, and reduce security costs.",
+    description: "Scalefusion is a powerful all-in-one solution that unifies endpoint management, zero trust access, and endpoint security into a single platform with one agent. Scalefusion offers a comprehensive suite of products engineered to simplify endpoint, user, and access management for IT teams.With over 10,000+ businesses in 120+ countries, Scalefusion ensures your business is always one step ahead.",
     image: "/lovable-uploads/logos/Scalefusion-01.webp",
     route: "/product/scalefusion"
   },
