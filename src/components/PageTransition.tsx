@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
+import { useLocation } from "react-router-dom";
 
 interface PageTransitionProps {
   children: React.ReactNode;
@@ -11,11 +12,16 @@ interface PageTransitionProps {
 export const PageTransition = ({ children }: PageTransitionProps) => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
+    // Reset loading state on route change
+    setLoading(true);
+    setProgress(0);
+    
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500); // Slightly longer duration for the transition effect
+    }, 2500);
 
     // Simulate loading progress
     const interval = setInterval(() => {
@@ -24,7 +30,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
           clearInterval(interval);
           return 100;
         }
-        return prev + 4; // Adjusted speed for smoother progress
+        return prev + 4;
       });
     }, 100);
 
@@ -32,7 +38,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
       clearTimeout(timer);
       clearInterval(interval);
     };
-  }, []);
+  }, [location.pathname]); // Trigger effect on route change
 
   return (
     <AnimatePresence mode="wait">
@@ -94,6 +100,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
         </motion.div>
       ) : (
         <motion.div
+          key={location.pathname}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}

@@ -42,9 +42,8 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <ScrollToTop />
-        <PageTransition>
-          <ScrollIndicator />
-          <TooltipProvider>
+        <TooltipProvider>
+          <PageTransition>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
@@ -66,8 +65,9 @@ const App = () => {
               <Route path="/support-packages" element={<SupportPackages />} />
               <Route path="/case-studies" element={<CaseStudies />} />
             </Routes>
-          </TooltipProvider>
-        </PageTransition>
+          </PageTransition>
+          <ScrollIndicator />
+        </TooltipProvider>
         <Toaster />
         <Sonner />
       </BrowserRouter>
