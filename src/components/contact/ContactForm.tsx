@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
@@ -6,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
   name: string;
@@ -16,6 +16,7 @@ interface FormData {
 
 const ContactForm = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -126,6 +127,10 @@ const ContactForm = () => {
         description: "Thank you for contacting us. We'll get back to you soon.",
         variant: "default",
       });
+      
+      // Redirect to thank you page
+      navigate("/contact-thank-you");
+      
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
@@ -7,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Mail, Phone } from "lucide-react";
 import { Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
   name: string;
@@ -18,6 +18,7 @@ interface FormData {
 
 export const ContactForm = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -79,7 +80,7 @@ export const ContactForm = () => {
     
     return true;
   };
-
+  
   // Sanitize input to prevent XSS
   const sanitizeInput = (input: string): string => {
     return input
@@ -148,6 +149,10 @@ export const ContactForm = () => {
         description: "Thank you for your interest. We'll contact you about your selected plan soon.",
         variant: "default",
       });
+      
+      // Redirect to plan thank you page
+      navigate("/plan-thank-you");
+      
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({

@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -21,6 +22,8 @@ import MSAzure from "./pages/MSAzure";
 import JioAzure from "./pages/JioAzure";
 import SupportPackages from "./pages/SupportPackages";
 import CaseStudies from "./pages/CaseStudies";
+import ContactThankYou from "./pages/ContactThankYou";
+import PlanThankYou from "./pages/PlanThankYou";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -59,6 +62,16 @@ const App = () => (
         <Route path="/contact" element={
           <TooltipProvider>
             <Contact />
+          </TooltipProvider>
+        } />
+        <Route path="/contact-thank-you" element={
+          <TooltipProvider>
+            <ContactThankYou />
+          </TooltipProvider>
+        } />
+        <Route path="/plan-thank-you" element={
+          <TooltipProvider>
+            <PlanThankYou />
           </TooltipProvider>
         } />
         <Route path="/faq" element={
