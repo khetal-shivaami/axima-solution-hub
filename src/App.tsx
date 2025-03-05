@@ -27,6 +27,7 @@ import CaseStudies from "./pages/CaseStudies";
 import ContactThankYou from "./pages/ContactThankYou";
 import PlanThankYou from "./pages/PlanThankYou";
 
+// Create QueryClient outside of the component
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -36,114 +37,42 @@ const queryClient = new QueryClient({
   },
 });
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-      <ScrollToTop />
-      <PageTransition>
-        <ScrollIndicator />
-        <Routes>
-          <Route path="/" element={
-            <TooltipProvider>
-              <Index />
-            </TooltipProvider>
-          } />
-          <Route path="/about" element={
-            <TooltipProvider>
-              <About />
-            </TooltipProvider>
-          } />
-          <Route path="/products" element={
-            <TooltipProvider>
-              <Products />
-            </TooltipProvider>
-          } />
-          <Route path="/services" element={
-            <TooltipProvider>
-              <Services />
-            </TooltipProvider>
-          } />
-          <Route path="/contact" element={
-            <TooltipProvider>
-              <Contact />
-            </TooltipProvider>
-          } />
-          <Route path="/contact-thank-you" element={
-            <TooltipProvider>
-              <ContactThankYou />
-            </TooltipProvider>
-          } />
-          <Route path="/plan-thank-you" element={
-            <TooltipProvider>
-              <PlanThankYou />
-            </TooltipProvider>
-          } />
-          <Route path="/faq" element={
-            <TooltipProvider>
-              <FAQ />
-            </TooltipProvider>
-          } />
-          <Route path="/plans" element={
-            <TooltipProvider>
-              <PlansAndPricing />
-            </TooltipProvider>
-          } />
-          <Route path="/product/:productId" element={
-            <TooltipProvider>
-              <ProductDetails />
-            </TooltipProvider>
-          } />
-          <Route path="/copilot" element={
-            <TooltipProvider>
-              <Copilot />
-            </TooltipProvider>
-          } />
-          <Route path="/privacy-policy" element={
-            <TooltipProvider>
-              <PrivacyPolicy />
-            </TooltipProvider>
-          } />
-          <Route path="/terms-conditions" element={
-            <TooltipProvider>
-              <TermsConditions />
-            </TooltipProvider>
-          } />
-          <Route path="/refund-policy" element={
-            <TooltipProvider>
-              <RefundPolicy />
-            </TooltipProvider>
-          } />
-          <Route path="/microsoft-365" element={
-            <TooltipProvider>
-              <Microsoft365 />
-            </TooltipProvider>
-          } />
-          <Route path="/microsoft-azure" element={
-            <TooltipProvider>
-              <MSAzure />
-            </TooltipProvider>
-          } />
-          <Route path="/microsoft-jioazure" element={
-            <TooltipProvider>
-              <JioAzure />
-            </TooltipProvider>
-          } />
-          <Route path="/support-packages" element={
-            <TooltipProvider>
-              <SupportPackages />
-            </TooltipProvider>
-          } />
-          <Route path="/case-studies" element={
-            <TooltipProvider>
-              <CaseStudies />
-            </TooltipProvider>
-          } />
-        </Routes>
-      </PageTransition>
-      <Toaster />
-      <Sonner />
-    </BrowserRouter>
-  </QueryClientProvider>
-);
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <ScrollToTop />
+        <PageTransition>
+          <ScrollIndicator />
+          <TooltipProvider>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/contact-thank-you" element={<ContactThankYou />} />
+              <Route path="/plan-thank-you" element={<PlanThankYou />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/plans" element={<PlansAndPricing />} />
+              <Route path="/product/:productId" element={<ProductDetails />} />
+              <Route path="/copilot" element={<Copilot />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-conditions" element={<TermsConditions />} />
+              <Route path="/refund-policy" element={<RefundPolicy />} />
+              <Route path="/microsoft-365" element={<Microsoft365 />} />
+              <Route path="/microsoft-azure" element={<MSAzure />} />
+              <Route path="/microsoft-jioazure" element={<JioAzure />} />
+              <Route path="/support-packages" element={<SupportPackages />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+            </Routes>
+          </TooltipProvider>
+        </PageTransition>
+        <Toaster />
+        <Sonner />
+      </BrowserRouter>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
