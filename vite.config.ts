@@ -1,3 +1,4 @@
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -24,14 +25,14 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-	build: {
-	    rollupOptions: {
-	      output: {
-	        // Add cache busting
-	        entryFileNames: 'assets/[name].[hash].js',
-	        chunkFileNames: 'assets/[name].[hash].js',
-	        assetFileNames: 'assets/[name].[hash].[ext]'
-	      }
-	    }
-	  }
+  build: {
+    rollupOptions: {
+      output: {
+        // Add cache busting
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
+      }
+    }
+  }
 }));
