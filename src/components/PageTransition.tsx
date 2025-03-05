@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Loader2 } from "lucide-react";
@@ -30,9 +29,9 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
           clearInterval(interval);
           return 100;
         }
-        return prev + 4;
+        return prev + 10; // Increased step size for faster progress
       });
-    }, 100);
+    }, 50); // Decreased interval time for a smoother effect
 
     return () => {
       clearTimeout(timer);
@@ -43,7 +42,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
   return (
     <AnimatePresence mode="wait">
       {loading ? (
-        <motion.div
+       <motion.div
           key="loader"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -51,7 +50,8 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
             opacity: 0,
             transition: { duration: 0.5 }
           }}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", backdropFilter: "blur(10px)" }}
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -76,13 +76,25 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
               animate={{ 
                 scaleX: progress/100,
                 transition: { 
-                  duration: 0.3,
+                  duration: 0.1,
                   ease: "easeOut"
                 }
               }}
               className="w-64 h-0.5 bg-axima-blue origin-left mb-6"
             />
             
+            {/* Progress percentage display */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: 1,
+                transition: { duration: 0.3 }
+              }}
+              className="text-lg font-medium text-white mt-4"
+            >
+              {progress}%
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ 
@@ -94,7 +106,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
               }}
               className="text-xs uppercase tracking-widest font-light text-white/80"
             >
-              Loading Experience
+              {/* Loading Experience */}
             </motion.div>
           </motion.div>
         </motion.div>
