@@ -5,6 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { PageTransition } from "./components/PageTransition";
+import { ScrollIndicator } from "./components/ScrollIndicator";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Products from "./pages/Products";
@@ -38,103 +40,106 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={
-          <TooltipProvider>
-            <Index />
-          </TooltipProvider>
-        } />
-        <Route path="/about" element={
-          <TooltipProvider>
-            <About />
-          </TooltipProvider>
-        } />
-        <Route path="/products" element={
-          <TooltipProvider>
-            <Products />
-          </TooltipProvider>
-        } />
-        <Route path="/services" element={
-          <TooltipProvider>
-            <Services />
-          </TooltipProvider>
-        } />
-        <Route path="/contact" element={
-          <TooltipProvider>
-            <Contact />
-          </TooltipProvider>
-        } />
-        <Route path="/contact-thank-you" element={
-          <TooltipProvider>
-            <ContactThankYou />
-          </TooltipProvider>
-        } />
-        <Route path="/plan-thank-you" element={
-          <TooltipProvider>
-            <PlanThankYou />
-          </TooltipProvider>
-        } />
-        <Route path="/faq" element={
-          <TooltipProvider>
-            <FAQ />
-          </TooltipProvider>
-        } />
-        <Route path="/plans" element={
-          <TooltipProvider>
-            <PlansAndPricing />
-          </TooltipProvider>
-        } />
-        <Route path="/product/:productId" element={
-          <TooltipProvider>
-            <ProductDetails />
-          </TooltipProvider>
-        } />
-        <Route path="/copilot" element={
-          <TooltipProvider>
-            <Copilot />
-          </TooltipProvider>
-        } />
-        <Route path="/privacy-policy" element={
-          <TooltipProvider>
-            <PrivacyPolicy />
-          </TooltipProvider>
-        } />
-        <Route path="/terms-conditions" element={
-          <TooltipProvider>
-            <TermsConditions />
-          </TooltipProvider>
-        } />
-        <Route path="/refund-policy" element={
-          <TooltipProvider>
-            <RefundPolicy />
-          </TooltipProvider>
-        } />
-        <Route path="/microsoft-365" element={
-          <TooltipProvider>
-            <Microsoft365 />
-          </TooltipProvider>
-        } />
-        <Route path="/microsoft-azure" element={
-          <TooltipProvider>
-            <MSAzure />
-          </TooltipProvider>
-        } />
-        <Route path="/microsoft-jioazure" element={
-          <TooltipProvider>
-            <JioAzure />
-          </TooltipProvider>
-        } />
-        <Route path="/support-packages" element={
-          <TooltipProvider>
-            <SupportPackages />
-          </TooltipProvider>
-        } />
-        <Route path="/case-studies" element={
-          <TooltipProvider>
-            <CaseStudies />
-          </TooltipProvider>
-        } />
-      </Routes>
+      <PageTransition>
+        <ScrollIndicator />
+        <Routes>
+          <Route path="/" element={
+            <TooltipProvider>
+              <Index />
+            </TooltipProvider>
+          } />
+          <Route path="/about" element={
+            <TooltipProvider>
+              <About />
+            </TooltipProvider>
+          } />
+          <Route path="/products" element={
+            <TooltipProvider>
+              <Products />
+            </TooltipProvider>
+          } />
+          <Route path="/services" element={
+            <TooltipProvider>
+              <Services />
+            </TooltipProvider>
+          } />
+          <Route path="/contact" element={
+            <TooltipProvider>
+              <Contact />
+            </TooltipProvider>
+          } />
+          <Route path="/contact-thank-you" element={
+            <TooltipProvider>
+              <ContactThankYou />
+            </TooltipProvider>
+          } />
+          <Route path="/plan-thank-you" element={
+            <TooltipProvider>
+              <PlanThankYou />
+            </TooltipProvider>
+          } />
+          <Route path="/faq" element={
+            <TooltipProvider>
+              <FAQ />
+            </TooltipProvider>
+          } />
+          <Route path="/plans" element={
+            <TooltipProvider>
+              <PlansAndPricing />
+            </TooltipProvider>
+          } />
+          <Route path="/product/:productId" element={
+            <TooltipProvider>
+              <ProductDetails />
+            </TooltipProvider>
+          } />
+          <Route path="/copilot" element={
+            <TooltipProvider>
+              <Copilot />
+            </TooltipProvider>
+          } />
+          <Route path="/privacy-policy" element={
+            <TooltipProvider>
+              <PrivacyPolicy />
+            </TooltipProvider>
+          } />
+          <Route path="/terms-conditions" element={
+            <TooltipProvider>
+              <TermsConditions />
+            </TooltipProvider>
+          } />
+          <Route path="/refund-policy" element={
+            <TooltipProvider>
+              <RefundPolicy />
+            </TooltipProvider>
+          } />
+          <Route path="/microsoft-365" element={
+            <TooltipProvider>
+              <Microsoft365 />
+            </TooltipProvider>
+          } />
+          <Route path="/microsoft-azure" element={
+            <TooltipProvider>
+              <MSAzure />
+            </TooltipProvider>
+          } />
+          <Route path="/microsoft-jioazure" element={
+            <TooltipProvider>
+              <JioAzure />
+            </TooltipProvider>
+          } />
+          <Route path="/support-packages" element={
+            <TooltipProvider>
+              <SupportPackages />
+            </TooltipProvider>
+          } />
+          <Route path="/case-studies" element={
+            <TooltipProvider>
+              <CaseStudies />
+            </TooltipProvider>
+          } />
+        </Routes>
+      </PageTransition>
       <Toaster />
       <Sonner />
     </BrowserRouter>
