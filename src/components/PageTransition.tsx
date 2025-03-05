@@ -105,7 +105,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
               }}
               className="text-xs uppercase tracking-widest font-light text-white/80"
             >
-              Loading Experience
+              {/* Loading Experience */}
             </motion.div>
           </motion.div>
         </motion.div>
