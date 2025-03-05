@@ -1,3 +1,4 @@
+
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
@@ -105,6 +106,68 @@ const TableCaption = React.forwardRef<
 ))
 TableCaption.displayName = "TableCaption"
 
+// New responsive table components
+const ResponsiveTable = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & { 
+    mobileTitle?: string,
+    hiddenColumns?: string[]
+  }
+>(({ className, children, mobileTitle, hiddenColumns = [], ...props }, ref) => (
+  <div 
+    ref={ref}
+    data-mobile-title={mobileTitle}
+    data-hidden-columns={hiddenColumns.join(',')}
+    className={cn(
+      "w-full overflow-hidden rounded-lg", 
+      "md:overflow-auto",
+      className
+    )} 
+    {...props}
+  >
+    {children}
+  </div>
+))
+ResponsiveTable.displayName = "ResponsiveTable"
+
+const ResponsiveTableRow = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & { 
+    feature?: string,
+    isHeader?: boolean,
+    values?: React.ReactNode[]
+  }
+>(({ className, children, feature, isHeader, values = [], ...props }, ref) => (
+  <div
+    ref={ref}
+    data-feature={feature}
+    data-is-header={isHeader ? "true" : "false"}
+    className={cn(
+      "flex flex-col border-b border-gray-700 p-4 last:border-b-0",
+      "sm:grid sm:grid-cols-2 md:hidden",
+      isHeader ? "bg-gray-800/80 font-medium" : "hover:bg-gray-800/30",
+      className
+    )}
+    {...props}
+  >
+    {isHeader ? (
+      <div className="font-medium text-lg text-white mb-2">{feature}</div>
+    ) : (
+      <>
+        <div className="font-medium text-white mb-2">{feature}</div>
+        <div className="grid gap-2">
+          {values?.map((value, idx) => (
+            <div key={idx} className="flex items-center gap-2 text-gray-300">
+              {value}
+            </div>
+          ))}
+        </div>
+      </>
+    )}
+  </div>
+))
+ResponsiveTableRow.displayName = "ResponsiveTableRow"
+
 export {
   Table,
   TableHeader,
@@ -114,4 +177,6 @@ export {
   TableRow,
   TableCell,
   TableCaption,
+  ResponsiveTable,
+  ResponsiveTableRow
 }

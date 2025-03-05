@@ -5,7 +5,16 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield, Users, Clock, Check, X, BookOpen, ShieldCheck, FileText } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { 
+  Table, 
+  TableBody, 
+  TableCell, 
+  TableHead, 
+  TableHeader, 
+  TableRow,
+  ResponsiveTable,
+  ResponsiveTableRow 
+} from "@/components/ui/table";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { securityAssessmentServices, trainingServices } from "@/data/securityAssessmentData";
@@ -395,7 +404,8 @@ const Services = () => {
                   index === 1 ? "response-times" : 
                   index === 2 ? "additional-benefits" : "value-adds"
                 }>
-                  <div className="rounded-md border overflow-hidden">
+                  {/* Large screen table - hidden on mobile */}
+                  <div className="rounded-md border overflow-hidden hidden md:block">
                     <div className="overflow-x-auto">
                       <Table>
                         <TableHeader className="bg-gray-800">
@@ -424,6 +434,53 @@ const Services = () => {
                         </TableBody>
                       </Table>
                     </div>
+                  </div>
+                  
+                  {/* Mobile view accordion-style table */}
+                  <div className="md:hidden rounded-md border border-gray-700 overflow-hidden">
+                    <div className="bg-gray-800 p-4 font-medium text-white">
+                      <h3 className="text-lg">{category.name} Features</h3>
+                    </div>
+                    
+                    {category.items.map((item, i) => (
+                      <div key={i} className="border-t border-gray-700">
+                        <div className="p-4 bg-black/60">
+                          <h4 className="font-medium text-white mb-3">{item.feature}</h4>
+                          
+                          <div className="space-y-3">
+                            <div className="flex justify-between items-center py-2 border-b border-gray-700/30">
+                              <span className="text-gray-400">Basic</span>
+                              <span className="text-gray-300">{renderCell(item.basic)}</span>
+                            </div>
+                            
+                            <div className="flex justify-between items-center py-2 border-b border-gray-700/30">
+                              <span className="text-gray-400">Standard</span>
+                              <span className="text-gray-300">{renderCell(item.standard)}</span>
+                            </div>
+                            
+                            <div className="flex justify-between items-center py-2 border-b border-gray-700/30">
+                              <span className="text-gray-400">Professional</span>
+                              <span className="text-gray-300">{renderCell(item.professional)}</span>
+                            </div>
+                            
+                            <div className="flex justify-between items-center py-2 border-b border-gray-700/30">
+                              <span className="text-gray-400">Enterprise</span>
+                              <span className="text-gray-300">{renderCell(item.enterprise)}</span>
+                            </div>
+                            
+                            <div className="flex justify-between items-center py-2 border-b border-gray-700/30">
+                              <span className="text-gray-400">MS (Remote)</span>
+                              <span className="text-gray-300">{renderCell(item.managedServiceRemote)}</span>
+                            </div>
+                            
+                            <div className="flex justify-between items-center py-2">
+                              <span className="text-gray-400">MS (Onsite)</span>
+                              <span className="text-gray-300">{renderCell(item.managedServiceOnsite)}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                   
                   <div className="mt-4 text-xs text-gray-400">
