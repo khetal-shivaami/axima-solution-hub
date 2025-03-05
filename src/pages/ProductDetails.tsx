@@ -519,9 +519,9 @@ const productDetails: Record<string, {
       "Web Content Filtering (Secure Web Gateway)"
     ],
     benefits: [
-      "Cost-Effective",
-      "Simplified Device Management",
+      "Unified Endpoint Management",
       "Enhanced Security",
+      "Cost-Effective",
       "Scalability"
     ]
   },
