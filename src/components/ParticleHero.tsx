@@ -99,7 +99,7 @@ export const ParticleHero = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="flex items-center justify-center gap-2 mb-6"
+            className="flex items-center justify-center gap-2 mb-6 mt-20 sm:mt-0" // Added margin-top for mobile
           >
             <span className="px-4 py-2 text-sm bg-gradient-to-r from-axima-blue/20 to-axima-blue/10 rounded-full border border-axima-blue/20 text-axima-blue hover-lift">
               Authorized Microsoft Partner
@@ -108,15 +108,19 @@ export const ParticleHero = () => {
 
           {/* Main Heading */}
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-8 leading-tight"
+            className="text-3xl sm:text-5xl md:text-7xl font-bold mb-8 leading-tight px-4" // Adjusted text size and added padding
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
-              Transform Your Business with
+              Transform Your Business
             </span>
             <br />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
+              with
+            </span>
+            <br className="sm:hidden" /> {/* Line break only on mobile */}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-axima-blue via-blue-400 to-blue-600">
               Microsoft Solutions
             </span>
@@ -124,7 +128,7 @@ export const ParticleHero = () => {
           
           {/* Description */}
           <motion.p 
-            className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed px-4" // Adjusted text size and added padding
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -139,13 +143,11 @@ export const ParticleHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4" // Adjusted gap and added padding
           >
             <Button
-              className="bg-axima-blue hover:bg-blue-600 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group hover:-translate-y-1"
-              // onClick={scrollToProducts}
+              className="w-full sm:w-auto bg-axima-blue hover:bg-blue-600 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group hover:-translate-y-1"
               onClick={() => window.location.href = '/products'}
-
             >
               Explore Products 
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -153,39 +155,13 @@ export const ParticleHero = () => {
             
             <Button
               variant="outline"
-              className="glass-card px-8 py-6 text-lg rounded-full group hover:-translate-y-1 transition-all duration-300"
+              className="w-full sm:w-auto glass-card px-8 py-6 text-lg rounded-full group hover:-translate-y-1 transition-all duration-300"
               onClick={() => window.location.href = '/contact'}
             >
               Book Demo
               <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>
-
-          {/* Stats Section */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-2 gap-8 mt-20 max-w-4xl mx-auto"
-          >
-            {[
-              { number: "98%", label: "Customer Satisfaction" },
-              { number: "15+", label: "Years Experience" }
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 + index * 0.1, duration: 0.6 }}
-                className="text-center"
-              >
-                <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-axima-blue to-blue-400">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-gray-400 mt-2">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div> */}
         </motion.div>
       </div>
     </div>
