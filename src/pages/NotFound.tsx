@@ -25,11 +25,11 @@ const NotFound = () => {
           <p className="text-xl text-gray-300 mb-8">
             We couldn't find the page you're looking for. The page might have been removed or the URL might be incorrect.
           </p>
-          <Link to="/" className="inline-block">
+          {/* <Link to="/" className="inline-block">
             <Button className="bg-axima-blue hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors">
               Return to Homepage
             </Button>
-          </Link>
+          </Link> */}
         </motion.div>
       </div>
       <Footer />
