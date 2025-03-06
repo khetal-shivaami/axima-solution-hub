@@ -26,6 +26,7 @@ import SupportPackages from "./pages/SupportPackages";
 import CaseStudies from "./pages/CaseStudies";
 import ContactThankYou from "./pages/ContactThankYou";
 import PlanThankYou from "./pages/PlanThankYou";
+import NotFound from "./pages/NotFound";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -64,6 +65,8 @@ const App = () => {
               <Route path="/microsoft-jioazure" element={<JioAzure />} />
               <Route path="/support-packages" element={<SupportPackages />} />
               <Route path="/case-studies" element={<CaseStudies />} />
+              {/* Catch-all route for 404 - must be the last route */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </PageTransition>
           <ScrollIndicator />
