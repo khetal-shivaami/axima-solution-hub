@@ -58,8 +58,8 @@ const Footer = () => {
   };
 
   const partnerBadges = [
-    { src: "/lovable-uploads/5cf95f28-273b-49de-ba24-1a982f1a2739.png", alt: "Microsoft Partner" },
-    { src: "/lovable-uploads/11f0b3fd-81f2-4bf5-a519-1b17d303755a.png", alt: "Microsoft Cloud Solution Provider" },
+    { src: "/lovable-uploads/badges/AXIMA Corporation.webp", alt: "Microsoft Cloud Solution Provider",title: "Microsoft Cloud Solution Provider",width: "170px",height: "170px", },
+    { src: "/lovable-uploads/badges/MSFT_50AnniversaryBadge_10Years_.webp", alt: "Microsoft Partner",title: "Microsoft Partner",width: "200px",height: "200px", },
   ];
 
   return (
@@ -259,14 +259,23 @@ const Footer = () => {
             </div>
             
             <div className="flex items-center gap-4">
-              {partnerBadges.map((badge, index) => (
-                <img 
-                  key={index}
-                  src={badge.src} 
-                  alt={badge.alt} 
-                  className="h-12 object-contain" 
+            {partnerBadges.map((badge, index) => (
+              <div key={index} className="relative group flex items-center justify-center">
+                <img
+                  src={badge.src}
+                  alt={badge.alt}
+                  style={{
+                    width: badge.width || "170px",  // Default size if not provided
+                    height: badge.height || "170px",
+                    objectFit: "contain",
+                  }}
                 />
-              ))}
+                {/* Tooltip */}
+                <span className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                  {badge.title}
+                </span>
+              </div>
+            ))}
             </div>
           </div>
 
