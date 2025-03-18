@@ -1,4 +1,3 @@
-
 import { Facebook, Twitter, Linkedin, Instagram, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -10,9 +9,6 @@ const usefulLinks = [
   { label: "Services", href: "/services" },
   { label: "Plans & Pricing", href: "/plans" },
   { label: "Microsoft Copilot", href: "/copilot" },
-  // { label: "Case Studies", href: "#case-study" },
-  // { label: "Support", href: "#support" },
-  // { label: "FAQ's", href: "/faq" },
   { label: "Contact Us", href: "/contact" },
 ];
 
@@ -61,17 +57,15 @@ const Footer = () => {
     setExpandedMicrosoft365(!expandedMicrosoft365);
   };
 
-  // Microsoft partnership badges
   const partnerBadges = [
-    { src: "/lovable-uploads/badge1.png", alt: "Microsoft Silver Partner" },
-    { src: "/lovable-uploads/badge2.png", alt: "Microsoft Cloud Solution Provider" },
+    { src: "/lovable-uploads/5cf95f28-273b-49de-ba24-1a982f1a2739.png", alt: "Microsoft Partner" },
+    { src: "/lovable-uploads/11f0b3fd-81f2-4bf5-a519-1b17d303755a.png", alt: "Microsoft Cloud Solution Provider" },
   ];
 
   return (
     <footer className="relative w-full bg-black/40 border-t border-white/10 py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-12">
-          {/* Company Info */}
           <div className="relative z-10">
             <h3 className="text-xl font-bold text-white mb-4">AXIMA CORPORATION</h3>
             <address className="text-gray-300 not-italic">
@@ -115,7 +109,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Microsoft Solutions */}
           <div className="relative z-10">
             <h3 className="text-xl font-bold text-white mb-4">Microsoft Solutions</h3>
             <ul className="space-y-2">
@@ -194,7 +187,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Other Solutions */}
           <div className="relative z-10">
             <h3 className="text-xl font-bold text-white mb-4">Other Solutions</h3>
             <ul className="space-y-2">
@@ -214,7 +206,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Useful Links */}
           <div className="relative z-10">
             <h3 className="text-xl font-bold text-white mb-4">Useful Links</h3>
             <ul className="space-y-2">
@@ -247,7 +238,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Social Networks */}
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="flex items-center mb-8">
             <h3 className="text-xl font-bold text-white mr-4">Our Social Networks</h3>
@@ -273,22 +263,7 @@ const Footer = () => {
             </p>
             
             <div className="flex flex-col md:flex-row items-center gap-4">
-              <div className="flex items-center gap-4">
-                <Link to="/privacy-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
-                  Privacy Policy
-                </Link>
-                <span className="text-gray-600">|</span>
-                <Link to="/terms-conditions" className="text-gray-300 hover:text-axima-blue transition-colors">
-                  Terms & Conditions
-                </Link>
-                <span className="text-gray-600">|</span>
-                <Link to="/refund-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
-                  Refund Policy
-                </Link>
-              </div>
-              
-              {/* Microsoft Partnership Badges */}
-              <div className="flex items-center gap-4 mt-4 md:mt-0 justify-center">
+              <div className="flex items-center gap-4 mb-4 md:mb-0 justify-center order-first md:order-first">
                 <div className="flex items-center gap-4">
                   <img 
                     src="/lovable-uploads/5cf95f28-273b-49de-ba24-1a982f1a2739.png" 
@@ -301,6 +276,20 @@ const Footer = () => {
                     className="h-12 object-contain" 
                   />
                 </div>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <Link to="/privacy-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
+                  Privacy Policy
+                </Link>
+                <span className="text-gray-600">|</span>
+                <Link to="/terms-conditions" className="text-gray-300 hover:text-axima-blue transition-colors">
+                  Terms & Conditions
+                </Link>
+                <span className="text-gray-600">|</span>
+                <Link to="/refund-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
+                  Refund Policy
+                </Link>
               </div>
             </div>
           </div>
