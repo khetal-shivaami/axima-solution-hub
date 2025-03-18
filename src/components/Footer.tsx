@@ -239,20 +239,33 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10">
-          <div className="flex items-center mb-8">
-            <h3 className="text-xl font-bold text-white mr-4">Our Social Networks</h3>
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-axima-blue transition-colors cursor-pointer"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5 text-white" />
-                </a>
+          <div className="flex flex-col md:flex-row items-center justify-between mb-8">
+            <div className="flex items-center mb-4 md:mb-0">
+              <h3 className="text-xl font-bold text-white mr-4">Our Social Networks</h3>
+              <div className="flex space-x-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-axima-blue transition-colors cursor-pointer"
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-5 h-5 text-white" />
+                  </a>
+                ))}
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-4">
+              {partnerBadges.map((badge, index) => (
+                <img 
+                  key={index}
+                  src={badge.src} 
+                  alt={badge.alt} 
+                  className="h-12 object-contain" 
+                />
               ))}
             </div>
           </div>
@@ -262,35 +275,18 @@ const Footer = () => {
               © {new Date().getFullYear()} Axima Corporation. All rights reserved.
             </p>
             
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <div className="flex items-center gap-4 mb-4 md:mb-0 justify-center order-first md:order-first">
-                <div className="flex items-center gap-4">
-                  <img 
-                    src="/lovable-uploads/5cf95f28-273b-49de-ba24-1a982f1a2739.png" 
-                    alt="Microsoft Partner" 
-                    className="h-12 object-contain" 
-                  />
-                  <img 
-                    src="/lovable-uploads/11f0b3fd-81f2-4bf5-a519-1b17d303755a.png" 
-                    alt="Microsoft Cloud Solution Provider" 
-                    className="h-12 object-contain" 
-                  />
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-4">
-                <Link to="/privacy-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
-                  Privacy Policy
-                </Link>
-                <span className="text-gray-600">|</span>
-                <Link to="/terms-conditions" className="text-gray-300 hover:text-axima-blue transition-colors">
-                  Terms & Conditions
-                </Link>
-                <span className="text-gray-600">|</span>
-                <Link to="/refund-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
-                  Refund Policy
-                </Link>
-              </div>
+            <div className="flex items-center gap-4">
+              <Link to="/privacy-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
+                Privacy Policy
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link to="/terms-conditions" className="text-gray-300 hover:text-axima-blue transition-colors">
+                Terms & Conditions
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link to="/refund-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
+                Refund Policy
+              </Link>
             </div>
           </div>
         </div>
