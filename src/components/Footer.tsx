@@ -1,3 +1,4 @@
+
 import { Facebook, Twitter, Linkedin, Instagram, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -59,6 +60,12 @@ const Footer = () => {
   const toggleMicrosoft365 = () => {
     setExpandedMicrosoft365(!expandedMicrosoft365);
   };
+
+  // Microsoft partnership badges
+  const partnerBadges = [
+    { src: "/lovable-uploads/badge1.png", alt: "Microsoft Silver Partner" },
+    { src: "/lovable-uploads/badge2.png", alt: "Microsoft Cloud Solution Provider" },
+  ];
 
   return (
     <footer className="relative w-full bg-black/40 border-t border-white/10 py-16">
@@ -264,18 +271,37 @@ const Footer = () => {
             <p className="text-gray-300">
               © {new Date().getFullYear()} Axima Corporation. All rights reserved.
             </p>
-            <div className="flex items-center gap-4">
-              <Link to="/privacy-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
-                Privacy Policy
-              </Link>
-              <span className="text-gray-600">|</span>
-              <Link to="/terms-conditions" className="text-gray-300 hover:text-axima-blue transition-colors">
-                Terms & Conditions
-              </Link>
-              <span className="text-gray-600">|</span>
-              <Link to="/refund-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
-                Refund Policy
-              </Link>
+            
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <div className="flex items-center gap-4">
+                <Link to="/privacy-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
+                  Privacy Policy
+                </Link>
+                <span className="text-gray-600">|</span>
+                <Link to="/terms-conditions" className="text-gray-300 hover:text-axima-blue transition-colors">
+                  Terms & Conditions
+                </Link>
+                <span className="text-gray-600">|</span>
+                <Link to="/refund-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
+                  Refund Policy
+                </Link>
+              </div>
+              
+              {/* Microsoft Partnership Badges */}
+              <div className="flex items-center gap-4 mt-4 md:mt-0 justify-center">
+                <div className="flex items-center gap-4">
+                  <img 
+                    src="/lovable-uploads/5cf95f28-273b-49de-ba24-1a982f1a2739.png" 
+                    alt="Microsoft Partner" 
+                    className="h-12 object-contain" 
+                  />
+                  <img 
+                    src="/lovable-uploads/11f0b3fd-81f2-4bf5-a519-1b17d303755a.png" 
+                    alt="Microsoft Cloud Solution Provider" 
+                    className="h-12 object-contain" 
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
