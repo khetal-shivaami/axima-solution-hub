@@ -58,8 +58,8 @@ const Footer = () => {
   };
 
   const partnerBadges = [
-    { src: "/lovable-uploads/badges/AXIMA Corporation.webp", alt: "Microsoft Cloud Solution Provider",title: "Microsoft Cloud Solution Provider",width: "170px",height: "170px", },
-    { src: "/lovable-uploads/badges/MSFT_50AnniversaryBadge_10Years_.webp", alt: "Microsoft Partner",title: "Microsoft Partner",width: "200px",height: "200px", },
+    { src: "/lovable-uploads/badges/AXIMA Corporation.webp", alt: "Microsoft Cloud Solution Provider",title: "Microsoft Cloud Solution Provider",width: "170px",height: "170px",tooltipPosition: "bottom-full",},
+    { src: "/lovable-uploads/badges/MSFT_50AnniversaryBadge_10Years_.webp", alt: "Trusted Microsoft Partner for 10+ years",title: "Trusted Microsoft Partner for 10+ years",width: "200px",height: "220px",tooltipPosition: "top-full" },
   ];
 
   return (
@@ -271,9 +271,11 @@ const Footer = () => {
                   }}
                 />
                 {/* Tooltip */}
-                <span className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                  {badge.title}
-                </span>
+                <span
+                    className={`absolute ${badge.tooltipPosition || "bottom-full"} mb-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap`}
+                  >
+                    {badge.title}
+                  </span>
               </div>
             ))}
             </div>
