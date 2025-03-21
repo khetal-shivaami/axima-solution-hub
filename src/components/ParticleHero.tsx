@@ -1,3 +1,4 @@
+
 import { useCallback } from "react";
 import { loadSlim } from "tsparticles-slim";
 import type { Container, Engine } from "tsparticles-engine";
@@ -183,7 +184,7 @@ export const ParticleHero = () => {
             </Button>
           </motion.div>
           
-          {/* Microsoft Partner Section - Redesigned */}
+          {/* Microsoft Partner Section - Redesigned with Larger Badges */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -197,16 +198,16 @@ export const ParticleHero = () => {
               transition={{ delay: 0.7, duration: 0.6 }}
             >
               {/* Title Section */}
-              <div className="mb-6 relative">
+              <div className="mb-8 relative">
                 <div className="absolute inset-0 bg-axima-blue/10 blur-xl rounded-full"></div>
-                <Badge className="relative z-10 py-1.5 px-4 text-sm bg-gradient-to-r from-axima-blue/20 to-blue-600/20 backdrop-blur-sm border-axima-blue/20 text-white rounded-full">
+                <Badge className="relative z-10 py-2 px-6 text-base bg-gradient-to-r from-axima-blue/20 to-blue-600/20 backdrop-blur-sm border-axima-blue/20 text-white rounded-full">
                   Official Microsoft Partnership
                 </Badge>
               </div>
               
-              {/* Badges with Tooltip */}
+              {/* Badges with Tooltip - INCREASED SIZE */}
               <TooltipProvider>
-                <div className="flex flex-row gap-8 justify-center items-center">
+                <div className="flex flex-row gap-10 justify-center items-center">
                   {partnerBadges.map((badge, index) => (
                     <motion.div
                       key={index}
@@ -217,13 +218,13 @@ export const ParticleHero = () => {
                     >
                       <Tooltip>
                         <TooltipTrigger asChild>
-                          <div className="glass-card rounded-lg p-3 hover-lift flex items-center justify-center">
+                          <div className="glass-card rounded-lg p-4 hover-lift flex items-center justify-center">
                             <div className="relative group">
                               <div className="absolute inset-0 bg-axima-blue/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                               <img 
                                 src={badge.src} 
                                 alt={badge.alt}
-                                className="w-24 h-24 object-contain transition-all duration-300 group-hover:scale-105"
+                                className="w-32 h-32 object-contain transition-all duration-300 group-hover:scale-105"
                               />
                             </div>
                           </div>
@@ -245,18 +246,18 @@ export const ParticleHero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2, duration: 0.5 }}
-                className="flex gap-4 mt-4 justify-center"
+                className="flex gap-4 mt-6 justify-center"
               >
-                <span className="text-xs text-gray-400 flex items-center gap-1">
-                  <Check className="w-3 h-3 text-axima-blue" />
+                <span className="text-sm text-gray-400 flex items-center gap-1.5">
+                  <Check className="w-4 h-4 text-axima-blue" />
                   Official Partner
                 </span>
-                <span className="text-xs text-gray-400 flex items-center gap-1">
-                  <Check className="w-3 h-3 text-axima-blue" />
+                <span className="text-sm text-gray-400 flex items-center gap-1.5">
+                  <Check className="w-4 h-4 text-axima-blue" />
                   Certified Solutions
                 </span>
-                <span className="text-xs text-gray-400 flex items-center gap-1">
-                  <Check className="w-3 h-3 text-axima-blue" />
+                <span className="text-sm text-gray-400 flex items-center gap-1.5">
+                  <Check className="w-4 h-4 text-axima-blue" />
                   Microsoft Verified
                 </span>
               </motion.div>
