@@ -11,7 +11,7 @@ interface PlanData {
   products: { name: string; icon: string }[];
 }
 
-export const useCSVData = (filePath: string) => {
+export const useCSVData = (csvFilePath: string) => {
   const [plans, setPlans] = useState<PlanData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,7 +20,8 @@ export const useCSVData = (filePath: string) => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(filePath);
+        // Try to load from the public folder
+        const response = await fetch(csvFilePath);
         if (!response.ok) {
           throw new Error(`Failed to fetch CSV: ${response.status}`);
         }
@@ -50,7 +51,7 @@ export const useCSVData = (filePath: string) => {
     };
 
     fetchData();
-  }, [filePath]);
+  }, [csvFilePath]);
 
   return { plans, isLoading, error };
 };

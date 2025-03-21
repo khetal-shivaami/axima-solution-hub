@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -16,7 +17,7 @@ const PlansAndPricing = () => {
   const [billingPeriod, setBillingPeriod] = useState("monthly");
   const [showComparison, setShowComparison] = useState(true);
   
-  const { plans, isLoading, error } = useCSVData('https://drive.google.com/file/d/1BMrf7tC4rsJpt5nkLE8FB3evx5FC4zXn/view?usp=drive_link');
+  const { plans, isLoading, error } = useCSVData('/data/plans.csv');
 
   const fallbackPlans = [
     {
