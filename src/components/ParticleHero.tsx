@@ -18,6 +18,23 @@ export const ParticleHero = () => {
     }
   };
 
+  const partnerBadges = [
+    { 
+      src: "/lovable-uploads/badges/AXIMA Corporation.webp", 
+      alt: "Microsoft Cloud Solution Provider",
+      title: "Microsoft Cloud Solution Provider",
+      width: "170px",
+      height: "170px",
+    },
+    { 
+      src: "/lovable-uploads/badges/MSFT_50AnniversaryBadge_10Years_.webp", 
+      alt: "Trusted Microsoft Partner for 10+ years",
+      title: "Trusted Microsoft Partner for 10+ years",
+      width: "200px",
+      height: "220px",
+    },
+  ];
+
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <Particles
@@ -161,6 +178,41 @@ export const ParticleHero = () => {
               Book Demo
               <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
+          </motion.div>
+          
+          {/* Partnership Badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="flex flex-wrap justify-center items-center gap-8 mt-16"
+          >
+            {partnerBadges.map((badge, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
+                className="relative group"
+              >
+                <div className="bg-black/30 backdrop-blur-sm p-2 rounded-lg border border-white/10 hover:border-axima-blue/30 transition-all duration-300 hover:shadow-lg hover:shadow-axima-blue/20">
+                  <img
+                    src={badge.src}
+                    alt={badge.alt}
+                    style={{
+                      width: badge.width,
+                      height: badge.height,
+                      objectFit: "contain",
+                    }}
+                    className="transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                {/* Tooltip */}
+                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-black/80 backdrop-blur-sm text-white text-xs rounded px-3 py-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-axima-blue/20">
+                  {badge.title}
+                </span>
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
       </div>
