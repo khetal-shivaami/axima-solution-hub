@@ -4,7 +4,14 @@ import type { Container, Engine } from "tsparticles-engine";
 import Particles from "react-tsparticles";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight, Check } from "lucide-react";
+import { Badge } from "./ui/badge";
+import { 
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/tooltip";
 
 export const ParticleHero = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -23,15 +30,11 @@ export const ParticleHero = () => {
       src: "/lovable-uploads/badges/AXIMA Corporation.webp", 
       alt: "Microsoft Cloud Solution Provider",
       title: "Microsoft Cloud Solution Provider",
-      width: "170px",
-      height: "170px",
     },
     { 
       src: "/lovable-uploads/badges/MSFT_50AnniversaryBadge_10Years_.webp", 
       alt: "Trusted Microsoft Partner for 10+ years",
       title: "Trusted Microsoft Partner for 10+ years",
-      width: "200px",
-      height: "220px",
     },
   ];
 
@@ -180,39 +183,84 @@ export const ParticleHero = () => {
             </Button>
           </motion.div>
           
-          {/* Partnership Badges */}
+          {/* Microsoft Partner Section - Redesigned */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex flex-wrap justify-center items-center gap-8 mt-16"
+            className="mt-16 mb-4"
           >
-            {partnerBadges.map((badge, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
-                className="relative group"
-              >
-                <div className="bg-black/30 backdrop-blur-sm p-2 rounded-lg border border-white/10 hover:border-axima-blue/30 transition-all duration-300 hover:shadow-lg hover:shadow-axima-blue/20">
-                  <img
-                    src={badge.src}
-                    alt={badge.alt}
-                    style={{
-                      width: badge.width,
-                      height: badge.height,
-                      objectFit: "contain",
-                    }}
-                    className="transition-transform duration-300 group-hover:scale-105"
-                  />
+            <motion.div 
+              className="flex flex-col items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.6 }}
+            >
+              {/* Title Section */}
+              <div className="mb-6 relative">
+                <div className="absolute inset-0 bg-axima-blue/10 blur-xl rounded-full"></div>
+                <Badge className="relative z-10 py-1.5 px-4 text-sm bg-gradient-to-r from-axima-blue/20 to-blue-600/20 backdrop-blur-sm border-axima-blue/20 text-white rounded-full">
+                  Official Microsoft Partnership
+                </Badge>
+              </div>
+              
+              {/* Badges with Tooltip */}
+              <TooltipProvider>
+                <div className="flex flex-row gap-8 justify-center items-center">
+                  {partnerBadges.map((badge, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.8 + index * 0.2, duration: 0.5 }}
+                      className="relative perspective"
+                    >
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <div className="glass-card rounded-lg p-3 hover-lift flex items-center justify-center">
+                            <div className="relative group">
+                              <div className="absolute inset-0 bg-axima-blue/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <img 
+                                src={badge.src} 
+                                alt={badge.alt}
+                                className="w-24 h-24 object-contain transition-all duration-300 group-hover:scale-105"
+                              />
+                            </div>
+                          </div>
+                        </TooltipTrigger>
+                        <TooltipContent className="bg-gray-900/90 backdrop-blur-md border border-axima-blue/30 text-white p-3">
+                          <p className="font-medium flex items-center gap-2">
+                            <Check className="w-4 h-4 text-axima-blue" />
+                            {badge.title}
+                          </p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </motion.div>
+                  ))}
                 </div>
-                {/* Tooltip */}
-                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-black/80 backdrop-blur-sm text-white text-xs rounded px-3 py-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-axima-blue/20">
-                  {badge.title}
+              </TooltipProvider>
+              
+              {/* Trust Indicators */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2, duration: 0.5 }}
+                className="flex gap-4 mt-4 justify-center"
+              >
+                <span className="text-xs text-gray-400 flex items-center gap-1">
+                  <Check className="w-3 h-3 text-axima-blue" />
+                  Official Partner
+                </span>
+                <span className="text-xs text-gray-400 flex items-center gap-1">
+                  <Check className="w-3 h-3 text-axima-blue" />
+                  Certified Solutions
+                </span>
+                <span className="text-xs text-gray-400 flex items-center gap-1">
+                  <Check className="w-3 h-3 text-axima-blue" />
+                  Microsoft Verified
                 </span>
               </motion.div>
-            ))}
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
