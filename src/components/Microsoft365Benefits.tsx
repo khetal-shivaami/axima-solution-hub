@@ -8,73 +8,73 @@ const features = [
   { 
     name: "Word", 
     description: "Create and edit professional documents",
-    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
+    logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_word.webp",
     color: "from-blue-500/20 to-blue-600/20"
   },
   { 
     name: "Excel", 
     description: "Powerful spreadsheet and data analysis",
-    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_excel.png",
+    logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_excel.webp",
     color: "from-green-500/20 to-green-600/20"
   },
   { 
     name: "PowerPoint", 
     description: "Create impactful presentations",
-    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_powerpoint.png",
+    logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_powerpoint.webp",
     color: "from-orange-500/20 to-orange-600/20"
   },
   { 
     name: "Teams", 
     description: "Collaborate and communicate in real-time",
-    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_teams.png",
+    logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_teams.webp",
     color: "from-purple-500/20 to-purple-600/20"
   },
   { 
     name: "Outlook", 
     description: "Professional email and calendar management",
-    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_outlook.png",
+    logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_outlook.webp",
     color: "from-blue-400/20 to-blue-500/20"
   },
   { 
     name: "OneDrive", 
     description: "Secure cloud storage and file sharing",
-    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png",
+    logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_onedrive.webp",
     color: "from-sky-400/20 to-sky-500/20"
   },
   { 
     name: "SharePoint", 
     description: "Team collaboration and document management",
-    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png",
+    logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_sharepoint.webp",
     color: "from-teal-500/20 to-teal-600/20"
   },
   { 
     name: "Exchange", 
     description: "Enterprise email and calendar server",
-    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_exchange.png",
+    logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_exchange.webp",
     color: "from-blue-600/20 to-blue-700/20"
   },
   { 
     name: "Intune", 
     description: "Mobile device and application management",
-    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_intune.png",
+    logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_intune.webp",
     color: "from-indigo-500/20 to-indigo-600/20"
   },
   { 
     name: "Azure Information Protection", 
     description: "Data protection and compliance",
-    logo: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png",
+    logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/azure_information_prot.webp",
     color: "from-cyan-500/20 to-cyan-600/20"
   },
   { 
     name: "Publisher (PC only)", 
     description: "Desktop publishing and design",
-    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_publisher.png",
+    logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_publisher.webp",
     color: "from-emerald-500/20 to-emerald-600/20"
   },
   { 
     name: "Access (PC only)", 
     description: "Database creation and management",
-    logo: "/lovable-uploads/logos/microsoft_logos/microsoft_access.png",
+    logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_access.webp",
     color: "from-red-500/20 to-red-600/20"
   }
 ];

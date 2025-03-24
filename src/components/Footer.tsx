@@ -257,28 +257,6 @@ const Footer = () => {
                 ))}
               </div>
             </div>
-            
-            <div className="flex items-center gap-4">
-            {partnerBadges.map((badge, index) => (
-              <div key={index} className="relative group flex items-center justify-center">
-                <img
-                  src={badge.src}
-                  alt={badge.alt}
-                  style={{
-                    width: badge.width || "170px",  // Default size if not provided
-                    height: badge.height || "170px",
-                    objectFit: "contain",
-                  }}
-                />
-                {/* Tooltip */}
-                <span
-                    className={`absolute ${badge.tooltipPosition || "bottom-full"} mb-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap`}
-                  >
-                    {badge.title}
-                  </span>
-              </div>
-            ))}
-            </div>
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">

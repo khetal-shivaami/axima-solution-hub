@@ -5,21 +5,21 @@ const teamMembers = [
   {
     name: "Punit Thakkar",
     position: "Chairman",
-    image: "/lovable-uploads/managementteam/PunitThakkar.JPG",
+    image: "https://storage.googleapis.com/axima-website-content/managementteam/PunitThakkar.JPG",
     linkedin: "https://www.linkedin.com/in/punitshivaami/?original_referer=https%3A%2F%2Fwww.shivaami.com%2F",
     profile: "With over two decades of experience in the IT industry, Punit Thakkar has been instrumental in shaping Shiviom's vision and growth strategy. As a mentor and leader, his guidance has been key to establishing Shiviom as a leading cloud solutions provider. Punit's dedication to innovation and talent development continues to drive the company's success and impact across industries."
   },
   {
     name: "Akshay Thakkar",
     position: "CEO",
-    image: "/lovable-uploads/managementteam/AkshayThakkar.png",
+    image: "https://storage.googleapis.com/axima-website-content/managementteam/AkshayThakkar.png",
     linkedin: "https://www.linkedin.com/in/akshay-thakkar-bb5112120/",
     profile: "Akshay Thakkar is a visionary leader driving Shiviom's success with over 10 years of entrepreneurial expertise. He has been instrumental in embracing advanced technologies and expanding the company's service offerings to meet dynamic market demands. With a strong belief in the principle that 'organizations are bigger than individuals', his collaborative leadership inspires innovation, teamwork, and excellence."
   },
   {
     name: "Ashika Suresh",
     position: "Deputy General Manager",
-    image: "/lovable-uploads/managementteam/AshikaSuresh.png",
+    image: "https://storage.googleapis.com/axima-website-content/managementteam/AshikaSuresh.png",
     linkedin: "https://www.linkedin.com/in/ashika-suresh-152515113?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     profile: "Ashika Suresh is a Deputy General Manager at Axima Corporation with over 10 years of experience. She currently leads the sales strategy and execution for the Microsoft Suite of products, focusing on revenue growth and customer success. Ashika directs a high-performing team to meet the unique needs of clients, combining strategic leadership with a strong focus on customer outcomes. She builds lasting relationships and drives digital transformation by offering solutions and services that help clients unlock the full potential of the Microsoft suite."
   }

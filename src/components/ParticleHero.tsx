@@ -28,12 +28,12 @@ export const ParticleHero = () => {
 
   const partnerBadges = [
     { 
-      src: "/lovable-uploads/badges/AXIMA Corporation.webp", 
+      src: "https://storage.googleapis.com/axima-website-content/badges/AXIMA%20Corporation.webp", 
       alt: "Microsoft Cloud Solution Provider",
       title: "Microsoft Cloud Solution Provider",
     },
     { 
-      src: "/lovable-uploads/badges/MSFT_50AnniversaryBadge_10Years_.webp", 
+      src: "https://storage.googleapis.com/axima-website-content/badges/MSFT_50AnniversaryBadge_10Years_-fotor-20250321163921.png", 
       alt: "Trusted Microsoft Partner for 10+ years",
       title: "Trusted Microsoft Partner for 10+ years",
     },
@@ -115,6 +115,7 @@ export const ParticleHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          <br></br><br></br><br></br>
           {/* Partner Badge */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -200,11 +201,11 @@ export const ParticleHero = () => {
               {/* Title Section */}
               <div className="mb-8 relative">
                 <div className="absolute inset-0 bg-axima-blue/10 blur-xl rounded-full"></div>
-                <Badge className="relative z-10 py-2 px-6 text-base bg-gradient-to-r from-axima-blue/20 to-blue-600/20 backdrop-blur-sm border-axima-blue/20 text-white rounded-full">
+                <Badge className="relative z-10 py-2 px-6 text-base glass-card backdrop-blur-sm border-axima-blue/20 text-white rounded-full">
                   Official Microsoft Partnership
                 </Badge>
               </div>
-              
+              <br></br>
               {/* Badges with Tooltip - INCREASED SIZE */}
               <TooltipProvider>
                 <div className="flex flex-row gap-10 justify-center items-center">
@@ -224,7 +225,7 @@ export const ParticleHero = () => {
                               <img 
                                 src={badge.src} 
                                 alt={badge.alt}
-                                className="w-32 h-32 object-contain transition-all duration-300 group-hover:scale-105"
+                                className="w-50 h-40 object-contain transition-all duration-300 group-hover:scale-105"
                               />
                             </div>
                           </div>
@@ -242,7 +243,7 @@ export const ParticleHero = () => {
               </TooltipProvider>
               
               {/* Trust Indicators */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2, duration: 0.5 }}
@@ -254,13 +255,13 @@ export const ParticleHero = () => {
                 </span>
                 <span className="text-sm text-gray-400 flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-axima-blue" />
-                  Certified Solutions
+                  Solution Partner
                 </span>
                 <span className="text-sm text-gray-400 flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-axima-blue" />
                   Microsoft Verified
                 </span>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </motion.div>
         </motion.div>

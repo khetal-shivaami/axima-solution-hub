@@ -17,7 +17,7 @@ const productDetails: Record<string, {
   "word": {
     title: "Microsoft Word",
     description: "Microsoft Word is a powerful word-processing application developed by Microsoft, widely used for creating, editing, formatting, and sharing documents. It is part of the Microsoft Office suite and is available on Windows, macOS, and cloud-based platforms like Microsoft 365. Word is designed to handle everything from simple text documents to complex reports, resumes, and collaborative projects.",
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
+    image: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_word.webp",
     features: [
       "Text Editing & Formatting",
       "Templates & Smart Art",
@@ -43,7 +43,7 @@ const productDetails: Record<string, {
   "excel": {
     title: "Microsoft Excel",
     description: "Microsoft Excel is a powerful spreadsheet application developed by Microsoft, widely used for organizing, analyzing, and visualizing data. It is part of the Microsoft Office suite and is available on Windows, macOS, and cloud-based platforms like Microsoft 365. Excel offers a range of features for working with numbers, formulas, charts, and large datasets, making it a popular tool for business, finance, education, and personal use.",
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_excel.png",
+    image: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_excel.webp",
     features: [
       "Formulas & Functions",
       "Data Validation",
@@ -67,7 +67,7 @@ const productDetails: Record<string, {
   "powerpoint": {
     title: "Microsoft PowerPoint",
     description: "Microsoft PowerPoint is a widely used presentation software developed by Microsoft, designed to create visually engaging slideshows for various purposes such as business meetings, academic presentations, and personal projects. Part of the Microsoft Office suite, PowerPoint allows users to combine text, images, videos, charts, and animations into professional presentations that can be easily shared and presented on different devices.",
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_powerpoint.png",
+    image: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_powerpoint.webp",
     features: [
       "Slide Layouts & Templates",
       "Multimedia Integration",
@@ -92,7 +92,7 @@ const productDetails: Record<string, {
   "teams": {
     title: "Microsoft Teams",
     description: "Microsoft Teams is a collaboration and communication platform developed by Microsoft, designed to help teams and organizations streamline work processes, enhance communication, and improve productivity. As part of the Microsoft 365 suite, Teams offers a comprehensive solution for messaging, video conferencing, file sharing, and collaboration on documents, all in one place. It integrates with other Microsoft Office applications and third-party tools, making it a central hub for teamwork.",
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_teams.png",
+    image: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_teams.webp",
     features: [
       "Team Channels",
       "Chat Functionality",
@@ -118,7 +118,7 @@ const productDetails: Record<string, {
   "outlook": {
     title: "Microsoft Outlook",
     description: "Microsoft Outlook is an email management software developed by Microsoft, used for managing emails, calendars, tasks, and contacts. Part of the Microsoft 365 suite, Outlook is available as both a desktop application and a web-based service, providing an efficient and secure platform for personal and business communication. It integrates seamlessly with other Microsoft Office applications, making it a comprehensive solution for managing day-to-day communication and scheduling.",
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_outlook.png",
+    image: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_outlook.webp",
     features: [
       "Email Management",
       "Calendar & Scheduling",
@@ -145,7 +145,7 @@ const productDetails: Record<string, {
   "onedrive": {
     title: "Microsoft OneDrive",
     description: "Microsoft OneDrive is a cloud storage service that allows users to store, share, and access files securely from anywhere. As part of the Microsoft 365 suite, OneDrive integrates seamlessly with applications like Word, Excel, PowerPoint, and Teams, enabling real-time collaboration and document management. With advanced security features, automatic syncing, and accessibility across multiple devices, OneDrive provides a reliable solution for personal and business cloud storage needs.",
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png",
+    image: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_onedrive.webp",
     features: [
       "Cloud File Storage",
       "File Sharing & Permissions",
@@ -173,7 +173,7 @@ const productDetails: Record<string, {
   "sharepoint": {
     title: "Microsoft Sharepoint",
     description: "Microsoft SharePoint is a web-based collaboration platform that allows organizations to store, manage, and share documents, data, and resources in a centralized and secure environment. As part of Microsoft 365, SharePoint integrates seamlessly with Office apps, OneDrive, and Microsoft Teams, enabling teams to collaborate efficiently, automate workflows, and manage content effectively. It is widely used for intranet portals, document management, and business process automation.",
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png",
+    image: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_sharepoint.webp",
     features: [
       "Document Libraries",
       "Team Sites & Communication Sites",
@@ -201,7 +201,7 @@ const productDetails: Record<string, {
   "exchange": {
     title: "Microsoft Exchange",
     description: "Microsoft Exchange is a cloud-based and on-premises email and calendaring server designed for businesses and organizations. It provides a secure and scalable communication platform that integrates with Microsoft Outlook, Microsoft 365, and other productivity tools. Exchange enables seamless email management, shared calendars, contact organization, and collaboration across teams, ensuring efficient business communication.",
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_exchange.png",
+    image: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_exchange.webp",
     features: [
       "Business-Class Email",
       "Shared Mailboxes",
@@ -229,7 +229,7 @@ const productDetails: Record<string, {
   "intune": {
     title: "Microsoft Intune",
     description: "Microsoft Intune is a cloud-based endpoint management solution that enables organizations to securely manage devices, applications, and data. It helps IT administrators enforce security policies, configure devices, and control access to corporate resources across multiple platforms, including Windows, macOS, iOS, and Android. Intune is part of Microsoft's Endpoint Manager suite and integrates seamlessly with Microsoft 365 for enhanced security and compliance.",
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_intune.png",
+    image: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_intune.webp",
     features: [
       "Mobile Device Management (MDM)",
       "Mobile Application Management (MAM)",
@@ -257,7 +257,7 @@ const productDetails: Record<string, {
   "aip": {
     title: "Azure Information Protection",
     description: "Azure Information Protection (AIP) is a cloud-based security solution from Microsoft that helps organizations classify, label, and protect sensitive data across emails, documents, and cloud services. It enables businesses to enforce data security policies, prevent unauthorized access, and ensure compliance with regulatory requirements. AIP integrates with Microsoft 365 applications, allowing seamless data protection within Office apps, OneDrive, SharePoint, and more.",
-    image: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png",
+    image: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/azure_information_prot.webp",
     features: [
       "Data Classification & Sensitivity Labels",
       "Automatic & Manual Labeling",
@@ -285,7 +285,7 @@ const productDetails: Record<string, {
   "publisher": {
     title: "Microsoft Publisher",
     description: "Microsoft Publisher is a desktop publishing application designed for creating professional-quality marketing materials, documents, and visual content. Unlike Microsoft Word, which focuses on text-based documents, Publisher provides advanced layout and design tools for creating brochures, flyers, newsletters, business cards, posters, and more. It is ideal for small businesses, educators, and individuals who need an easy-to-use design tool without requiring advanced graphic design skills.",
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_publisher.png",
+    image: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_publisher.webp",
     features: [
       "Pre-Designed Templates",
       "Drag-and-Drop Editing",
@@ -312,7 +312,7 @@ const productDetails: Record<string, {
   "access": {
     title: "Microsoft Access",
     description: "Microsoft Access is a relational database management system (RDBMS) that allows users to create, manage, and analyze databases. It is part of the Microsoft 365 suite and provides a user-friendly interface for designing databases without requiring extensive SQL knowledge. Access is commonly used for business applications, inventory tracking, customer management, and data analysis, making it a powerful tool for individuals and small to medium-sized businesses.",
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_access.png",
+    image: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_access.webp",
     features: [
       "Relational Database Management",
       "Table & Query Design Tools",
@@ -341,7 +341,7 @@ const productDetails: Record<string, {
   "jumpcloud": {
     title: "Jumpcloud",
     description: "JumpCloud is a cloud directory platform that helps companies manage users, devices, and applications. It unifies IT resources in a company's infrastructure, including on-premises devices and applications, cloud-based services, and more.JumpCloud is built for companies that use a diverse set of operating systems such as Mac OS and Linux, and/or communicate via Google Workspace. It partners and integrates with other organizations, including MiQ Digital, AkitaBox, and Classpass.",
-    image: "/lovable-uploads/logos/Jumpcloud-01.webp",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Jumpcloud-01.webp",
     features: [
       "Directory-as-a-Service (DaaS)",
       "Single Sign-On (SSO)",
@@ -368,7 +368,7 @@ const productDetails: Record<string, {
   "atera": {
     title: "Atera",
     description: "Atera is a platform that offers a variety of tools for IT departments and MSPs, including Remote Monitoring and Management (RMM), Professional Services Automation (PSA), Help Desk, remote support, billing,and reporting.Atera can also integrate with third-party software, such as Splashtop, AnyDesk, TeamViewer,and ConnectWise. Some of the tools Atera offers include.",
-    image: "/lovable-uploads/logos/Atera-01.webp",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Atera-01.webp",
     features: [
       "Remote Monitoring and Management (RMM)",
           "Professional Services Automation (PSA)",
@@ -393,7 +393,7 @@ const productDetails: Record<string, {
   "spin-ai": {
     title: "Spin AI",
     description: "Spin.ai is an advanced data security and protection platform that specializes in safeguarding data within SaaS applications.",
-    image: "/lovable-uploads/logos/Spin.ai.webp",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Spin.ai.webp",
     features: [
       "SaaS Data Backup",
       "Granular Recovery",
@@ -422,7 +422,7 @@ const productDetails: Record<string, {
   "hycu": {
     title: "HYCU",
     description: "HYCU is a Data Protection as a Service (DaaS) platform.HYCU delivers a secure data protection service designed to give you full control, visibility,and availability of your protected applications and databases. HYCU's services include data protection, migration, disaster recovery, and ransomware protection for on-premises,cloud-native, and SaaS environments. HYCU's Protege platform supports a wide range of sources,including VMware, Nutanix, AWS, Microsoft, Azure,and Google Cloud.",
-    image: "/lovable-uploads/logos/Hycu-2-01.webp",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Hycu-2-01.webp",
     features: [
       "Backup & Recovery",
           "Disaster Recovery",
@@ -444,7 +444,7 @@ const productDetails: Record<string, {
   "zoom": {
     title: "ZOOM",
     description: "Zoom Workspace refers to the broader suite of collaboration tools and features offered by Zoom that go beyond just video meetings. It is designed to facilitate communication and collaboration within teams, businesses, and organizations. This includes features that help streamline workflows, communication, and project management. It is part of Zoom's move to provide a more integrated platform for businesses..",
-    image: "/lovable-uploads/logos/Zoom-01.webp",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Zoom-01.webp",
     features: [
       "Video Conferencing",
           "Team Chat",
@@ -469,7 +469,7 @@ const productDetails: Record<string, {
   "onepassword": {
     title: "1Password",
     description: "1Password to secure sign-ins to the applications and websites they use every day. We believe there shouldn't be any conflict between security and productivity. That's why we build modern, accessible identity security and access management solutions designed for the way people work and live today.",
-    image: "/lovable-uploads/logos/OnePassword-01.webp",
+    image: "https://storage.googleapis.com/axima-website-content/logos/OnePassword-01.webp",
     features: [
       "Password Vault",
       "Cross-Platform Synchronization",
@@ -493,7 +493,7 @@ const productDetails: Record<string, {
   "scaledino": {
     title: "Scaledino",
     description: "ScaleDino is a cloud-based marketing and business management platform that helps users with email signatures, CRM.",
-    image: "/lovable-uploads/logos/ScaleDino.webp",
+    image: "https://storage.googleapis.com/axima-website-content/logos/ScaleDino.webp",
     features: [
       "Email signature",
       "Lead management tool",
@@ -508,7 +508,7 @@ const productDetails: Record<string, {
   "scalefusion": {
     title: "Scalefusion",
     description: "Scalefusion is a powerful all-in-one solution that unifies endpoint management, zero trust access, and endpoint security into a single platform with one agent. Scalefusion offers a comprehensive suite of products engineered to simplify endpoint, user, and access management for IT teams.With over 10,000+ businesses in 120+ countries, Scalefusion ensures your business is always one step ahead.",
-    image: "/lovable-uploads/logos/Scalefusion-01.webp",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Scalefusion-01.webp",
     features: [
       "Application & Content Management",
       "Automation & Workflows",
@@ -528,7 +528,7 @@ const productDetails: Record<string, {
   "flexisign": {
     title: "Flexisign",
     description: "FlexiSign is a digital signature and document management solution that streamlines the signing process for businesses of all sizes.",
-    image: "/lovable-uploads/logos/Flexisign-logo-02.webp",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Flexisign-logo-02.webp",
     features: [
       "Electronic signatures",
       "Document workflow automation",

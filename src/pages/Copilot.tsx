@@ -39,7 +39,7 @@ const Copilot = () => {
       <div className="relative h-[500px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900/90 to-blue-900/90 z-10" />
         <img 
-          src="/lovable-uploads/banner/ai_copilot.png"
+          src="https://storage.googleapis.com/axima-website-content/banner/ai_copilot.webp"
           alt="Microsoft Copilot Banner"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
@@ -81,25 +81,25 @@ const Copilot = () => {
             {
               step: 1,
               title: "User Input",
-              icon: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
+              icon: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_word.webp",
               description: "Natural language processing of user requests"
             },
             {
               step: 2,
               title: "Security Check",
-              icon: "/lovable-uploads/logos/microsoft_logos/windows_defender.png",
+              icon: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/windows_defender.webp",
               description: "Enterprise-grade security validation"
             },
             {
               step: 3,
               title: "AI Processing",
-              icon: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png",
+              icon: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/azure_information_prot.webp",
               description: "Advanced language model processing"
             },
             {
               step: 4,
               title: "Smart Response",
-              icon: "/lovable-uploads/logos/microsoft_logos/microsoft_loop.png",
+              icon: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_loop.webp",
               description: "Contextual suggestions and actions"
             }
           ].map((step, index) => (

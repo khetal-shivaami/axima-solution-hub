@@ -23,7 +23,7 @@ const MSAzure = () => {
         >
           <div className="flex items-center gap-6 bg-black/40 p-6 rounded-lg">
             <img 
-              src="/lovable-uploads/logos/Azure.webp" 
+              src="https://storage.googleapis.com/axima-website-content/logos/Azure.webp" 
               alt="Microsoft Azure" 
               className="w-24 h-24 object-contain"
             />

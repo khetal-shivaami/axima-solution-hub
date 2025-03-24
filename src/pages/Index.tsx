@@ -43,7 +43,7 @@ const Index = () => {
             className="relative break-inside-avoid hover-lift"
           >
             <img
-              src="/lovable-uploads/banner/Banner-06microsoft_6_11zon.jpg"
+              src="https://storage.googleapis.com/axima-website-content/banner/Banner-06microsoft_6_11zon.webp"
               alt="Microsoft Banner"
               className="w-full rounded-xl"
             />
@@ -56,7 +56,7 @@ const Index = () => {
             className="relative break-inside-avoid hover-lift"
           >
             <img
-              src="/lovable-uploads/banner/Banner-04copilot_5_11zon.jpg"
+              src="https://storage.googleapis.com/axima-website-content/banner/Banner-04copilot_5_11zon.webp"
               alt="Copilot Banner"
               className="w-full rounded-xl"
             />
@@ -69,7 +69,7 @@ const Index = () => {
             className="relative break-inside-avoid hover-lift"
           >
             <img
-              src="/lovable-uploads/banner/Banner-09jioregion_4_11zon.jpg"
+              src="https://storage.googleapis.com/axima-website-content/banner/Banner-09jioregion_4_11zon.webp"
               alt="Jio Region Banner"
               className="w-full rounded-xl"
             />
