@@ -490,21 +490,21 @@ const productDetails: Record<string, {
       "Family and Team Management"
     ]
   },
-  "scaledino": {
-    title: "Scaledino",
-    description: "ScaleDino is a cloud-based marketing and business management platform that helps users with email signatures, CRM.",
-    image: "https://storage.googleapis.com/axima-website-content/logos/ScaleDino.webp",
-    features: [
-      "Email signature",
-      "Lead management tool",
-    ],
-    benefits: [
-      "User Management",
-      "Brand Consistency",
-      "Centralized Management",
-      "Marketing & Promotions"
-    ]
-  },
+  // "scaledino": {
+  //   title: "Scaledino",
+  //   description: "ScaleDino is a cloud-based marketing and business management platform that helps users with email signatures, CRM.",
+  //   image: "https://storage.googleapis.com/axima-website-content/logos/ScaleDino.webp",
+  //   features: [
+  //     "Email signature",
+  //     "Lead management tool",
+  //   ],
+  //   benefits: [
+  //     "User Management",
+  //     "Brand Consistency",
+  //     "Centralized Management",
+  //     "Marketing & Promotions"
+  //   ]
+  // },
   "scalefusion": {
     title: "Scalefusion",
     description: "Scalefusion is a powerful all-in-one solution that unifies endpoint management, zero trust access, and endpoint security into a single platform with one agent. Scalefusion offers a comprehensive suite of products engineered to simplify endpoint, user, and access management for IT teams.With over 10,000+ businesses in 120+ countries, Scalefusion ensures your business is always one step ahead.",

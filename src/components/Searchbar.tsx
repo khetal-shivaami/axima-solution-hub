@@ -93,12 +93,12 @@ const searchData: SearchResult[] = [
     path: "/product/onepassword",
     category: "Products"
   },
-  { 
-    title: "Scaledino", 
-    description: "Cloud management platform",
-    path: "/product/scaledino",
-    category: "Products"
-  },
+  // { 
+  //   title: "Scaledino", 
+  //   description: "Cloud management platform",
+  //   path: "/product/scaledino",
+  //   category: "Products"
+  // },
   { 
     title: "Scalefusion", 
     description: "Mobile device management",

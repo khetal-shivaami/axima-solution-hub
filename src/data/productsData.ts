@@ -57,12 +57,12 @@ export const innovativeSolutions = [
     image: "https://storage.googleapis.com/axima-website-content/logos/OnePassword-01.webp",
     route: "/product/onepassword"
   },
-  {
-    name: "Scaledino",
-    description: "It provides a scalable cloud infrastructure platform designed to optimize and automate Email signatures",
-    image: "https://storage.googleapis.com/axima-website-content/logos/ScaleDino.webp",
-    route: "/product/scaledino"
-  },
+  // {
+  //   name: "Scaledino",
+  //   description: "It provides a scalable cloud infrastructure platform designed to optimize and automate Email signatures",
+  //   image: "https://storage.googleapis.com/axima-website-content/logos/ScaleDino.webp",
+  //   route: "/product/scaledino"
+  // },
   {
     name: "Scalefusion",
     description: "Scalefusion is a powerful all-in-one solution that unifies endpoint management, zero trust access, and endpoint security into a single platform with one agent. Scalefusion offers a comprehensive suite of products engineered to simplify endpoint, user, and access management for IT teams.With over 10,000+ businesses in 120+ countries, Scalefusion ensures your business is always one step ahead.",

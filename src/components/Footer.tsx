@@ -43,7 +43,7 @@ const productCategories = {
     { name: "HYCU", route: "/product/hycu" },
     { name: "ZOOM", route: "/product/zoom" },
     { name: "1Password", route: "/product/onepassword" },
-    { name: "Scaledino", route: "/product/scaledino" },
+    // { name: "Scaledino", route: "/product/scaledino" },
     { name: "Scalefusion", route: "/product/scalefusion" },
     { name: "FlexiSign", route: "/product/flexisign" }
   ]
