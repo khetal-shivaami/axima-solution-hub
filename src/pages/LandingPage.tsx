@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -123,9 +124,13 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black overflow-x-hidden">
-      {/* Subtle grid background with particles effect */}
-      <div className="fixed inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-      <div className="fixed inset-0 tech-background z-0 opacity-30 pointer-events-none"></div>
+      {/* Enhanced Grid Background and Particles Effect - both are visible now */}
+      <div className="fixed inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] z-0" />
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute inset-0 opacity-30">
+          <div className="tech-background h-full w-full"></div>
+        </div>
+      </div>
       
       {/* Header Section without Navigation */}
       <div className="py-6 border-b border-white/10 relative z-10">
@@ -285,7 +290,7 @@ const LandingPage = () => {
                             <FormControl>
                               <Input 
                                 placeholder="Enter your first name" 
-                                className="bg-black/60 border-white/20 text-white"
+                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
                                 {...field} 
                               />
                             </FormControl>
@@ -303,7 +308,7 @@ const LandingPage = () => {
                             <FormControl>
                               <Input 
                                 placeholder="Enter your last name" 
-                                className="bg-black/60 border-white/20 text-white"
+                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
                                 {...field} 
                               />
                             </FormControl>
@@ -323,7 +328,7 @@ const LandingPage = () => {
                             <Input 
                               placeholder="Enter your work email" 
                               type="email"
-                              className="bg-black/60 border-white/20 text-white"
+                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
                               {...field} 
                             />
                           </FormControl>
@@ -341,7 +346,7 @@ const LandingPage = () => {
                           <FormControl>
                             <Input 
                               placeholder="Enter your phone number" 
-                              className="bg-black/60 border-white/20 text-white"
+                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
                               {...field} 
                             />
                           </FormControl>
@@ -359,7 +364,7 @@ const LandingPage = () => {
                           <FormControl>
                             <Input 
                               placeholder="Enter your company name" 
-                              className="bg-black/60 border-white/20 text-white"
+                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
                               {...field} 
                             />
                           </FormControl>
@@ -379,7 +384,7 @@ const LandingPage = () => {
                               placeholder="Enter the number of licenses" 
                               type="number"
                               min="1"
-                              className="bg-black/60 border-white/20 text-white"
+                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
                               {...field} 
                             />
                           </FormControl>
@@ -532,79 +537,160 @@ const LandingPage = () => {
         </div>
       </div>
       
-      {/* Partner Badges Carousel - Horizontal at Bottom */}
-      <div className="py-8 bg-black/30 relative z-10">
+      {/* Horizontal Enquiry Form at Bottom */}
+      <div className="py-16 bg-black/30 relative z-10">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
             className="max-w-7xl mx-auto"
           >
-            <h3 className="text-xl font-bold text-white mb-6 text-center">Our Partners & Certifications</h3>
+            <h2 className="text-3xl font-bold text-white mb-6 text-center">Get Started Today</h2>
+            <div className="w-24 h-1 bg-axima-blue mx-auto mb-12"></div>
             
-            <Carousel 
-              className="w-full max-w-4xl mx-auto" 
-              navPosition="bottom"
-              opts={{
-                align: "center",
-                loop: true,
-              }}
-            >
-              <CarouselContent>
-                {[...partnerBadges, ...[
-                    {
-                      name: "Goldiee Group",
-                      image: "/lovable-uploads/6c3cda8d-517f-41ba-9cdb-ad94518d2120.png"
-                    },
-                    {
-                      name: "Blue Dart",
-                      image: "/lovable-uploads/accb3a4e-5dbf-4fb2-8c76-5e48e1b46999.png"
-                    },
-                    {
-                      name: "Morde",
-                      image: "/lovable-uploads/7e90294d-d89d-4e0d-ba80-c5dd0d981cf8.png"
-                    },
-                    {
-                      name: "Saint-Gobain",
-                      image: "/lovable-uploads/925c820c-4967-4cdc-9b5b-40b348aff929.png"
-                    },
-                    {
-                      name: "JVM Spaces",
-                      image: "/lovable-uploads/2bf1599b-73be-4276-90f3-6310c532b9a1.png"
-                    },
-                    {
-                      name: "Gangar Eyenation",
-                      image: "/lovable-uploads/5cf95f28-273b-49de-ba24-1a982f1a2739.png"
-                    },
-                    {
-                      name: "Shriram Finance",
-                      image: "/lovable-uploads/8769d21b-ef35-4f66-b33c-895afed0bff1.png"
-                    },
-                    {
-                      name: "Sheth",
-                      image: "/lovable-uploads/183a3e7c-73db-448e-a7f3-b5008eab91cc.png"
-                    }
-                  ]].map((item, index) => (
-                  <CarouselItem key={index} className="basis-1/3 md:basis-1/3 lg:basis-1/4">
-                    <div className="relative glass-card rounded-lg p-4 hover-lift flex items-center justify-center h-32">
-                      <div className="relative group">
-                        <div className="absolute inset-0 bg-axima-blue/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <img 
-                          src={item.image} 
-                          alt={item.name}
-                          className="max-h-24 object-contain transition-all duration-300 group-hover:scale-105"
-                        />
-                      </div>
+            <div className="bg-black/40 p-8 rounded-lg border border-white/10">
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="space-y-6">
+                      <FormField
+                        control={form.control}
+                        name="firstName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">First Name</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Enter your first name" 
+                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="lastName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">Last Name</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Enter your last name" 
+                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
                     </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="flex justify-center mt-4 gap-2">
-                <CarouselPrevious />
-                <CarouselNext />
-              </div>
-            </Carousel>
+                    
+                    <div className="space-y-6">
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">Work Email</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Enter your work email" 
+                                type="email"
+                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">Contact No</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Enter your phone number" 
+                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    
+                    <div className="space-y-6">
+                      <FormField
+                        control={form.control}
+                        name="company"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">Company Name</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Enter your company name" 
+                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="licenses"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">No. of Licenses Required</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Enter the number of licenses" 
+                                type="number"
+                                min="1"
+                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-center">
+                    <Button 
+                      type="submit" 
+                      className="px-8 bg-axima-blue hover:bg-blue-600 text-white" 
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>Processing...</>
+                      ) : (
+                        <>
+                          Submit Enquiry 
+                          <Send className="ml-2 h-4 w-4" />
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                </form>
+              </Form>
+            </div>
           </motion.div>
         </div>
       </div>
