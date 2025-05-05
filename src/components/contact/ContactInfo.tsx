@@ -54,10 +54,10 @@ const ContactInfo = () => {
         <div>
           <h3 className="text-white font-semibold mb-1">Call:</h3>
           <a 
-            href="tel:+917758741333" 
+            href="tel:+9177578 41333" 
             className="text-gray-300 hover:text-axima-blue transition-colors"
           >
-            +91 775 874 1333
+            +91 77578 41333
           </a>
         </div>
       </div>
