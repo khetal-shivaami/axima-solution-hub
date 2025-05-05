@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Phone, Send, CheckCircle } from "lucide-react";
+import { MapPin, Mail, Phone, Send, CheckCircle, Building2 } from "lucide-react";
 import { Stats } from "@/components/Stats";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -110,11 +110,12 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black overflow-x-hidden">
-      {/* Subtle grid background */}
+      {/* Subtle grid background with particles effect */}
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+      <div className="fixed inset-0 tech-background z-0 opacity-30 pointer-events-none"></div>
       
       {/* Header Section without Navigation */}
-      <div className="py-6 border-b border-white/10">
+      <div className="py-6 border-b border-white/10 relative z-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             {/* Microsoft Logo on Left (Mobile: Top) */}
@@ -157,7 +158,7 @@ const LandingPage = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column: Microsoft 365 Content */}
           <div>
@@ -438,13 +439,55 @@ const LandingPage = () => {
         </div>
       </div>
       
-      {/* Stats Section */}
-      <div className="py-20">
+      {/* Stats Section with Title */}
+      <div className="py-16 relative z-10">
+        <div className="container mx-auto px-4 mb-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Our Growth & Impact
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              A decade of excellence in delivering Microsoft solutions across India
+            </p>
+            <div className="w-24 h-1 bg-axima-blue mx-auto mt-6 mb-8"></div>
+          </motion.div>
+        </div>
         <Stats />
       </div>
       
+      {/* About Axima Section */}
+      <div className="py-16 bg-black/30 relative z-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="max-w-7xl mx-auto"
+          >
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="p-3 rounded-lg bg-axima-blue/20">
+                <Building2 className="w-8 h-8 text-axima-blue" />
+              </div>
+            </div>
+            <h2 className="text-3xl font-bold text-white mb-4 text-center">About Axima Corporation</h2>
+            <div className="w-24 h-1 bg-axima-blue mx-auto mb-8"></div>
+            
+            <div className="bg-black/40 border border-white/10 text-white backdrop-blur-sm hover:bg-black/50 transition-all duration-300 rounded-lg p-8 mb-12">
+              <p className="text-xl text-gray-300 leading-relaxed">
+                Axima Corporation is a certified Microsoft 365 partner, dedicated to helping businesses leverage the benefits of cloud solutions. In today's competitive landscape, companies seek collaborative tools that provide a strategic advantage. Microsoft 365 delivers exactly that. With Axima's expertise in integrating Microsoft 365, your business gains enhanced flexibility and agility, empowering you to stay ahead in the market.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+      
       {/* Why Choose Axima Section */}
-      <div className="py-16 bg-black/50">
+      <div className="py-16 bg-black/50 relative z-10">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -477,7 +520,7 @@ const LandingPage = () => {
       </div>
       
       {/* Footer with Partnership Badges */}
-      <div className="py-12 bg-black/40 border-t border-white/10">
+      <div className="py-12 bg-black/40 border-t border-white/10 relative z-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center">
             <h3 className="text-xl font-bold text-white mb-6">Official Microsoft Partner</h3>
