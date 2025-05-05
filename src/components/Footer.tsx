@@ -17,6 +17,7 @@ const usefulLinks = [
   { label: "Plans & Pricing", href: "/plans" },
   { label: "Microsoft Copilot", href: "/copilot" },
   { label: "Contact Us", href: "/contact" },
+  { label: "Microsoft 365 Landing", href: "/landing" },
 ];
 
 const productCategories = {
