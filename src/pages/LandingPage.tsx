@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -11,6 +10,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { TrustedBy } from "@/components/TrustedBy";
 
 // Define form schema with validation
 const formSchema = z.object({
@@ -91,6 +92,18 @@ const LandingPage = () => {
     { name: "OneDrive", logo: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.webp" },
     { name: "SharePoint", logo: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.webp" },
     { name: "Exchange", logo: "/lovable-uploads/logos/microsoft_logos/microsoft_exchange.webp" },
+  ];
+
+  // Microsoft Partner Badges
+  const partnerBadges = [
+    {
+      name: "Microsoft Cloud Solution Provider",
+      image: "https://storage.googleapis.com/axima-website-content/badges/AXIMA%20Corporation.webp"
+    },
+    {
+      name: "Trusted Microsoft Partner for 10+ years",
+      image: "https://storage.googleapis.com/axima-website-content/badges/MSFT_50AnniversaryBadge_10Years_-fotor-20250321163921.png"
+    }
   ];
 
   // Benefits from About page (Why Choose Axima)
@@ -515,6 +528,83 @@ const LandingPage = () => {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+        </div>
+      </div>
+      
+      {/* Partner Badges Carousel - Horizontal at Bottom */}
+      <div className="py-8 bg-black/30 relative z-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-7xl mx-auto"
+          >
+            <h3 className="text-xl font-bold text-white mb-6 text-center">Our Partners & Certifications</h3>
+            
+            <Carousel 
+              className="w-full max-w-4xl mx-auto" 
+              navPosition="bottom"
+              opts={{
+                align: "center",
+                loop: true,
+              }}
+            >
+              <CarouselContent>
+                {[...partnerBadges, ...[
+                    {
+                      name: "Goldiee Group",
+                      image: "/lovable-uploads/6c3cda8d-517f-41ba-9cdb-ad94518d2120.png"
+                    },
+                    {
+                      name: "Blue Dart",
+                      image: "/lovable-uploads/accb3a4e-5dbf-4fb2-8c76-5e48e1b46999.png"
+                    },
+                    {
+                      name: "Morde",
+                      image: "/lovable-uploads/7e90294d-d89d-4e0d-ba80-c5dd0d981cf8.png"
+                    },
+                    {
+                      name: "Saint-Gobain",
+                      image: "/lovable-uploads/925c820c-4967-4cdc-9b5b-40b348aff929.png"
+                    },
+                    {
+                      name: "JVM Spaces",
+                      image: "/lovable-uploads/2bf1599b-73be-4276-90f3-6310c532b9a1.png"
+                    },
+                    {
+                      name: "Gangar Eyenation",
+                      image: "/lovable-uploads/5cf95f28-273b-49de-ba24-1a982f1a2739.png"
+                    },
+                    {
+                      name: "Shriram Finance",
+                      image: "/lovable-uploads/8769d21b-ef35-4f66-b33c-895afed0bff1.png"
+                    },
+                    {
+                      name: "Sheth",
+                      image: "/lovable-uploads/183a3e7c-73db-448e-a7f3-b5008eab91cc.png"
+                    }
+                  ]].map((item, index) => (
+                  <CarouselItem key={index} className="basis-1/3 md:basis-1/3 lg:basis-1/4">
+                    <div className="relative glass-card rounded-lg p-4 hover-lift flex items-center justify-center h-32">
+                      <div className="relative group">
+                        <div className="absolute inset-0 bg-axima-blue/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <img 
+                          src={item.image} 
+                          alt={item.name}
+                          className="max-h-24 object-contain transition-all duration-300 group-hover:scale-105"
+                        />
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="flex justify-center mt-4 gap-2">
+                <CarouselPrevious />
+                <CarouselNext />
+              </div>
+            </Carousel>
           </motion.div>
         </div>
       </div>
