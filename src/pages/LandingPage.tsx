@@ -161,7 +161,7 @@ const LandingPage = () => {
             {/* Microsoft Logo on Left (Mobile: Top) */}
             <div className="mb-4 md:mb-0 order-1 md:order-1 flex items-center justify-center md:justify-start w-full md:w-1/3">
               <img 
-                src="/lovable-uploads/logos/Microsoft_365.webp" 
+                src="/lovable-uploads/Microsoft_365_logo.png" 
                 alt="Microsoft 365" 
                 className="h-12 object-contain"
               />
@@ -608,9 +608,9 @@ const LandingPage = () => {
                 <a href="mailto:info@axima.in" className="text-gray-300 text-sm hover:text-axima-blue transition-colors">
                   info@axima.in
                 </a>
-                <a href="mailto:support@axima.in" className="text-gray-300 text-sm hover:text-axima-blue transition-colors">
+                {/* <a href="mailto:support@axima.in" className="text-gray-300 text-sm hover:text-axima-blue transition-colors">
                   support@axima.in
-                </a>
+                </a> */}
               </div>
               
               <div className="flex flex-col items-center text-center">
