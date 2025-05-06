@@ -211,7 +211,7 @@ const LandingPage = () => {
                 Transform Your Business with <span className="text-axima-blue">Microsoft 365</span>
               </h1>
               
-              <p className="text-gray-300 text-lg mb-8">
+              <p className="text-gray-300 text-lg mb-8 text-justify">
               Unlock the full potential of your team with Microsoft 365 - the ultimate productivity suite for businesses of all sizes. Whether you're working from the office, remotely, or on the move, M365 offers powerful tools like Word, Excel, Teams, Outlook, and more, combined with cloud storage, real-time collaboration, and enterprise-grade security.
               </p>
               
