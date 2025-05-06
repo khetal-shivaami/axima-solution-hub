@@ -505,7 +505,7 @@ const LandingPage = () => {
           
           <div className="text-center">
             <p className="text-lg text-gray-300 mb-8">
-              Not just these! We offer a wide variety of Microsoft 365 and enterprise plans. 
+              <span className="text-axima-blue font-bold">Not just these!</span> We offer a wide variety of Microsoft 365 and enterprise plans. 
               Our experts will help you choose the perfect fit for your business.
             </p>
           </div>
@@ -559,10 +559,11 @@ const LandingPage = () => {
               className="flex justify-center"
             >
               <img 
-                src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/featurednews-card1-388388?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3360&hei=2245&qlt=100&fit=constrain" 
-                alt="Microsoft Copilot" 
-                className="rounded-lg shadow-lg max-w-full object-cover hover:scale-105 transition-transform duration-300"
-              />
+              src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/featurednews-card1-388388?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3360&hei=2245&qlt=100&fit=constrain" 
+              alt="Microsoft Copilot" 
+              className="rounded-lg shadow-lg w-full h-[400px] object-cover hover:scale-105 transition-transform duration-300"
+            />
+
             </motion.div>
           </div>
         </div>
