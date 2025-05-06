@@ -89,18 +89,15 @@ const ContactForm = () => {
     
     // Sanitize data before sending
     const sanitizedData = {
-      fullname: sanitizeInput(formData.name),
-      workemail: sanitizeInput(formData.email),
-      contactno: sanitizeInput(formData.contactnumber),
+      name: sanitizeInput(formData.name),
+      email: sanitizeInput(formData.email),
+      contactnumber: sanitizeInput(formData.contactnumber),
       message: sanitizeInput(formData.message),
-      company_name: "",  // Adding required fields for API
-      numberoflicence: "0", // Default values
-      existing_soln: "" // Default value
     };
 
     try {
-      // Use the new API endpoint
-      const response = await fetch("http://127.0.0.1:8000/get_campaign_aximawebsite_contact_details/", {
+      // Use the API endpoint provided
+      const response = await fetch("https://portal-api.shiviom.com/get_aximawebsite_contact_details/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
