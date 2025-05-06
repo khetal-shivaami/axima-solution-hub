@@ -1,4 +1,3 @@
-
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -10,7 +9,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { 
   Select, 
@@ -62,23 +61,42 @@ const LandingPage = () => {
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     
-    // Simulate form submission
     try {
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Prepare the data in the format required by the API
+      const formattedData = {
+        fullname: data.fullName,
+        workemail: data.email,
+        contactno: data.phone,
+        company_name: data.company,
+        numberoflicence: data.licenses,
+        existing_soln: data.emailSolution
+      };
       
-      console.log("Form submitted:", data);
+      // Send the data to the API
+      const response = await fetch("http://127.0.0.1:8000/get_campaign_aximawebsite_contact_details/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+        },
+        body: JSON.stringify(formattedData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log("Form submitted successfully:", result);
       
-      // Show success message
-      setIsSuccess(true);
+      // Reset form after successful submission
+      form.reset();
+      
       toast({
         title: "Enquiry Submitted!",
         description: "We'll get back to you as soon as possible.",
         variant: "default",
       });
-      
-      // Reset form
-      form.reset();
       
       // Redirect after a short delay
       setTimeout(() => {
