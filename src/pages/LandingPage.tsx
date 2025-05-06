@@ -73,7 +73,7 @@ const LandingPage = () => {
       };
       
       // Submit to the API
-      const response = await fetch("http://127.0.0.1:8000/get_campaign_aximawebsite_contact_details/", {
+      const response = await fetch("https://portal-api.shiviom.com/get_campaign_aximawebsite_contact_details/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -397,7 +397,7 @@ const LandingPage = () => {
                         name="phone"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-white">Contact No</FormLabel>
+                            <FormLabel className="text-white">Contact No.</FormLabel>
                             <FormControl>
                               <Input 
                                 placeholder="Enter your phone number" 
@@ -802,7 +802,7 @@ const LandingPage = () => {
                 </div>
                 <h4 className="font-medium text-white mb-2">Our Location</h4>
                 <p className="text-gray-300 text-sm">
-                  1001, 10th Floor, Runwal R Square,<br />LBS Road, Mulund West,<br />Mumbai - 400080
+                  1001, 10th Floor, Runwal R Square,<br />LBS Road, Mulund West,Mumbai - 400080
                 </p>
               </div>
               
