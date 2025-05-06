@@ -1,17 +1,17 @@
+
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Phone, Send, CheckCircle, Building2, ArrowUp } from "lucide-react";
+import { MapPin, Mail, Phone, Send, CheckCircle, Building2, ArrowUp, Star } from "lucide-react";
 import { Stats } from "@/components/Stats";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { TrustedBy } from "@/components/TrustedBy";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { 
   Select, 
   SelectContent, 
@@ -19,6 +19,7 @@ import {
   SelectTrigger, 
   SelectValue 
 } from "@/components/ui/select";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 // Define form schema with validation
 const formSchema = z.object({
@@ -131,7 +132,47 @@ const LandingPage = () => {
     "Enjoy prompt and reliable customer support"
   ];
 
-  const address = "1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080";
+  // Microsoft 365 plans
+  const m365Plans = [
+    {
+      name: "Microsoft 365 Business Basic",
+      features: [
+        "Business email and calendaring",
+        "Web and mobile versions of Word, Excel, PowerPoint",
+        "1 TB cloud storage per user",
+        "Microsoft Teams for online meetings and chat"
+      ]
+    },
+    {
+      name: "Microsoft 365 Business Standard",
+      features: [
+        "Everything in Business Basic plus:",
+        "Desktop versions of Office apps",
+        "Easy webinar hosting",
+        "Attendee registration and reporting tools",
+        "Customer appointment management"
+      ]
+    },
+    {
+      name: "Microsoft 365 Business Premium",
+      features: [
+        "Everything in Business Standard plus:",
+        "Advanced security features",
+        "Access and data control",
+        "Cyberthreat protection",
+        "Device management"
+      ]
+    },
+    {
+      name: "Microsoft 365 Apps for Business",
+      features: [
+        "Desktop Office apps for PC and Mac",
+        "Office mobile apps",
+        "1 TB cloud storage per user",
+        "Always up-to-date apps"
+      ]
+    }
+  ];
 
   const emailSolutions = [
     "Google Workspace (Formerly G Suite)",
@@ -178,13 +219,6 @@ const LandingPage = () => {
             
             {/* Contact Info on Right (Mobile: Bottom) */}
             <div className="order-3 md:order-3 flex flex-col md:flex-row items-center md:items-end justify-center md:justify-end gap-4 w-full md:w-1/3">
-              {/* <a 
-                href="mailto:info@axima.in" 
-                className="flex items-center text-gray-300 hover:text-axima-blue transition-colors"
-              >
-                <Mail className="w-5 h-5 mr-2 text-axima-blue" />
-                info@axima.in
-              </a> */}
               <a 
                 href="tel:+91 83695 60989" 
                 className="flex items-center text-gray-300 hover:text-axima-blue transition-colors"
@@ -243,35 +277,6 @@ const LandingPage = () => {
                   ))}
                 </div>
               </div>
-              
-              {/* <div className="bg-black/40 p-6 rounded-lg border border-white/10">
-                <h2 className="text-2xl font-semibold text-white mb-4">
-                  Key Benefits
-                </h2>
-                
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-axima-blue mr-2 mt-1 flex-shrink-0" />
-                    <span className="text-gray-300">Anywhere, anytime access to Office applications and email</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-axima-blue mr-2 mt-1 flex-shrink-0" />
-                    <span className="text-gray-300">Enhanced security and compliance features</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-axima-blue mr-2 mt-1 flex-shrink-0" />
-                    <span className="text-gray-300">Real-time collaboration across devices</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-axima-blue mr-2 mt-1 flex-shrink-0" />
-                    <span className="text-gray-300">Streamlined communication with Microsoft Teams</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-axima-blue mr-2 mt-1 flex-shrink-0" />
-                    <span className="text-gray-300">Simplified IT management and reduced costs</span>
-                  </li>
-                </ul>
-              </div> */}
             </motion.div>
           </div>
           
@@ -451,6 +456,118 @@ const LandingPage = () => {
         </div>
       </div>
       
+      {/* Microsoft 365 Plans Section */}
+      <div className="py-16 bg-black/30 relative z-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Find the Best Microsoft 365 Plan for Your Business
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Choose from a range of Microsoft 365 plans tailored to meet your team's needs, size, and budget:
+            </p>
+            <div className="w-24 h-1 bg-axima-blue mx-auto mt-6"></div>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            {m365Plans.map((plan, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full bg-black/40 border border-axima-blue/20 hover:border-axima-blue text-white transform transition-all duration-300 hover:scale-102 hover:bg-black/60">
+                  <CardHeader className="bg-axima-blue rounded-t-lg">
+                    <CardTitle className="text-xl text-white">{plan.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-4">
+                    <ul className="space-y-2">
+                      {plan.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <Star className="h-4 w-4 text-axima-blue mt-1 flex-shrink-0" />
+                          <span className="text-gray-300">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="text-center">
+            <p className="text-lg text-gray-300 mb-8">
+              Not just these! We offer a wide variety of Microsoft 365 and enterprise plans. 
+              Our experts will help you choose the perfect fit for your business.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      {/* Microsoft Copilot Section */}
+      <div className="py-16 bg-black/40 relative z-10">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h2 className="text-3xl font-bold text-white">
+                Enhance your Microsoft 365 experience with Copilot, your AI-powered assistant that transforms how you work.
+              </h2>
+              
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <span className="text-axima-blue mr-2">🔹</span>
+                  <span className="text-gray-300">Write better emails & reports in Outlook and Word</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-axima-blue mr-2">🔹</span>
+                  <span className="text-gray-300">Generate summaries, to-do lists, and insights in Teams</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-axima-blue mr-2">🔹</span>
+                  <span className="text-gray-300">Automate repetitive tasks in Excel</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-axima-blue mr-2">🔹</span>
+                  <span className="text-gray-300">Draft presentations instantly in PowerPoint</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-axima-blue mr-2">🔹</span>
+                  <span className="text-gray-300">Get intelligent suggestions across all apps</span>
+                </li>
+              </ul>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex justify-center"
+            >
+              <img 
+                src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/featurednews-card1-388388?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3360&hei=2245&qlt=100&fit=constrain" 
+                alt="Microsoft Copilot" 
+                className="rounded-lg shadow-lg max-w-full object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </div>
+      
       {/* Stats Section with Title */}
       <div className="py-16 relative z-10">
         <div className="container mx-auto px-4 mb-10 text-center">
@@ -531,7 +648,7 @@ const LandingPage = () => {
         </div>
       </div>
       
-      {/* Get Started Button (replacing bottom form) */}
+      {/* Get Started Button */}
       <div className="py-16 bg-black/30 relative z-10">
         <div className="container mx-auto px-4">
           <motion.div
@@ -564,7 +681,7 @@ const LandingPage = () => {
           <div className="flex flex-col items-center">
             <h3 className="text-xl font-bold text-white mb-6">Official Microsoft Partner</h3>
             
-            <div className="flex flex-row flex-wrap gap-8 justify-center items-center">
+            <div className="flex flex-row flex-wrap gap-8 justify-center items-center mb-12">
               <div className="relative glass-card rounded-lg p-4 hover-lift flex items-center justify-center">
                 <div className="relative group">
                   <div className="absolute inset-0 bg-axima-blue/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -589,7 +706,7 @@ const LandingPage = () => {
             </div>
             
             {/* Contact Information (moved from form) */}
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-4xl mx-auto">
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-4xl mx-auto">
               <div className="flex flex-col items-center text-center">
                 <div className="p-3 bg-axima-blue/20 rounded-full mb-4">
                   <MapPin className="w-6 h-6 text-axima-blue" />
@@ -608,9 +725,6 @@ const LandingPage = () => {
                 <a href="mailto:info@axima.in" className="text-gray-300 text-sm hover:text-axima-blue transition-colors">
                   info@axima.in
                 </a>
-                {/* <a href="mailto:support@axima.in" className="text-gray-300 text-sm hover:text-axima-blue transition-colors">
-                  support@axima.in
-                </a> */}
               </div>
               
               <div className="flex flex-col items-center text-center">
