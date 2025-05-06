@@ -1,4 +1,3 @@
-
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -303,126 +302,132 @@ const LandingPage = () => {
               ) : (
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                    <FormField
-                      control={form.control}
-                      name="fullName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-white">Full Name</FormLabel>
-                          <FormControl>
-                            <Input 
-                              placeholder="Enter your full name" 
-                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
-                              {...field} 
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-white">Work Email</FormLabel>
-                          <FormControl>
-                            <Input 
-                              placeholder="Enter your work email" 
-                              type="email"
-                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
-                              {...field} 
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-white">Contact No</FormLabel>
-                          <FormControl>
-                            <Input 
-                              placeholder="Enter your phone number" 
-                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
-                              {...field} 
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="company"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-white">Company Name</FormLabel>
-                          <FormControl>
-                            <Input 
-                              placeholder="Enter your company name" 
-                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
-                              {...field} 
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="emailSolution"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-white">Existing Email Solution</FormLabel>
-                          <Select 
-                            onValueChange={field.onChange} 
-                            defaultValue={field.value}
-                          >
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="fullName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">Full Name</FormLabel>
                             <FormControl>
-                              <SelectTrigger className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue">
-                                <SelectValue placeholder="Select your current email solution" />
-                              </SelectTrigger>
+                              <Input 
+                                placeholder="Enter your full name" 
+                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
+                                {...field} 
+                              />
                             </FormControl>
-                            <SelectContent className="bg-gray-900 border-white/10 text-white">
-                              {emailSolutions.map((solution) => (
-                                <SelectItem key={solution} value={solution} className="focus:bg-gray-800 focus:text-white hover:bg-gray-800">
-                                  {solution}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">Work Email</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Enter your work email" 
+                                type="email"
+                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
                     
-                    <FormField
-                      control={form.control}
-                      name="licenses"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-white">No. of Licenses Required</FormLabel>
-                          <FormControl>
-                            <Input 
-                              placeholder="Enter the number of licenses" 
-                              type="number"
-                              min="1"
-                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
-                              {...field} 
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">Contact No</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Enter your phone number" 
+                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="company"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">Company Name</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Enter your company name" 
+                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="emailSolution"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">Existing Email Solution</FormLabel>
+                            <Select 
+                              onValueChange={field.onChange} 
+                              defaultValue={field.value}
+                            >
+                              <FormControl>
+                                <SelectTrigger className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue">
+                                  <SelectValue placeholder="Select your current email solution" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent className="bg-gray-900 border-white/10 text-white">
+                                {emailSolutions.map((solution) => (
+                                  <SelectItem key={solution} value={solution} className="focus:bg-gray-800 focus:text-white hover:bg-gray-800">
+                                    {solution}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="licenses"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">No. of Licenses Required</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Enter the number of licenses" 
+                                type="number"
+                                min="1"
+                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
                     
                     <Button 
                       type="submit" 
@@ -441,48 +446,6 @@ const LandingPage = () => {
                   </form>
                 </Form>
               )}
-
-              {/* Contact Info */}
-              <div className="mt-8 pt-8 border-t border-white/10">
-                <h3 className="text-xl font-semibold text-white mb-4">
-                  Contact Information
-                </h3>
-                
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <MapPin className="w-5 h-5 text-axima-blue mt-1" />
-                    <div>
-                      <p className="text-gray-300">
-                        {address}
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <Mail className="w-5 h-5 text-axima-blue mt-1" />
-                    <div>
-                      <a 
-                        href="mailto:info@axima.in" 
-                        className="text-gray-300 hover:text-axima-blue transition-colors"
-                      >
-                        info@axima.in
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <Phone className="w-5 h-5 text-axima-blue mt-1" />
-                    <div>
-                      <a 
-                        href="tel:+9177578 41333" 
-                        className="text-gray-300 hover:text-axima-blue transition-colors"
-                      >
-                        +91 77578 41333
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -595,7 +558,7 @@ const LandingPage = () => {
         </div>
       </div>
       
-      {/* Footer with Partnership Badges */}
+      {/* Footer with Partnership Badges and Contact Information */}
       <div className="py-12 bg-black/40 border-t border-white/10 relative z-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center">
@@ -625,7 +588,43 @@ const LandingPage = () => {
               </div>
             </div>
             
-            <p className="text-gray-400 text-center mt-8">
+            {/* Contact Information (moved from form) */}
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-4xl mx-auto">
+              <div className="flex flex-col items-center text-center">
+                <div className="p-3 bg-axima-blue/20 rounded-full mb-4">
+                  <MapPin className="w-6 h-6 text-axima-blue" />
+                </div>
+                <h4 className="font-medium text-white mb-2">Our Location</h4>
+                <p className="text-gray-300 text-sm">
+                  1001, 10th Floor, Runwal R Square,<br />LBS Road, Mulund West,<br />Mumbai - 400080
+                </p>
+              </div>
+              
+              <div className="flex flex-col items-center text-center">
+                <div className="p-3 bg-axima-blue/20 rounded-full mb-4">
+                  <Mail className="w-6 h-6 text-axima-blue" />
+                </div>
+                <h4 className="font-medium text-white mb-2">Email Us</h4>
+                <a href="mailto:info@axima.in" className="text-gray-300 text-sm hover:text-axima-blue transition-colors">
+                  info@axima.in
+                </a>
+                <a href="mailto:support@axima.in" className="text-gray-300 text-sm hover:text-axima-blue transition-colors">
+                  support@axima.in
+                </a>
+              </div>
+              
+              <div className="flex flex-col items-center text-center">
+                <div className="p-3 bg-axima-blue/20 rounded-full mb-4">
+                  <Phone className="w-6 h-6 text-axima-blue" />
+                </div>
+                <h4 className="font-medium text-white mb-2">Call Us</h4>
+                <a href="tel:+917757841333" className="text-gray-300 text-sm hover:text-axima-blue transition-colors">
+                  +91 77578 41333
+                </a>
+              </div>
+            </div>
+            
+            <p className="text-gray-400 text-center mt-12">
               © {new Date().getFullYear()} Axima Corporation. All rights reserved.
             </p>
           </div>
