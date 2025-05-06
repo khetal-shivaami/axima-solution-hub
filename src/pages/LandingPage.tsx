@@ -20,6 +20,7 @@ import {
   SelectValue 
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 // Define form schema with validation
 const formSchema = z.object({
@@ -183,6 +184,34 @@ const LandingPage = () => {
     "Zoho Mail",
     "Microsoft 365 (Office 365)",
     "Other"
+  ];
+  
+  // FAQ items
+  const faqItems = [
+    {
+      question: "What are the different payment options available?",
+      answer: "Buying Microsoft 365 Subscription from Axima is simple and convenient with our different payment options. A user can make payment via Net Banking, Credit/Debit Card, Razorpay, Cheque/Demand Draft, and NEFT/RTGS modes."
+    },
+    {
+      question: "Can I upgrade or switch my Microsoft 365 plan later?",
+      answer: "Yes, you can easily upgrade, downgrade, or switch plans as your business grows or your needs change. Our team will help you manage the transition smoothly without data loss or downtime."
+    },
+    {
+      question: "Do you offer volume discounts for large teams?",
+      answer: "Absolutely! We offer custom pricing and volume discounts for mid-size and large organizations. Contact us for a tailored quote based on your user count and business requirements."
+    },
+    {
+      question: "I need help choosing the right plan. Can you assist me?",
+      answer: "Absolutely! Our Google Workspace experts are here to understand your business needs and recommend the most suitable edition and plan. We'll consider factors like team size, storage requirements, and desired features to ensure you get the most value out of your subscription."
+    },
+    {
+      question: "Can you help with data migration from my existing email provider?",
+      answer: "Yes, we offer data migration services from your current provider to Microsoft 365 — including email, contacts, and calendars — with minimal disruption to your business."
+    },
+    {
+      question: "What kind of support do you offer after purchase?",
+      answer: "We offer onboarding assistance, user training, and ongoing technical support to ensure you get the most out of your subscription. Our team is here to answer your questions and help you troubleshoot any issues that may arise."
+    }
   ];
 
   return (
@@ -515,56 +544,70 @@ const LandingPage = () => {
       {/* Microsoft Copilot Section */}
       <div className="py-16 bg-black/40 relative z-10">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
-              <h2 className="text-3xl font-bold text-white">
-                Enhance your Microsoft 365 experience with Copilot, your AI-powered assistant that transforms how you work.
-              </h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Add Microsoft 365 Copilot to Your Microsoft Plan
+            </h2>
+            <div className="w-24 h-1 bg-axima-blue mx-auto mt-6"></div>
+          </motion.div>
+          
+          <div className="bg-black/40 border border-white/10 rounded-lg backdrop-blur-sm p-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="space-y-6"
+              >
+                <h3 className="text-2xl font-bold text-white">
+                  Enhance your Microsoft 365 experience with Copilot, your AI-powered assistant that transforms how you work.
+                </h3>
+                
+                <ul className="space-y-4">
+                  <li className="flex items-start">
+                    <span className="text-axima-blue mr-2">🔹</span>
+                    <span className="text-gray-300">Write better emails & reports in Outlook and Word</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-axima-blue mr-2">🔹</span>
+                    <span className="text-gray-300">Generate summaries, to-do lists, and insights in Teams</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-axima-blue mr-2">🔹</span>
+                    <span className="text-gray-300">Automate repetitive tasks in Excel</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-axima-blue mr-2">🔹</span>
+                    <span className="text-gray-300">Draft presentations instantly in PowerPoint</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-axima-blue mr-2">🔹</span>
+                    <span className="text-gray-300">Get intelligent suggestions across all apps</span>
+                  </li>
+                </ul>
+              </motion.div>
               
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <span className="text-axima-blue mr-2">🔹</span>
-                  <span className="text-gray-300">Write better emails & reports in Outlook and Word</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-axima-blue mr-2">🔹</span>
-                  <span className="text-gray-300">Generate summaries, to-do lists, and insights in Teams</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-axima-blue mr-2">🔹</span>
-                  <span className="text-gray-300">Automate repetitive tasks in Excel</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-axima-blue mr-2">🔹</span>
-                  <span className="text-gray-300">Draft presentations instantly in PowerPoint</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-axima-blue mr-2">🔹</span>
-                  <span className="text-gray-300">Get intelligent suggestions across all apps</span>
-                </li>
-              </ul>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="flex justify-center"
-            >
-              <img 
-              src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/featurednews-card1-388388?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3360&hei=2245&qlt=100&fit=constrain" 
-              alt="Microsoft Copilot" 
-              className="rounded-lg shadow-lg w-full h-[400px] object-cover hover:scale-105 transition-transform duration-300"
-            />
-
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="flex justify-center"
+              >
+                <img 
+                  src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/featurednews-card1-388388?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3360&hei=2245&qlt=100&fit=constrain" 
+                  alt="Microsoft Copilot" 
+                  className="rounded-lg shadow-lg w-full h-[400px] object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
@@ -589,7 +632,7 @@ const LandingPage = () => {
         <Stats />
       </div>
       
-      {/* About Axima Section */}
+      {/* Combined About Axima Section */}
       <div className="py-16 bg-black/30 relative z-10">
         <div className="container mx-auto px-4">
           <motion.div
@@ -607,45 +650,67 @@ const LandingPage = () => {
             <h2 className="text-3xl font-bold text-white mb-4 text-center">About Axima Corporation</h2>
             <div className="w-24 h-1 bg-axima-blue mx-auto mb-8"></div>
             
-            <div className="bg-black/40 border border-white/10 text-white backdrop-blur-sm hover:bg-black/50 transition-all duration-300 rounded-lg p-8 mb-12">
-              <p className="text-xl text-gray-300 leading-relaxed">
+            <div className="bg-black/40 border border-white/10 text-white backdrop-blur-sm rounded-lg p-8 mb-12">
+              <p className="text-xl text-gray-300 leading-relaxed mb-8">
                 Axima Corporation is a certified Microsoft 365 partner, dedicated to helping businesses leverage the benefits of cloud solutions. In today's competitive landscape, companies seek collaborative tools that provide a strategic advantage. Microsoft 365 delivers exactly that. With Axima's expertise in integrating Microsoft 365, your business gains enhanced flexibility and agility, empowering you to stay ahead in the market.
               </p>
+              
+              <h3 className="text-2xl font-bold text-white mb-6">Why Choose Axima</h3>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {benefits.map((benefit, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="bg-black/40 border border-gray-800 hover:border-axima-blue/40 rounded-lg backdrop-blur-sm p-6 h-full group hover:scale-105 transition-all duration-300"
+                  >
+                    <div className="flex items-start gap-4">
+                      <CheckCircle className="w-6 h-6 text-axima-blue flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                      <p className="text-gray-300 group-hover:text-white transition-colors">{benefit}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
       </div>
       
-      {/* Why Choose Axima Section */}
+      {/* FAQ Section */}
       <div className="py-16 bg-black/50 relative z-10">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-7xl mx-auto"
+            viewport={{ once: true }}
+            className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-white mb-6 text-center">Why Choose Axima</h2>
-            <div className="w-24 h-1 bg-axima-blue mx-auto mb-12"></div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-black/40 border border-gray-800 hover:border-axima-blue/40 rounded-lg backdrop-blur-sm p-6 h-full group hover:scale-105 transition-all duration-300"
-                >
-                  <div className="flex items-start gap-4">
-                    <CheckCircle className="w-6 h-6 text-axima-blue flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
-                    <p className="text-gray-300 group-hover:text-white transition-colors">{benefit}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+            <div className="w-24 h-1 bg-axima-blue mx-auto mt-6"></div>
           </motion.div>
+          
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqItems.map((item, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`} 
+                  className="bg-black/40 border border-white/10 rounded-lg overflow-hidden"
+                >
+                  <AccordionTrigger className="px-6 py-4 text-white hover:text-axima-blue hover:no-underline">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-4 pt-0 text-gray-300">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </div>
       
