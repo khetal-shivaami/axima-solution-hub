@@ -1,4 +1,3 @@
-
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -62,12 +61,29 @@ const LandingPage = () => {
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     
-    // Simulate form submission
     try {
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Prepare data in the required format
+      const formattedData = {
+        fullname: data.fullName,
+        workemail: data.email,
+        contactno: data.phone,
+        company_name: data.company,
+        numberoflicence: data.licenses,
+        existing_soln: data.emailSolution
+      };
       
-      console.log("Form submitted:", data);
+      // Submit to the API
+      const response = await fetch("http://127.0.0.1:8000/get_campaign_aximawebsite_contact_details/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formattedData)
+      });
+      
+      if (!response.ok) {
+        throw new Error(`API responded with status: ${response.status}`);
+      }
       
       // Show success message
       setIsSuccess(true);
