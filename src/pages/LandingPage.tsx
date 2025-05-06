@@ -233,7 +233,7 @@ const LandingPage = () => {
               <img 
                 src="/lovable-uploads/Microsoft_365_logo.png" 
                 alt="Microsoft 365" 
-                className="h-12 object-contain ml-14"
+                className="h-12 object-contain ml-16"
               />
             </div>
             
@@ -315,7 +315,7 @@ const LandingPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-black/40 p-8 rounded-lg border border-white/10"
+              className="bg-black/40 p-8 rounded-lg border border-white/10 min-h-[470px]"
             >
               <h2 className="text-2xl font-semibold text-white mb-6">
                 Enquiry Form
@@ -462,7 +462,7 @@ const LandingPage = () => {
                         )}
                       />
                     </div>
-                    
+                    <br></br>
                     <Button 
                       type="submit" 
                       className="w-full bg-axima-blue hover:bg-blue-600 text-white" 
@@ -592,6 +592,13 @@ const LandingPage = () => {
                     <span className="text-gray-300">Get intelligent suggestions across all apps</span>
                   </li>
                 </ul>
+                <Button 
+              onClick={scrollToTop}
+              className="px-8 py-6 text-lg bg-axima-blue hover:bg-blue-600 text-white group transition-all duration-300 hover:scale-105"
+            >
+              Get Started
+              <ArrowUp className="ml-2 h-5 w-5 transition-transform group-hover:-translate-y-1" />
+            </Button>
               </motion.div>
               
               <motion.div
@@ -642,11 +649,11 @@ const LandingPage = () => {
             viewport={{ once: true }}
             className="max-w-7xl mx-auto"
           >
-            <div className="flex items-center justify-center gap-4 mb-6">
+            {/* <div className="flex items-center justify-center gap-4 mb-6">
               <div className="p-3 rounded-lg bg-axima-blue/20">
                 <Building2 className="w-8 h-8 text-axima-blue" />
               </div>
-            </div>
+            </div> */}
             <h2 className="text-3xl font-bold text-white mb-4 text-center">About Axima Corporation</h2>
             <div className="w-24 h-1 bg-axima-blue mx-auto mb-8"></div>
             
@@ -655,7 +662,7 @@ const LandingPage = () => {
                 Axima Corporation is a certified Microsoft 365 partner, dedicated to helping businesses leverage the benefits of cloud solutions. In today's competitive landscape, companies seek collaborative tools that provide a strategic advantage. Microsoft 365 delivers exactly that. With Axima's expertise in integrating Microsoft 365, your business gains enhanced flexibility and agility, empowering you to stay ahead in the market.
               </p>
               
-              <h3 className="text-2xl font-bold text-white mb-6">Why Choose Axima</h3>
+              {/* <h3 className="text-2xl font-bold text-white mb-6">Why Choose Axima</h3> */}
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {benefits.map((benefit, index) => (
@@ -692,12 +699,11 @@ const LandingPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
             <div className="w-24 h-1 bg-axima-blue mx-auto mt-6"></div>
           </motion.div>
-          
-          <div className="max-w-4xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqItems.map((item, index) => (
+
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            {faqItems.map((item, index) => (
+              <Accordion type="single" collapsible key={index}>
                 <AccordionItem 
-                  key={index} 
                   value={`item-${index}`} 
                   className="bg-black/40 border border-white/10 rounded-lg overflow-hidden"
                 >
@@ -708,11 +714,12 @@ const LandingPage = () => {
                     {item.answer}
                   </AccordionContent>
                 </AccordionItem>
-              ))}
-            </Accordion>
+              </Accordion>
+            ))}
           </div>
         </div>
       </div>
+
       
       {/* Get Started Button */}
       <div className="py-16 bg-black/30 relative z-10">
