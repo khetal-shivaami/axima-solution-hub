@@ -1,10 +1,10 @@
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Phone, Send, CheckCircle, Building2 } from "lucide-react";
+import { MapPin, Mail, Phone, Send, CheckCircle, Building2, ArrowUp } from "lucide-react";
 import { Stats } from "@/components/Stats";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -13,17 +13,24 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { TrustedBy } from "@/components/TrustedBy";
+import { 
+  Select, 
+  SelectContent, 
+  SelectItem, 
+  SelectTrigger, 
+  SelectValue 
+} from "@/components/ui/select";
 
 // Define form schema with validation
 const formSchema = z.object({
-  firstName: z.string().min(2, "First name must be at least 2 characters"),
-  lastName: z.string().min(2, "Last name must be at least 2 characters"),
+  fullName: z.string().min(2, "Full name must be at least 2 characters"),
   email: z.string().email("Please enter a valid work email"),
   phone: z.string().min(10, "Please enter a valid phone number"),
   company: z.string().min(2, "Company name must be at least 2 characters"),
   licenses: z.string()
     .refine((val) => !isNaN(Number(val)), "Must be a number")
-    .refine((val) => Number(val) > 0, "Must be greater than 0")
+    .refine((val) => Number(val) > 0, "Must be greater than 0"),
+  emailSolution: z.string().min(1, "Please select your existing email solution")
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -33,18 +40,23 @@ const LandingPage = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const topRef = useRef<HTMLDivElement>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      fullName: "",
       email: "",
       phone: "",
       company: "",
-      licenses: ""
+      licenses: "",
+      emailSolution: ""
     }
   });
+
+  const scrollToTop = () => {
+    topRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
@@ -122,6 +134,17 @@ const LandingPage = () => {
 
   const address = "1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080";
 
+  const emailSolutions = [
+    "Google Workspace (Formerly G Suite)",
+    "Exchange Server",
+    "Lotus Notes",
+    "Rediffmail",
+    "Yahoo Mail",
+    "Zoho Mail",
+    "Microsoft 365 (Office 365)",
+    "Other"
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black overflow-x-hidden">
       {/* Enhanced Grid Background and Particles Effect - both are visible now */}
@@ -133,7 +156,7 @@ const LandingPage = () => {
       </div>
       
       {/* Header Section without Navigation */}
-      <div className="py-6 border-b border-white/10 relative z-10">
+      <div ref={topRef} className="py-6 border-b border-white/10 relative z-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             {/* Microsoft Logo on Left (Mobile: Top) */}
@@ -280,43 +303,23 @@ const LandingPage = () => {
               ) : (
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <FormField
-                        control={form.control}
-                        name="firstName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-white">First Name</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Enter your first name" 
-                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
-                      <FormField
-                        control={form.control}
-                        name="lastName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-white">Last Name</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Enter your last name" 
-                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
+                    <FormField
+                      control={form.control}
+                      name="fullName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white">Full Name</FormLabel>
+                          <FormControl>
+                            <Input 
+                              placeholder="Enter your full name" 
+                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
+                              {...field} 
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                     
                     <FormField
                       control={form.control}
@@ -328,7 +331,7 @@ const LandingPage = () => {
                             <Input 
                               placeholder="Enter your work email" 
                               type="email"
-                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
+                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
                               {...field} 
                             />
                           </FormControl>
@@ -346,7 +349,7 @@ const LandingPage = () => {
                           <FormControl>
                             <Input 
                               placeholder="Enter your phone number" 
-                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
+                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
                               {...field} 
                             />
                           </FormControl>
@@ -364,10 +367,38 @@ const LandingPage = () => {
                           <FormControl>
                             <Input 
                               placeholder="Enter your company name" 
-                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
+                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
                               {...field} 
                             />
                           </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="emailSolution"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white">Existing Email Solution</FormLabel>
+                          <Select 
+                            onValueChange={field.onChange} 
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue">
+                                <SelectValue placeholder="Select your current email solution" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="bg-gray-900 border-white/10 text-white">
+                              {emailSolutions.map((solution) => (
+                                <SelectItem key={solution} value={solution} className="focus:bg-gray-800 focus:text-white hover:bg-gray-800">
+                                  {solution}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -384,7 +415,7 @@ const LandingPage = () => {
                               placeholder="Enter the number of licenses" 
                               type="number"
                               min="1"
-                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
+                              className="bg-black/60 border-white/20 text-white focus:border-axima-blue focus-visible:ring-axima-blue"
                               {...field} 
                             />
                           </FormControl>
@@ -537,7 +568,7 @@ const LandingPage = () => {
         </div>
       </div>
       
-      {/* Horizontal Enquiry Form at Bottom */}
+      {/* Get Started Button (replacing bottom form) */}
       <div className="py-16 bg-black/30 relative z-10">
         <div className="container mx-auto px-4">
           <motion.div
@@ -545,152 +576,21 @@ const LandingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="max-w-7xl mx-auto"
+            className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl font-bold text-white mb-6 text-center">Get Started Today</h2>
-            <div className="w-24 h-1 bg-axima-blue mx-auto mb-12"></div>
+            <h2 className="text-3xl font-bold text-white mb-6">Get Started Today</h2>
+            <div className="w-24 h-1 bg-axima-blue mx-auto mb-8"></div>
+            <p className="text-xl text-gray-300 mb-8">
+              Ready to transform your business with Microsoft 365? Contact us now to get started.
+            </p>
             
-            <div className="bg-black/40 p-8 rounded-lg border border-white/10">
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="space-y-6">
-                      <FormField
-                        control={form.control}
-                        name="firstName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-white">First Name</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Enter your first name" 
-                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
-                      <FormField
-                        control={form.control}
-                        name="lastName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-white">Last Name</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Enter your last name" 
-                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    
-                    <div className="space-y-6">
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-white">Work Email</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Enter your work email" 
-                                type="email"
-                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
-                      <FormField
-                        control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-white">Contact No</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Enter your phone number" 
-                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    
-                    <div className="space-y-6">
-                      <FormField
-                        control={form.control}
-                        name="company"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-white">Company Name</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Enter your company name" 
-                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
-                      <FormField
-                        control={form.control}
-                        name="licenses"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-white">No. of Licenses Required</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Enter the number of licenses" 
-                                type="number"
-                                min="1"
-                                className="bg-black/60 border-white/20 text-white focus:border-axima-blue"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="flex justify-center">
-                    <Button 
-                      type="submit" 
-                      className="px-8 bg-axima-blue hover:bg-blue-600 text-white" 
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>Processing...</>
-                      ) : (
-                        <>
-                          Submit Enquiry 
-                          <Send className="ml-2 h-4 w-4" />
-                        </>
-                      )}
-                    </Button>
-                  </div>
-                </form>
-              </Form>
-            </div>
+            <Button 
+              onClick={scrollToTop}
+              className="px-8 py-6 text-lg bg-axima-blue hover:bg-blue-600 text-white group transition-all duration-300 hover:scale-105"
+            >
+              Get Started
+              <ArrowUp className="ml-2 h-5 w-5 transition-transform group-hover:-translate-y-1" />
+            </Button>
           </motion.div>
         </div>
       </div>
