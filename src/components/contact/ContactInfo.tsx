@@ -23,7 +23,7 @@ const ContactInfo = () => {
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-axima-blue transition-colors"
           >
-            1001, 10th Floor, Runwal R Square, LBS Road, Mulund West,
+            1001, 10th Floor, Runwal R Square, LBS Road, Mulund West,<br />
             Mumbai - 400080
           </a>
         </div>
