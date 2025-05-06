@@ -159,16 +159,16 @@ const LandingPage = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             {/* Microsoft Logo on Left (Mobile: Top) */}
-            <div className="mb-4 md:mb-0 order-1 md:order-1 flex items-center justify-center md:justify-start w-full md:w-1/3">
+            <div className="mb-4 md:mb-0 order-2 md:order-2 flex items-center justify-center md:justify-start w-full md:w-1/3">
               <img 
                 src="/lovable-uploads/Microsoft_365_logo.png" 
                 alt="Microsoft 365" 
-                className="h-12 object-contain"
+                className="h-12 object-contain ml-14"
               />
             </div>
             
             {/* Axima Logo in Center */}
-            <div className="mb-4 md:mb-0 order-2 md:order-2 flex items-center justify-center w-full md:w-1/3">
+            <div className="mb-4 md:mb-0 order-1 md:order-1 flex items-center justify w-full md:w-1/3">
               <img 
                 src="/lovable-uploads/11f0b3fd-81f2-4bf5-a519-1b17d303755a.png" 
                 alt="Axima Corporation" 
@@ -178,19 +178,19 @@ const LandingPage = () => {
             
             {/* Contact Info on Right (Mobile: Bottom) */}
             <div className="order-3 md:order-3 flex flex-col md:flex-row items-center md:items-end justify-center md:justify-end gap-4 w-full md:w-1/3">
-              <a 
+              {/* <a 
                 href="mailto:info@axima.in" 
                 className="flex items-center text-gray-300 hover:text-axima-blue transition-colors"
               >
                 <Mail className="w-5 h-5 mr-2 text-axima-blue" />
                 info@axima.in
-              </a>
+              </a> */}
               <a 
-                href="tel:+9177578 41333" 
+                href="tel:+91 83695 60989" 
                 className="flex items-center text-gray-300 hover:text-axima-blue transition-colors"
               >
                 <Phone className="w-5 h-5 mr-2 text-axima-blue" />
-                +91 77578 41333
+                +91 83695 60989
               </a>
             </div>
           </div>
@@ -212,7 +212,7 @@ const LandingPage = () => {
               </h1>
               
               <p className="text-gray-300 text-lg mb-8">
-                Empower your organization with Microsoft's comprehensive suite of productivity tools. As a trusted Microsoft Cloud Solution Provider, Axima delivers seamless integration, enhanced productivity, and robust security for businesses of all sizes.
+              Unlock the full potential of your team with Microsoft 365 - the ultimate productivity suite for businesses of all sizes. Whether you're working from the office, remotely, or on the move, M365 offers powerful tools like Word, Excel, Teams, Outlook, and more, combined with cloud storage, real-time collaboration, and enterprise-grade security.
               </p>
               
               <div className="bg-black/40 p-6 rounded-lg border border-white/10 mb-8">
@@ -220,7 +220,7 @@ const LandingPage = () => {
                   Microsoft 365 Applications
                 </h2>
                 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-8 gap-8">
                   {microsoft365Products.map((product, index) => (
                     <motion.div
                       key={product.name}
@@ -229,11 +229,11 @@ const LandingPage = () => {
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                       className="flex flex-col items-center group"
                     >
-                      <div className="p-4 rounded-lg bg-black/60 border border-white/10 hover:border-axima-blue/40 transition-all duration-300 w-full flex items-center justify-center">
+                      <div className="p-2 rounded-lg bg-black/60 border border-white/10 hover:border-axima-blue/40 transition-all duration-300 w-19 flex items-center justify-center">
                         <img
                           src={product.logo}
                           alt={product.name}
-                          className="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-110"
+                          className="h-8 w-8 object-contain transition-transform duration-300 group-hover:scale-110"
                         />
                       </div>
                       <span className="mt-2 text-gray-400 group-hover:text-white transition-colors duration-300">
@@ -244,7 +244,7 @@ const LandingPage = () => {
                 </div>
               </div>
               
-              <div className="bg-black/40 p-6 rounded-lg border border-white/10">
+              {/* <div className="bg-black/40 p-6 rounded-lg border border-white/10">
                 <h2 className="text-2xl font-semibold text-white mb-4">
                   Key Benefits
                 </h2>
@@ -271,7 +271,7 @@ const LandingPage = () => {
                     <span className="text-gray-300">Simplified IT management and reduced costs</span>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </motion.div>
           </div>
           
@@ -618,8 +618,8 @@ const LandingPage = () => {
                   <Phone className="w-6 h-6 text-axima-blue" />
                 </div>
                 <h4 className="font-medium text-white mb-2">Call Us</h4>
-                <a href="tel:+917757841333" className="text-gray-300 text-sm hover:text-axima-blue transition-colors">
-                  +91 77578 41333
+                <a href="tel:+918369560989" className="text-gray-300 text-sm hover:text-axima-blue transition-colors">
+                  +91 83695 60989
                 </a>
               </div>
             </div>
