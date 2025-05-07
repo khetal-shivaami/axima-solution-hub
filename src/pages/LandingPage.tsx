@@ -114,14 +114,14 @@ const LandingPage = () => {
 
   // Array of Microsoft 365 products with logos
   const microsoft365Products = [
-    { name: "Word", logo: "/lovable-uploads/logos/microsoft_logos/microsoft_word.webp" },
-    { name: "Excel", logo: "/lovable-uploads/logos/microsoft_logos/microsoft_excel.webp" },
-    { name: "PowerPoint", logo: "/lovable-uploads/logos/microsoft_logos/microsoft_powerpoint.webp" },
-    { name: "Outlook", logo: "/lovable-uploads/logos/microsoft_logos/microsoft_outlook.webp" },
-    { name: "Teams", logo: "/lovable-uploads/logos/microsoft_logos/microsoft_teams.webp" },
-    { name: "OneDrive", logo: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.webp" },
-    { name: "SharePoint", logo: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.webp" },
-    { name: "Exchange", logo: "/lovable-uploads/logos/microsoft_logos/microsoft_exchange.webp" },
+    { name: "Word", logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_word.webp" },
+    { name: "Excel", logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_excel.webp" },
+    { name: "PowerPoint", logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_powerpoint.webp" },
+    { name: "Outlook", logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_outlook.webp" },
+    { name: "Teams", logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_teams.webp" },
+    { name: "OneDrive", logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_onedrive.webp" },
+    { name: "SharePoint", logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_sharepoint.webp" },
+    { name: "Exchange", logo: "https://storage.googleapis.com/axima-website-content/logos/microsoft_logos/microsoft_exchange.webp" },
   ];
 
   // Microsoft Partner Badges
@@ -138,7 +138,7 @@ const LandingPage = () => {
 
   // Benefits from About page (Why Choose Axima)
   const benefits = [
-    "Take advantage of competitive pricing with our wholesale price list",
+    "Enjoy competitive pricing tailored for your business.",
     "Access a range of value-added tools, products, and services through a unified approach",
     "Enhance customer satisfaction with multiple touchpoints",
     "Benefit from our experienced technical support team dedicated to meeting your needs",
@@ -210,7 +210,7 @@ const LandingPage = () => {
     },
     {
       question: "Can I upgrade or switch my Microsoft 365 plan later?",
-      answer: "Yes, you can easily upgrade, downgrade, or switch plans as your business grows or your needs change. Our team will help you manage the transition smoothly without data loss or downtime."
+      answer: "Yes, you can easily upgrade plans as your business grows or your needs change. Our team will help you manage the transition smoothly without data loss or downtime."
     },
     {
       question: "Do you offer volume discounts for large teams?",
@@ -218,7 +218,7 @@ const LandingPage = () => {
     },
     {
       question: "I need help choosing the right plan. Can you assist me?",
-      answer: "Absolutely! Our Google Workspace experts are here to understand your business needs and recommend the most suitable edition and plan. We'll consider factors like team size, storage requirements, and desired features to ensure you get the most value out of your subscription."
+      answer: "Absolutely! Our Microsoft 365 experts are here to understand your business needs and recommend the most suitable edition and plan. We'll consider factors like team size, storage requirements, and desired features to ensure you get the most value out of your subscription."
     },
     {
       question: "Can you help with data migration from my existing email provider?",
