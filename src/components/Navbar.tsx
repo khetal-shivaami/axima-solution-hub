@@ -8,6 +8,7 @@ import { Searchbar } from "./Searchbar";
 const navItems = [
   { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
+  { label: "Buy Products", href: "/buy-products" },
   { label: "Services", href: "/services" },
   { label: "Plans & Pricing", href: "/plans" },
   { label: "Microsoft Copilot", href: "/copilot" },

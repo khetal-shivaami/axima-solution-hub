@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { PageTransition } from "./components/PageTransition";
 import { ScrollIndicator } from "./components/ScrollIndicator";
+import { CartProvider } from "./contexts/CartContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Products from "./pages/Products";
@@ -28,6 +29,9 @@ import ContactThankYou from "./pages/ContactThankYou";
 import PlanThankYou from "./pages/PlanThankYou";
 import NotFound from "./pages/NotFound";
 import LandingPage from "./pages/LandingPage";
+import BuyProducts from "./pages/BuyProducts";
+import Checkout from "./pages/Checkout";
+import OrderConfirmation from "./pages/OrderConfirmation";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -43,38 +47,43 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <ScrollToTop />
-        <TooltipProvider>
-          <PageTransition>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/contact-thank-you" element={<ContactThankYou />} />
-              <Route path="/plan-thank-you" element={<PlanThankYou />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/plans" element={<PlansAndPricing />} />
-              <Route path="/product/:productId" element={<ProductDetails />} />
-              <Route path="/copilot" element={<Copilot />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-conditions" element={<TermsConditions />} />
-              <Route path="/refund-policy" element={<RefundPolicy />} />
-              <Route path="/microsoft-365" element={<Microsoft365 />} />
-              <Route path="/microsoft-azure" element={<MSAzure />} />
-              <Route path="/microsoft-jioazure" element={<JioAzure />} />
-              <Route path="/support-packages" element={<SupportPackages />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
-              <Route path="/landing" element={<LandingPage />} />
-              {/* Catch-all route for 404 - must be the last route */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </PageTransition>
-          <ScrollIndicator />
-        </TooltipProvider>
-        <Toaster />
-        <Sonner />
+        <CartProvider>
+          <ScrollToTop />
+          <TooltipProvider>
+            <PageTransition>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/buy-products" element={<BuyProducts />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/order-confirmation" element={<OrderConfirmation />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/contact-thank-you" element={<ContactThankYou />} />
+                <Route path="/plan-thank-you" element={<PlanThankYou />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/plans" element={<PlansAndPricing />} />
+                <Route path="/product/:productId" element={<ProductDetails />} />
+                <Route path="/copilot" element={<Copilot />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-conditions" element={<TermsConditions />} />
+                <Route path="/refund-policy" element={<RefundPolicy />} />
+                <Route path="/microsoft-365" element={<Microsoft365 />} />
+                <Route path="/microsoft-azure" element={<MSAzure />} />
+                <Route path="/microsoft-jioazure" element={<JioAzure />} />
+                <Route path="/support-packages" element={<SupportPackages />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/landing" element={<LandingPage />} />
+                {/* Catch-all route for 404 - must be the last route */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </PageTransition>
+            <ScrollIndicator />
+          </TooltipProvider>
+          <Toaster />
+          <Sonner />
+        </CartProvider>
       </BrowserRouter>
     </QueryClientProvider>
   );
