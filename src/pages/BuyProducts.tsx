@@ -7,8 +7,6 @@ import { CartDrawer } from "@/components/shop/CartDrawer";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
-import Papa from "papaparse";
-import { useQuery } from "@tanstack/react-query";
 
 type Product = {
   id: string;
@@ -22,47 +20,121 @@ type Product = {
   productsList: Array<{ name: string, icon: string }>;
 };
 
-const fetchProducts = async (): Promise<Product[]> => {
-  const response = await fetch("/data/plans.csv");
-  const csvText = await response.text();
-  
-  const { data } = await new Promise<Papa.ParseResult<any>>((resolve) => {
-    Papa.parse(csvText, {
-      header: true,
-      complete: resolve
-    });
-  });
-  
-  return data.map((item: any, index: number) => {
-    const features = item.features ? item.features.split('|') : [];
-    
-    const productsList = item.products ? item.products.split('|').map((productStr: string) => {
-      const [name, icon] = productStr.split(':');
-      return { name, icon };
-    }) : [];
-    
-    return {
-      id: `product-${index + 1}`,
-      name: item.name || `Product ${index + 1}`,
-      description: item.licenceDescription || "",
-      monthlyPrice: parseFloat(item.monthlyPrice.replace(/[^\d.]/g, '')) || 0,
-      yearlyPrice: parseFloat(item.yearlyPrice.replace(/[^\d.]/g, '')) || 0,
-      image: productsList[0]?.icon || "https://storage.googleapis.com/axima-website-content/logos/Microsoft_365.webp",
-      licenceDescription: item.licenceDescription || "",
-      features,
-      productsList
-    };
-  });
-};
+// Statically defined products from CSV data
+const products: Product[] = [
+  {
+    id: "product-1",
+    name: "Microsoft 365 Business Basic",
+    description: "Min 300 licence",
+    monthlyPrice: 145,
+    yearlyPrice: 1740,
+    image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
+    licenceDescription: "Min 300 licence",
+    features: [
+      "Chat, call, meet up to 300 attendees",
+      "Web and mobile versions of Office apps",
+      "1 TB of cloud storage",
+      "Business-class email",
+      "Standard security",
+      "Anytime phone and web support"
+    ],
+    productsList: [
+      { name: "Microsoft Word", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png" },
+      { name: "Microsoft Excel", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_excel.png" },
+      { name: "Microsoft PowerPoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_powerpoint.png" },
+      { name: "Microsoft Outlook", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_outlook.png" },
+      { name: "Microsoft Teams", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_teams.png" },
+      { name: "Microsoft Exchange", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_exchange.png" },
+      { name: "SharePoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png" },
+      { name: "Microsoft OneDrive", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png" }
+    ]
+  },
+  {
+    id: "product-2",
+    name: "Microsoft 365 Business Standard",
+    description: "Min 300 licence",
+    monthlyPrice: 770,
+    yearlyPrice: 9240,
+    image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
+    licenceDescription: "Min 300 licence",
+    features: [
+      "Everything in Business Basic, plus:",
+      "Desktop versions of Office apps with premium features",
+      "Easily host webinars",
+      "Attendee registration and reporting tools",
+      "Manage customer appointments"
+    ],
+    productsList: [
+      { name: "Microsoft Word", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png" },
+      { name: "Microsoft Excel", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_excel.png" },
+      { name: "Microsoft PowerPoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_powerpoint.png" },
+      { name: "Microsoft Outlook", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_outlook.png" },
+      { name: "Microsoft Teams", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_teams.png" },
+      { name: "Microsoft Exchange", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_exchange.png" },
+      { name: "Microsoft OneDrive", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png" },
+      { name: "SharePoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png" },
+      { name: "Microsoft Loop", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_loop.png" },
+      { name: "Clipchamp", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_clipchamp.png" }
+    ]
+  },
+  {
+    id: "product-3",
+    name: "Microsoft 365 Business Premium",
+    description: "Min 300 licence",
+    monthlyPrice: 1830,
+    yearlyPrice: 21960,
+    image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
+    licenceDescription: "Min 300 licence",
+    features: [
+      "Everything in Business Standard, plus:",
+      "Advanced security",
+      "Access and data control",
+      "Cyberthreat protection"
+    ],
+    productsList: [
+      { name: "Microsoft Word", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png" },
+      { name: "Microsoft Excel", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_excel.png" },
+      { name: "Microsoft PowerPoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_powerpoint.png" },
+      { name: "Microsoft Outlook", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_outlook.png" },
+      { name: "Microsoft Teams", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_teams.png" },
+      { name: "Microsoft Exchange", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_exchange.png" },
+      { name: "Microsoft OneDrive", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png" },
+      { name: "Microsoft Intune", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_intune.png" },
+      { name: "SharePoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_sharepoint.png" },
+      { name: "Microsoft Loop", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_loop.png" },
+      { name: "Clipchamp", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_clipchamp.png" },
+      { name: "Microsoft Defender", icon: "/lovable-uploads/logos/microsoft_logos/windows_defender.png" },
+      { name: "Microsoft Pureview", icon: "/lovable-uploads/logos/microsoft_logos/azure_information_prot.png" }
+    ]
+  },
+  {
+    id: "product-4",
+    name: "Microsoft 365 Apps for business",
+    description: "Min 300 licence",
+    monthlyPrice: 685,
+    yearlyPrice: 8220,
+    image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
+    licenceDescription: "Min 300 licence",
+    features: [
+      "Desktop versions of Office apps",
+      "Web and mobile versions of Office apps",
+      "1 TB of cloud storage per user",
+      "Standard security",
+      "Anytime phone and web support"
+    ],
+    productsList: [
+      { name: "Microsoft Word", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png" },
+      { name: "Microsoft Excel", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_excel.png" },
+      { name: "Microsoft PowerPoint", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_powerpoint.png" },
+      { name: "Microsoft Outlook", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_outlook.png" },
+      { name: "Microsoft OneDrive", icon: "/lovable-uploads/logos/microsoft_logos/microsoft_onedrive.png" }
+    ]
+  }
+];
 
 const BuyProducts = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const { totalItems } = useCart();
-  
-  const { data: products = [], isLoading, error } = useQuery({
-    queryKey: ['products'],
-    queryFn: fetchProducts
-  });
 
   return (
     <div className="min-h-screen bg-gray-900">
@@ -87,23 +159,11 @@ const BuyProducts = () => {
             </Button>
           </div>
           
-          {isLoading ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[...Array(3)].map((_, i) => (
-                <div key={i} className="h-[500px] bg-black/40 animate-pulse rounded-lg"></div>
-              ))}
-            </div>
-          ) : error ? (
-            <div className="bg-red-900/20 p-4 rounded-md border border-red-500/50 text-center">
-              <p className="text-red-200">Failed to load products. Please try again later.</p>
-            </div>
-          ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          )}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
         </div>
       </div>
       
