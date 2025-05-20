@@ -98,7 +98,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </div>
 
           
-          {showTeamsOption && (
+          {showTeamsOption && product.id !== "product-1" && (
             <div className="flex items-center justify-between mt-3 relative z-10">
               <span className="text-gray-300">Include Teams:</span>
               <Switch 
@@ -107,6 +107,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               />
             </div>
           )}
+
 
           
           {includeTeams && (
