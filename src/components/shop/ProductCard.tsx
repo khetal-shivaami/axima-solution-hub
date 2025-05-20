@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -15,6 +14,7 @@ type ProductCardProps = {
     image: string;
     monthlyPrice: number;
     yearlyPrice: number;
+    yearlyWithTeamsPrice?: number; // Add the new optional property
     features: string[];
   };
 };
@@ -24,11 +24,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const [includeTeams, setIncludeTeams] = useState(false);
   const { addToCart } = useCart();
 
-  // Only use yearly price now
-  const basePrice = product.yearlyPrice;
-  const teamsAdditionalCost = 1200; // ₹1200 additional for Teams
-  
-  const price = includeTeams ? basePrice + teamsAdditionalCost : basePrice;
+  // Use the specific price based on whether Teams is included
+  const price = includeTeams && product.yearlyWithTeamsPrice 
+    ? product.yearlyWithTeamsPrice 
+    : product.yearlyPrice;
+    
   const priceDisplay = `₹${price}/year`;
 
   const handleAddToCart = () => {
@@ -38,7 +38,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       price,
       image: product.image,
       licenseType: includeTeams ? "yearly-with-teams" : "yearly",
-      includeTeams: includeTeams // Add this field to track if Teams is included
+      includeTeams: includeTeams
     };
 
     addToCart(cartProduct, quantity);
@@ -46,7 +46,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   // Determine if we should show the Teams option
-  const showTeamsOption = true; // Show for all products now
+  const showTeamsOption = product.id !== "product-1"; // Hide for product-1
 
   return (
     <Card className="h-full bg-black/40 border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 flex flex-col">
@@ -54,13 +54,13 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <CardTitle className="text-white text-xl">{product.name}</CardTitle>
       </CardHeader>
       <CardContent className="pb-4 flex-grow">
-      <div className="aspect-square w-full relative mb-4 bg-gray-800 rounded-md overflow-hidden flex items-center justify-center p-4">
-        <img 
-          src={product.image} 
-          alt={product.name} 
-          className="max-h-[100px] max-w-[100px] object-contain"
-        />
-      </div>
+        <div className="aspect-square w-full relative mb-4 bg-gray-800 rounded-md overflow-hidden flex items-center justify-center p-4">
+          <img 
+            src={product.image} 
+            alt={product.name} 
+            className="max-h-[100px] max-w-[100px] object-contain"
+          />
+        </div>
               
         <p className="text-gray-300 text-sm mb-4">{product.description}</p>
         
@@ -98,7 +98,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </div>
 
           
-          {showTeamsOption && product.id !== "product-1" && (
+          {showTeamsOption && (
             <div className="flex items-center justify-between mt-3 relative z-10">
               <span className="text-gray-300">Include Teams:</span>
               <Switch 
@@ -108,11 +108,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             </div>
           )}
 
-
-          
-          {includeTeams && (
+          {includeTeams && product.yearlyWithTeamsPrice !== product.yearlyPrice && (
             <div className="text-xs text-axima-blue">
-              +₹{teamsAdditionalCost} for Microsoft Teams
+              Microsoft Teams included
             </div>
           )}
         </div>

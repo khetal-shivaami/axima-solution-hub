@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,6 +13,7 @@ type Product = {
   description: string;
   monthlyPrice: number;
   yearlyPrice: number;
+  yearlyWithTeamsPrice: number; // Add this field for Teams inclusive pricing
   image: string;
   licenceDescription: string;
   features: string[];
@@ -28,6 +28,7 @@ const products: Product[] = [
     description: "Min 300 licence",
     monthlyPrice: 145,
     yearlyPrice: 1740,
+    yearlyWithTeamsPrice: 1740, // Same price as no Teams option for this product
     image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.webp",
     licenceDescription: "Min 300 licence",
     features: [
@@ -55,6 +56,7 @@ const products: Product[] = [
     description: "Min 300 licence",
     monthlyPrice: 770,
     yearlyPrice: 9240,
+    yearlyWithTeamsPrice: 10440, // 9240 + 1200 for Teams
     image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.webp",
     licenceDescription: "Min 300 licence",
     features: [
@@ -83,6 +85,7 @@ const products: Product[] = [
     description: "Min 300 licence",
     monthlyPrice: 1830,
     yearlyPrice: 21960,
+    yearlyWithTeamsPrice: 23160, // 21960 + 1200 for Teams
     image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.webp",
     licenceDescription: "Min 300 licence",
     features: [
@@ -113,6 +116,7 @@ const products: Product[] = [
     description: "Min 300 licence",
     monthlyPrice: 685,
     yearlyPrice: 8220,
+    yearlyWithTeamsPrice: 9420, // 8220 + 1200 for Teams
     image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.webp",
     licenceDescription: "Min 300 licence",
     features: [
