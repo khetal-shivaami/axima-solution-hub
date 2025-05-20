@@ -10,12 +10,10 @@ import { useCart } from "@/contexts/CartContext";
 type Product = {
   id: string;
   name: string;
-  description: string;
   monthlyPrice: number;
   yearlyPrice: number;
   yearlyWithTeamsPrice: number; // Add this field for Teams inclusive pricing
   image: string;
-  licenceDescription: string;
   features: string[];
   productsList: Array<{ name: string, icon: string }>;
 };
@@ -25,12 +23,12 @@ const products: Product[] = [
   {
     id: "product-1",
     name: "Microsoft 365 Business Basic",
-    description: "Min 300 licence",
+    // description: "Min 300 licence",
     monthlyPrice: 145,
-    yearlyPrice: 1740,
+    yearlyPrice: 1380,
     yearlyWithTeamsPrice: 1740, // Same price as no Teams option for this product
     image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.webp",
-    licenceDescription: "Min 300 licence",
+    // licenceDescription: "Min 300 licence",
     features: [
       "Chat, call, meet up to 300 attendees",
       "Web and mobile versions of Office apps",
@@ -53,12 +51,12 @@ const products: Product[] = [
   {
     id: "product-2",
     name: "Microsoft 365 Business Standard",
-    description: "Min 300 licence",
+    // description: "Min 300 licence",
     monthlyPrice: 770,
-    yearlyPrice: 9240,
-    yearlyWithTeamsPrice: 10440, // 9240 + 1200 for Teams
+    yearlyPrice: 7560,
+    yearlyWithTeamsPrice: 9240, // 9240 + 1200 for Teams
     image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.webp",
-    licenceDescription: "Min 300 licence",
+    // licenceDescription: "Min 300 licence",
     features: [
       "Everything in Business Basic, plus:",
       "Desktop versions of Office apps with premium features",
@@ -82,12 +80,12 @@ const products: Product[] = [
   {
     id: "product-3",
     name: "Microsoft 365 Business Premium",
-    description: "Min 300 licence",
+    // description: "Min 300 licence",
     monthlyPrice: 1830,
-    yearlyPrice: 21960,
-    yearlyWithTeamsPrice: 23160, // 21960 + 1200 for Teams
+    yearlyPrice: 19740,
+    yearlyWithTeamsPrice: 21960, // 21960 + 1200 for Teams
     image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.webp",
-    licenceDescription: "Min 300 licence",
+    // licenceDescription: "Min 300 licence",
     features: [
       "Everything in Business Standard, plus:",
       "Advanced security",
@@ -113,12 +111,12 @@ const products: Product[] = [
   {
     id: "product-4",
     name: "Microsoft 365 Apps for business",
-    description: "Min 300 licence",
+    // description: "Min 300 licence",
     monthlyPrice: 685,
-    yearlyPrice: 8220,
+    yearlyPrice: 7500,
     yearlyWithTeamsPrice: 9420, // 8220 + 1200 for Teams
     image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.webp",
-    licenceDescription: "Min 300 licence",
+    // licenceDescription: "Min 300 licence",
     features: [
       "Desktop versions of Office apps",
       "Web and mobile versions of Office apps",

@@ -10,7 +10,6 @@ type ProductCardProps = {
   product: {
     id: string;
     name: string;
-    description: string;
     image: string;
     monthlyPrice: number;
     yearlyPrice: number;
@@ -46,7 +45,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   // Determine if we should show the Teams option
-  const showTeamsOption = product.id !== "product-1"; // Hide for product-1
+  const showTeamsOption = product.id !== "product-4"; // Hide for product-1
 
   return (
     <Card className="h-full bg-black/40 border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 flex flex-col">
@@ -62,7 +61,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           />
         </div>
               
-        <p className="text-gray-300 text-sm mb-4">{product.description}</p>
+        {/* <p className="text-gray-300 text-sm mb-4">{product.description}</p> */}
         
         <div className="space-y-3">
           <div className="flex justify-between items-center">
