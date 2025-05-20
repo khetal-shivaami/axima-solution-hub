@@ -51,7 +51,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           <img 
             src={product.image} 
             alt={product.name} 
-            className="max-h-full max-w-full object-contain"
+            className="max-h-[100px] max-w-[100px] object-contain"
           />
         </div>
         

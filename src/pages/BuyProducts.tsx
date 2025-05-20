@@ -28,7 +28,7 @@ const products: Product[] = [
     description: "Min 300 licence",
     monthlyPrice: 145,
     yearlyPrice: 1740,
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
+    image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.webp",
     licenceDescription: "Min 300 licence",
     features: [
       "Chat, call, meet up to 300 attendees",
@@ -55,7 +55,7 @@ const products: Product[] = [
     description: "Min 300 licence",
     monthlyPrice: 770,
     yearlyPrice: 9240,
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
+    image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.webp",
     licenceDescription: "Min 300 licence",
     features: [
       "Everything in Business Basic, plus:",
@@ -83,7 +83,7 @@ const products: Product[] = [
     description: "Min 300 licence",
     monthlyPrice: 1830,
     yearlyPrice: 21960,
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
+    image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.webp",
     licenceDescription: "Min 300 licence",
     features: [
       "Everything in Business Standard, plus:",
@@ -113,7 +113,7 @@ const products: Product[] = [
     description: "Min 300 licence",
     monthlyPrice: 685,
     yearlyPrice: 8220,
-    image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.png",
+    image: "/lovable-uploads/logos/microsoft_logos/microsoft_word.webp",
     licenceDescription: "Min 300 licence",
     features: [
       "Desktop versions of Office apps",
