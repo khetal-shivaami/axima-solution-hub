@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import { useCart, CartProduct } from "@/contexts/CartContext";
 import { toast } from "sonner";
+import { Switch } from "@/components/ui/switch";
 
 type ProductCardProps = {
   product: {
@@ -20,13 +21,15 @@ type ProductCardProps = {
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
-  const [licenseType, setLicenseType] = useState<"monthly" | "yearly">("monthly");
+  const [includeTeams, setIncludeTeams] = useState(false);
   const { addToCart } = useCart();
 
-  const price = licenseType === "monthly" ? product.monthlyPrice : product.yearlyPrice;
-  const priceDisplay = licenseType === "monthly" 
-    ? `₹${product.monthlyPrice}/month` 
-    : `₹${product.yearlyPrice}/year`;
+  // Only use yearly price now
+  const basePrice = product.yearlyPrice;
+  const teamsAdditionalCost = 1200; // ₹1200 additional for Teams
+  
+  const price = includeTeams ? basePrice + teamsAdditionalCost : basePrice;
+  const priceDisplay = `₹${price}/year`;
 
   const handleAddToCart = () => {
     const cartProduct: Omit<CartProduct, "quantity"> = {
@@ -34,7 +37,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       name: product.name,
       price,
       image: product.image,
-      licenseType
+      licenseType: includeTeams ? "yearly-with-teams" : "yearly"
     };
 
     addToCart(cartProduct, quantity);
@@ -60,23 +63,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <div className="space-y-3">
           <div className="flex justify-between items-center">
             <span className="text-white font-semibold text-lg">{priceDisplay}</span>
-            <div className="flex justify-end gap-2">
-              <Button 
-                variant="outline" 
-                size="sm"
-                className={licenseType === "monthly" ? "bg-axima-blue text-white" : ""}
-                onClick={() => setLicenseType("monthly")}
-              >
-                Monthly
-              </Button>
-              <Button 
-                variant="outline" 
-                size="sm"
-                className={licenseType === "yearly" ? "bg-axima-blue text-white" : ""}
-                onClick={() => setLicenseType("yearly")}
-              >
-                Yearly
-              </Button>
+            <div className="bg-black/30 px-2 py-1 rounded text-xs text-axima-blue">
+              Yearly
             </div>
           </div>
           
@@ -102,6 +90,20 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               </Button>
             </div>
           </div>
+          
+          <div className="flex items-center justify-between mt-3">
+            <span className="text-gray-300">Include Teams:</span>
+            <Switch 
+              checked={includeTeams}
+              onCheckedChange={setIncludeTeams}
+            />
+          </div>
+          
+          {includeTeams && (
+            <div className="text-xs text-axima-blue">
+              +₹{teamsAdditionalCost} for Microsoft Teams
+            </div>
+          )}
         </div>
       </CardContent>
       
