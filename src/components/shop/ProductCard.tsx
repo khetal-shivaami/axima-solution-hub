@@ -51,14 +51,14 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <CardTitle className="text-white text-xl">{product.name}</CardTitle>
       </CardHeader>
       <CardContent className="pb-4 flex-grow">
-        <div className="aspect-square w-full relative mb-4 bg-gray-800 rounded-md overflow-hidden flex items-center justify-center p-4">
-          <img 
-            src={product.image} 
-            alt={product.name} 
-            className="max-h-[100px] max-w-[100px] object-contain"
-          />
-        </div>
-        
+      <div className="aspect-square w-full relative mb-4 bg-gray-800 rounded-md overflow-hidden flex items-center justify-center p-4">
+        <img 
+          src={product.image} 
+          alt={product.name} 
+          className="max-h-[100px] max-w-[100px] object-contain"
+        />
+      </div>
+              
         <p className="text-gray-300 text-sm mb-4">{product.description}</p>
         
         <div className="space-y-3">
@@ -69,7 +69,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             </div>
           </div>
           
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between relative z-10">
             <span className="text-gray-300">Quantity:</span>
             <div className="flex items-center">
               <Button 
@@ -93,14 +93,16 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               </Button>
             </div>
           </div>
+
           
-          <div className="flex items-center justify-between mt-3">
+          <div className="flex items-center justify-between mt-3 relative z-10">
             <span className="text-gray-300">Include Teams:</span>
             <Switch 
               checked={includeTeams}
               onCheckedChange={setIncludeTeams}
             />
           </div>
+
           
           {includeTeams && (
             <div className="text-xs text-axima-blue">
@@ -110,7 +112,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         </div>
       </CardContent>
       
-      <CardFooter>
+      <CardFooter className="z-10 relative">
         <Button 
           className="w-full bg-axima-blue hover:bg-axima-blue/80 text-white"
           onClick={handleAddToCart}
