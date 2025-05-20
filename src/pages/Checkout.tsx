@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -33,7 +32,7 @@ const Checkout = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = async (e: React.FormEvent) => {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     
     if (!formData.fullName || !formData.email || !formData.phone || !formData.companyName) {
@@ -50,15 +49,15 @@ const Checkout = () => {
     
     // Simulate order processing
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      toast.success("Order placed successfully!");
-      clearCart();
-      navigate("/order-confirmation");
+      setTimeout(() => {
+        toast.success("Order placed successfully!");
+        clearCart();
+        navigate("/order-confirmation");
+        setLoading(false);
+      }, 1500);
     } catch (error) {
       toast.error("Failed to process order. Please try again.");
       console.error(error);
-    } finally {
       setLoading(false);
     }
   };
@@ -225,15 +224,12 @@ const Checkout = () => {
                       </div>
                       
                       <div className="flex-grow">
-                        <h4 className="font-medium text-white">{item.name}</h4>
+                        <h4 className="font-medium text-white">
+                          {item.name}{item.includeTeams && " (with Teams)"}
+                        </h4>
                         <p className="text-sm text-gray-400 flex items-center justify-between">
                           <span>
                             {item.licenseType === "monthly" ? "Monthly" : "Yearly"} License
-                            {item.includeTeams && (
-                              <span className="ml-2 bg-blue-500/20 text-blue-300 text-xs px-2 py-0.5 rounded">
-                                + Teams
-                              </span>
-                            )}
                             <span className="mx-2">×</span>
                             {item.quantity}
                           </span>

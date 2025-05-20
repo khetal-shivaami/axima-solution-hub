@@ -52,14 +52,11 @@ export const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
                     </div>
                     
                     <div className="flex-grow">
-                      <h4 className="font-medium">{item.name}</h4>
+                      <h4 className="font-medium">
+                        {item.name}{item.includeTeams && " (with Teams)"}
+                      </h4>
                       <p className="text-sm text-gray-400">
                         {item.licenseType === "monthly" ? "Monthly" : "Yearly"} License
-                        {item.includeTeams && (
-                          <span className="ml-2 bg-blue-500/20 text-blue-300 text-xs px-2 py-0.5 rounded">
-                            + Teams
-                          </span>
-                        )}
                       </p>
                     </div>
                     

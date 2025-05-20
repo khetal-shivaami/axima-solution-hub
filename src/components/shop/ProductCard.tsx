@@ -45,6 +45,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     toast.success(`Added ${quantity} ${product.name} to cart`);
   };
 
+  // Determine if we should show the Teams option
+  const showTeamsOption = true; // Show for all products now
+
   return (
     <Card className="h-full bg-black/40 border border-axima-blue/20 hover:border-axima-blue transition-all duration-300 flex flex-col">
       <CardHeader className="pb-2">
@@ -95,13 +98,15 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </div>
 
           
-          <div className="flex items-center justify-between mt-3 relative z-10">
-            <span className="text-gray-300">Include Teams:</span>
-            <Switch 
-              checked={includeTeams}
-              onCheckedChange={setIncludeTeams}
-            />
-          </div>
+          {showTeamsOption && (
+            <div className="flex items-center justify-between mt-3 relative z-10">
+              <span className="text-gray-300">Include Teams:</span>
+              <Switch 
+                checked={includeTeams}
+                onCheckedChange={setIncludeTeams}
+              />
+            </div>
+          )}
 
           
           {includeTeams && (
