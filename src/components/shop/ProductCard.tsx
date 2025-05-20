@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -36,7 +37,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       name: product.name,
       price,
       image: product.image,
-      licenseType: includeTeams ? "yearly-with-teams" : "yearly"
+      licenseType: includeTeams ? "yearly-with-teams" : "yearly",
+      includeTeams: includeTeams // Add this field to track if Teams is included
     };
 
     addToCart(cartProduct, quantity);
@@ -75,6 +77,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                 size="icon"
                 className="h-8 w-8"
                 onClick={() => setQuantity(q => Math.max(1, q - 1))}
+                type="button"
               >
                 <Minus className="h-4 w-4" />
               </Button>
@@ -84,6 +87,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                 size="icon"
                 className="h-8 w-8"
                 onClick={() => setQuantity(q => q + 1)}
+                type="button"
               >
                 <Plus className="h-4 w-4" />
               </Button>
@@ -110,6 +114,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <Button 
           className="w-full bg-axima-blue hover:bg-axima-blue/80 text-white"
           onClick={handleAddToCart}
+          type="button"
         >
           <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
         </Button>

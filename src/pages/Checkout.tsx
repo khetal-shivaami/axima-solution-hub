@@ -229,6 +229,11 @@ const Checkout = () => {
                         <p className="text-sm text-gray-400 flex items-center justify-between">
                           <span>
                             {item.licenseType === "monthly" ? "Monthly" : "Yearly"} License
+                            {item.includeTeams && (
+                              <span className="ml-2 bg-blue-500/20 text-blue-300 text-xs px-2 py-0.5 rounded">
+                                + Teams
+                              </span>
+                            )}
                             <span className="mx-2">×</span>
                             {item.quantity}
                           </span>

@@ -8,6 +8,7 @@ export type CartProduct = {
   image: string;
   quantity: number;
   licenseType: string;
+  includeTeams?: boolean; // Add this field to track if Teams is included
 };
 
 type CartContextType = {

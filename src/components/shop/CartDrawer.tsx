@@ -55,6 +55,11 @@ export const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
                       <h4 className="font-medium">{item.name}</h4>
                       <p className="text-sm text-gray-400">
                         {item.licenseType === "monthly" ? "Monthly" : "Yearly"} License
+                        {item.includeTeams && (
+                          <span className="ml-2 bg-blue-500/20 text-blue-300 text-xs px-2 py-0.5 rounded">
+                            + Teams
+                          </span>
+                        )}
                       </p>
                     </div>
                     
