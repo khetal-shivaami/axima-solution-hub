@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -114,6 +115,7 @@ const Checkout = () => {
                     <div className="space-y-2">
                       <label htmlFor="firstName" className="text-white">First Name *</label>
                       <Input
+                        id="firstName"
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
@@ -124,6 +126,7 @@ const Checkout = () => {
                     <div className="space-y-2">
                       <label htmlFor="lastName" className="text-white">Last Name *</label>
                       <Input
+                        id="lastName"
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleChange}
@@ -133,31 +136,34 @@ const Checkout = () => {
                     </div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-white">Email Address *</label>
-                    <Input
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="bg-gray-800/50 border-gray-700 text-white"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-white">Email Address *</label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="bg-gray-800/50 border-gray-700 text-white"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
                       <label htmlFor="domainName" className="text-white">Domain Name (Optional)</label>
                       <Input
+                        id="domainName"
                         name="domainName"
                         value={formData.domainName}
                         onChange={handleChange}
                         className="bg-gray-800/50 border-gray-700 text-white"
                       />
                     </div>
-                    </div>
+                  </div>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label htmlFor="phone" className="text-white">Phone Number *</label>
                       <Input
+                        id="phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
@@ -169,6 +175,7 @@ const Checkout = () => {
                     <div className="space-y-2">
                       <label htmlFor="companyName" className="text-white">Company Name *</label>
                       <Input
+                        id="companyName"
                         name="companyName"
                         value={formData.companyName}
                         onChange={handleChange}
@@ -176,8 +183,6 @@ const Checkout = () => {
                         required
                       />
                     </div>
-
-                    
                   </div>
 
                   <Separator className="bg-gray-600 my-4" />
@@ -188,6 +193,7 @@ const Checkout = () => {
                     <div className="space-y-2">
                       <label htmlFor="streetAddress" className="text-white">Street Address</label>
                       <Input
+                        id="streetAddress"
                         name="streetAddress"
                         value={formData.streetAddress}
                         onChange={handleChange}
@@ -198,6 +204,7 @@ const Checkout = () => {
                     <div className="space-y-2">
                       <label htmlFor="apartmentSuiteUnit" className="text-white">Apt, Suite, Unit (Optional)</label>
                       <Input
+                        id="apartmentSuiteUnit"
                         name="apartmentSuiteUnit"
                         value={formData.apartmentSuiteUnit}
                         onChange={handleChange}
@@ -208,6 +215,7 @@ const Checkout = () => {
                     <div className="space-y-2">
                       <label htmlFor="city" className="text-white">Town / City</label>
                       <Input
+                        id="city"
                         name="city"
                         value={formData.city}
                         onChange={handleChange}
@@ -218,6 +226,7 @@ const Checkout = () => {
                     <div className="space-y-2">
                       <label htmlFor="state" className="text-white">State</label>
                       <Input
+                        id="state"
                         name="state"
                         value={formData.state}
                         onChange={handleChange}
@@ -228,6 +237,7 @@ const Checkout = () => {
                     <div className="space-y-2">
                       <label htmlFor="country" className="text-white">Country / Region</label>
                       <Input
+                        id="country"
                         name="country"
                         value={formData.country}
                         onChange={handleChange}
@@ -238,6 +248,7 @@ const Checkout = () => {
                     <div className="space-y-2">
                       <label htmlFor="postcode" className="text-white">Postcode</label>
                       <Input
+                        id="postcode"
                         name="postcode"
                         value={formData.postcode}
                         onChange={handleChange}
