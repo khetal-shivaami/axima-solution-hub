@@ -110,7 +110,7 @@ const Checkout = () => {
               <div className="bg-black/40 border border-axima-blue/20 rounded-lg p-6">
                 <h2 className="text-xl font-semibold text-white mb-4">Billing Information</h2>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4 relative">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label htmlFor="firstName" className="text-white">First Name *</label>
