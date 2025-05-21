@@ -63,19 +63,30 @@ const Checkout = () => {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    console.log("Form submitted, validating...");
 
     if (!validateForm()) {
       return;
     }
 
     setLoading(true);
+    console.log("Payment method selected:", paymentMethod);
 
     try {
       if (paymentMethod === "online") {
+        // Generate a unique order ID
+        const orderId = `ORDER-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+        console.log("Generated order ID:", orderId);
+        
+        // Calculate the final total with tax
+        const tax = subtotal * 0.18;
+        const total = subtotal + tax;
+        
         // Prepare order data for the payment API
         const orderData = {
           ...formData,
           orderTotal: total,
+          orderId: orderId,
           orderItems: cart.map(item => ({
             id: item.id,
             name: item.name,
@@ -84,9 +95,12 @@ const Checkout = () => {
             licenseType: item.licenseType
           }))
         };
+        
+        console.log("Calling payment API with data:", orderData);
 
         // Get payment link from the API
         const response = await getPaymentLink(orderData);
+        console.log("Payment API response:", response);
 
         if (response.success && response.paymentLink) {
           setPaymentLink(response.paymentLink);
