@@ -12,13 +12,17 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { getPaymentLink } from "@/services/paymentService";
+import { PaymentModal } from "@/components/payment/PaymentModal";
 
 const Checkout = () => {
   const { cart, clearCart, subtotal } = useCart();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [orderNotes, setOrderNotes] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState("bank");
+  const [paymentMethod, setPaymentMethod] = useState("online");
+  const [paymentModalOpen, setPaymentModalOpen] = useState(false);
+  const [paymentLink, setPaymentLink] = useState("");
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -43,35 +47,74 @@ const Checkout = () => {
     }));
   };
   
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-
+  const validateForm = () => {
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.companyName) {
       toast.error("Please fill in all required fields");
-      return;
+      return false;
     }
 
     if (cart.length === 0) {
       toast.error("Your cart is empty");
+      return false;
+    }
+
+    return true;
+  };
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    if (!validateForm()) {
       return;
     }
 
     setLoading(true);
 
-    // Simulate order processing
     try {
-      setTimeout(() => {
+      if (paymentMethod === "online") {
+        // Prepare order data for the payment API
+        const orderData = {
+          ...formData,
+          orderTotal: total,
+          orderItems: cart.map(item => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            licenseType: item.licenseType
+          }))
+        };
+
+        // Get payment link from the API
+        const response = await getPaymentLink(orderData);
+
+        if (response.success && response.paymentLink) {
+          setPaymentLink(response.paymentLink);
+          setPaymentModalOpen(true);
+        } else {
+          toast.error(response.error || "Failed to generate payment link");
+        }
+      } else {
+        // Handle offline/bank transfer payment
         toast.success("Order placed successfully!");
         clearCart();
         navigate("/order-confirmation");
-        setLoading(false);
-      }, 1500);
+      }
     } catch (error) {
-      toast.error("Failed to process order. Please try again.");
-      console.error(error);
+      console.error("Checkout error:", error);
+      toast.error("An error occurred during checkout. Please try again.");
+    } finally {
       setLoading(false);
     }
+  };
+
+  const handlePaymentSuccess = () => {
+    clearCart();
+    setPaymentModalOpen(false);
+  };
+
+  const handlePaymentFailure = (message: string) => {
+    toast.error(message || "Payment failed. Please try again.");
   };
 
   if (cart.length === 0) {
@@ -97,7 +140,7 @@ const Checkout = () => {
   const total = subtotal + tax;
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-gray-900 relative">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
       <Navbar />
 
@@ -113,7 +156,7 @@ const Checkout = () => {
                 <form onSubmit={handleSubmit} className="space-y-4 relative">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label htmlFor="firstName" className="text-white">First Name *</label>
+                      <Label htmlFor="firstName" className="text-white">First Name *</Label>
                       <Input
                         id="firstName"
                         name="firstName"
@@ -124,7 +167,7 @@ const Checkout = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="lastName" className="text-white">Last Name *</label>
+                      <Label htmlFor="lastName" className="text-white">Last Name *</Label>
                       <Input
                         id="lastName"
                         name="lastName"
@@ -137,7 +180,7 @@ const Checkout = () => {
                   </div>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-white">Email Address *</label>
+                      <Label htmlFor="email" className="text-white">Email Address *</Label>
                       <Input
                         id="email"
                         name="email"
@@ -149,7 +192,7 @@ const Checkout = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="domainName" className="text-white">Domain Name (Optional)</label>
+                      <Label htmlFor="domainName" className="text-white">Domain Name (Optional)</Label>
                       <Input
                         id="domainName"
                         name="domainName"
@@ -161,7 +204,7 @@ const Checkout = () => {
                   </div>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label htmlFor="phone" className="text-white">Phone Number *</label>
+                      <Label htmlFor="phone" className="text-white">Phone Number *</Label>
                       <Input
                         id="phone"
                         name="phone"
@@ -173,7 +216,7 @@ const Checkout = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="companyName" className="text-white">Company Name *</label>
+                      <Label htmlFor="companyName" className="text-white">Company Name *</Label>
                       <Input
                         id="companyName"
                         name="companyName"
@@ -191,7 +234,7 @@ const Checkout = () => {
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label htmlFor="streetAddress" className="text-white">Street Address</label>
+                      <Label htmlFor="streetAddress" className="text-white">Street Address</Label>
                       <Input
                         id="streetAddress"
                         name="streetAddress"
@@ -202,7 +245,7 @@ const Checkout = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="apartmentSuiteUnit" className="text-white">Apt, Suite, Unit (Optional)</label>
+                      <Label htmlFor="apartmentSuiteUnit" className="text-white">Apt, Suite, Unit (Optional)</Label>
                       <Input
                         id="apartmentSuiteUnit"
                         name="apartmentSuiteUnit"
@@ -213,7 +256,7 @@ const Checkout = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="city" className="text-white">Town / City</label>
+                      <Label htmlFor="city" className="text-white">Town / City</Label>
                       <Input
                         id="city"
                         name="city"
@@ -224,7 +267,7 @@ const Checkout = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="state" className="text-white">State</label>
+                      <Label htmlFor="state" className="text-white">State</Label>
                       <Input
                         id="state"
                         name="state"
@@ -235,7 +278,7 @@ const Checkout = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="country" className="text-white">Country / Region</label>
+                      <Label htmlFor="country" className="text-white">Country / Region</Label>
                       <Input
                         id="country"
                         name="country"
@@ -246,7 +289,7 @@ const Checkout = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="postcode" className="text-white">Postcode</label>
+                      <Label htmlFor="postcode" className="text-white">Postcode</Label>
                       <Input
                         id="postcode"
                         name="postcode"
@@ -258,7 +301,7 @@ const Checkout = () => {
                   </div>
 
                   <div className="space-y-2 pt-4">
-                    <label htmlFor="orderNotes" className="text-white">Order Notes (Optional)</label>
+                    <Label htmlFor="orderNotes" className="text-white">Order Notes (Optional)</Label>
                     <Textarea
                       id="orderNotes"
                       value={orderNotes}
@@ -272,6 +315,13 @@ const Checkout = () => {
                     <h3 className="text-lg font-medium text-white">Payment Method</h3>
 
                     <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
+                      <div className="flex items-center space-x-2 bg-gray-800/30 p-3 rounded-md">
+                        <RadioGroupItem value="online" id="online" />
+                        <label htmlFor="online" className="text-white flex-grow cursor-pointer">
+                          Online Payment
+                        </label>
+                      </div>
+
                       <div className="flex items-center space-x-2 bg-gray-800/30 p-3 rounded-md">
                         <RadioGroupItem value="bank" id="bank" />
                         <label htmlFor="bank" className="text-white flex-grow cursor-pointer">
@@ -290,7 +340,9 @@ const Checkout = () => {
                     <div className="bg-blue-900/20 border border-blue-500/30 rounded p-4 flex gap-3">
                       <Info className="text-blue-400 h-5 w-5 mt-1" />
                       <p className="text-blue-300 text-sm">
-                        Our team will contact you shortly after order placement to provide payment instructions and complete your Microsoft 365 subscription setup.
+                        {paymentMethod === "online" 
+                          ? "You will be redirected to our secure payment gateway to complete your purchase."
+                          : "Our team will contact you shortly after order placement to provide payment instructions and complete your Microsoft 365 subscription setup."}
                       </p>
                     </div>
                   </div>
@@ -300,7 +352,7 @@ const Checkout = () => {
                     className="w-full bg-axima-blue hover:bg-axima-blue/80 text-white mt-6"
                     disabled={loading}
                   >
-                    {loading ? "Processing..." : "Place Order"}
+                    {loading ? "Processing..." : paymentMethod === "online" ? "Proceed to Payment" : "Place Order"}
                   </Button>
                 </form>
               </div>
@@ -372,6 +424,14 @@ const Checkout = () => {
           </div>
         </div>
       </div>
+
+      <PaymentModal
+        paymentLink={paymentLink}
+        isOpen={paymentModalOpen}
+        onClose={() => setPaymentModalOpen(false)}
+        onSuccess={handlePaymentSuccess}
+        onFailure={handlePaymentFailure}
+      />
 
       <Footer />
     </div>
