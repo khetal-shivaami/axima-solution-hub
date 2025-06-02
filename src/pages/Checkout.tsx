@@ -324,19 +324,19 @@ const Checkout = () => {
                         </label>
                       </div>
 
-                      <div className="flex items-center space-x-2 bg-gray-800/30 p-3 rounded-md">
+                      {/* <div className="flex items-center space-x-2 bg-gray-800/30 p-3 rounded-md">
                         <RadioGroupItem value="bank" id="bank" />
                         <label htmlFor="bank" className="text-white flex-grow cursor-pointer">
                           Bank Transfer
                         </label>
-                      </div>
+                      </div> */}
 
-                      <div className="flex items-center space-x-2 bg-gray-800/30 p-3 rounded-md">
+                      {/* <div className="flex items-center space-x-2 bg-gray-800/30 p-3 rounded-md">
                         <RadioGroupItem value="invoice" id="invoice" />
                         <label htmlFor="invoice" className="text-white flex-grow cursor-pointer">
                           Invoice Payment
                         </label>
-                      </div>
+                      </div> */}
                     </RadioGroup>
 
                     <div className="bg-blue-900/20 border border-blue-500/30 rounded p-4 flex gap-3">
