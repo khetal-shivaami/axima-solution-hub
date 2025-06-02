@@ -72,6 +72,7 @@ const Checkout = () => {
 
     try {
       if (paymentMethod === "online") {
+        const orderId = `AXIMA-${Math.floor(100000 + Math.random() * 900000)}`;
         // Prepare order data for the payment API
         const orderData = {
           ...formData,
@@ -81,10 +82,11 @@ const Checkout = () => {
             name: item.name,
             price: item.price,
             quantity: item.quantity,
-            licenseType: item.licenseType
+            licenseType: item.licenseType,
+            orderId:orderId,
           }))
         };
-
+        console.log(orderData)
         // Get payment link from the API
         const response = await getPaymentLink(orderData);
 

@@ -6,7 +6,7 @@ import { CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const OrderConfirmation = () => {
-  const orderId = `AXIMA-${Math.floor(100000 + Math.random() * 900000)}`;
+  
   const orderDate = new Date().toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -33,10 +33,10 @@ const OrderConfirmation = () => {
           
           <div className="bg-gray-800/50 rounded-lg p-6 mb-8">
             <div className="grid grid-cols-2 gap-4 text-left">
-              <div>
+              {/* <div>
                 <p className="text-gray-400 text-sm">Order Number:</p>
                 <p className="text-white font-medium">{orderId}</p>
-              </div>
+              </div> */}
               <div>
                 <p className="text-gray-400 text-sm">Date:</p>
                 <p className="text-white font-medium">{orderDate}</p>

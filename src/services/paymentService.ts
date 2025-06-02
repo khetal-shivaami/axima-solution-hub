@@ -33,7 +33,7 @@ export async function getPaymentLink(data: PaymentRequestData): Promise<PaymentR
   try {
     // This is where you would make the actual API call to your payment service
     // Replace this with your actual API endpoint
-    const response = await fetch('https://your-payment-api-endpoint.com/create-payment', {
+    const response = await fetch('http://127.0.0.1:8000/generate_payment_link/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
