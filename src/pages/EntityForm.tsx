@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -43,7 +42,8 @@ const formSchema = z.object({
   signatoryContactName: z.string().min(1, "Signatory contact name is required"),
   signatoryMobile: z.string().min(10, "Valid mobile number is required"),
   signatoryEmail: z.string().email("Valid email is required"),
-  constitutionType: z.string().min(1, "Constitution type is required"),
+  constitutionTypes: z.array(z.string()).min(1, "At least one constitution type is required"),
+  constitutionOther: z.string().optional(),
   msmeNo: z.string().optional(),
   msmeCertificate: z.any().optional(),
   pan: z.string().min(1, "PAN is required"),
@@ -57,6 +57,7 @@ type FormData = z.infer<typeof formSchema>;
 
 const EntityForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showOtherInput, setShowOtherInput] = useState(false);
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -73,7 +74,8 @@ const EntityForm = () => {
       signatoryContactName: "",
       signatoryMobile: "",
       signatoryEmail: "",
-      constitutionType: "",
+      constitutionTypes: [],
+      constitutionOther: "",
       msmeNo: "",
       pan: "",
       gstNo: "",
@@ -92,6 +94,22 @@ const EntityForm = () => {
       alert("Error submitting form. Please try again.");
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleConstitutionChange = (type: string, checked: boolean) => {
+    const currentTypes = form.getValues("constitutionTypes");
+    if (checked) {
+      form.setValue("constitutionTypes", [...currentTypes, type]);
+      if (type === "Other") {
+        setShowOtherInput(true);
+      }
+    } else {
+      form.setValue("constitutionTypes", currentTypes.filter(t => t !== type));
+      if (type === "Other") {
+        setShowOtherInput(false);
+        form.setValue("constitutionOther", "");
+      }
     }
   };
 
@@ -326,28 +344,47 @@ const EntityForm = () => {
               {/* Constitution Type */}
               <div className="space-y-6">
                 <h2 className="text-xl font-semibold text-foreground border-b border-border pb-2">
-                  Type of Constitution
+                  Type of Constitution (Tick whichever is applicable) *
                 </h2>
                 
                 <FormField
                   control={form.control}
-                  name="constitutionType"
-                  render={({ field }) => (
+                  name="constitutionTypes"
+                  render={() => (
                     <FormItem>
-                      <FormControl>
-                        <RadioGroup
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                          className="grid grid-cols-2 md:grid-cols-4 gap-4"
-                        >
-                          {constitutionTypes.map((type) => (
-                            <div key={type} className="flex items-center space-x-2">
-                              <RadioGroupItem value={type} id={type} />
-                              <Label htmlFor={type} className="text-sm">{type}</Label>
-                            </div>
-                          ))}
-                        </RadioGroup>
-                      </FormControl>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        {constitutionTypes.map((type) => (
+                          <div key={type} className="flex items-center space-x-2">
+                            <Checkbox
+                              id={type}
+                              onCheckedChange={(checked) => handleConstitutionChange(type, checked as boolean)}
+                            />
+                            <Label htmlFor={type} className="text-sm">{type}</Label>
+                          </div>
+                        ))}
+                        <div className="flex items-center space-x-2">
+                          <Checkbox
+                            id="Other"
+                            onCheckedChange={(checked) => handleConstitutionChange("Other", checked as boolean)}
+                          />
+                          <Label htmlFor="Other" className="text-sm">Other</Label>
+                        </div>
+                      </div>
+                      
+                      {showOtherInput && (
+                        <FormField
+                          control={form.control}
+                          name="constitutionOther"
+                          render={({ field }) => (
+                            <FormItem className="mt-4">
+                              <FormControl>
+                                <Input placeholder="Please specify other constitution type" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      )}
                       <FormMessage />
                     </FormItem>
                   )}
