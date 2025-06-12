@@ -87,49 +87,57 @@ const EntityForm = () => {
     setIsSubmitting(true);
     try {
       // Prepare constitution types - include "Other" input if selected
-      let constitutionTypesArray = [...data.constitutionTypes];
+      let constitutionTypesValue = data.constitutionTypes.join(", ");
       if (data.constitutionTypes.includes("Other") && data.constitutionOther) {
-        constitutionTypesArray = constitutionTypesArray.filter(type => type !== "Other");
-        constitutionTypesArray.push(data.constitutionOther);
+        constitutionTypesValue = data.constitutionTypes
+          .filter(type => type !== "Other")
+          .concat(data.constitutionOther)
+          .join(", ");
       }
 
-      const payload = {
-        legalname: data.legalName,
-        domainname: data.domainName,
-        regofficeaddress: data.registeredAddress,
-        contactitpersonname: data.itContactName,
-        mobilenoitperson: data.itMobile,
-        emailiditperson: data.itEmail,
-        accountfinpersonname: data.accountsContactName,
-        mobileaccountfinperson: data.accountsMobile,
-        emailidaccountfinperson: data.accountsEmail,
-        authorizedpersonname: data.signatoryContactName,
-        mobileauthorizedperson: data.signatoryMobile,
-        emailidauthorizedperson: data.signatoryEmail,
-        typeofconstitution: constitutionTypesArray.join(", "),
-        msmeno: data.msmeNo || "",
-        msmecertificate: data.msmeCertificate || null,
-        pannumber: data.pan,
-        gstnumber: data.gstNo,
-        tannumber: data.tan,
-        gstcertificatefile: data.gstCertificate || null,
-        pancardfile: data.panCopy || null
-      };
+      const formData = new FormData();
+      formData.append("legalname", data.legalName);
+      formData.append("domainname", data.domainName);
+      formData.append("regofficeaddress", data.registeredAddress);
+      formData.append("contactitpersonname", data.itContactName);
+      formData.append("mobilenoitperson", data.itMobile);
+      formData.append("emailiditperson", data.itEmail);
+      formData.append("accountfinpersonname", data.accountsContactName);
+      formData.append("mobileaccountfinperson", data.accountsMobile);
+      formData.append("emailidaccountfinperson", data.accountsEmail);
+      formData.append("authorizedpersonname", data.signatoryContactName);
+      formData.append("mobileauthorizedperson", data.signatoryMobile);
+      formData.append("emailidauthorizedperson", data.signatoryEmail);
+      formData.append("typeofconstitution", constitutionTypesValue);
+      formData.append("msmeno", data.msmeNo || "");
+      formData.append("pannumber", data.pan);
+      formData.append("gstnumber", data.gstNo);
+      formData.append("tannumber", data.tan);
 
-      console.log("Submitting payload:", payload);
+      if (data.msmeCertificate?.[0]) {
+        formData.append("msmecertificate", data.msmeCertificate[0]);
+      }
+      if (data.gstCertificate?.[0]) {
+        formData.append("gstcertificatefile", data.gstCertificate[0]);
+      }
+      if (data.panCopy?.[0]) {
+        formData.append("pancardfile", data.panCopy[0]);
+      }
 
-      const response = await fetch("https://portal-api.shiviom.com/store_aximaordedetails/", {
+      // Use an environment variable for the API URL
+      const apiUrl = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
+      const response = await fetch(`${apiUrl}/store_aximaordedetails/`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
+        // No 'Content-Type' header needed, fetch sets it for FormData
+        body: formData,
       });
+      console.log("API Response:", response);
 
       if (response.ok) {
         const result = await response.json();
         console.log("API Response:", result);
         alert("Form submitted successfully!");
+        setShowOtherInput(false); // Reset other input visibility
         form.reset();
       } else {
         const errorText = await response.text();
@@ -471,7 +479,7 @@ const EntityForm = () => {
                           <Input
                             type="file"
                             accept=".pdf,.jpg,.jpeg,.png"
-                            onChange={(e) => field.onChange(e.target.files?.[0])}
+                            onChange={(e) => field.onChange(e.target.files)} // Pass FileList
                           />
                         </FormControl>
                         <FormMessage />
@@ -542,7 +550,7 @@ const EntityForm = () => {
                           <Input
                             type="file"
                             accept=".pdf,.jpg,.jpeg,.png"
-                            onChange={(e) => field.onChange(e.target.files?.[0])}
+                            onChange={(e) => field.onChange(e.target.files)} // Pass FileList
                           />
                         </FormControl>
                         <FormMessage />
@@ -560,7 +568,7 @@ const EntityForm = () => {
                           <Input
                             type="file"
                             accept=".pdf,.jpg,.jpeg,.png"
-                            onChange={(e) => field.onChange(e.target.files?.[0])}
+                            onChange={(e) => field.onChange(e.target.files)} // Pass FileList
                           />
                         </FormControl>
                         <FormMessage />
