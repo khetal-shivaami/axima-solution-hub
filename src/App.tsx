@@ -33,6 +33,7 @@ import BuyProducts from "./pages/BuyProducts";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import PaymentNotification from "./pages/PaymentNotification";
+import EntityForm from "./pages/EntityForm";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -60,6 +61,7 @@ const App = () => {
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/order-confirmation" element={<OrderConfirmation />} />
                 <Route path="/payment-notification" element={<PaymentNotification />} />
+                <Route path="/entity-form" element={<EntityForm />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/contact-thank-you" element={<ContactThankYou />} />
