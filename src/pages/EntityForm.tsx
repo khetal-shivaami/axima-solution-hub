@@ -86,9 +86,56 @@ const EntityForm = () => {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      console.log("Form data:", data);
-      // Handle form submission here
-      alert("Form submitted successfully!");
+      // Prepare constitution types - include "Other" input if selected
+      let constitutionTypesArray = [...data.constitutionTypes];
+      if (data.constitutionTypes.includes("Other") && data.constitutionOther) {
+        constitutionTypesArray = constitutionTypesArray.filter(type => type !== "Other");
+        constitutionTypesArray.push(data.constitutionOther);
+      }
+
+      const payload = {
+        legalname: data.legalName,
+        domainname: data.domainName,
+        regofficeaddress: data.registeredAddress,
+        contactitpersonname: data.itContactName,
+        mobilenoitperson: data.itMobile,
+        emailiditperson: data.itEmail,
+        accountfinpersonname: data.accountsContactName,
+        mobileaccountfinperson: data.accountsMobile,
+        emailidaccountfinperson: data.accountsEmail,
+        authorizedpersonname: data.signatoryContactName,
+        mobileauthorizedperson: data.signatoryMobile,
+        emailidauthorizedperson: data.signatoryEmail,
+        typeofconstitution: constitutionTypesArray.join(", "),
+        msmeno: data.msmeNo || "",
+        msmecertificate: data.msmeCertificate || null,
+        pannumber: data.pan,
+        gstnumber: data.gstNo,
+        tannumber: data.tan,
+        gstcertificatefile: data.gstCertificate || null,
+        pancardfile: data.panCopy || null
+      };
+
+      console.log("Submitting payload:", payload);
+
+      const response = await fetch("https://portal-api.shiviom.com/store_aximaordedetails/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("API Response:", result);
+        alert("Form submitted successfully!");
+        form.reset();
+      } else {
+        const errorText = await response.text();
+        console.error("API Error:", errorText);
+        alert("Error submitting form. Please try again.");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Error submitting form. Please try again.");
