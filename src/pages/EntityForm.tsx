@@ -328,7 +328,6 @@ const EntityForm = () => {
                 <h2 className="text-xl font-semibold text-foreground border-b border-border pb-2">
                   Type of Constitution
                 </h2>
-                <p className="text-sm text-muted-foreground">Tick whichever is applicable</p>
                 
                 <FormField
                   control={form.control}
