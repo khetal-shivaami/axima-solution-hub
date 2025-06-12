@@ -84,7 +84,9 @@ const EntityForm = () => {
   });
 
   const onSubmit = async (data: FormData) => {
+    console.log("Form submission started", data);
     setIsSubmitting(true);
+    
     try {
       // Prepare constitution types - include "Other" input if selected
       let constitutionTypesValue = data.constitutionTypes.join(", ");
@@ -95,53 +97,52 @@ const EntityForm = () => {
           .join(", ");
       }
 
-      const formData = new FormData();
-      formData.append("legalname", data.legalName);
-      formData.append("domainname", data.domainName);
-      formData.append("regofficeaddress", data.registeredAddress);
-      formData.append("contactitpersonname", data.itContactName);
-      formData.append("mobilenoitperson", data.itMobile);
-      formData.append("emailiditperson", data.itEmail);
-      formData.append("accountfinpersonname", data.accountsContactName);
-      formData.append("mobileaccountfinperson", data.accountsMobile);
-      formData.append("emailidaccountfinperson", data.accountsEmail);
-      formData.append("authorizedpersonname", data.signatoryContactName);
-      formData.append("mobileauthorizedperson", data.signatoryMobile);
-      formData.append("emailidauthorizedperson", data.signatoryEmail);
-      formData.append("typeofconstitution", constitutionTypesValue);
-      formData.append("msmeno", data.msmeNo || "");
-      formData.append("pannumber", data.pan);
-      formData.append("gstnumber", data.gstNo);
-      formData.append("tannumber", data.tan);
+      // Prepare JSON payload
+      const payload = {
+        legalname: data.legalName,
+        domainname: data.domainName,
+        regofficeaddress: data.registeredAddress,
+        contactitpersonname: data.itContactName,
+        mobilenoitperson: data.itMobile,
+        emailiditperson: data.itEmail,
+        accountfinpersonname: data.accountsContactName,
+        mobileaccountfinperson: data.accountsMobile,
+        emailidaccountfinperson: data.accountsEmail,
+        authorizedpersonname: data.signatoryContactName,
+        mobileauthorizedperson: data.signatoryMobile,
+        emailidauthorizedperson: data.signatoryEmail,
+        typeofconstitution: constitutionTypesValue,
+        msmeno: data.msmeNo || "",
+        msmecertificate: data.msmeCertificate?.[0] || null,
+        pannumber: data.pan,
+        gstnumber: data.gstNo,
+        tannumber: data.tan,
+        gstcertificatefile: data.gstCertificate?.[0] || null,
+        pancardfile: data.panCopy?.[0] || null
+      };
 
-      if (data.msmeCertificate?.[0]) {
-        formData.append("msmecertificate", data.msmeCertificate[0]);
-      }
-      if (data.gstCertificate?.[0]) {
-        formData.append("gstcertificatefile", data.gstCertificate[0]);
-      }
-      if (data.panCopy?.[0]) {
-        formData.append("pancardfile", data.panCopy[0]);
-      }
+      console.log("Sending payload:", payload);
 
-      // Use an environment variable for the API URL
-      const apiUrl = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
-      const response = await fetch(`${apiUrl}/store_aximaordedetails/`, {
+      const response = await fetch("https://portal-api.shiviom.com/store_aximaordedetails/", {
         method: "POST",
-        // No 'Content-Type' header needed, fetch sets it for FormData
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
       });
+
+      console.log("API Response status:", response.status);
       console.log("API Response:", response);
 
       if (response.ok) {
         const result = await response.json();
-        console.log("API Response:", result);
+        console.log("API Success Response:", result);
         alert("Form submitted successfully!");
-        setShowOtherInput(false); // Reset other input visibility
+        setShowOtherInput(false);
         form.reset();
       } else {
         const errorText = await response.text();
-        console.error("API Error:", errorText);
+        console.error("API Error Response:", errorText);
         alert("Error submitting form. Please try again.");
       }
     } catch (error) {
@@ -584,6 +585,7 @@ const EntityForm = () => {
                   type="submit"
                   disabled={isSubmitting}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
+                  onClick={() => console.log("Submit button clicked")}
                 >
                   {isSubmitting ? "Submitting..." : "Submit Form"}
                 </Button>
