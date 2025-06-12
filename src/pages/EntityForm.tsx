@@ -96,23 +96,20 @@ const EntityForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8">
+    <div className="min-h-screen bg-background text-foreground py-8">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="bg-white rounded-lg shadow-lg p-8">
+        <div className="bg-card rounded-lg shadow-lg p-8 border border-border">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl font-bold text-foreground mb-2">
               Axima Corporation Customer Registration KYC Form 2025
             </h1>
-            {/* <p className="text-gray-600">
-              Please fill in all the required information about your entity
-            </p> */}
           </div>
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               {/* Basic Entity Information */}
               <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">
+                <h2 className="text-xl font-semibold text-foreground border-b border-border pb-2">
                   Basic Entity Information
                 </h2>
                 
@@ -169,7 +166,7 @@ const EntityForm = () => {
 
               {/* IT Department Contact */}
               <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">
+                <h2 className="text-xl font-semibold text-foreground border-b border-border pb-2">
                   IT Department Contact
                 </h2>
                 
@@ -222,7 +219,7 @@ const EntityForm = () => {
 
               {/* Accounts & Finance Contact */}
               <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">
+                <h2 className="text-xl font-semibold text-foreground border-b border-border pb-2">
                   Accounts & Finance Contact
                 </h2>
                 
@@ -275,7 +272,7 @@ const EntityForm = () => {
 
               {/* Authorized Signatory Contact */}
               <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">
+                <h2 className="text-xl font-semibold text-foreground border-b border-border pb-2">
                   Authorized Signatory Contact
                 </h2>
                 
@@ -328,10 +325,10 @@ const EntityForm = () => {
 
               {/* Constitution Type */}
               <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">
+                <h2 className="text-xl font-semibold text-foreground border-b border-border pb-2">
                   Type of Constitution
                 </h2>
-                <p className="text-sm text-gray-600">Tick whichever is applicable</p>
+                <p className="text-sm text-muted-foreground">Tick whichever is applicable</p>
                 
                 <FormField
                   control={form.control}
@@ -362,7 +359,7 @@ const EntityForm = () => {
 
               {/* Registration Details */}
               <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">
+                <h2 className="text-xl font-semibold text-foreground border-b border-border pb-2">
                   Registration Details
                 </h2>
                 
@@ -447,7 +444,7 @@ const EntityForm = () => {
 
               {/* Document Attachments */}
               <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">
+                <h2 className="text-xl font-semibold text-foreground border-b border-border pb-2">
                   Document Attachments
                 </h2>
                 
@@ -495,7 +492,7 @@ const EntityForm = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-axima-blue hover:bg-axima-blue/90 text-white px-8 py-3 text-lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
                 >
                   {isSubmitting ? "Submitting..." : "Submit Form"}
                 </Button>
