@@ -101,11 +101,11 @@ const EntityForm = () => {
         <div className="bg-white rounded-lg shadow-lg p-8">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Entity Information Form
+              Axima Corporation Customer Registration KYC Form 2025
             </h1>
-            <p className="text-gray-600">
+            {/* <p className="text-gray-600">
               Please fill in all the required information about your entity
-            </p>
+            </p> */}
           </div>
 
           <Form {...form}>
