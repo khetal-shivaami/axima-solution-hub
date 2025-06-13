@@ -18,7 +18,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-const constitutionTypes = [
+const typeofconstitution = [
   "Company",
   "LLP", 
   "HUF",
@@ -30,27 +30,27 @@ const constitutionTypes = [
 ];
 
 const formSchema = z.object({
-  legalName: z.string().min(1, "Legal name is required"),
-  domainName: z.string().min(1, "Domain name is required"),
-  registeredAddress: z.string().min(1, "Registered office address is required"),
-  itContactName: z.string().min(1, "IT contact name is required"),
-  itMobile: z.string().min(10, "Valid mobile number is required"),
-  itEmail: z.string().email("Valid email is required"),
-  accountsContactName: z.string().min(1, "Accounts contact name is required"),
-  accountsMobile: z.string().min(10, "Valid mobile number is required"),
-  accountsEmail: z.string().email("Valid email is required"),
-  signatoryContactName: z.string().min(1, "Signatory contact name is required"),
-  signatoryMobile: z.string().min(10, "Valid mobile number is required"),
-  signatoryEmail: z.string().email("Valid email is required"),
-  constitutionTypes: z.array(z.string()).min(1, "At least one constitution type is required"),
+  legalname: z.string().min(1, "Legal name is required"),
+  domainname: z.string().min(1, "Domain name is required"),
+  regofficeaddress: z.string().min(1, "Registered office address is required"),
+  contactitpersonname: z.string().min(1, "IT contact name is required"),
+  mobilenoitperson: z.string().min(10, "Valid mobile number is required"),
+  emailiditperson: z.string().email("Valid email is required"),
+  accountfinpersonname: z.string().min(1, "Accounts contact name is required"),
+  mobileaccountfinperson: z.string().min(10, "Valid mobile number is required"),
+  emailidaccountfinperson: z.string().email("Valid email is required"),
+  authorizedpersonname: z.string().min(1, "Signatory contact name is required"),
+  mobileauthorizedperson: z.string().min(10, "Valid mobile number is required"),
+  emailidauthorizedperson: z.string().email("Valid email is required"),
+  typeofconstitution: z.array(z.string()).min(1, "At least one constitution type is required"),
   constitutionOther: z.string().optional(),
-  msmeNo: z.string().optional(),
-  msmeCertificate: z.any().optional(),
-  pan: z.string().min(1, "PAN is required"),
-  gstNo: z.string().min(1, "GST registration number is required"),
+  msmeno: z.string().optional(),
+  msmecertificate: z.any().optional(),
+  pannumber: z.string().min(1, "pannumber is required"),
+  gstnumber: z.string().min(1, "GST registration number is required"),
   tan: z.string().min(1, "TAN is required"),
-  gstCertificate: z.any().optional(),
-  panCopy: z.any().optional(),
+  gstcertificatefile: z.any().optional(),
+  pancardfile: z.any().optional(),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -62,23 +62,23 @@ const EntityForm = () => {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      legalName: "",
-      domainName: "",
-      registeredAddress: "",
-      itContactName: "",
-      itMobile: "",
-      itEmail: "",
-      accountsContactName: "",
-      accountsMobile: "",
-      accountsEmail: "",
-      signatoryContactName: "",
-      signatoryMobile: "",
-      signatoryEmail: "",
-      constitutionTypes: [],
+      legalname: "",
+      domainname: "",
+      regofficeaddress: "",
+      contactitpersonname: "",
+      mobilenoitperson: "",
+      emailiditperson: "",
+      accountfinpersonname: "",
+      mobileaccountfinperson: "",
+      emailidaccountfinperson: "",
+      authorizedpersonname: "",
+      mobileauthorizedperson: "",
+      emailidauthorizedperson: "",
+      typeofconstitution: [],
       constitutionOther: "",
-      msmeNo: "",
-      pan: "",
-      gstNo: "",
+      msmeno: "",
+      pannumber: "",
+      gstnumber: "",
       tan: "",
     },
   });
@@ -88,80 +88,87 @@ const EntityForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Prepare constitution types - include "Other" input if selected
-      let constitutionTypesValue = data.constitutionTypes.join(", ");
-      if (data.constitutionTypes.includes("Other") && data.constitutionOther) {
-        constitutionTypesValue = data.constitutionTypes
+      let constitutionTypesValue = data.typeofconstitution.join(", ");
+      if (data.typeofconstitution.includes("Other") && data.constitutionOther) {
+        constitutionTypesValue = data.typeofconstitution
           .filter(type => type !== "Other")
           .concat(data.constitutionOther)
           .join(", ");
       }
+      
+      const formData = new FormData();
+      formData.append("legalname", data.legalname);
+      formData.append("domainname", data.domainname);
+      formData.append("regofficeaddress", data.regofficeaddress);
+      formData.append("contactitpersonname", data.contactitpersonname);
+      formData.append("mobilenoitperson", data.mobilenoitperson);
+      formData.append("emailiditperson", data.emailiditperson);
+      formData.append("accountfinpersonname", data.accountfinpersonname);
+      formData.append("mobileaccountfinperson", data.mobileaccountfinperson);
+      formData.append("emailidaccountfinperson", data.emailidaccountfinperson);
+      formData.append("authorizedpersonname", data.authorizedpersonname);
+      formData.append("mobileauthorizedperson", data.mobileauthorizedperson);
+      formData.append("emailidauthorizedperson", data.emailidauthorizedperson);
+      formData.append("typeofconstitution", constitutionTypesValue);
+      formData.append("msmeno", data.msmeno || "");
+      formData.append("pannumber", data.pannumber);
+      formData.append("gstnumber", data.gstnumber);
+      formData.append("tannumber", data.tan);
+      console.log("asdasdawdasd",data.msmecertificate[0])
+      // Append files if they exist
+      if (data.msmecertificate && data.msmecertificate[0]) {
+        formData.append("msmecertificate", data.msmecertificate[0]);
+      }
+      if (data.gstcertificatefile && data.gstcertificatefile[0]) {
+        formData.append("gstcertificatefile", data.gstcertificatefile[0]);
+      }
+      if (data.pancardfile && data.pancardfile[0]) {
+        formData.append("pancardfile", data.pancardfile[0]);
+      }
 
-      // Prepare JSON payload
-      const payload = {
-        legalname: data.legalName,
-        domainname: data.domainName,
-        regofficeaddress: data.registeredAddress,
-        contactitpersonname: data.itContactName,
-        mobilenoitperson: data.itMobile,
-        emailiditperson: data.itEmail,
-        accountfinpersonname: data.accountsContactName,
-        mobileaccountfinperson: data.accountsMobile,
-        emailidaccountfinperson: data.accountsEmail,
-        authorizedpersonname: data.signatoryContactName,
-        mobileauthorizedperson: data.signatoryMobile,
-        emailidauthorizedperson: data.signatoryEmail,
-        typeofconstitution: constitutionTypesValue,
-        msmeno: data.msmeNo || "",
-        msmecertificate: data.msmeCertificate?.[0] || null,
-        pannumber: data.pan,
-        gstnumber: data.gstNo,
-        tannumber: data.tan,
-        gstcertificatefile: data.gstCertificate?.[0] || null,
-        pancardfile: data.panCopy?.[0] || null
-      };
+      console.log("Sending FormData. Entries:");
+      for (let pair of formData.entries()) {
+        console.log(pair[0]+ ', ' + pair[1]); 
+      }
 
-      console.log("Sending payload:", payload);
-
-      const response = await fetch("https://portal-api.shiviom.com/store_aximaordedetails/", {
+      
+      const response = await fetch("http://127.0.0.1:8000/store_aximaordedetails/", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
+        body: formData,
       });
 
-      console.log("API Response status:", response.status);
-      console.log("API Response:", response);
+      console.log("Fetch call completed. Response status:", response.status); // LOG 4
+      // console.log("Full API Response object:", response); // Can be verbose, uncomment if needed
 
       if (response.ok) {
         const result = await response.json();
-        console.log("API Success Response:", result);
+        console.log("API Success Response (JSON):", result); // LOG 5a
         alert("Form submitted successfully!");
         setShowOtherInput(false);
         form.reset();
       } else {
         const errorText = await response.text();
-        console.error("API Error Response:", errorText);
-        alert("Error submitting form. Please try again.");
+        console.error(`API Error: Status ${response.status}, Body: ${errorText}`); // LOG 5b
+        alert(`Error submitting form: ${response.status} - ${errorText}. Please check console for details.`);
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("Error submitting form. Please try again.");
+      console.error("Critical error during form submission or API call:", error); // LOG 6
+      const errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
+      alert(`Critical error: ${errorMessage}. Please check console for details.`);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const handleConstitutionChange = (type: string, checked: boolean) => {
-    const currentTypes = form.getValues("constitutionTypes");
+    const currentTypes = form.getValues("typeofconstitution");
     if (checked) {
-      form.setValue("constitutionTypes", [...currentTypes, type]);
+      form.setValue("typeofconstitution", [...currentTypes, type]);
       if (type === "Other") {
         setShowOtherInput(true);
       }
     } else {
-      form.setValue("constitutionTypes", currentTypes.filter(t => t !== type));
+      form.setValue("typeofconstitution", currentTypes.filter(t => t !== type));
       if (type === "Other") {
         setShowOtherInput(false);
         form.setValue("constitutionOther", "");
@@ -190,7 +197,7 @@ const EntityForm = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
-                    name="legalName"
+                    name="legalname"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Legal Name of the Entity *</FormLabel>
@@ -204,7 +211,7 @@ const EntityForm = () => {
 
                   <FormField
                     control={form.control}
-                    name="domainName"
+                    name="domainname"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Domain Name *</FormLabel>
@@ -219,7 +226,7 @@ const EntityForm = () => {
 
                 <FormField
                   control={form.control}
-                  name="registeredAddress"
+                  name="regofficeaddress"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Registered Office Address *</FormLabel>
@@ -247,7 +254,7 @@ const EntityForm = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <FormField
                     control={form.control}
-                    name="itContactName"
+                    name="contactitpersonname"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Name of Contact Person *</FormLabel>
@@ -261,7 +268,7 @@ const EntityForm = () => {
 
                   <FormField
                     control={form.control}
-                    name="itMobile"
+                    name="mobilenoitperson"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Mobile Number *</FormLabel>
@@ -275,7 +282,7 @@ const EntityForm = () => {
 
                   <FormField
                     control={form.control}
-                    name="itEmail"
+                    name="emailiditperson"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Email Address *</FormLabel>
@@ -300,7 +307,7 @@ const EntityForm = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <FormField
                     control={form.control}
-                    name="accountsContactName"
+                    name="accountfinpersonname"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Name of Contact Person *</FormLabel>
@@ -314,7 +321,7 @@ const EntityForm = () => {
 
                   <FormField
                     control={form.control}
-                    name="accountsMobile"
+                    name="mobileaccountfinperson"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Mobile Number *</FormLabel>
@@ -328,7 +335,7 @@ const EntityForm = () => {
 
                   <FormField
                     control={form.control}
-                    name="accountsEmail"
+                    name="emailidaccountfinperson"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Email Address *</FormLabel>
@@ -353,7 +360,7 @@ const EntityForm = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <FormField
                     control={form.control}
-                    name="signatoryContactName"
+                    name="authorizedpersonname"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Name of Contact Person *</FormLabel>
@@ -367,7 +374,7 @@ const EntityForm = () => {
 
                   <FormField
                     control={form.control}
-                    name="signatoryMobile"
+                    name="mobileauthorizedperson"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Mobile Number *</FormLabel>
@@ -381,7 +388,7 @@ const EntityForm = () => {
 
                   <FormField
                     control={form.control}
-                    name="signatoryEmail"
+                    name="emailidauthorizedperson"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Email Address *</FormLabel>
@@ -405,11 +412,11 @@ const EntityForm = () => {
                 
                 <FormField
                   control={form.control}
-                  name="constitutionTypes"
+                  name="typeofconstitution"
                   render={() => (
                     <FormItem>
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        {constitutionTypes.map((type) => (
+                        {typeofconstitution.map((type) => (
                           <div key={type} className="flex items-center space-x-2">
                             <Checkbox
                               id={type}
@@ -458,7 +465,7 @@ const EntityForm = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
-                    name="msmeNo"
+                    name="msmeno"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>MSME No. (If registered with MSME)</FormLabel>
@@ -472,7 +479,7 @@ const EntityForm = () => {
 
                   <FormField
                     control={form.control}
-                    name="msmeCertificate"
+                    name="msmecertificate"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>MSME Certificate (If any)</FormLabel>
@@ -490,12 +497,12 @@ const EntityForm = () => {
 
                   <FormField
                     control={form.control}
-                    name="pan"
+                    name="pannumber"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>PAN *</FormLabel>
+                        <FormLabel>pannumber *</FormLabel>
                         <FormControl>
-                          <Input placeholder="Enter PAN number" {...field} />
+                          <Input placeholder="Enter pannumber number" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -504,7 +511,7 @@ const EntityForm = () => {
 
                   <FormField
                     control={form.control}
-                    name="gstNo"
+                    name="gstnumber"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>GST Registration No. *</FormLabel>
@@ -543,7 +550,7 @@ const EntityForm = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
-                    name="gstCertificate"
+                    name="gstcertificatefile"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Attach GST Certificate Copy</FormLabel>
@@ -561,10 +568,10 @@ const EntityForm = () => {
 
                   <FormField
                     control={form.control}
-                    name="panCopy"
+                    name="pancardfile"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Attach PAN Copy</FormLabel>
+                        <FormLabel>Attach pannumber Copy</FormLabel>
                         <FormControl>
                           <Input
                             type="file"
