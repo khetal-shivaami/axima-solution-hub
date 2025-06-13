@@ -12,7 +12,7 @@ import { Separator } from "@/components/ui/separator";
 import {
   Form,
   FormControl,
-  FormField,
+  FormField, 
   FormItem,
   FormLabel,
   FormMessage,
@@ -28,6 +28,7 @@ const typeofconstitution = [
   "Trust",
   "Co-op Society"
 ];
+import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   legalname: z.string().min(1, "Legal name is required"),
@@ -594,7 +595,12 @@ const EntityForm = () => {
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
                   onClick={() => console.log("Submit button clicked")}
                 >
-                  {isSubmitting ? "Submitting..." : "Submit Form"}
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : "Submit Form"}
                 </Button>
               </div>
             </form>
