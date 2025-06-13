@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -34,6 +33,7 @@ import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import PaymentNotification from "./pages/PaymentNotification";
 import EntityForm from "./pages/EntityForm";
+import EntityFormThankYou from "./pages/EntityFormThankYou";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -62,6 +62,7 @@ const App = () => {
                 <Route path="/order-confirmation" element={<OrderConfirmation />} />
                 <Route path="/payment-notification" element={<PaymentNotification />} />
                 <Route path="/entity-form" element={<EntityForm />} />
+                <Route path="/entity-form-thank-you" element={<EntityFormThankYou />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/contact-thank-you" element={<ContactThankYou />} />

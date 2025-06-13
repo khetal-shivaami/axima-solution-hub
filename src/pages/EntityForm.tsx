@@ -1,8 +1,8 @@
-
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -58,6 +58,7 @@ type FormData = z.infer<typeof formSchema>;
 const EntityForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showOtherInput, setShowOtherInput] = useState(false);
+  const navigate = useNavigate();
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -96,63 +97,52 @@ const EntityForm = () => {
           .join(", ");
       }
       
-      const formData = new FormData();
-      formData.append("legalname", data.legalname);
-      formData.append("domainname", data.domainname);
-      formData.append("regofficeaddress", data.regofficeaddress);
-      formData.append("contactitpersonname", data.contactitpersonname);
-      formData.append("mobilenoitperson", data.mobilenoitperson);
-      formData.append("emailiditperson", data.emailiditperson);
-      formData.append("accountfinpersonname", data.accountfinpersonname);
-      formData.append("mobileaccountfinperson", data.mobileaccountfinperson);
-      formData.append("emailidaccountfinperson", data.emailidaccountfinperson);
-      formData.append("authorizedpersonname", data.authorizedpersonname);
-      formData.append("mobileauthorizedperson", data.mobileauthorizedperson);
-      formData.append("emailidauthorizedperson", data.emailidauthorizedperson);
-      formData.append("typeofconstitution", constitutionTypesValue);
-      formData.append("msmeno", data.msmeno || "");
-      formData.append("pannumber", data.pannumber);
-      formData.append("gstnumber", data.gstnumber);
-      formData.append("tannumber", data.tan);
-      console.log("asdasdawdasd",data.msmecertificate[0])
-      // Append files if they exist
-      if (data.msmecertificate && data.msmecertificate[0]) {
-        formData.append("msmecertificate", data.msmecertificate[0]);
-      }
-      if (data.gstcertificatefile && data.gstcertificatefile[0]) {
-        formData.append("gstcertificatefile", data.gstcertificatefile[0]);
-      }
-      if (data.pancardfile && data.pancardfile[0]) {
-        formData.append("pancardfile", data.pancardfile[0]);
-      }
+      const payload = {
+        legalname: data.legalname,
+        domainname: data.domainname,
+        regofficeaddress: data.regofficeaddress,
+        contactitpersonname: data.contactitpersonname,
+        mobilenoitperson: data.mobilenoitperson,
+        emailiditperson: data.emailiditperson,
+        accountfinpersonname: data.accountfinpersonname,
+        mobileaccountfinperson: data.mobileaccountfinperson,
+        emailidaccountfinperson: data.emailidaccountfinperson,
+        authorizedpersonname: data.authorizedpersonname,
+        mobileauthorizedperson: data.mobileauthorizedperson,
+        emailidauthorizedperson: data.emailidauthorizedperson,
+        typeofconstitution: constitutionTypesValue,
+        msmeno: data.msmeno || "",
+        msmecertificate: data.msmecertificate?.[0] || null,
+        pannumber: data.pannumber,
+        gstnumber: data.gstnumber,
+        tannumber: data.tan,
+        gstcertificatefile: data.gstcertificatefile?.[0] || null,
+        pancardfile: data.pancardfile?.[0] || null
+      };
 
-      console.log("Sending FormData. Entries:");
-      for (let pair of formData.entries()) {
-        console.log(pair[0]+ ', ' + pair[1]); 
-      }
+      console.log("Sending payload:", payload);
 
-      
-      const response = await fetch("http://127.0.0.1:8000/store_aximaordedetails/", {
+      const response = await fetch("https://portal-api.shiviom.com/store_aximaordedetails/", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
       });
 
-      console.log("Fetch call completed. Response status:", response.status); // LOG 4
-      // console.log("Full API Response object:", response); // Can be verbose, uncomment if needed
+      console.log("Fetch call completed. Response status:", response.status);
 
       if (response.ok) {
         const result = await response.json();
-        console.log("API Success Response (JSON):", result); // LOG 5a
-        alert("Form submitted successfully!");
-        setShowOtherInput(false);
-        form.reset();
+        console.log("API Success Response (JSON):", result);
+        navigate("/entity-form-thank-you");
       } else {
         const errorText = await response.text();
-        console.error(`API Error: Status ${response.status}, Body: ${errorText}`); // LOG 5b
+        console.error(`API Error: Status ${response.status}, Body: ${errorText}`);
         alert(`Error submitting form: ${response.status} - ${errorText}. Please check console for details.`);
       }
     } catch (error) {
-      console.error("Critical error during form submission or API call:", error); // LOG 6
+      console.error("Critical error during form submission or API call:", error);
       const errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
       alert(`Critical error: ${errorMessage}. Please check console for details.`);
     } finally {
