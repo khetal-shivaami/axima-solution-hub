@@ -501,7 +501,7 @@ const EntityForm = () => {
                     name="pannumber"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>pannumber *</FormLabel>
+                        <FormLabel>Pannumber *</FormLabel>
                         <FormControl>
                           <Input placeholder="Enter pannumber number" {...field} />
                         </FormControl>
@@ -572,7 +572,7 @@ const EntityForm = () => {
                     name="pancardfile"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Attach pannumber Copy</FormLabel>
+                        <FormLabel>Attach Pancard Copy</FormLabel>
                         <FormControl>
                           <Input
                             type="file"
