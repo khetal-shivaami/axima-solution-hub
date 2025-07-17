@@ -96,9 +96,9 @@ const LandingPage = () => {
       // Reset form
       form.reset();
       
-      // Redirect after a short delay
+      // Redirect after a short delay with email parameter
       setTimeout(() => {
-        navigate("/contact-thank-you");
+        navigate(`/contact-thank-you?email=${encodeURIComponent(data.email)}`);
       }, 2000);
     } catch (error) {
       console.error("Error submitting form:", error);

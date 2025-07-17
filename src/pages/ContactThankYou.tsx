@@ -2,11 +2,14 @@
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 
 const ContactThankYou = () => {
+  const [searchParams] = useSearchParams();
+  const email = searchParams.get('email');
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black">
       <meta
@@ -31,6 +34,14 @@ const ContactThankYou = () => {
           </div>
           
           <h1 className="text-4xl font-bold text-white mb-6">Thank You for Contacting Us!</h1>
+          
+          {email && (
+            <div className="bg-axima-blue/10 border border-axima-blue/30 rounded-lg p-6 mb-6">
+              <p className="text-lg text-axima-blue font-medium">
+                A confirmation has been sent to: <span className="text-white">{email}</span>
+              </p>
+            </div>
+          )}
           
           <p className="text-xl text-gray-300 mb-8">
             Your message has been successfully submitted. Our team will get back to you shortly.
