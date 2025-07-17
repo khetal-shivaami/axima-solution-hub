@@ -72,18 +72,18 @@ const LandingPage = () => {
         existing_soln: data.emailSolution
       };
       
-      // Submit to the API
-      const response = await fetch("https://portal-api.shiviom.com/get_campaign_aximawebsite_contact_details/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formattedData)
-      });
+      // // Submit to the API
+      // const response = await fetch("https://portal-api.shiviom.com/get_campaign_aximawebsite_contact_details/", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(formattedData)
+      // });
       
-      if (!response.ok) {
-        throw new Error(`API responded with status: ${response.status}`);
-      }
+      // if (!response.ok) {
+      //   throw new Error(`API responded with status: ${response.status}`);
+      // }
       
       // Show success message
       setIsSuccess(true);
