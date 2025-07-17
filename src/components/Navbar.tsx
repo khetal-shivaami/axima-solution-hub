@@ -8,7 +8,7 @@ import { Searchbar } from "./Searchbar";
 const navItems = [
   { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
-  // { label: "Buy Products", href: "https://bv158t-1z.myshopify.com/collections/miscrosoft-365-plans" },
+  { label: "Buy Products", href: "https://bv158t-1z.myshopify.com/" },
   // { label: "Buy Products", href: "/buy-products" },
   { label: "Services", href: "/services" },
   { label: "Plans & Pricing", href: "/plans" },
