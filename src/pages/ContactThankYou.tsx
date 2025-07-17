@@ -16,12 +16,12 @@ const ContactThankYou = () => {
         httpEquiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self'; connect-src 'self' https://portal-api.shiviom.com; img-src 'self' data:; style-src 'self' 'unsafe-inline';"
       />
-      
+
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
       <Navbar />
-      
+
       <div className="container mx-auto px-4 py-32 flex items-center justify-center">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
@@ -32,30 +32,19 @@ const ContactThankYou = () => {
               <CheckCircle2 className="h-14 w-14 text-green-500" />
             </div>
           </div>
-          
+
           <h1 className="text-4xl font-bold text-white mb-6">Thank You for Contacting Us!</h1>
-          
+
           {email && (
             <div className="bg-axima-blue/10 border border-axima-blue/30 rounded-lg p-6 mb-6">
-              <p className="text-lg text-axima-blue font-medium">
-                A confirmation has been sent to: <span className="text-white">{email}</span>
+              <h2 className="text-base font-medium text-axima-white mb-3">What happens next?</h2>
+              <p className="text-lg text-axima-blue font-medium mb-4">
+                Your message has been successfully submitted. We'll review your inquiry within 1–2 business days and get back to you shortly at <span className="text-white">{email}</span> or give you a call.
               </p>
+
+
             </div>
           )}
-          
-          <p className="text-xl text-gray-300 mb-8">
-            Your message has been successfully submitted. Our team will get back to you shortly.
-          </p>
-          
-          <div className="bg-white/5 p-6 rounded-lg mb-8">
-            <h2 className="text-lg font-medium text-axima-blue mb-4">What happens next?</h2>
-            <ul className="text-gray-300 space-y-2 text-left list-disc pl-5">
-              <li>A confirmation email has been sent to your provided email address</li>
-              <li>Our team will review your inquiry within 1-2 business days</li>
-              <li>A Microsoft specialist will contact you to discuss your needs</li>
-            </ul>
-          </div>
-          
           <div className="flex flex-col md:flex-row justify-center gap-4 mt-10">
             <Button asChild className="bg-axima-blue hover:bg-blue-600">
               <Link to="/">Return to Home</Link>
@@ -66,7 +55,7 @@ const ContactThankYou = () => {
           </div>
         </motion.div>
       </div>
-      
+
       <Footer />
     </div>
   );
