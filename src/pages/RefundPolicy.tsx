@@ -23,16 +23,28 @@ const RefundPolicy = () => {
           </div>
           <Card className="bg-black/40 border-white/10">
             <CardHeader>
-              <CardTitle className="text-center text-2xl">Refund Policy</CardTitle>
+              <CardTitle className="text-center text-2xl">Refund/Cancellation Policy</CardTitle>
             </CardHeader>
             <CardContent className="prose prose-invert max-w-none">
             <section className="mb-6">
           <h2 className="text-1xl font-semibold mb-4 ">Overview</h2>
           <p>Cloud software and products once sold will be not exchanged in any circumstances. We, unfortunately, don't offer a refund or exchange on any software or product.</p>
         </section>
-        <section className="mb-6">
+        {/* <section className="mb-6">
           <h2 className="text-1xl font-semibold mb-4 ">What if auto-renewal fails</h2>
           <p>In case auto-renewal fails due to an expired card or any other reason, a seven-day grace period will be applied to the subscription to give the user time to update their credit card information. Once the information is updated, your yearly subscription fee will be charged, and then your billing cycle will start.</p>
+        </section> */}
+         <section className="mb-6">
+          <h2 className="text-1xl font-semibold mb-4 ">Microsoft 365</h2>
+          <p>Microsoft 365 users need to renew their subscriptions yearly to avoid cancellation of their services.</p>
+        </section>
+        <section className="mb-6">
+          <h2 className="text-1xl font-semibold mb-4 ">Before License Procurement or Service Activation</h2>
+          <p>If a customer is unable to provide the necessary details required for license procurement or service activation, they will be eligible for a full refund.</p>
+        </section>
+        <section className="mb-6">
+          <h2 className="text-1xl font-semibold mb-4 ">After License Procurement or Service Activation</h2>
+          <p>Once the software license has been procured, activated, or user accounts have been created, cancellations will not be accepted, and no refund will be issued.</p>
         </section>
             </CardContent>
           </Card>

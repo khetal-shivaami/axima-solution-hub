@@ -188,7 +188,7 @@ export const PlanComparison = () => {
           name: "Manage security threats by creating password policies",
           description: "",
           basic: true,
-          standard: false,
+          standard: true,
           premium: true,
           apps: true,
         },
@@ -272,7 +272,7 @@ export const PlanComparison = () => {
           name: "Outlook",
           description: "",
           basic: true,
-          standard: false,
+          standard: true,
           premium: true,
           apps: 'partial',
         },
@@ -376,7 +376,7 @@ export const PlanComparison = () => {
           basic: true,
           standard: true,
           premium: true,
-          apps: false
+          apps: true
         },
         {
           name: "Streamline client scheduling and manage appointments with Bookings",

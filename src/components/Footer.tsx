@@ -324,7 +324,7 @@ const Footer = () => {
               </Link>
               <span className="text-gray-600">|</span>
               <Link to="/refund-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
-                Refund Policy
+                Refund/Cancellation Policy
               </Link>
             </div>
           </div>

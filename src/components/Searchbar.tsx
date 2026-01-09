@@ -204,7 +204,7 @@ const searchData: SearchResult[] = [
     category: "Legal"
   },
   { 
-    title: "Refund Policy", 
+    title: "Refund/Cancellation Policy", 
     description: "Our refund and cancellation policies",
     path: "/refund-policy",
     category: "Legal"
