@@ -15,6 +15,7 @@ const navItems = [
   { label: "Microsoft Copilot", href: "/copilot" },
   // { label: "Case Studies", href: "/case-studies" },
   { label: "Contact Us", href: "/contact" },
+  { label: "Upcoming Events", href: "/upcoming-events", blink: true },
 ];
 
 export const Navbar: FC = () => {
@@ -32,7 +33,7 @@ export const Navbar: FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isExternalLink = (href: string) => href.startsWith('#');
+  const isExternalLink = (href: string) => href.startsWith('#') || href.startsWith('http');
   const isCurrentPage = (href: string) => location.pathname === href;
 
   return (
@@ -65,7 +66,7 @@ export const Navbar: FC = () => {
                   to={item.href}
                   className={`transition-colors duration-200 text-white hover:text-axima-blue relative py-2 ${
                     isCurrentPage(item.href) ? "font-semibold text-axima-blue" : ""
-                  }`}
+                  } ${item.blink ? "animate-pulse text-yellow-400 hover:text-yellow-300 font-semibold" : ""}`}
                 >
                   <span className="flex items-center gap-1">
                     {item.label}
@@ -120,7 +121,7 @@ export const Navbar: FC = () => {
                   to={item.href}
                   className={`block py-2 px-4 text-white hover:text-axima-blue ${
                     isCurrentPage(item.href) ? "font-semibold text-axima-blue bg-white/5" : ""
-                  }`}
+                  } ${item.blink ? "animate-pulse text-yellow-400 font-semibold" : ""}`}
                   onClick={() => setIsOpen(false)}
                 >
                   <span className="flex items-center gap-1">
