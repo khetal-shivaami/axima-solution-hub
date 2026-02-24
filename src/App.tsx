@@ -34,6 +34,7 @@ import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import PaymentNotification from "./pages/PaymentNotification";
 import EntityForm from "./pages/EntityForm";
+import UpcomingEvents from "./pages/UpcomingEvents";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -79,6 +80,7 @@ const App = () => {
                 <Route path="/support-packages" element={<SupportPackages />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />
+                <Route path="/upcoming-events" element={<UpcomingEvents />} />
                 {/* Catch-all route for 404 - must be the last route */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
