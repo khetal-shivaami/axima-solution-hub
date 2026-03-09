@@ -1,8 +1,8 @@
 
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Calendar, Monitor, Users, MessageCircleQuestion, PlayCircle, ChevronDown, ChevronUp, Loader2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Calendar, Monitor, Users, MessageCircleQuestion, ArrowRight, Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface EventData {
@@ -13,6 +13,7 @@ interface EventData {
   event_start_time: string;
   registration_link: string;
   status: string;
+  event_image_url: string;
 }
 
 const formatEventDate = (dateStr: string) => {
@@ -20,13 +21,16 @@ const formatEventDate = (dateStr: string) => {
   return date.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
 };
 
-const formatEventTime = (seconds: string) => {
-  const totalSeconds = parseFloat(seconds);
-  const hours = Math.floor(totalSeconds / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
+const formatEventTime = (timeStr: string) => {
+  if (!timeStr || !timeStr.includes(':')) {
+    return "Invalid Time";
+  }
+  const parts = timeStr.split(':');
+  const hours = parseInt(parts[0], 10);
+  const minutes = parseInt(parts[1], 10);
   const period = hours >= 12 ? "PM" : "AM";
   const displayHours = hours % 12 || 12;
-  return `${displayHours}:${minutes.toString().padStart(2, "0")} ${period} IST`;
+  return `${displayHours}:${isNaN(minutes) ? '00' : minutes.toString().padStart(2, "0")} ${period} IST`;
 };
 
 const whyAttend = [
@@ -44,22 +48,16 @@ const whyAttend = [
     icon: MessageCircleQuestion,
     title: "Q&A Sessions",
     description: "Get your questions answered live",
-  },
-  {
-    icon: PlayCircle,
-    title: "Recordings",
-    description: "Access recordings anytime, anywhere",
-  },
+  }
 ];
 
 const UpcomingEvents = () => {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [events, setEvents] = useState<EventData[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://34.100.173.113:5000/adminpanel/get_axima_event_data/", {
-      method: "POST",
+    fetch("https://portal-api.shiviom.com/get_axima_event_data/", {
+      method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {
@@ -95,8 +93,7 @@ const UpcomingEvents = () => {
               </span>
             </h1>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Join our exclusive events to stay ahead in cloud technology, SaaS
-              distribution, and digital transformation.
+              Join our exclusive events to stay ahead.
             </p>
           </motion.div>
         </div>
@@ -119,66 +116,38 @@ const UpcomingEvents = () => {
           ) : events.length === 0 ? (
             <p className="text-center text-gray-400 py-12">No upcoming events at the moment.</p>
           ) : (
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto md:items-start">
               {events.map((event, index) => (
+                 <a href={event.registration_link} target="_blank" rel="noopener noreferrer" className="block">
                 <motion.div
                   key={event.event_id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="border border-white/10 rounded-xl bg-white/5 hover:border-axima-blue/50 transition-all cursor-pointer"
-                  onClick={() =>
-                    setExpandedIndex(expandedIndex === index ? null : index)
-                  }
+                  className="border border-white/10 rounded-xl bg-white/5 hover:border-axima-blue/50 transition-all group overflow-hidden"
                 >
-                  <div className="flex items-center justify-between p-5">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-axima-blue/20 flex items-center justify-center">
-                        <Calendar className="w-6 h-6 text-axima-blue" />
+                  {event.event_image_url && (
+                    <img src={event.event_image_url} alt={event.event_title} className="w-full h-50 object-cover" />
+                  )}
+                  <div className="p-5">
+                    {/* <a href={event.registration_link} target="_blank" rel="noopener noreferrer" className="block"> */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 rounded-lg bg-axima-blue/20 flex items-center justify-center flex-shrink-0">
+                            <Calendar className="w-6 h-6 text-axima-blue" />
+                          </div>
+                          <div>
+                            <p className="text-sm text-gray-400">{formatEventDate(event.event_date)} {formatEventTime(event.event_start_time)}</p>
+                            <h3 className="text-lg font-semibold group-hover:text-axima-blue transition-colors">{event.event_title}</h3>
+                          </div>
+                        </div>
+                        <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-axima-blue group-hover:translate-x-1 transition-transform" />
                       </div>
-                      <div>
-                        <p className="text-sm text-gray-400">{formatEventDate(event.event_date)}</p>
-                        <h3 className="text-lg font-semibold">{event.event_title}</h3>
-                      </div>
-                    </div>
-                    {expandedIndex === index ? (
-                      <ChevronUp className="w-5 h-5 text-gray-400" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-gray-400" />
-                    )}
+                    {/* </a> */}
                   </div>
 
-                  <AnimatePresence>
-                    {expandedIndex === index && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-5 pb-5 border-t border-white/10 pt-4">
-                          {event.event_description && (
-                            <p className="text-gray-300 mb-3">{event.event_description}</p>
-                          )}
-                          <div className="flex flex-wrap gap-4 text-sm text-gray-400">
-                            <span>🕐 {formatEventTime(event.event_start_time)}</span>
-                            <span>📅 {formatEventDate(event.event_date)}</span>
-                          </div>
-                          <a
-                            href={event.registration_link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="inline-block mt-4 px-6 py-2 bg-axima-blue text-white rounded-lg hover:bg-axima-blue/80 transition-colors text-sm font-medium"
-                          >
-                            Register Now
-                          </a>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </motion.div>
+                </a>
               ))}
             </div>
           )}
@@ -191,7 +160,7 @@ const UpcomingEvents = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             Why Attend Our Events?
           </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 md:gap-12 max-w-5xl mx-auto">
             {whyAttend.map((item, index) => (
               <motion.div
                 key={index}

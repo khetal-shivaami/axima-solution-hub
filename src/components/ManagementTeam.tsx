@@ -18,10 +18,10 @@ const teamMembers = [
   },
   {
     name: "Ashika Suresh",
-    position: "Deputy General Manager",
+    position: "COO",
     image: "https://storage.googleapis.com/axima-website-content/managementteam/AshikaSuresh.png",
     linkedin: "https://www.linkedin.com/in/ashika-suresh-152515113?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    profile: "Ashika Suresh is a Deputy General Manager at Axima Corporation with over 10 years of experience. She currently leads the sales strategy and execution for the Microsoft Suite of products, focusing on revenue growth and customer success. Ashika directs a high-performing team to meet the unique needs of clients, combining strategic leadership with a strong focus on customer outcomes. She builds lasting relationships and drives digital transformation by offering solutions and services that help clients unlock the full potential of the Microsoft suite."
+    profile: "Ashika Suresh is a COO at Axima Corporation with over 10 years of experience. She currently leads the sales strategy and execution for the Microsoft Suite of products, focusing on revenue growth and customer success. Ashika directs a high-performing team to meet the unique needs of clients, combining strategic leadership with a strong focus on customer outcomes. She builds lasting relationships and drives digital transformation by offering solutions and services that help clients unlock the full potential of the Microsoft suite."
   }
 ];
 

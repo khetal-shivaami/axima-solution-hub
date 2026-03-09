@@ -127,7 +127,7 @@ const searchData: SearchResult[] = [
   },
   { 
     title: "Ashika Suresh", 
-    description: "Deputy General Manager",
+    description: "COO",
     path: "/about",
     category: "Team"
   },
