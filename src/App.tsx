@@ -83,6 +83,8 @@ const App = () => {
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />
                 <Route path="/upcoming-events" element={<UpcomingEvents />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
                 {/* Catch-all route for 404 - must be the last route */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
