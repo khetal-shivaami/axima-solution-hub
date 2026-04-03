@@ -35,6 +35,8 @@ import OrderConfirmation from "./pages/OrderConfirmation";
 import PaymentNotification from "./pages/PaymentNotification";
 import EntityForm from "./pages/EntityForm";
 import UpcomingEvents from "./pages/UpcomingEvents";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
