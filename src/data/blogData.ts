@@ -59,14 +59,16 @@ That is where a certified Microsoft partner makes all the difference. They acces
 
 Microsoft Entra ID comes in three plans, and the right one depends on your team size, compliance needs, and how much control you need over access.
 
-- **SSO (Microsoft apps)** — Free ✅ | P1 ✅ | P2 ✅
-- **MFA** — Free ✅ | P1 ✅ | P2 ✅
-- **Conditional Access** — Free ❌ | P1 ✅ | P2 ✅
-- **Self-service password reset** — Free ❌ | P1 ✅ | P2 ✅
-- **Hybrid identity support** — Free ❌ | P1 ✅ | P2 ✅
-- **Identity Protection (risk-based)** — Free ❌ | P1 ❌ | P2 ✅
-- **Privileged Identity Management** — Free ❌ | P1 ❌ | P2 ✅
-- **Access Reviews** — Free ❌ | P1 ❌ | P2 ✅
+| Feature | Free | P1 | P2 |
+|---|---|---|---|
+| SSO (Microsoft apps) | ✅ | ✅ | ✅ |
+| MFA | ✅ | ✅ | ✅ |
+| Conditional Access | ❌ | ✅ | ✅ |
+| Self-service password reset | ❌ | ✅ | ✅ |
+| Hybrid identity support | ❌ | ✅ | ✅ |
+| Identity Protection (risk-based) | ❌ | ❌ | ✅ |
+| Privileged Identity Management | ❌ | ❌ | ✅ |
+| Access Reviews | ❌ | ❌ | ✅ |
 
 Free works for basics. P1 suits growing businesses with remote or hybrid teams. P2 is built for businesses with stricter compliance needs like the DPDP Act or RBI guidelines.
 

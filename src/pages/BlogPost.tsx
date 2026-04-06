@@ -27,79 +27,105 @@ const BlogPost = () => {
 
   const renderContent = (content: string) => {
     const lines = content.trim().split("\n");
-    return lines.map((line, i) => {
-      const trimmed = line.trim();
-      if (!trimmed) return <br key={i} />;
-      if (trimmed.startsWith("## "))
-        return (
-          <h2 key={i} className="text-2xl font-bold text-foreground mt-8 mb-4">
-            {trimmed.slice(3)}
-          </h2>
-        );
-      if (trimmed.startsWith("### "))
-        return (
-          <h3 key={i} className="text-xl font-semibold text-foreground mt-6 mb-3">
-            {trimmed.slice(4)}
-          </h3>
-        );
-      if (trimmed.startsWith("#### "))
-        return (
-          <h4 key={i} className="text-lg font-semibold text-foreground mt-4 mb-2">
-            {trimmed.slice(5)}
-          </h4>
-        );
-      if (trimmed.startsWith("> "))
-        return (
-          <blockquote
-            key={i}
-            className="border-l-4 border-axima-blue pl-4 my-4 italic text-muted-foreground"
-          >
+    const elements: React.ReactNode[] = [];
+    let i = 0;
+
+    while (i < lines.length) {
+      const trimmed = lines[i].trim();
+
+      // Detect markdown table (line starts with |)
+      if (trimmed.startsWith("|") && trimmed.endsWith("|")) {
+        const tableLines: string[] = [];
+        while (i < lines.length && lines[i].trim().startsWith("|") && lines[i].trim().endsWith("|")) {
+          tableLines.push(lines[i].trim());
+          i++;
+        }
+        // Parse header, separator, and rows
+        if (tableLines.length >= 3) {
+          const parseRow = (row: string) =>
+            row.split("|").slice(1, -1).map((c) => c.trim());
+          const headers = parseRow(tableLines[0]);
+          const rows = tableLines.slice(2).map(parseRow);
+
+          elements.push(
+            <div key={`table-${i}`} className="my-6 overflow-x-auto rounded-lg border border-border">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-muted/50">
+                    {headers.map((h, hi) => (
+                      <th key={hi} className="px-4 py-3 text-left font-semibold text-foreground border-b border-border">
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((row, ri) => (
+                    <tr key={ri} className="border-b border-border last:border-b-0 hover:bg-muted/30 transition-colors">
+                      {row.map((cell, ci) => (
+                        <td key={ci} className={`px-4 py-3 ${ci === 0 ? 'font-medium text-foreground' : 'text-center text-muted-foreground'}`}>
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          );
+          continue;
+        }
+      }
+
+      if (!trimmed) { elements.push(<br key={i} />); i++; continue; }
+      if (trimmed.startsWith("## ")) {
+        elements.push(<h2 key={i} className="text-2xl font-bold text-foreground mt-8 mb-4">{trimmed.slice(3)}</h2>);
+        i++; continue;
+      }
+      if (trimmed.startsWith("### ")) {
+        elements.push(<h3 key={i} className="text-xl font-semibold text-foreground mt-6 mb-3">{trimmed.slice(4)}</h3>);
+        i++; continue;
+      }
+      if (trimmed.startsWith("#### ")) {
+        elements.push(<h4 key={i} className="text-lg font-semibold text-foreground mt-4 mb-2">{trimmed.slice(5)}</h4>);
+        i++; continue;
+      }
+      if (trimmed.startsWith("> ")) {
+        elements.push(
+          <blockquote key={i} className="border-l-4 border-axima-blue pl-4 my-4 italic text-muted-foreground">
             {trimmed.slice(2)}
           </blockquote>
         );
-      if (trimmed.startsWith("- **"))
-        return (
+        i++; continue;
+      }
+      if (trimmed.startsWith("- **")) {
+        elements.push(
           <li key={i} className="ml-6 mb-1 text-muted-foreground list-disc">
-            <span
-              dangerouslySetInnerHTML={{
-                __html: trimmed
-                  .slice(2)
-                  .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>'),
-              }}
-            />
+            <span dangerouslySetInnerHTML={{ __html: trimmed.slice(2).replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>') }} />
           </li>
         );
-      if (trimmed.startsWith("- "))
-        return (
-          <li key={i} className="ml-6 mb-1 text-muted-foreground list-disc">
-            {trimmed.slice(2)}
-          </li>
-        );
-      if (/^\d+\.\s/.test(trimmed))
-        return (
+        i++; continue;
+      }
+      if (trimmed.startsWith("- ")) {
+        elements.push(<li key={i} className="ml-6 mb-1 text-muted-foreground list-disc">{trimmed.slice(2)}</li>);
+        i++; continue;
+      }
+      if (/^\d+\.\s/.test(trimmed)) {
+        elements.push(
           <li key={i} className="ml-6 mb-1 text-muted-foreground list-decimal">
-            <span
-              dangerouslySetInnerHTML={{
-                __html: trimmed
-                  .replace(/^\d+\.\s/, "")
-                  .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>'),
-              }}
-            />
+            <span dangerouslySetInnerHTML={{ __html: trimmed.replace(/^\d+\.\s/, "").replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>') }} />
           </li>
         );
-      return (
-        <p
-          key={i}
-          className="text-muted-foreground mb-3 leading-relaxed"
-          dangerouslySetInnerHTML={{
-            __html: trimmed.replace(
-              /\*\*(.*?)\*\*/g,
-              '<strong class="text-foreground">$1</strong>'
-            ),
-          }}
+        i++; continue;
+      }
+      elements.push(
+        <p key={i} className="text-muted-foreground mb-3 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: trimmed.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>') }}
         />
       );
-    });
+      i++;
+    }
+    return elements;
   };
 
   return (
