@@ -12,7 +12,6 @@ const navItems = [
   // { label: "Buy Products", href: "/buy-products" },
   { label: "Services", href: "/services" },
   { label: "Plans & Pricing", href: "/plans" },
-  { label: "Microsoft Copilot", href: "/copilot" },
   // { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
   { label: "Contact Us", href: "/contact" },
