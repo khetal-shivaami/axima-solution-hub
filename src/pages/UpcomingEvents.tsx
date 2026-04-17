@@ -51,8 +51,20 @@ const whyAttend = [
   }
 ];
 
+const FEATURED_WEBINAR: EventData = {
+  event_id: 9999,
+  event_title: "Stop Email Threats Before They Reach Your Inbox",
+  event_description:
+    "Your email filters may already be missing something. Phishing. Malware. A business email compromise is quietly in progress, and you won't know until it's too late. Join us for a free webinar where we'll show you how to find these threats first. As part of this, we've partnered with Check Point to offer an email security assessment, running silently alongside your existing setup.",
+  event_date: "2026-04-22",
+  event_start_time: "16:00",
+  registration_link: "https://forms.office.com/r/tQtKUGXfpd",
+  status: "active",
+  event_image_url: "https://www.axima.in/EDM/checkpoint-axima/images/banner.jpg",
+};
+
 const UpcomingEvents = () => {
-  const [events, setEvents] = useState<EventData[]>([]);
+  const [events, setEvents] = useState<EventData[]>([FEATURED_WEBINAR]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -62,7 +74,13 @@ const UpcomingEvents = () => {
       .then((res) => res.json())
       .then((data) => {
         if (!data.error && data.events) {
-          setEvents(data.events.filter((e: EventData) => e.status === "active"));
+          const apiEvents = data.events.filter((e: EventData) => e.status === "active");
+          // Merge featured webinar with API events, avoiding duplicates by id
+          const merged = [
+            FEATURED_WEBINAR,
+            ...apiEvents.filter((e: EventData) => e.event_id !== FEATURED_WEBINAR.event_id),
+          ];
+          setEvents(merged);
         }
       })
       .catch((err) => console.error("Failed to fetch events:", err))
