@@ -310,9 +310,9 @@ export function Searchbar() {
   };
 
   return (
-    <div className="relative" ref={searchRef}>
-      <div className="flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 hover:border-white/20 bg-black/20">
-        <Search className="w-4 h-4 text-white/60" />
+    <div className="relative w-56" ref={searchRef}>
+      <div className="flex items-center gap-2 px-3 py-2 rounded-md border border-white/10 hover:border-white/20 bg-black/20">
+        <Search className="w-4 h-4 text-white/60 flex-shrink-0" />
         <input
           type="text"
           value={query}
@@ -322,9 +322,9 @@ export function Searchbar() {
           }}
           onClick={() => setIsOpen(true)}
           placeholder="Search..."
-          className="bg-transparent text-sm text-white outline-none w-full placeholder:text-white/60"
+          className="bg-transparent text-sm text-white outline-none w-full min-w-0 placeholder:text-white/60"
         />
-        <kbd className="hidden md:inline-flex h-5 select-none items-center gap-1 rounded border border-white/20 bg-white/5 px-1.5 font-mono text-[10px] font-medium text-white/40">
+        <kbd className="hidden lg:inline-flex h-5 select-none items-center gap-1 rounded border border-white/20 bg-white/5 px-1.5 font-mono text-[10px] font-medium text-white/40 flex-shrink-0">
           <span className="text-xs">⌘</span>K
         </kbd>
       </div>
