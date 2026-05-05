@@ -203,7 +203,7 @@ export const Navbar: FC = () => {
                       >
                         <div className="flex flex-row flex-nowrap gap-6 overflow-x-auto">
                           {item.mega.map((col) => (
-                            <div key={col.title}>
+                            <div key={col.title} className="min-w-[160px] flex-shrink-0">
                               <h4 className="text-axima-blue text-xs font-semibold uppercase tracking-wider mb-3">
                                 {col.title}
                               </h4>
