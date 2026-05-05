@@ -197,13 +197,13 @@ export const Navbar: FC = () => {
 
                     {isOpenMenu && (
                       <div
-                        className="fixed left-1/2 -translate-x-1/2 top-20 w-[min(1400px,98vw)] bg-black/95 backdrop-blur-md border border-axima-blue/30 rounded-xl shadow-2xl p-6 animate-fade-in"
+                        className="fixed left-1/2 -translate-x-1/2 top-20 w-[min(1300px,96vw)] bg-black/95 backdrop-blur-md border border-axima-blue/30 rounded-xl shadow-2xl p-6 animate-fade-in"
                         onMouseEnter={() => handleMegaEnter(item.label)}
                         onMouseLeave={handleMegaLeave}
                       >
-                        <div className="flex flex-row flex-nowrap gap-6 overflow-x-auto">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-6">
                           {item.mega.map((col) => (
-                            <div key={col.title} className="min-w-[160px] flex-shrink-0">
+                            <div key={col.title}>
                               <h4 className="text-axima-blue text-xs font-semibold uppercase tracking-wider mb-3">
                                 {col.title}
                               </h4>
