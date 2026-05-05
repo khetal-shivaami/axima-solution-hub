@@ -21,21 +21,84 @@ const navItems: NavItem[] = [
     label: "Products & Services",
     mega: [
       {
-        title: "Microsoft Products",
+        title: "Cloud Infrastructure",
         items: [
-          { label: "Microsoft 365", href: "/microsoft-365", description: "Productivity suite for modern business" },
-          { label: "Microsoft Azure", href: "/microsoft-azure", description: "Cloud computing platform" },
-          { label: "Jio Azure", href: "/microsoft-jioazure", description: "India sovereign cloud" },
-          { label: "Microsoft Copilot", href: "/copilot", description: "AI-powered assistant" },
+          { label: "Microsoft Azure", href: "/microsoft-azure" },
+          { label: "Jio Azure", href: "/microsoft-jioazure" },
+          { label: "Google Cloud", href: "/products" },
+          { label: "Amazon Web Services", href: "/products" },
         ],
+      },
+      {
+        title: "Email Collaboration",
+        items: [
+          { label: "Microsoft 365", href: "/microsoft-365" },
+          { label: "Microsoft Copilot", href: "/copilot" },
+          { label: "Google Workspace", href: "/products" },
+          { label: "Zoho", href: "/products" },
+        ],
+      },
+      {
+        title: "Video Conferencing",
+        items: [
+          { label: "Zoom", href: "/product/zoom" },
+          { label: "Microsoft Teams", href: "/microsoft-365" },
+        ],
+      },
+      {
+        title: "Backup Solutions",
+        items: [
+          { label: "HYCU", href: "/product/hycu" },
+          { label: "Spin.AI", href: "/product/spin-ai" },
+          { label: "Digiboxx", href: "/products" },
+        ],
+      },
+      {
+        title: "Cyber Security",
+        items: [
+          { label: "Checkpoint", href: "/products" },
+        ],
+      },
+      {
+        title: "IAM & MDM",
+        items: [
+          { label: "JumpCloud", href: "/product/jumpcloud" },
+          { label: "miniOrange", href: "/products" },
+          { label: "1Password", href: "/product/onepassword" },
+          { label: "Scalefusion", href: "/product/scalefusion" },
+        ],
+      },
+      {
+        title: "E-Signature",
+        items: [{ label: "FlexiSign", href: "/product/flexisign" }],
+      },
+      {
+        title: "HRMS",
+        items: [{ label: "Superworks", href: "/products" }],
+      },
+      {
+        title: "ITSM",
+        items: [
+          { label: "Atera", href: "/product/atera" },
+          { label: "SuperOps", href: "/products" },
+          { label: "Viami", href: "/products" },
+        ],
+      },
+      {
+        title: "Operating Systems",
+        items: [{ label: "Chrome OS", href: "/products" }],
+      },
+      {
+        title: "Social Media Management",
+        items: [{ label: "RecurPost", href: "/products" }],
       },
       {
         title: "Services",
         items: [
-          { label: "All Services", href: "/services", description: "Explore our service offerings" },
-          { label: "Support Packages", href: "/support-packages", description: "Managed support plans" },
-          { label: "Plans & Pricing", href: "/plans", description: "Compare plans and pricing" },
-          { label: "All Products", href: "/products", description: "Browse the full catalog" },
+          { label: "All Services", href: "/services" },
+          { label: "Support Packages", href: "/support-packages" },
+          { label: "Plans & Pricing", href: "/plans" },
+          { label: "All Products", href: "/products" },
         ],
       },
     ],
@@ -134,13 +197,12 @@ export const Navbar: FC = () => {
 
                     {isOpenMenu && (
                       <div
-                        className="fixed left-1/2 -translate-x-1/2 top-20 w-[min(900px,95vw)] bg-black/95 backdrop-blur-md border border-axima-blue/30 rounded-xl shadow-2xl p-6 animate-fade-in"
+                        className="fixed left-1/2 -translate-x-1/2 top-20 w-[min(1200px,95vw)] max-h-[80vh] overflow-y-auto bg-black/95 backdrop-blur-md border border-axima-blue/30 rounded-xl shadow-2xl p-6 animate-fade-in"
                         onMouseEnter={() => handleMegaEnter(item.label)}
                         onMouseLeave={handleMegaLeave}
                       >
                         <div
-                          className="grid gap-6"
-                          style={{ gridTemplateColumns: `repeat(${item.mega.length}, minmax(0, 1fr))` }}
+                          className={`grid gap-6 ${item.mega.length > 2 ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-4" : `grid-cols-${item.mega.length}`}`}
                         >
                           {item.mega.map((col) => (
                             <div key={col.title}>
