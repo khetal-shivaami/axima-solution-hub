@@ -197,13 +197,12 @@ export const Navbar: FC = () => {
 
                     {isOpenMenu && (
                       <div
-                        className="fixed left-1/2 -translate-x-1/2 top-20 w-[min(900px,95vw)] bg-black/95 backdrop-blur-md border border-axima-blue/30 rounded-xl shadow-2xl p-6 animate-fade-in"
+                        className="fixed left-1/2 -translate-x-1/2 top-20 w-[min(1200px,95vw)] max-h-[80vh] overflow-y-auto bg-black/95 backdrop-blur-md border border-axima-blue/30 rounded-xl shadow-2xl p-6 animate-fade-in"
                         onMouseEnter={() => handleMegaEnter(item.label)}
                         onMouseLeave={handleMegaLeave}
                       >
                         <div
-                          className="grid gap-6"
-                          style={{ gridTemplateColumns: `repeat(${item.mega.length}, minmax(0, 1fr))` }}
+                          className={`grid gap-6 ${item.mega.length > 2 ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-4" : `grid-cols-${item.mega.length}`}`}
                         >
                           {item.mega.map((col) => (
                             <div key={col.title}>
