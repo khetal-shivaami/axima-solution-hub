@@ -116,8 +116,8 @@ const Products = () => {
   const renderMicrosoftSolutions = () => {
     if (isLoading) {
       return (
-        <div className="grid md:grid-cols-3 gap-6">
-          {[...Array(3)].map((_, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[...Array(4)].map((_, index) => (
             <ProductCardSkeleton key={index} />
           ))}
         </div>
@@ -125,7 +125,7 @@ const Products = () => {
     }
 
     return (
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {microsoftSolutions.map((solution, index) => (
           <MicrosoftSolutionCard 
             key={index} 

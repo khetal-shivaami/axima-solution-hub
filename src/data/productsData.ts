@@ -17,6 +17,12 @@ export const microsoftSolutions = [
     description: "MS Azure from Jio Region provides Azure services with data centers located within India, ensuring enhanced security compliance and data residency.",
     image: "https://storage.googleapis.com/axima-website-content/logos/Azure.webp",
     route: "/microsoft-jioazure"
+  },
+  {
+    name: "Microsoft Copilot",
+    description: "Microsoft Copilot is your AI-powered productivity assistant that works alongside you in Microsoft 365 apps to draft content, analyze data, summarize meetings, and accelerate everyday work.",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Microsoft_365.webp",
+    route: "/copilot"
   }
 ];
 

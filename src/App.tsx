@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "./components/ScrollToTop";
-import { PageTransition } from "./components/PageTransition";
+
 import { ScrollIndicator } from "./components/ScrollIndicator";
 import { CartProvider } from "./contexts/CartContext";
 import Index from "./pages/Index";
@@ -35,6 +35,8 @@ import OrderConfirmation from "./pages/OrderConfirmation";
 import PaymentNotification from "./pages/PaymentNotification";
 import EntityForm from "./pages/EntityForm";
 import UpcomingEvents from "./pages/UpcomingEvents";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -53,7 +55,6 @@ const App = () => {
         <CartProvider>
           <ScrollToTop />
           <TooltipProvider>
-            <PageTransition>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
@@ -81,10 +82,11 @@ const App = () => {
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />
                 <Route path="/upcoming-events" element={<UpcomingEvents />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
                 {/* Catch-all route for 404 - must be the last route */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
-            </PageTransition>
             <ScrollIndicator />
           </TooltipProvider>
           <Toaster />
