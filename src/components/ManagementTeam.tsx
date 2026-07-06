@@ -27,7 +27,7 @@ const teamMembers = [
 
 export const ManagementTeam = () => {
   return (
-    <section className="w-full max-w-6xl mx-auto">
+    <section className="w-full max-w-7xl mx-auto">
       <h2 className="text-3xl font-bold text-center text-white mb-8">Our Management Team</h2>
       <div className="grid md:grid-cols-3 gap-6">
         {teamMembers.map((member, index) => (
