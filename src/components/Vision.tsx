@@ -34,13 +34,13 @@ export const Vision = () => {
               <h2 className="text-3xl font-bold text-white">Our Vision</h2>
             </div>
             <div className="w-24 h-1 bg-axima-blue mb-6"></div>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-xl text-gray-300 leading-relaxed"
             >
-              With a passion and conviction to succeed, our vision is to be the leading email solution provider in India.
+              To be India's most trusted technology partner for businesses that want to work smarter, stay secure, and grow without limits.
             </motion.p>
           </motion.div>
 
@@ -59,13 +59,13 @@ export const Vision = () => {
               <h2 className="text-3xl font-bold text-white">Our Mission</h2>
             </div>
             <div className="w-24 h-1 bg-axima-blue mb-6"></div>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-xl text-gray-300 leading-relaxed"
             >
-              In order to achieve our mission, Axima plans to help its clients by going an extra mile and helping them by understanding their needs and providing a solution. Collaborative and Innovative in our approach, we will enhance your business in terms of productivity and flexibility.
+              To simplify technology for Indian businesses by bringing the right tools, the right expertise, and the right support together. We listen first, recommend honestly, and stay with you long after the deal is done.
             </motion.p>
           </motion.div>
         </div>
