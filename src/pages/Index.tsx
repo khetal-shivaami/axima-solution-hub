@@ -8,6 +8,8 @@ import { MovingRibbon } from "@/components/MovingRibbon";
 import { Testimonials } from "@/components/Testimonials";
 import { Building2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ACEAdvantage } from "@/components/ACEAdvantage";
+import { WhyChooseAxima } from "@/components/WhyChooseAxima";
 
 const Index = () => {
   return (
@@ -103,6 +105,9 @@ const Index = () => {
           </Card>
         </div>
       </motion.div>
+
+      <ACEAdvantage />
+
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -111,6 +116,10 @@ const Index = () => {
       >
         <Stats />
       </motion.div>
+
+      <WhyChooseAxima />
+
+      
 
       
       <motion.div
