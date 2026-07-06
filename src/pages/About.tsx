@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Vision } from "@/components/Vision";
 import { ManagementTeam } from "@/components/ManagementTeam";
 import { motion } from "framer-motion";
-import { Building2, MapPin } from "lucide-react";
+import { Building2 } from "lucide-react";
 
 const locations = [
   { city: "Mumbai" },
