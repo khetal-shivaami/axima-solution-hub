@@ -42,9 +42,30 @@ const About = () => {
             <CardHeader>
               <CardTitle>Axima Corporation</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-xl text-gray-300">
-                Axima Corporation is a certified Microsoft 365 partner, dedicated to helping businesses leverage the benefits of cloud solutions. In today's competitive landscape, companies seek collaborative tools that provide a strategic advantage. Microsoft 365 delivers exactly that. With Axima's expertise in integrating Microsoft 365, your business gains enhanced flexibility and agility, empowering you to stay ahead in the market.
+            <CardContent className="space-y-6">
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Axima Corporation is a Mumbai-based technology partner helping businesses across India adopt the right tools for productivity, collaboration, and security.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                A sister company of Shivaami, one of India's most recognised cloud technology companies, Axima brings the same depth of expertise to the Microsoft ecosystem and beyond.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                We have been in the business for over a decade. We started with Microsoft 365 and have since grown into a multi-product partner.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Today we work with global technology leaders, including Check Point, Microsoft, Zoom, JumpCloud, Scalefusion, Spin.AI, HYCU, Atera, 1Password, and FlexiSign.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Whether you need cloud infrastructure, endpoint management, cybersecurity, or digital workflows, we bring everything under one roof.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                As a Microsoft Solutions Partner, we are authorised to deliver, implement, and support Microsoft solutions for businesses of every size.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Our certified team is available around the clock to help you evaluate, implement, and get the most from every solution we offer. We don't just sell software. We make sure it works for your business.
+              </p>
+              <p className="text-lg text-axima-blue font-medium">
+                Locations: Mumbai | Bangalore | Chennai | Delhi
               </p>
             </CardContent>
           </Card>
