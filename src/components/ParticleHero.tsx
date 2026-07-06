@@ -12,12 +12,6 @@ export const ParticleHero = () => {
     await loadSlim(engine);
   }, []);
 
-  const scrollToProducts = () => {
-    const element = document.getElementById('microsoft365-benefits');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
 
   return (
