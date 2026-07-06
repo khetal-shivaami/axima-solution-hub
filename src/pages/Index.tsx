@@ -105,6 +105,9 @@ const Index = () => {
           </Card>
         </div>
       </motion.div>
+
+      <ACEAdvantage />
+
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -113,6 +116,10 @@ const Index = () => {
       >
         <Stats />
       </motion.div>
+
+      <WhyChooseAxima />
+
+      
 
       
       <motion.div
