@@ -7,11 +7,10 @@ import { motion } from "framer-motion";
 import { Building2, MapPin } from "lucide-react";
 
 const locations = [
-  { city: "Mumbai", address: "1001, 10th Floor, Runwal R Square, LBS Road, Mulund West" },
-  { city: "Bangalore", address: "Brigade Road, Central Business District" },
-  { city: "Chennai", address: "Ring Road, Surat" },
-  { city: "Delhi", address: "Connaught Place, New Delhi" },
-  { city: "Surat", address: "Ring Road, Surat" }
+  { city: "Mumbai" },
+  { city: "Bangalore" },
+  { city: "Chennai" },
+  { city: "Delhi" },
 ];
 
 const About = () => {
