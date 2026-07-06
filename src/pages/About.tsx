@@ -27,7 +27,7 @@ const About = () => {
       <Navbar />
 
       {/* Hero / About */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 py-20 snap-start">
+      <section className="relative min-h-[85vh] flex items-center justify-center px-4 py-12 snap-start">
         <div className="max-w-4xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -93,12 +93,12 @@ const About = () => {
 
       <Vision />
 
-      <section className="min-h-screen flex items-center justify-center relative snap-start">
+      <section className="min-h-[85vh] flex items-center justify-center relative snap-start py-12">
         <WhyChooseAxima />
       </section>
 
       {/* Locations & Partners */}
-      <section className="min-h-screen flex items-center justify-center relative snap-start px-4 py-20">
+      <section className="min-h-[85vh] flex items-center justify-center relative snap-start px-4 py-12">
         <div className="max-w-4xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -160,7 +160,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="min-h-screen flex items-center justify-center relative snap-start px-4 py-20">
+      <section className="min-h-[85vh] flex items-center justify-center relative snap-start px-4 py-12">
         <ManagementTeam />
       </section>
 
