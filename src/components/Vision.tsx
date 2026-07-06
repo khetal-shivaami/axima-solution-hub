@@ -1,104 +1,51 @@
 import { motion } from "framer-motion";
-import { Check, Target, Rocket } from "lucide-react";
-import { Card } from "./ui/card";
+import { Target, Rocket } from "lucide-react";
 
 export const Vision = () => {
-  const benefits = [
-    "Take advantage of competitive pricing with our wholesale price list",
-    "Access a range of value-added tools, products, and services through a unified approach",
-    "Enhance customer satisfaction with multiple touchpoints",
-    "Benefit from our experienced technical support team dedicated to meeting your needs",
-    "Have a dedicated representative as your primary contact to ensure customer satisfaction",
-    "Join over 2,000 satisfied customers across India",
-    "Leverage our decade-long experience of expertise in Cloud Technology.",
-    "Our strong understanding of Cloud security",
-    "Enjoy prompt and reliable customer support"
-  ];
-
   return (
     <section className="py-16 relative overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 mb-16">
-          {/* Vision Section */}
-          <motion.div 
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Vision */}
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="bg-black/40 p-8 rounded-lg border border-axima-blue/20 hover:border-axima-blue/40 transition-all duration-300"
+            className="relative bg-gradient-to-br from-axima-blue/10 to-transparent p-10 rounded-2xl border border-axima-blue/20 hover:border-axima-blue/50 transition-all duration-300 overflow-hidden"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 bg-axima-blue/10 rounded-full">
-                <Target className="h-8 w-8 text-axima-blue" />
+            <div className="absolute -top-16 -right-16 w-48 h-48 bg-axima-blue/10 rounded-full blur-3xl" />
+            <div className="flex items-center gap-4 mb-6 relative">
+              <div className="p-3 bg-axima-blue/15 rounded-xl">
+                <Target className="h-7 w-7 text-axima-blue" />
               </div>
               <h2 className="text-3xl font-bold text-white">Our Vision</h2>
             </div>
-            <div className="w-24 h-1 bg-axima-blue mb-6"></div>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-xl text-gray-300 leading-relaxed"
-            >
+            <p className="text-lg text-gray-300 leading-relaxed relative">
               To be India's most trusted technology partner for businesses that want to work smarter, stay secure, and grow without limits.
-            </motion.p>
+            </p>
           </motion.div>
 
-          {/* Mission Section */}
-          <motion.div 
+          {/* Mission */}
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="bg-black/40 p-8 rounded-lg border border-axima-blue/20 hover:border-axima-blue/40 transition-all duration-300"
+            className="relative bg-gradient-to-br from-axima-blue/10 to-transparent p-10 rounded-2xl border border-axima-blue/20 hover:border-axima-blue/50 transition-all duration-300 overflow-hidden"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 bg-axima-blue/10 rounded-full">
-                <Rocket className="h-8 w-8 text-axima-blue" />
+            <div className="absolute -top-16 -right-16 w-48 h-48 bg-axima-blue/10 rounded-full blur-3xl" />
+            <div className="flex items-center gap-4 mb-6 relative">
+              <div className="p-3 bg-axima-blue/15 rounded-xl">
+                <Rocket className="h-7 w-7 text-axima-blue" />
               </div>
               <h2 className="text-3xl font-bold text-white">Our Mission</h2>
             </div>
-            <div className="w-24 h-1 bg-axima-blue mb-6"></div>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-xl text-gray-300 leading-relaxed"
-            >
+            <p className="text-lg text-gray-300 leading-relaxed relative">
               To simplify technology for Indian businesses by bringing the right tools, the right expertise, and the right support together. We listen first, recommend honestly, and stay with you long after the deal is done.
-            </motion.p>
+            </p>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="max-w-7xl mx-auto"
-        >
-          <h2 className="text-3xl font-bold text-white mb-6 text-center">Why Choose Axima</h2>
-          <div className="w-24 h-1 bg-axima-blue mx-auto mb-12"></div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="h-full group hover:scale-105 transition-all duration-300 bg-black/40 border-gray-800 hover:border-axima-blue/40 backdrop-blur-sm">
-                  <div className="p-6 flex items-start gap-4">
-                    <Check className="w-6 h-6 text-axima-blue flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
-                    <p className="text-gray-300 group-hover:text-white transition-colors">{benefit}</p>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
