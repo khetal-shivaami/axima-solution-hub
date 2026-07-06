@@ -34,13 +34,13 @@ export const Vision = () => {
               <h2 className="text-3xl font-bold text-white">Our Vision</h2>
             </div>
             <div className="w-24 h-1 bg-axima-blue mb-6"></div>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-xl text-gray-300 leading-relaxed"
             >
-              With a passion and conviction to succeed, our vision is to be the leading email solution provider in India.
+              To be India's most trusted technology partner for businesses that want to work smarter, stay secure, and grow without limits.
             </motion.p>
           </motion.div>
 
