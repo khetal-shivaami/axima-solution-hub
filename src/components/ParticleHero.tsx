@@ -19,18 +19,6 @@ export const ParticleHero = () => {
     }
   };
 
-  const partnerBadges = [
-    { 
-      src: "https://storage.googleapis.com/axima-website-content/badges/AXIMA%20Corporation.webp", 
-      alt: "Microsoft Cloud Solution Provider",
-      title: "Microsoft Cloud Solution Provider",
-    },
-    { 
-      src: "https://storage.googleapis.com/axima-website-content/badges/MSFT_50AnniversaryBadge_10Years_-fotor-20250321163921.png", 
-      alt: "Trusted Microsoft Partner for 10+ years",
-      title: "Trusted Microsoft Partner for 10+ years",
-    },
-  ];
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
