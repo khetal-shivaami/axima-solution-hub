@@ -160,7 +160,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="min-h-screen flex items-center justify-center relative snap-start px-4 py-20">
+      <section className="min-h-[85vh] flex items-center justify-center relative snap-start px-4 py-12">
         <ManagementTeam />
       </section>
 
