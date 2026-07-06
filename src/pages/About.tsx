@@ -131,10 +131,17 @@ const About = () => {
       </section>
 
       <Vision />
-      <WhyChooseAxima />
-      <ManagementTeam />
+
+      <section className="min-h-screen flex items-center justify-center relative">
+        <WhyChooseAxima />
+      </section>
+
+      <section className="min-h-screen flex items-center justify-center relative px-4 py-24">
+        <ManagementTeam />
+      </section>
 
       <Footer />
+
     </div>
   );
 };
