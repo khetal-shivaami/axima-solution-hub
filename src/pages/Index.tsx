@@ -8,6 +8,8 @@ import { MovingRibbon } from "@/components/MovingRibbon";
 import { Testimonials } from "@/components/Testimonials";
 import { Building2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ACEAdvantage } from "@/components/ACEAdvantage";
+import { WhyChooseAxima } from "@/components/WhyChooseAxima";
 
 const Index = () => {
   return (
