@@ -4,7 +4,7 @@ import { Stats } from "@/components/Stats";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { ParticleHero } from "@/components/ParticleHero";
-import { MovingRibbon } from "@/components/MovingRibbon";
+
 import { Testimonials } from "@/components/Testimonials";
 import { Building2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
