@@ -5,14 +5,7 @@ import Particles from "react-tsparticles";
 import type { Engine } from "tsparticles-engine";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
-import { ArrowRight, ChevronRight, Check } from "lucide-react";
-import { Badge } from "./ui/badge";
-import { 
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "./ui/tooltip";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 export const ParticleHero = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
