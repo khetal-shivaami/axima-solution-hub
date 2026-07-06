@@ -6,12 +6,6 @@ import { ManagementTeam } from "@/components/ManagementTeam";
 import { motion } from "framer-motion";
 import { Building2 } from "lucide-react";
 
-const locations = [
-  { city: "Mumbai" },
-  { city: "Bangalore" },
-  { city: "Chennai" },
-  { city: "Delhi" },
-];
 
 const About = () => {
   return (
