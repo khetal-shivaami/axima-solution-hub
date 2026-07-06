@@ -93,7 +93,7 @@ const About = () => {
 
       <Vision />
 
-      <section className="min-h-screen flex items-center justify-center relative snap-start">
+      <section className="min-h-[85vh] flex items-center justify-center relative snap-start py-12">
         <WhyChooseAxima />
       </section>
 
