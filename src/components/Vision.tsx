@@ -4,7 +4,7 @@ import { Target, Rocket } from "lucide-react";
 export const Vision = () => {
   return (
     <section className="min-h-[85vh] flex items-center justify-center relative overflow-hidden px-4 py-12 snap-start">
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-7xl">
         <div className="grid md:grid-cols-2 gap-6">
           {/* Vision */}
           <motion.div
