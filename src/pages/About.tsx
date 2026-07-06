@@ -27,7 +27,7 @@ const About = () => {
       <Navbar />
 
       {/* Hero / About */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 py-20 snap-start">
+      <section className="relative min-h-[85vh] flex items-center justify-center px-4 py-12 snap-start">
         <div className="max-w-4xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
