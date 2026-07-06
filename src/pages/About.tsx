@@ -34,12 +34,12 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8"
+            className="text-center mb-6"
           >
-            <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-4">
+            <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-3">
               About Axima
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-3">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
                 We Help Indian Businesses
               </span>
@@ -48,10 +48,8 @@ const About = () => {
                 Work Smarter and Stay Secure.
               </span>
             </h1>
-            <p className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto">
-              A Mumbai-based technology partner helping businesses across India adopt the right tools for productivity, collaboration, and security.
-            </p>
           </motion.div>
+
 
 
           <div className="grid lg:grid-cols-5 gap-6">
