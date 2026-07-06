@@ -97,14 +97,11 @@ export const ParticleHero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
-              Your Business Runs on Technology.
-            </span>
-            <br />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-axima-blue via-blue-400 to-blue-600">
-              We Make Sure It Never Stops.
+              We Help Indian Businesses Work Smarter and Stay Secure.
             </span>
           </motion.h1>
+
 
           {/* Description */}
           <motion.p
