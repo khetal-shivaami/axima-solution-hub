@@ -65,18 +65,6 @@ const Footer = () => {
     setExpandedMicrosoft365(!expandedMicrosoft365);
   };
 
-  const partnerBadges = [
-    { 
-      src: "https://storage.googleapis.com/axima-website-content/badges/AXIMA%20Corporation.webp", 
-      alt: "Microsoft Cloud Solution Provider",
-      title: "Microsoft Cloud Solution Provider",
-    },
-    { 
-      src: "https://storage.googleapis.com/axima-website-content/badges/MSFT_50AnniversaryBadge_10Years_-fotor-20250321163921.png", 
-      alt: "Trusted Microsoft Partner for 10+ years",
-      title: "Trusted Microsoft Partner for 10+ years",
-    },
-  ];
 
   return (
     <footer className="relative w-full bg-black/40 border-t border-white/10 py-16">
@@ -254,42 +242,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Microsoft Partnership Badges */}
         <div className="mt-12 pt-8 border-t border-white/10">
-          <TooltipProvider>
-            <div className="flex flex-col items-center justify-center gap-6 mb-8">
-              <h3 className="text-xl font-bold text-white">Official Microsoft Partner</h3>
-              
-              <div className="flex flex-row gap-8 justify-center items-center">
-                {partnerBadges.map((badge, index) => (
-                  <div key={index} className="relative perspective">
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <div className="glass-card rounded-lg p-4 hover-lift flex items-center justify-center">
-                          <div className="relative group">
-                            <div className="absolute inset-0 bg-axima-blue/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <img 
-                              src={badge.src} 
-                              alt={badge.alt}
-                              className="w-40 h-32 object-contain transition-all duration-300 group-hover:scale-105"
-                            />
-                          </div>
-                        </div>
-                      </TooltipTrigger>
-                      <TooltipContent className="bg-gray-900/90 backdrop-blur-md border border-axima-blue/30 text-white p-3">
-                        <p className="font-medium flex items-center gap-2">
-                          <Check className="w-4 h-4 text-axima-blue" />
-                          {badge.title}
-                        </p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </TooltipProvider>
-
-          <div className="flex flex-col md:flex-row items-center justify-between mb-8">
             <div className="flex items-center mb-4 md:mb-0">
               <h3 className="text-xl font-bold text-white mr-4">Our Social Networks</h3>
               <div className="flex space-x-4">
