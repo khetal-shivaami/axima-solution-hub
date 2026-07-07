@@ -57,7 +57,7 @@ const reasons = [
 
 export const WhyChooseAxima = () => {
   return (
-    <section className="relative z-10 py-12">
+    <section className="relative z-10 py-6">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
