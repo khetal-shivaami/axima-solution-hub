@@ -63,7 +63,7 @@ const navItems: NavItem[] = [
         title: "IAM & MDM",
         items: [
           { label: "JumpCloud", href: "/jumpcloud" },
-          { label: "miniOrange", href: "/products" },
+          { label: "miniOrange", href: "/miniorange" },
           { label: "1Password", href: "/product/onepassword" },
           { label: "Scalefusion", href: "/product/scalefusion" },
         ],
