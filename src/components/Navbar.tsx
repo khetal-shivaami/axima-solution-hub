@@ -25,7 +25,7 @@ const navItems: NavItem[] = [
         items: [
           { label: "Microsoft Azure", href: "/microsoft-azure" },
           { label: "Jio Azure", href: "/microsoft-jioazure" },
-          { label: "Google Cloud", href: "/products" },
+          { label: "Google Cloud", href: "/google-cloud" },
           { label: "Amazon Web Services", href: "/products" },
         ],
       },

@@ -23,6 +23,7 @@ import RefundPolicy from "./pages/RefundPolicy";
 import Microsoft365 from "./pages/Microsoft365";
 import MSAzure from "./pages/MSAzure";
 import JioAzure from "./pages/JioAzure";
+import GoogleCloud from "./pages/GoogleCloud";
 import SupportPackages from "./pages/SupportPackages";
 import CaseStudies from "./pages/CaseStudies";
 import ContactThankYou from "./pages/ContactThankYou";
@@ -78,6 +79,7 @@ const App = () => {
                 <Route path="/microsoft-365" element={<Microsoft365 />} />
                 <Route path="/microsoft-azure" element={<MSAzure />} />
                 <Route path="/microsoft-jioazure" element={<JioAzure />} />
+                <Route path="/google-cloud" element={<GoogleCloud />} />
                 <Route path="/support-packages" element={<SupportPackages />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />
