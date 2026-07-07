@@ -3,7 +3,7 @@ import { Target, Rocket } from "lucide-react";
 
 export const Vision = () => {
   return (
-    <section className="min-h-[75vh] flex items-center justify-center relative overflow-hidden px-4 py-8 snap-start">
+    <section className="min-h-[65vh] flex items-center justify-center relative overflow-hidden px-4 py-6 snap-start">
       <div className="container mx-auto max-w-7xl">
         <div className="grid md:grid-cols-2 gap-6">
           {/* Vision */}
