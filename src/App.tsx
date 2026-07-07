@@ -40,6 +40,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import ProductPage from "./pages/ProductPage";
 import CyberSecurity from "./pages/CyberSecurity";
+import JumpCloud from "./pages/JumpCloud";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
