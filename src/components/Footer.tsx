@@ -1,14 +1,7 @@
-
-import { Facebook, Twitter, Linkedin, Instagram, ChevronDown, Check } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "./ui/tooltip";
 
 const usefulLinks = [
   { label: "About", href: "/about" },
