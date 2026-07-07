@@ -243,6 +243,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-8">
             <div className="flex items-center mb-4 md:mb-0">
               <h3 className="text-xl font-bold text-white mr-4">Our Social Networks</h3>
               <div className="flex space-x-4">
