@@ -41,6 +41,7 @@ import BlogPost from "./pages/BlogPost";
 import ProductPage from "./pages/ProductPage";
 import CyberSecurity from "./pages/CyberSecurity";
 import JumpCloud from "./pages/JumpCloud";
+import MiniOrange from "./pages/MiniOrange";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -85,6 +86,7 @@ const App = () => {
                 <Route path="/google-cloud" element={<GoogleCloud />} />
                 <Route path="/cyber-security" element={<CyberSecurity />} />
                 <Route path="/jumpcloud" element={<JumpCloud />} />
+                <Route path="/miniorange" element={<MiniOrange />} />
                 <Route path="/support-packages" element={<SupportPackages />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />
