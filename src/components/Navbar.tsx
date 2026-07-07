@@ -26,7 +26,7 @@ const navItems: NavItem[] = [
           { label: "Microsoft Azure", href: "/microsoft-azure" },
           { label: "Jio Azure", href: "/microsoft-jioazure" },
           { label: "Google Cloud", href: "/google-cloud" },
-          { label: "Amazon Web Services", href: "/products" },
+          { label: "Amazon Web Services", href: "/products/amazon-web-services" },
         ],
       },
       {
@@ -34,29 +34,29 @@ const navItems: NavItem[] = [
         items: [
           { label: "Microsoft 365", href: "/microsoft-365" },
           { label: "Microsoft Copilot", href: "/copilot" },
-          { label: "Google Workspace", href: "/products" },
-          { label: "Zoho", href: "/products" },
+          { label: "Google Workspace", href: "/products/google-workspace" },
+          { label: "Zoho", href: "/products/zoho-mail" },
         ],
       },
       {
         title: "Video Conferencing",
         items: [
-          { label: "Zoom", href: "/product/zoom" },
-          { label: "Microsoft Teams", href: "/microsoft-365" },
+          { label: "Zoom", href: "/products/zoom" },
+          { label: "Microsoft Teams", href: "/products/microsoft-teams" },
         ],
       },
       {
         title: "Backup Solutions",
         items: [
-          { label: "HYCU", href: "/product/hycu" },
-          { label: "Spin.AI", href: "/product/spin-ai" },
-          { label: "Digiboxx", href: "/products" },
+          { label: "HYCU", href: "/products/hycu" },
+          { label: "Spin.AI", href: "/products/spin-ai" },
+          { label: "Digiboxx", href: "/products/digiboxx" },
         ],
       },
       {
         title: "Cyber Security",
         items: [
-          { label: "Checkpoint", href: "/products" },
+          { label: "Checkpoint", href: "/products/checkpoint" },
         ],
       },
       {
