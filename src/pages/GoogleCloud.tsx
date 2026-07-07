@@ -54,6 +54,11 @@ const faqs = [
 
 const GoogleCloud = () => {
   const navigate = useNavigate();
+  const [openFaqIndex, setOpenFaqIndex] = useState<number>(0);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaqIndex((current) => (current === index ? -1 : index));
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 relative">
