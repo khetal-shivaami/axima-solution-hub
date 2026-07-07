@@ -82,6 +82,7 @@ const App = () => {
                 <Route path="/microsoft-azure" element={<MSAzure />} />
                 <Route path="/microsoft-jioazure" element={<JioAzure />} />
                 <Route path="/google-cloud" element={<GoogleCloud />} />
+                <Route path="/cyber-security" element={<CyberSecurity />} />
                 <Route path="/support-packages" element={<SupportPackages />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />
