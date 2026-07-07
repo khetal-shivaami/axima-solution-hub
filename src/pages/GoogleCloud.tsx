@@ -1,10 +1,11 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowRight, HelpCircle } from "lucide-react";
+import { CheckCircle, ArrowRight, HelpCircle, ChevronDown } from "lucide-react";
 
 const features = [
   "Global network spanning 40+ regions with low-latency connectivity",
