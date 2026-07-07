@@ -162,25 +162,47 @@ const GoogleCloud = () => {
           >
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">FAQs</h2>
             <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                >
-                  <Card className="bg-black/40 border border-white/10 hover:border-axima-blue/40 transition-all duration-300">
-                    <div className="p-5">
-                      <div className="flex items-start gap-3 mb-2">
-                        <HelpCircle className="h-5 w-5 text-axima-blue flex-shrink-0 mt-0.5" />
-                        <h3 className="text-lg font-semibold text-white">{faq.question}</h3>
-                      </div>
-                      <p className="text-gray-300 pl-8 leading-relaxed">{faq.answer}</p>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
+              {faqs.map((faq, index) => {
+                const isOpen = openFaqIndex === index;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    viewport={{ once: true }}
+                  >
+                    <Card className="bg-black/40 border border-white/10 hover:border-axima-blue/40 transition-all duration-300 overflow-hidden">
+                      <button
+                        onClick={() => toggleFaq(index)}
+                        className="w-full p-5 text-left flex items-start justify-between gap-3"
+                        aria-expanded={isOpen}
+                      >
+                        <div className="flex items-start gap-3">
+                          <HelpCircle className="h-5 w-5 text-axima-blue flex-shrink-0 mt-0.5" />
+                          <h3 className="text-lg font-semibold text-white">{faq.question}</h3>
+                        </div>
+                        <ChevronDown
+                          className={`h-5 w-5 text-gray-400 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                        />
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="overflow-hidden"
+                          >
+                            <p className="text-gray-300 pl-12 pr-5 pb-5 leading-relaxed">{faq.answer}</p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </Card>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </motion.div>
