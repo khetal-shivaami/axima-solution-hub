@@ -42,6 +42,7 @@ import ProductPage from "./pages/ProductPage";
 import CyberSecurity from "./pages/CyberSecurity";
 import JumpCloud from "./pages/JumpCloud";
 import MiniOrange from "./pages/MiniOrange";
+import OnePassword from "./pages/OnePassword";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -87,6 +88,7 @@ const App = () => {
                 <Route path="/cyber-security" element={<CyberSecurity />} />
                 <Route path="/jumpcloud" element={<JumpCloud />} />
                 <Route path="/miniorange" element={<MiniOrange />} />
+                <Route path="/onepassword" element={<OnePassword />} />
                 <Route path="/support-packages" element={<SupportPackages />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />

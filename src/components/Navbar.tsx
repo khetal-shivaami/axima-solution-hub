@@ -64,7 +64,7 @@ const navItems: NavItem[] = [
         items: [
           { label: "JumpCloud", href: "/jumpcloud" },
           { label: "miniOrange", href: "/miniorange" },
-          { label: "1Password", href: "/product/onepassword" },
+          { label: "1Password", href: "/onepassword" },
           { label: "Scalefusion", href: "/product/scalefusion" },
         ],
       },
