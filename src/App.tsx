@@ -45,6 +45,7 @@ import MiniOrange from "./pages/MiniOrange";
 import OnePassword from "./pages/OnePassword";
 import Scalefusion from "./pages/Scalefusion";
 import FlexiSign from "./pages/FlexiSign";
+import Superworks from "./pages/Superworks";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -93,6 +94,7 @@ const App = () => {
                 <Route path="/onepassword" element={<OnePassword />} />
                 <Route path="/scalefusion" element={<Scalefusion />} />
                 <Route path="/flexisign" element={<FlexiSign />} />
+                <Route path="/superworks" element={<Superworks />} />
                 <Route path="/support-packages" element={<SupportPackages />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />
