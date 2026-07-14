@@ -26,24 +26,24 @@ const benefits = [
 
 const faqs = [
   {
-    question: "Is lexiSign legally valid in India?",
+    question: "Is FlexiSign legally valid in India?",
     answer:
-      "Yes. lexiSign supports Aadhaar eSign and DSC-based signatures which are legally recognised under the Indian IT Act 2000.",
+      "Yes. FlexiSign supports Aadhaar eSign and DSC-based signatures which are legally recognised under the Indian IT Act 2000.",
   },
   {
     question: "Can multiple parties sign the same document?",
     answer:
-      "Yes. lexiSign supports multi-party workflows with customisable signing order and automatic reminders.",
+      "Yes. FlexiSign supports multi-party workflows with customisable signing order and automatic reminders.",
   },
   {
-    question: "Does lexiSign work on mobile?",
+    question: "Does FlexiSign work on mobile?",
     answer:
       "Yes. Signatories can review and sign documents from any smartphone or tablet without installing an app.",
   },
   {
-    question: "Can I integrate lexiSign with my existing systems?",
+    question: "Can I integrate FlexiSign with my existing systems?",
     answer:
-      "Yes. lexiSign provides API access for embedding signing workflows into CRMs, ERPs, and custom applications.",
+      "Yes. FlexiSign provides API access for embedding signing workflows into CRMs, ERPs, and custom applications.",
   },
   {
     question: "Is there an audit trail for signed documents?",
@@ -52,7 +52,7 @@ const faqs = [
   },
 ];
 
-const FlexiSign = () => {
+const FFlexiSign = () => {
   const navigate = useNavigate();
   const [openFaqIndex, setOpenFaqIndex] = useState<number>(0);
 
@@ -76,9 +76,9 @@ const FlexiSign = () => {
             <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-4">
               E-Signature
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">lexiSign</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">FFlexiSign</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              lexiSign is a legally valid digital signature platform built for Indian businesses that need to sign, send, and manage documents securely and compliantly. It simplifies the signing process for contracts, agreements, and approvals without the back-and-forth of physical paperwork.
+              FFlexiSign is a legally valid digital signature platform built for Indian businesses that need to sign, send, and manage documents securely and compliantly. It simplifies the signing process for contracts, agreements, and approvals without the back-and-forth of physical paperwork.
             </p>
             <Button
               onClick={() => navigate("/contact")}
@@ -212,4 +212,4 @@ const FlexiSign = () => {
   );
 };
 
-export default FlexiSign;
+export default FFlexiSign;
