@@ -70,7 +70,7 @@ const navItems: NavItem[] = [
       },
       {
         title: "E-Signature",
-        items: [{ label: "FlexiSign", href: "/product/flexisign" }],
+        items: [{ label: "FlexiSign", href: "/flexisign" }],
       },
       {
         title: "HRMS",
