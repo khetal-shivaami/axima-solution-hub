@@ -81,7 +81,7 @@ const navItems: NavItem[] = [
         items: [
           { label: "Atera", href: "/atera" },
           { label: "SuperOps", href: "/superops" },
-          { label: "Viami", href: "/products" },
+          { label: "Viami", href: "/viami" },
         ],
       },
       {
