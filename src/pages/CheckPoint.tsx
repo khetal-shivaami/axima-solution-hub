@@ -52,7 +52,7 @@ const faqs = [
   },
 ];
 
-const CyberSecurity = () => {
+const CheckPoint = () => {
   const navigate = useNavigate();
   const [openFaqIndex, setOpenFaqIndex] = useState<number>(0);
 
@@ -76,7 +76,7 @@ const CyberSecurity = () => {
             <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-4">
               Cyber Security
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Cyber Security</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Check Point</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
               Check Point is a global leader in cyber security, delivering unified threat prevention across network, cloud, endpoint, and mobile environments. Its AI-powered security architecture stops the most sophisticated attacks before they reach your business.
             </p>
@@ -212,4 +212,4 @@ const CyberSecurity = () => {
   );
 };
 
-export default CyberSecurity;
+export default CheckPoint;
