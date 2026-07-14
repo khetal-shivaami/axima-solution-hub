@@ -86,7 +86,7 @@ const navItems: NavItem[] = [
       },
       {
         title: "Operating Systems",
-        items: [{ label: "Chrome OS", href: "/products" }],
+        items: [{ label: "Chrome OS", href: "/chrome-os" }],
       },
       {
         title: "Social Media Management",
