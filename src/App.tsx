@@ -47,6 +47,7 @@ import Scalefusion from "./pages/Scalefusion";
 import FlexiSign from "./pages/FlexiSign";
 import Superworks from "./pages/Superworks";
 import Atera from "./pages/Atera";
+import SuperOps from "./pages/SuperOps";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -97,6 +98,7 @@ const App = () => {
                 <Route path="/flexisign" element={<FlexiSign />} />
                 <Route path="/superworks" element={<Superworks />} />
                 <Route path="/atera" element={<Atera />} />
+                <Route path="/superops" element={<SuperOps />} />
                 <Route path="/support-packages" element={<SupportPackages />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />
