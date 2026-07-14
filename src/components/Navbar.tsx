@@ -90,7 +90,7 @@ const navItems: NavItem[] = [
       },
       {
         title: "Social Media Management",
-        items: [{ label: "RecurPost", href: "/products" }],
+        items: [{ label: "RecurPost", href: "/recurpost" }],
       },
       {
         title: "Services",
