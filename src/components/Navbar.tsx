@@ -80,7 +80,7 @@ const navItems: NavItem[] = [
         title: "ITSM",
         items: [
           { label: "Atera", href: "/atera" },
-          { label: "SuperOps", href: "/products" },
+          { label: "SuperOps", href: "/superops" },
           { label: "Viami", href: "/products" },
         ],
       },
