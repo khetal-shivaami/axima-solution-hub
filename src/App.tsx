@@ -50,6 +50,7 @@ import Atera from "./pages/Atera";
 import SuperOps from "./pages/SuperOps";
 import Viami from "./pages/Viami";
 import ChromeOS from "./pages/ChromeOS";
+import RecurPost from "./pages/RecurPost";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -103,6 +104,7 @@ const App = () => {
                 <Route path="/superops" element={<SuperOps />} />
                 <Route path="/viami" element={<Viami />} />
                 <Route path="/chrome-os" element={<ChromeOS />} />
+                <Route path="/recurpost" element={<RecurPost />} />
                 <Route path="/support-packages" element={<SupportPackages />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />
