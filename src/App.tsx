@@ -39,7 +39,7 @@ import UpcomingEvents from "./pages/UpcomingEvents";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import ProductPage from "./pages/ProductPage";
-import CyberSecurity from "./pages/CyberSecurity";
+import CheckPoint from "./pages/CheckPoint";
 import JumpCloud from "./pages/JumpCloud";
 import MiniOrange from "./pages/MiniOrange";
 import OnePassword from "./pages/OnePassword";
@@ -93,7 +93,7 @@ const App = () => {
                 <Route path="/microsoft-azure" element={<MSAzure />} />
                 <Route path="/microsoft-jioazure" element={<JioAzure />} />
                 <Route path="/google-cloud" element={<GoogleCloud />} />
-                <Route path="/cyber-security" element={<CyberSecurity />} />
+                <Route path="/check-point" element={<CheckPoint />} />
                 <Route path="/jumpcloud" element={<JumpCloud />} />
                 <Route path="/miniorange" element={<MiniOrange />} />
                 <Route path="/onepassword" element={<OnePassword />} />

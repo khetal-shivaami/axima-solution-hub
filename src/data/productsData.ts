@@ -85,7 +85,7 @@ export const innovativeSolutions = [
     name: "Check Point",
     description: "A global leader in cyber security, delivering unified threat prevention across network, cloud, endpoint, and mobile environments.",
     image: "https://storage.googleapis.com/axima-website-content/logos/Checkpoint.webp",
-    route: "/products/checkpoint"
+    route: "/check-point"
   },
   {
     name: "Jumpcloud",

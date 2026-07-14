@@ -56,7 +56,7 @@ const navItems: NavItem[] = [
       {
         title: "Cyber Security",
         items: [
-          { label: "Checkpoint", href: "/cyber-security" },
+          { label: "Checkpoint", href: "/check-point" },
         ],
       },
       {
