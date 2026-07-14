@@ -43,6 +43,7 @@ import CyberSecurity from "./pages/CyberSecurity";
 import JumpCloud from "./pages/JumpCloud";
 import MiniOrange from "./pages/MiniOrange";
 import OnePassword from "./pages/OnePassword";
+import Scalefusion from "./pages/Scalefusion";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -89,6 +90,7 @@ const App = () => {
                 <Route path="/jumpcloud" element={<JumpCloud />} />
                 <Route path="/miniorange" element={<MiniOrange />} />
                 <Route path="/onepassword" element={<OnePassword />} />
+                <Route path="/scalefusion" element={<Scalefusion />} />
                 <Route path="/support-packages" element={<SupportPackages />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />
