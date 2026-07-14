@@ -74,7 +74,7 @@ const navItems: NavItem[] = [
       },
       {
         title: "HRMS",
-        items: [{ label: "Superworks", href: "/products" }],
+        items: [{ label: "Superworks", href: "/superworks" }],
       },
       {
         title: "ITSM",
