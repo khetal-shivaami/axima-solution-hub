@@ -48,6 +48,7 @@ import FlexiSign from "./pages/FlexiSign";
 import Superworks from "./pages/Superworks";
 import Atera from "./pages/Atera";
 import SuperOps from "./pages/SuperOps";
+import Viami from "./pages/Viami";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -99,6 +100,7 @@ const App = () => {
                 <Route path="/superworks" element={<Superworks />} />
                 <Route path="/atera" element={<Atera />} />
                 <Route path="/superops" element={<SuperOps />} />
+                <Route path="/viami" element={<Viami />} />
                 <Route path="/support-packages" element={<SupportPackages />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />
