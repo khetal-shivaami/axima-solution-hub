@@ -76,9 +76,9 @@ const FlexiSign = () => {
             <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-4">
               E-Signature
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">lexiSign</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">FlexiSign</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              lexiSign is a legally valid digital signature platform built for Indian businesses that need to sign, send, and manage documents securely and compliantly. It simplifies the signing process for contracts, agreements, and approvals without the back-and-forth of physical paperwork.
+              FlexiSign is a legally valid digital signature platform built for Indian businesses that need to sign, send, and manage documents securely and compliantly. It simplifies the signing process for contracts, agreements, and approvals without the back-and-forth of physical paperwork.
             </p>
             <Button
               onClick={() => navigate("/contact")}
