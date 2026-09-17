@@ -1,5 +1,10 @@
 import { motion } from "framer-motion";
 import {
+  Users,
+  MapPin,
+  Headset,
+  Award,
+  Calendar,
   Building2,
   BadgeDollarSign,
   TrendingUp,
@@ -7,6 +12,36 @@ import {
 } from "lucide-react";
 
 const reasons = [
+  {
+    title: "2000+ Satisfied Customers",
+    description:
+      "Trusted by businesses across India to deliver reliable technology solutions and ongoing support.",
+    icon: Users,
+  },
+  {
+    title: "5+ Key Cities",
+    description:
+      "Serving major business hubs with local presence and quick on-ground support when you need it.",
+    icon: MapPin,
+  },
+  {
+    title: "24 hrs Technical Support",
+    description:
+      "Round-the-clock assistance from certified specialists who resolve issues quickly and keep you running.",
+    icon: Headset,
+  },
+  {
+    title: "98% Customer Satisfaction",
+    description:
+      "Our commitment to responsive service and long-term partnerships shows in every client relationship.",
+    icon: Award,
+  },
+  {
+    title: "10+ Years Experience",
+    description:
+      "A decade of expertise across cloud infrastructure, security, and enterprise technology solutions.",
+    icon: Calendar,
+  },
   {
     title: "One Partner, Everything Covered",
     description:
@@ -47,7 +82,7 @@ export const WhyChooseAxima = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white">Why Choose Axima</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
             return (
