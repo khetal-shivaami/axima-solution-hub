@@ -23,82 +23,82 @@ const navItems: NavItem[] = [
       {
         title: "Cloud Infrastructure",
         items: [
-          { label: "Microsoft Azure", href: "/microsoft-azure" },
-          { label: "Jio Azure", href: "/microsoft-jioazure" },
-          { label: "Google Cloud", href: "/google-cloud" },
-          { label: "Amazon Web Services", href: "/products/amazon-web-services" },
+          { label: "Microsoft Azure", href: "/microsoft-azure", description: "Scalable cloud infrastructure" },
+          { label: "Jio Azure", href: "/microsoft-jioazure", description: "Azure hosted in India" },
+          { label: "Google Cloud", href: "/google-cloud", description: "AI-ready cloud platform" },
+          { label: "Amazon Web Services", href: "/products/amazon-web-services", description: "Flexible global cloud services" },
         ],
       },
       {
         title: "Email Collaboration",
         items: [
-          { label: "Microsoft 365", href: "/microsoft-365" },
-          { label: "Microsoft Copilot", href: "/copilot" },
-          { label: "Google Workspace", href: "/products/google-workspace" },
-          { label: "Zoho", href: "/products/zoho-mail" },
+          { label: "Microsoft 365", href: "/microsoft-365", description: "Workplace productivity suite" },
+          { label: "Microsoft Copilot", href: "/copilot", description: "AI-powered work assistant" },
+          { label: "Google Workspace", href: "/products/google-workspace", description: "Cloud collaboration tools" },
+          { label: "Zoho", href: "/products/zoho-mail", description: "Secure business email" },
         ],
       },
       {
         title: "Video Conferencing",
         items: [
-          { label: "Zoom", href: "/products/zoom" },
-          { label: "Microsoft Teams", href: "/products/microsoft-teams" },
+          { label: "Zoom", href: "/products/zoom", description: "Meetings and webinars" },
+          { label: "Microsoft Teams", href: "/products/microsoft-teams", description: "Chat, calls and teamwork" },
         ],
       },
       {
         title: "Backup Solutions",
         items: [
-          { label: "HYCU", href: "/products/hycu" },
-          { label: "Spin.AI", href: "/products/spin-ai" },
-          { label: "Digiboxx", href: "/products/digiboxx" },
+          { label: "HYCU", href: "/products/hycu", description: "Multi-cloud data protection" },
+          { label: "Spin.AI", href: "/products/spin-ai", description: "SaaS security and backup" },
+          { label: "Digiboxx", href: "/products/digiboxx", description: "Made-in-India cloud storage" },
         ],
       },
       {
         title: "Cyber Security",
         items: [
-          { label: "Checkpoint", href: "/check-point" },
+          { label: "Checkpoint", href: "/check-point", description: "Unified cyber threat prevention" },
         ],
       },
       {
         title: "IAM & MDM",
         items: [
-          { label: "JumpCloud", href: "/jumpcloud" },
-          { label: "miniOrange", href: "/miniorange" },
-          { label: "1Password", href: "/onepassword" },
-          { label: "Scalefusion", href: "/scalefusion" },
+          { label: "JumpCloud", href: "/jumpcloud", description: "Cloud directory and access" },
+          { label: "miniOrange", href: "/miniorange", description: "Identity and access security" },
+          { label: "1Password", href: "/onepassword", description: "Secure password management" },
+          { label: "Scalefusion", href: "/scalefusion", description: "Unified endpoint management" },
         ],
       },
       {
         title: "E-Signature",
-        items: [{ label: "FlexiSign", href: "/flexisign" }],
+        items: [{ label: "FlexiSign", href: "/flexisign", description: "Digital signatures made simple" }],
       },
       {
         title: "HRMS",
-        items: [{ label: "Superworks", href: "/superworks" }],
+        items: [{ label: "Superworks", href: "/superworks", description: "Complete HR management" }],
       },
       {
         title: "ITSM",
         items: [
-          { label: "Atera", href: "/atera" },
-          { label: "SuperOps", href: "/superops" },
-          { label: "Viami", href: "/viami" },
+          { label: "Atera", href: "/atera", description: "All-in-one IT management" },
+          { label: "SuperOps", href: "/superops", description: "Modern IT service management" },
+          { label: "Viami", href: "/viami", description: "Smart business automation" },
         ],
       },
       {
         title: "Operating Systems",
-        items: [{ label: "Chrome OS", href: "/chrome-os" }],
+        items: [{ label: "Chrome OS", href: "/chrome-os", description: "Secure cloud-first operating system" }],
       },
       {
         title: "Social Media Management",
-        items: [{ label: "RecurPost", href: "/recurpost" }],
+        items: [{ label: "RecurPost", href: "/recurpost", description: "Social media scheduling" }],
       },
       {
         title: "Services",
         items: [
-          { label: "All Services", href: "/services" },
-          { label: "Support Packages", href: "/support-packages" },
-          { label: "Plans & Pricing", href: "/plans" },
-          { label: "All Products", href: "/products" },
+          { label: "All Services", href: "/services", description: "Explore our IT services" },
+          { label: "Support Packages", href: "/support-packages", description: "Expert support for your business" },
+          { label: "Plans & Pricing", href: "/plans", description: "Compare available plans" },
+          { label: "All Products", href: "/products", description: "Browse every solution" },
         ],
       },
     ],
@@ -157,7 +157,7 @@ export const Navbar: FC = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/95 backdrop-blur-sm shadow-lg" : "bg-black/70 backdrop-blur-sm"
+        scrolled ? "bg-transparent backdrop-blur-sm shadow-lg" : "bg-transparent backdrop-blur-sm"
       }`}
     >
       {/* Top utility strip */}
@@ -352,7 +352,10 @@ export const Navbar: FC = () => {
                                   className="block py-1.5 px-4 text-sm text-white/90 hover:text-axima-blue"
                                   onClick={() => setIsOpen(false)}
                                 >
-                                  {sub.label}
+                                  <span className="block">{sub.label}</span>
+                                  {sub.description && (
+                                    <span className="mt-0.5 block text-xs text-gray-400">{sub.description}</span>
+                                  )}
                                 </a>
                               ) : (
                                 <Link
@@ -361,7 +364,10 @@ export const Navbar: FC = () => {
                                   className="block py-1.5 px-4 text-sm text-white/90 hover:text-axima-blue"
                                   onClick={() => setIsOpen(false)}
                                 >
-                                  {sub.label}
+                                  <span className="block">{sub.label}</span>
+                                  {sub.description && (
+                                    <span className="mt-0.5 block text-xs text-gray-400">{sub.description}</span>
+                                  )}
                                 </Link>
                               )
                             )}
