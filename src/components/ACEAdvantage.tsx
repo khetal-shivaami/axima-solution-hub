@@ -98,6 +98,7 @@ const pillars = [
     description:
       "Expert-led services that ensure your technology works the way your business needs it to.",
     icon: Award,
+    gradient: "from-indigo-500/10",
     items: [
       {
         title: "Security Assessments",
