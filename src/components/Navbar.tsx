@@ -174,7 +174,7 @@ export const Navbar: FC = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex flex-1 items-center justify-center gap-7 text-[15px]">
             {navItems.map((item) => {
               if (item.mega) {
                 const isOpenMenu = openMega === item.label;
