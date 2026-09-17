@@ -71,17 +71,16 @@ const bottomReasons = [
   },
 ];
 
-const cardClasses =
-  "relative group lg:col-span-2";
-
 const Card = ({
   reason,
   index,
   start = 0,
+  className = "",
 }: {
   reason: (typeof topReasons)[number];
   index: number;
   start?: number;
+  className?: string;
 }) => {
   const Icon = reason.icon;
   return (
@@ -91,7 +90,7 @@ const Card = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: (start + index) * 0.05 }}
       viewport={{ once: true }}
-      className={cardClasses}
+      className={`relative group lg:col-span-2 ${className}`}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-axima-blue/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl" />
       <div className="relative h-full bg-black/40 border border-white/10 rounded-xl p-6 backdrop-blur-sm hover:border-axima-blue/50 transition-all duration-300">
@@ -132,7 +131,7 @@ export const WhyChooseAxima = () => {
               reason={reason}
               index={index}
               start={0}
-              {...(index === 3 ? { className: `${cardClasses} lg:col-start-2` } : {})}
+              className={index === 3 ? "lg:col-start-2" : ""}
             />
           ))}
         </div>
