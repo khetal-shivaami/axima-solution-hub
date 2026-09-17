@@ -1,7 +1,28 @@
 
 import { FC } from "react";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, Phone, HelpCircle } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Phone,
+  HelpCircle,
+  Cloud,
+  Mail,
+  Video,
+  DatabaseBackup,
+  ShieldCheck,
+  KeyRound,
+  FileSignature,
+  UsersRound,
+  Wrench,
+  MonitorCog,
+  Share2,
+  Layers3,
+  BookOpen,
+  MessagesSquare,
+  type LucideIcon,
+} from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Searchbar } from "./Searchbar";
 
@@ -128,6 +149,23 @@ const navItems: NavItem[] = [
   { label: "Contact Us", href: "/contact" },
 ];
 
+const megaColumnIcons: Record<string, LucideIcon> = {
+  "Cloud Infrastructure": Cloud,
+  "Email Collaboration": Mail,
+  "Video Conferencing": Video,
+  "Backup Solutions": DatabaseBackup,
+  "Cyber Security": ShieldCheck,
+  "IAM & MDM": KeyRound,
+  "E-Signature": FileSignature,
+  HRMS: UsersRound,
+  ITSM: Wrench,
+  "Operating Systems": MonitorCog,
+  "Social Media Management": Share2,
+  Services: Layers3,
+  Learn: BookOpen,
+  Engage: MessagesSquare,
+};
+
 export const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -221,13 +259,16 @@ export const Navbar: FC = () => {
                         onMouseLeave={handleMegaLeave}
                       >
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-6">
-                          {item.mega.map((col) => (
-                            <div key={col.title}>
-                              <h4 className="text-axima-blue text-xs font-semibold uppercase tracking-wider mb-3">
-                                {col.title}
-                              </h4>
-                              <ul className="space-y-1">
-                                {col.items.map((sub) => (
+                          {item.mega.map((col) => {
+                            const ColumnIcon = megaColumnIcons[col.title];
+                            return (
+                              <div key={col.title}>
+                                <h4 className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-axima-blue">
+                                  {ColumnIcon && <ColumnIcon className="h-4 w-4 shrink-0" aria-hidden="true" />}
+                                  <span>{col.title}</span>
+                                </h4>
+                                <ul className="space-y-1">
+                                  {col.items.map((sub) => (
                                   <li key={sub.label}>
                                     {isExternalLink(sub.href) ? (
                                       <a
@@ -257,10 +298,11 @@ export const Navbar: FC = () => {
                                       </Link>
                                     )}
                                   </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
+                                  ))}
+                                </ul>
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -283,7 +325,7 @@ export const Navbar: FC = () => {
                   to={href}
                   className={`transition-colors duration-200 text-white hover:text-axima-blue relative py-2 ${
                     isCurrentPage(href) ? "font-semibold text-axima-blue" : ""
-                  } ${item.blink ? "animate-pulse text-yellow-400 hover:text-yellow-300 font-semibold" : ""}`}
+                  } ${item.blink ? "animate-pulse rounded-full border border-axima-blue/50 bg-axima-blue/10 px-3 font-semibold text-axima-blue hover:bg-axima-blue/20 hover:text-axima-blue" : ""}`}
                 >
                   <span className="flex items-center gap-1">
                     {item.label}
@@ -339,12 +381,15 @@ export const Navbar: FC = () => {
                     </button>
                     {expanded && (
                       <div className="pl-4 pb-2">
-                        {item.mega.map((col) => (
-                          <div key={col.title} className="mb-2">
-                            <div className="px-4 py-1 text-xs uppercase tracking-wider text-axima-blue/80">
-                              {col.title}
-                            </div>
-                            {col.items.map((sub) =>
+                        {item.mega.map((col) => {
+                          const ColumnIcon = megaColumnIcons[col.title];
+                          return (
+                            <div key={col.title} className="mb-2">
+                              <div className="flex items-center gap-2 px-4 py-1 text-xs uppercase tracking-wider text-axima-blue/80">
+                                {ColumnIcon && <ColumnIcon className="h-4 w-4 shrink-0" aria-hidden="true" />}
+                                <span>{col.title}</span>
+                              </div>
+                              {col.items.map((sub) =>
                               isExternalLink(sub.href) ? (
                                 <a
                                   key={sub.label}
@@ -370,9 +415,10 @@ export const Navbar: FC = () => {
                                   )}
                                 </Link>
                               )
-                            )}
-                          </div>
-                        ))}
+                              )}
+                            </div>
+                          );
+                        })}
                       </div>
                     )}
                   </div>
@@ -394,7 +440,7 @@ export const Navbar: FC = () => {
                   to={href}
                   className={`block py-2 px-4 text-white hover:text-axima-blue ${
                     isCurrentPage(href) ? "font-semibold text-axima-blue bg-white/5" : ""
-                  } ${item.blink ? "animate-pulse text-yellow-400 font-semibold" : ""}`}
+                  } ${item.blink ? "mx-4 my-1 animate-pulse rounded border border-axima-blue/50 bg-axima-blue/10 font-semibold text-axima-blue" : ""}`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
