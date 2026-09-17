@@ -1,7 +1,7 @@
 
 import { FC } from "react";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, HelpCircle } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Searchbar } from "./Searchbar";
 
@@ -157,9 +157,28 @@ export const Navbar: FC = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/90 backdrop-blur-sm shadow-lg" : "bg-transparent"
+        scrolled ? "bg-black/95 backdrop-blur-sm shadow-lg" : "bg-black/70 backdrop-blur-sm"
       }`}
     >
+      {/* Top utility strip */}
+      <div className="hidden md:block border-b border-white/10">
+        <div className="container mx-auto px-4">
+          <div className="flex h-9 items-center justify-end gap-6 text-xs text-gray-300">
+            <div className="w-56">
+              <Searchbar />
+            </div>
+            <a href="tel:+919833929393" className="flex items-center gap-1.5 hover:text-axima-blue transition-colors">
+              <Phone className="w-3.5 h-3.5" />
+              +91 98339 29393
+            </a>
+            <Link to="/contact" className="flex items-center gap-1.5 hover:text-axima-blue transition-colors">
+              <HelpCircle className="w-3.5 h-3.5" />
+              Support
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex flex-col items-center">
@@ -174,7 +193,7 @@ export const Navbar: FC = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex flex-1 items-center justify-center gap-7 text-[15px]">
             {navItems.map((item) => {
               if (item.mega) {
                 const isOpenMenu = openMega === item.label;
@@ -197,7 +216,7 @@ export const Navbar: FC = () => {
 
                     {isOpenMenu && (
                       <div
-                        className="fixed left-1/2 -translate-x-1/2 top-20 w-[min(1300px,96vw)] bg-black/95 backdrop-blur-md border border-axima-blue/30 rounded-xl shadow-2xl p-6 animate-fade-in"
+                        className="fixed left-1/2 -translate-x-1/2 top-[116px] w-[min(1300px,96vw)] bg-black/95 backdrop-blur-md border border-axima-blue/30 rounded-xl shadow-2xl p-6 animate-fade-in"
                         onMouseEnter={() => handleMegaEnter(item.label)}
                         onMouseLeave={handleMegaLeave}
                       >
@@ -278,9 +297,14 @@ export const Navbar: FC = () => {
             })}
           </div>
 
-          {/* Search Bar */}
+          {/* CTA */}
           <div className="hidden md:block">
-            <Searchbar />
+            <Link
+              to="/contact"
+              className="inline-flex items-center rounded-full bg-axima-blue px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/25"
+            >
+              Let's Connect
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
