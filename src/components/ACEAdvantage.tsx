@@ -64,6 +64,7 @@ const pillars = [
     description:
       "Security, identity, and backup solutions that give you full visibility and zero blind spots.",
     icon: Shield,
+    gradient: "from-cyan-500/10",
     items: [
       {
         title: "Cyber Security",
