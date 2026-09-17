@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Card } from "./ui/card";
 import {
   Building2,
   BadgeDollarSign,
@@ -69,7 +68,7 @@ export const WhyChooseAxima = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white">Why Choose Axima</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
             return (
@@ -79,18 +78,21 @@ export const WhyChooseAxima = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 viewport={{ once: true }}
+                className="relative group"
               >
-                <Card className="h-full bg-black/40 border-white/10 backdrop-blur-sm hover:border-axima-blue/40 hover:scale-[1.02] transition-all duration-300">
-                  <div className="p-4 flex items-start gap-3">
-                    <div className="p-2 rounded-lg bg-axima-blue/20 text-axima-blue flex-shrink-0">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-white mb-1">{reason.title}</h3>
-                      <p className="text-sm text-gray-400 leading-snug">{reason.description}</p>
-                    </div>
+                <div className="absolute inset-0 bg-gradient-to-b from-axima-blue/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl" />
+                <div className="relative h-full bg-black/40 border border-white/10 rounded-xl p-6 backdrop-blur-sm hover:border-axima-blue/50 transition-all duration-300">
+                  <div className="p-3 rounded-lg bg-axima-blue/20 text-axima-blue w-fit mb-4">
+                    <Icon className="w-6 h-6" />
                   </div>
-                </Card>
+                  <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-axima-blue transition-colors duration-300">
+                    {reason.title}
+                  </h3>
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                    {reason.description}
+                  </p>
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-axima-blue to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-xl" />
+                </div>
               </motion.div>
             );
           })}
@@ -99,4 +101,3 @@ export const WhyChooseAxima = () => {
     </section>
   );
 };
-
