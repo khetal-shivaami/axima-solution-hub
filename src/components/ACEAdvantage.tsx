@@ -25,6 +25,7 @@ const pillars = [
     description:
       "Cloud, collaboration, and productivity tools that keep your business moving forward.",
     icon: Zap,
+    gradient: "from-axima-blue/15",
     items: [
       {
         title: "Cloud Infrastructure",
@@ -63,6 +64,7 @@ const pillars = [
     description:
       "Security, identity, and backup solutions that give you full visibility and zero blind spots.",
     icon: Shield,
+    gradient: "from-cyan-500/10",
     items: [
       {
         title: "Cyber Security",
@@ -96,6 +98,7 @@ const pillars = [
     description:
       "Expert-led services that ensure your technology works the way your business needs it to.",
     icon: Award,
+    gradient: "from-indigo-500/10",
     items: [
       {
         title: "Security Assessments",
@@ -153,7 +156,7 @@ export const ACEAdvantage = () => {
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full bg-gradient-to-br from-axima-blue/10 to-black/40 border-white/10 backdrop-blur-sm hover:border-axima-blue/40 transition-all duration-300">
+                <Card className={`h-full bg-gradient-to-br ${pillar.gradient} to-black/40 border-white/10 backdrop-blur-sm hover:border-axima-blue/40 transition-all duration-300`}>
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="p-3 rounded-lg bg-axima-blue/20">
