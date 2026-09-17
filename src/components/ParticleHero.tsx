@@ -85,14 +85,14 @@ export const ParticleHero = () => {
       {/* Content Container */}
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          className="text-center max-w-4xl mx-auto"
+          className="text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           {/* Main Heading */}
           <motion.h1
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight px-4"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -105,7 +105,7 @@ export const ParticleHero = () => {
 
           {/* Description */}
           <motion.p
-            className="text-lg sm:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed px-4"
+            className="text-lg sm:text-xl text-gray-400 mb-12 leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -119,13 +119,13 @@ export const ParticleHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="flex justify-center px-4"
+            className="flex justify-center"
           >
             <Button
               className="w-full sm:w-auto bg-axima-blue hover:bg-blue-600 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group hover:-translate-y-1"
-              onClick={() => window.location.href = '/products'}
+              onClick={() => window.location.href = '/contact'}
             >
-              Explore Our Solutions
+              Book Demo
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>
