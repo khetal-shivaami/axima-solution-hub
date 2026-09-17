@@ -325,7 +325,7 @@ export const Navbar: FC = () => {
                   to={href}
                   className={`transition-colors duration-200 text-white hover:text-axima-blue relative py-2 ${
                     isCurrentPage(href) ? "font-semibold text-axima-blue" : ""
-                  } ${item.blink ? "animate-pulse rounded-full border border-axima-blue/50 bg-axima-blue/10 px-3 font-semibold text-axima-blue hover:bg-axima-blue/20 hover:text-axima-blue" : ""}`}
+                  } ${item.blink ? "animate-glow-ring rounded-full border border-axima-blue/50 bg-axima-blue/10 px-3 font-semibold text-axima-blue hover:bg-axima-blue/20 hover:text-axima-blue" : ""}`}
                 >
                   <span className="flex items-center gap-1">
                     {item.label}
@@ -440,7 +440,7 @@ export const Navbar: FC = () => {
                   to={href}
                   className={`block py-2 px-4 text-white hover:text-axima-blue ${
                     isCurrentPage(href) ? "font-semibold text-axima-blue bg-white/5" : ""
-                  } ${item.blink ? "mx-4 my-1 animate-pulse rounded border border-axima-blue/50 bg-axima-blue/10 font-semibold text-axima-blue" : ""}`}
+                  } ${item.blink ? "mx-4 my-1 animate-glow-ring rounded border border-axima-blue/50 bg-axima-blue/10 font-semibold text-axima-blue" : ""}`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
