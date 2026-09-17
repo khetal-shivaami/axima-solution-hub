@@ -278,9 +278,14 @@ export const Navbar: FC = () => {
             })}
           </div>
 
-          {/* Search Bar */}
+          {/* CTA */}
           <div className="hidden md:block">
-            <Searchbar />
+            <Link
+              to="/contact"
+              className="inline-flex items-center rounded-full bg-axima-blue px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/25"
+            >
+              Let's Connect
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
