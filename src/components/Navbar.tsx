@@ -157,9 +157,28 @@ export const Navbar: FC = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/90 backdrop-blur-sm shadow-lg" : "bg-transparent"
+        scrolled ? "bg-black/95 backdrop-blur-sm shadow-lg" : "bg-black/70 backdrop-blur-sm"
       }`}
     >
+      {/* Top utility strip */}
+      <div className="hidden md:block border-b border-white/10">
+        <div className="container mx-auto px-4">
+          <div className="flex h-9 items-center justify-end gap-6 text-xs text-gray-300">
+            <div className="w-56">
+              <Searchbar />
+            </div>
+            <a href="tel:+919833929393" className="flex items-center gap-1.5 hover:text-axima-blue transition-colors">
+              <Phone className="w-3.5 h-3.5" />
+              +91 98339 29393
+            </a>
+            <Link to="/contact" className="flex items-center gap-1.5 hover:text-axima-blue transition-colors">
+              <HelpCircle className="w-3.5 h-3.5" />
+              Support
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex flex-col items-center">
