@@ -25,6 +25,7 @@ const pillars = [
     description:
       "Cloud, collaboration, and productivity tools that keep your business moving forward.",
     icon: Zap,
+    gradient: "from-axima-blue/15",
     items: [
       {
         title: "Cloud Infrastructure",
