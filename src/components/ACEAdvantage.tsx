@@ -25,7 +25,7 @@ const pillars = [
     description:
       "Cloud, collaboration, and productivity tools that keep your business moving forward.",
     icon: Zap,
-    gradient: "from-axima-blue/15",
+    gradient: "from-axima-blue/30",
     items: [
       {
         title: "Cloud Infrastructure",
@@ -64,7 +64,7 @@ const pillars = [
     description:
       "Security, identity, and backup solutions that give you full visibility and zero blind spots.",
     icon: Shield,
-    gradient: "from-cyan-500/10",
+    gradient: "from-cyan-500/25",
     items: [
       {
         title: "Cyber Security",
@@ -98,7 +98,7 @@ const pillars = [
     description:
       "Expert-led services that ensure your technology works the way your business needs it to.",
     icon: Award,
-    gradient: "from-indigo-500/10",
+    gradient: "from-indigo-500/25",
     items: [
       {
         title: "Security Assessments",
