@@ -197,7 +197,7 @@ export const Navbar: FC = () => {
 
                     {isOpenMenu && (
                       <div
-                        className="fixed left-1/2 -translate-x-1/2 top-20 w-[min(1300px,96vw)] bg-black/95 backdrop-blur-md border border-axima-blue/30 rounded-xl shadow-2xl p-6 animate-fade-in"
+                        className="fixed left-1/2 -translate-x-1/2 top-[116px] w-[min(1300px,96vw)] bg-black/95 backdrop-blur-md border border-axima-blue/30 rounded-xl shadow-2xl p-6 animate-fade-in"
                         onMouseEnter={() => handleMegaEnter(item.label)}
                         onMouseLeave={handleMegaLeave}
                       >
