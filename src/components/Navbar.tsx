@@ -145,8 +145,8 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "Shop", href: "https://bv158t-1z.myshopify.com/", external: true },
-  { label: "Upcoming Events", href: "/upcoming-events", blink: true },
   { label: "Contact Us", href: "/contact" },
+  { label: "Upcoming Events", href: "/upcoming-events", blink: true },
 ];
 
 const megaColumnIcons: Record<string, LucideIcon> = {
