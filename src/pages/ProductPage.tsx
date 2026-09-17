@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, useParams, Navigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BookDemoStrap from "@/components/BookDemoStrap";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -112,6 +113,9 @@ const ProductPage = () => {
               ))}
             </div>
           </motion.div>
+
+          <BookDemoStrap />
+
 
           {/* FAQs */}
           <motion.div
