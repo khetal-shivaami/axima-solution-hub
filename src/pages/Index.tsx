@@ -1,6 +1,6 @@
 
 import { Navbar } from "@/components/Navbar";
-import { Stats } from "@/components/Stats";
+
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { ParticleHero } from "@/components/ParticleHero";
@@ -59,15 +59,6 @@ const Index = () => {
       </motion.div>
 
       <ACEAdvantage />
-
-      <motion.div
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.6 }}
-        className="relative z-10"
-      >
-        <Stats />
-      </motion.div>
 
       <WhyChooseAxima />
 
