@@ -13,39 +13,55 @@ const usefulLinks = [
   { label: "Microsoft 365 Landing", href: "/landing" },
 ];
 
-const productCategories = {
-  microsoft: [
-    { name: "Microsoft 365", route: "/microsoft-365" }
+const m365Products = [
+  { name: "Word", route: "/product/word" },
+  { name: "Excel", route: "/product/excel" },
+  { name: "PowerPoint", route: "/product/powerpoint" },
+  { name: "Teams", route: "/product/teams" },
+  { name: "Outlook", route: "/product/outlook" },
+  { name: "OneDrive", route: "/product/onedrive" },
+  { name: "SharePoint", route: "/product/sharepoint" },
+  { name: "Exchange", route: "/product/exchange" },
+  { name: "Intune", route: "/product/intune" }
+];
+
+const solutionColumns = {
+  cloud: [
+    { name: "Microsoft Azure", route: "/microsoft-azure" },
+    { name: "Jio Azure", route: "/microsoft-jioazure" },
+    { name: "Google Cloud", route: "/google-cloud" },
+    { name: "Amazon Web Services", route: "/products/amazon-web-services" },
+    { name: "HYCU", route: "/products/hycu" },
+    { name: "Spin.AI", route: "/products/spin-ai" },
+    { name: "Digiboxx", route: "/products/digiboxx" },
   ],
-  microsoftProducts: [
-    { name: "Word", route: "/product/word" },
-    { name: "Excel", route: "/product/excel" },
-    { name: "PowerPoint", route: "/product/powerpoint" },
-    { name: "Teams", route: "/product/teams" },
-    { name: "Outlook", route: "/product/outlook" },
-    { name: "OneDrive", route: "/product/onedrive" },
-    { name: "SharePoint", route: "/product/sharepoint" },
-    { name: "Exchange", route: "/product/exchange" },
-    { name: "Intune", route: "/product/intune" }
+  productivity: [
+    { name: "Microsoft 365", route: "/microsoft-365" },
+    { name: "Microsoft Copilot", route: "/copilot" },
+    { name: "Google Workspace", route: "/products/google-workspace" },
+    { name: "Zoho", route: "/products/zoho-mail" },
+    { name: "Zoom", route: "/products/zoom" },
+    { name: "Microsoft Teams", route: "/products/microsoft-teams" },
+    { name: "Superworks", route: "/superworks" },
+    { name: "FlexiSign", route: "/flexisign" },
+    { name: "RecurPost", route: "/recurpost" },
   ],
-  other: [
-    { name: "MS Azure", route: "/microsoft-azure" },
-    { name: "MS Azure from Jio Region", route: "/microsoft-jioazure" },
-    { name: "Jumpcloud", route: "/product/jumpcloud" },
-    { name: "Atera", route: "/product/atera" },
-    { name: "Spin AI", route: "/product/spin-ai" },
-    { name: "HYCU", route: "/product/hycu" },
-    { name: "ZOOM", route: "/product/zoom" },
-    { name: "1Password", route: "/product/onepassword" },
-    // { name: "Scaledino", route: "/product/scaledino" },
-    { name: "Scalefusion", route: "/product/scalefusion" },
-    { name: "FlexiSign", route: "/product/flexisign" }
-  ]
+  securityIt: [
+    { name: "Check Point", route: "/check-point" },
+    { name: "JumpCloud", route: "/jumpcloud" },
+    { name: "miniOrange", route: "/miniorange" },
+    { name: "1Password", route: "/onepassword" },
+    { name: "Scalefusion", route: "/scalefusion" },
+    { name: "Atera", route: "/atera" },
+    { name: "SuperOps", route: "/superops" },
+    { name: "Viami", route: "/viami" },
+    { name: "Chrome OS", route: "/chrome-os" },
+  ],
 };
 
 const Footer = () => {
-  const [expandedMicrosoft365, setExpandedMicrosoft365] = useState(false);
-  
+  const [expandedM365, setExpandedM365] = useState(false);
+
   const socialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/company/axima-corporation/posts/?feedView=all", label: "LinkedIn" },
     { icon: Instagram, href: "https://www.instagram.com/axima.in?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
@@ -54,10 +70,21 @@ const Footer = () => {
   const address = "1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080";
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
-  const toggleMicrosoft365 = () => {
-    setExpandedMicrosoft365(!expandedMicrosoft365);
-  };
+  const toggleM365 = () => setExpandedM365(!expandedM365);
 
+  const renderLink = (product: { name: string; route: string }) => (
+    <li key={product.name}>
+      <Link
+        to={product.route}
+        className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative"
+      >
+        <span className="mr-2 group-hover:text-axima-blue transition-colors">›</span>
+        <span className="group-hover:translate-x-1 transition-transform">
+          {product.name}
+        </span>
+      </Link>
+    </li>
+  );
 
   return (
     <footer className="relative w-full bg-black/40 border-t border-white/10 py-16">
@@ -66,7 +93,7 @@ const Footer = () => {
           <div className="relative z-10">
             <h3 className="text-xl font-bold text-white mb-4">AXIMA CORPORATION</h3>
             <address className="text-gray-300 not-italic">
-              <a 
+              <a
                 href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -79,8 +106,8 @@ const Footer = () => {
             <div className="mt-4 space-y-2">
               <p className="text-gray-300">
                 <span className="font-semibold">Phone:</span>{" "}
-                <a 
-                  href="tel:+917757841333" 
+                <a
+                  href="tel:+917757841333"
                   className="hover:text-axima-blue transition-colors cursor-pointer"
                 >
                   +91 77578 41333
@@ -89,14 +116,14 @@ const Footer = () => {
               <p className="text-gray-300">
                 <span className="font-semibold">Email:</span>{" "}
                 <div className="space-y-1">
-                  <a 
-                    href="mailto:info@axima.in" 
+                  <a
+                    href="mailto:info@axima.in"
                     className="hover:text-axima-blue transition-colors cursor-pointer block"
                   >
                     info@axima.in
                   </a>
-                  <a 
-                    href="mailto:support@axima.in" 
+                  <a
+                    href="mailto:support@axima.in"
                     className="hover:text-axima-blue transition-colors cursor-pointer block"
                   >
                     support@axima.in
@@ -107,25 +134,32 @@ const Footer = () => {
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-xl font-bold text-white mb-4">Microsoft Solutions</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Cloud Solutions</h3>
+            <ul className="space-y-2">
+              {solutionColumns.cloud.map(renderLink)}
+            </ul>
+          </div>
+
+          <div className="relative z-10">
+            <h3 className="text-xl font-bold text-white mb-4">Productivity & Collaboration</h3>
             <ul className="space-y-2">
               <li>
                 <div className="relative">
                   <button
-                    onClick={toggleMicrosoft365}
+                    onClick={toggleM365}
                     className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative w-full text-left"
                   >
                     <span className="mr-2 group-hover:text-axima-blue transition-colors">›</span>
                     <span className="group-hover:translate-x-1 transition-transform flex-1">
                       Microsoft 365
                     </span>
-                    <ChevronDown 
-                      className={`h-4 w-4 ml-2 transition-transform duration-300 ${expandedMicrosoft365 ? 'rotate-180' : ''}`}
+                    <ChevronDown
+                      className={`h-4 w-4 ml-2 transition-transform duration-300 ${expandedM365 ? 'rotate-180' : ''}`}
                     />
                   </button>
-                  
+
                   <AnimatePresence>
-                    {expandedMicrosoft365 && (
+                    {expandedM365 && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
@@ -134,7 +168,7 @@ const Footer = () => {
                         className="overflow-hidden ml-5 mt-2"
                       >
                         <ul className="space-y-1 border-l border-gray-700 pl-3">
-                          {productCategories.microsoftProducts.map((product) => (
+                          {m365Products.map((product) => (
                             <li key={product.name}>
                               <Link
                                 to={product.route}
@@ -153,84 +187,14 @@ const Footer = () => {
                   </AnimatePresence>
                 </div>
               </li>
-              
-              {productCategories.microsoft.slice(1).map((product) => (
-                <li key={product.name}>
-                  <Link
-                    to={product.route}
-                    className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative"
-                  >
-                    <span className="mr-2 group-hover:text-axima-blue transition-colors">›</span>
-                    <span className="group-hover:translate-x-1 transition-transform">
-                      {product.name}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-              
-              {productCategories.other.slice(0, 2).map((product) => (
-                <li key={product.name}>
-                  <Link
-                    to={product.route}
-                    className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative"
-                  >
-                    <span className="mr-2 group-hover:text-axima-blue transition-colors">›</span>
-                    <span className="group-hover:translate-x-1 transition-transform">
-                      {product.name}
-                    </span>
-                  </Link>
-                </li>
-              ))}
+              {solutionColumns.productivity.slice(1).map(renderLink)}
             </ul>
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-xl font-bold text-white mb-4">Other Solutions</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Security & IT Management</h3>
             <ul className="space-y-2">
-              {productCategories.other.slice(2).map((product) => (
-                <li key={product.name}>
-                  <Link
-                    to={product.route}
-                    className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative"
-                  >
-                    <span className="mr-2 group-hover:text-axima-blue transition-colors">›</span>
-                    <span className="group-hover:translate-x-1 transition-transform">
-                      {product.name}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="relative z-10">
-            <h3 className="text-xl font-bold text-white mb-4">Useful Links</h3>
-            <ul className="space-y-2">
-              {usefulLinks.map((link) => (
-                <li key={link.label}>
-                  {link.href.startsWith('#') ? (
-                    <a
-                      href={link.href}
-                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative"
-                    >
-                      <span className="mr-2 group-hover:text-axima-blue transition-colors">›</span>
-                      <span className="group-hover:translate-x-1 transition-transform">
-                        {link.label}
-                      </span>
-                    </a>
-                  ) : (
-                    <Link
-                      to={link.href}
-                      className="text-gray-300 hover:text-axima-blue transition-colors flex items-center cursor-pointer group relative"
-                    >
-                      <span className="mr-2 group-hover:text-axima-blue transition-colors">›</span>
-                      <span className="group-hover:translate-x-1 transition-transform">
-                        {link.label}
-                      </span>
-                    </Link>
-                  )}
-                </li>
-              ))}
+              {solutionColumns.securityIt.map(renderLink)}
             </ul>
           </div>
         </div>
@@ -260,7 +224,7 @@ const Footer = () => {
             <p className="text-gray-300">
               © {new Date().getFullYear()} Axima Corporation. All rights reserved.
             </p>
-            
+
             <div className="flex items-center gap-4">
               <Link to="/privacy-policy" className="text-gray-300 hover:text-axima-blue transition-colors">
                 Privacy Policy
