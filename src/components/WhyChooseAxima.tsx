@@ -68,8 +68,8 @@ export const WhyChooseAxima = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white">Why Choose Axima</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reasons.map((reason, index) => {
+        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8">
+          {reasons.slice(0, 5).map((reason, index) => {
             const Icon = reason.icon;
             return (
               <motion.div
@@ -78,7 +78,7 @@ export const WhyChooseAxima = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="relative group"
+                className={`relative group lg:col-span-2 ${index === 3 ? "lg:col-start-2" : ""}`}
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-axima-blue/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl" />
                 <div className="relative h-full bg-black/40 border border-white/10 rounded-xl p-6 backdrop-blur-sm hover:border-axima-blue/50 transition-all duration-300">
