@@ -12,7 +12,7 @@ const BookDemoStrap = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="w-screen relative left-1/2 -translate-x-1/2 rounded-none border-y border-axima-blue/30 bg-gradient-to-br from-axima-blue/20 to-black/40 px-6 py-10 md:px-12 md:py-12"
+      className="w-screen ml-[calc(50%_-_50vw)] rounded-none border-y border-axima-blue/30 bg-gradient-to-br from-axima-blue/20 to-black/40 px-6 py-10 md:px-12 md:py-12"
     >
       <div className="flex flex-col items-center gap-6 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-white">
