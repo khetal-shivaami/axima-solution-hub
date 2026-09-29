@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ManagementTeam } from "@/components/ManagementTeam";
 import { WhyChooseAxima } from "@/components/WhyChooseAxima";
+import IndiaLocationsMap from "@/components/IndiaLocationsMap";
 import { motion } from "framer-motion";
 import { MapPin, Award, Target, Rocket } from "lucide-react";
 
@@ -9,8 +10,6 @@ const partners = [
   "Microsoft", "Check Point", "Zoom", "JumpCloud",
   "Scalefusion", "Spin.AI", "HYCU", "Atera", "1Password", "FlexiSign",
 ];
-
-const locations = ["Mumbai", "Bangalore", "Chennai", "Delhi"];
 
 const About = () => {
   return (
@@ -131,13 +130,7 @@ const About = () => {
                 <MapPin className="w-5 h-5 text-axima-blue" />
                 <span className="text-xs uppercase tracking-widest text-axima-blue font-medium">Locations</span>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {locations.map((loc) => (
-                  <span key={loc} className="text-sm px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300">
-                    {loc}
-                  </span>
-                ))}
-              </div>
+              <IndiaLocationsMap />
             </motion.div>
 
             <motion.div

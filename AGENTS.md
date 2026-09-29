@@ -1,0 +1,1 @@
+- Keep the About page’s office-location visualization in a separate IndiaLocationsMap component so the existing location and partner content stays unchanged.
