@@ -1,17 +1,9 @@
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Vision } from "@/components/Vision";
 import { ManagementTeam } from "@/components/ManagementTeam";
 import { WhyChooseAxima } from "@/components/WhyChooseAxima";
 import { motion } from "framer-motion";
-import { MapPin, Calendar, Users, Award } from "lucide-react";
-
-const stats = [
-  { icon: Calendar, value: "10+", label: "Years" },
-  { icon: Users, value: "2,000+", label: "Customers" },
-  { icon: MapPin, value: "4", label: "Cities" },
-  { icon: Award, value: "10+", label: "Partners" },
-];
+import { MapPin, Award, Target, Rocket } from "lucide-react";
 
 const partners = [
   "Microsoft", "Check Point", "Zoom", "JumpCloud",
