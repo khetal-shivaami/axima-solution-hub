@@ -304,10 +304,6 @@ export const Navbar: FC = () => {
                                       isLastInRow ? "right-full mr-3" : "left-full ml-3"
                                     }`}
                                   >
-                                    <div className="mb-2 flex items-center gap-2 border-b border-white/10 pb-2 text-xs font-semibold uppercase tracking-wider text-axima-blue">
-                                      {ColumnIcon && <ColumnIcon className="h-4 w-4 shrink-0" aria-hidden="true" />}
-                                      <span>{col.title}</span>
-                                    </div>
                                     <ul className="space-y-1">
                                       {col.items.map((sub) => (
                                         <li key={sub.label}>
