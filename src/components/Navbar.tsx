@@ -232,7 +232,7 @@ export const Navbar: FC = () => {
             <img
               src="/lovable-uploads/11f0b3fd-81f2-4bf5-a519-1b17d303755a.png"
               alt="Axima Corporation"
-              className="h-12"
+              className="h-9"
             />
           </Link>
 
