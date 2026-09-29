@@ -419,6 +419,7 @@ export const Navbar: FC = () => {
                                 />
                               </button>
                               {openCategory === col.title && (
+                              <>
                               {col.items.map((sub) =>
                               isExternalLink(sub.href) ? (
                                 <a
@@ -445,6 +446,8 @@ export const Navbar: FC = () => {
                                   )}
                                 </Link>
                               )
+                              )}
+                              </>
                               )}
                             </div>
                           );
