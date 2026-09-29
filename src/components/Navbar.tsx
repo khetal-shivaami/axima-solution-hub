@@ -345,15 +345,6 @@ export const Navbar: FC = () => {
                                         </li>
                                       ))}
                                     </ul>
-                                    {col.title !== "Services" && (
-                                      <Link
-                                        to={`/solutions/${categorySlug(col.title)}`}
-                                        onClick={() => setOpenMega(null)}
-                                        className="mt-2 flex items-center gap-1 border-t border-white/10 px-2 pt-2 text-xs font-semibold text-axima-blue hover:text-white"
-                                      >
-                                        View all {col.title} <ChevronRight className="h-3 w-3" />
-                                      </Link>
-                                    )}
                                   </div>
                                 )}
                               </div>
@@ -458,15 +449,6 @@ export const Navbar: FC = () => {
                               </button>
                               {openCategory === col.title && (
                               <>
-                              {col.title !== "Services" && (
-                                <Link
-                                  to={`/solutions/${categorySlug(col.title)}`}
-                                  className="block py-1.5 px-4 text-sm font-semibold text-axima-blue"
-                                  onClick={() => setIsOpen(false)}
-                                >
-                                  View all {col.title}
-                                </Link>
-                              )}
                               {col.items.map((sub) =>
                               isExternalLink(sub.href) ? (
                                 <a

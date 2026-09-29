@@ -9,7 +9,6 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import { ScrollIndicator } from "./components/ScrollIndicator";
 import { CartProvider } from "./contexts/CartContext";
 import Index from "./pages/Index";
-import SolutionCategory from "./pages/SolutionCategory";
 import About from "./pages/About";
 import Products from "./pages/Products";
 import Services from "./pages/Services";
@@ -114,7 +113,6 @@ const App = () => {
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/products/:slug" element={<ProductPage />} />
                 {/* Catch-all route for 404 - must be the last route */}
-                <Route path="/solutions/:slug" element={<SolutionCategory />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             <ScrollIndicator />
