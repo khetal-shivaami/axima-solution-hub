@@ -9,7 +9,7 @@ import { MapPin, Award, Target, Rocket } from "lucide-react";
 
 const partners = [
   { name: "Microsoft", logo: "/lovable-uploads/logos/Microsoft_365.webp" },
-  { name: "Check Point", logo: checkPointLogo.url },
+  { name: "Check Point", logo: `https://axima-solution-hub.lovable.app${checkPointLogo.url}` },
   { name: "Zoom", logo: "/lovable-uploads/logos/Zoom-01.webp" },
   { name: "JumpCloud", logo: "/lovable-uploads/logos/Jumpcloud-01.webp" },
   { name: "Scalefusion", logo: "/lovable-uploads/logos/Scalefusion-01.webp" },
