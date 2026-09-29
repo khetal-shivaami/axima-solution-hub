@@ -35,6 +35,7 @@ type NavItem = {
   blink?: boolean;
   external?: boolean;
   mega?: MegaColumn[];
+  singleColumn?: boolean;
 };
 
 const navItems: NavItem[] = [
@@ -127,6 +128,7 @@ const navItems: NavItem[] = [
   },
   {
     label: "Resources",
+    singleColumn: true,
     mega: [
       {
         title: "Learn",
