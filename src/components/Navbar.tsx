@@ -234,9 +234,6 @@ export const Navbar: FC = () => {
               alt="Axima Corporation"
               className="h-12"
             />
-            <span className="text-white mt" style={{ fontSize: "8px" }}>
-              Microsoft Cloud Solution Providers
-            </span>
           </Link>
 
           {/* Desktop Menu */}
