@@ -11,6 +11,7 @@ import { CartProvider } from "./contexts/CartContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Products from "./pages/Products";
+import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
@@ -73,6 +74,7 @@ const App = () => {
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/products" element={<Products />} />
+                <Route path="/solutions" element={<Solutions />} />
                 <Route path="/buy-products" element={<BuyProducts />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/order-confirmation" element={<OrderConfirmation />} />
