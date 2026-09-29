@@ -173,6 +173,7 @@ export const Navbar: FC = () => {
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [openCategory, setOpenCategory] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const catTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
 
   useEffect(() => {
