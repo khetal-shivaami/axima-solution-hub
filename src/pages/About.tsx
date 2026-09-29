@@ -62,31 +62,42 @@ const About = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right: 4 stat boxes */}
+          {/* Right: Vision & Mission */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-2 gap-3 md:grid-cols-1 md:max-w-xs md:ml-auto w-full"
+            className="space-y-4 md:max-w-md md:ml-auto w-full"
           >
-            {stats.map((s) => {
-              const Icon = s.icon;
-              return (
-                <div
-                  key={s.label}
-                  className="bg-white/[0.03] border border-white/10 rounded-lg p-5 backdrop-blur-sm hover:border-axima-blue/40 transition-all text-center md:text-left"
-                >
-                  <Icon className="w-5 h-5 text-axima-blue mb-2 mx-auto md:mx-0" />
-                  <div className="text-2xl font-bold text-white">{s.value}</div>
-                  <div className="text-xs text-gray-400 uppercase tracking-wider">{s.label}</div>
+            <div className="relative bg-gradient-to-br from-axima-blue/10 to-transparent p-6 rounded-2xl border border-axima-blue/20 hover:border-axima-blue/50 transition-all duration-300 overflow-hidden">
+              <div className="absolute -top-16 -right-16 w-48 h-48 bg-axima-blue/10 rounded-full blur-3xl" />
+              <div className="flex items-center gap-3 mb-3 relative">
+                <div className="p-2.5 bg-axima-blue/15 rounded-xl">
+                  <Target className="h-5 w-5 text-axima-blue" />
                 </div>
-              );
-            })}
+                <h2 className="text-xl font-bold text-white">Our Vision</h2>
+              </div>
+              <p className="text-sm text-gray-300 leading-relaxed relative">
+                To be India's most trusted technology partner for businesses that want to work smarter, stay secure, and grow without limits.
+              </p>
+            </div>
+
+            <div className="relative bg-gradient-to-br from-axima-blue/10 to-transparent p-6 rounded-2xl border border-axima-blue/20 hover:border-axima-blue/50 transition-all duration-300 overflow-hidden">
+              <div className="absolute -top-16 -right-16 w-48 h-48 bg-axima-blue/10 rounded-full blur-3xl" />
+              <div className="flex items-center gap-3 mb-3 relative">
+                <div className="p-2.5 bg-axima-blue/15 rounded-xl">
+                  <Rocket className="h-5 w-5 text-axima-blue" />
+                </div>
+                <h2 className="text-xl font-bold text-white">Our Mission</h2>
+              </div>
+              <p className="text-sm text-gray-300 leading-relaxed relative">
+                To simplify technology for Indian businesses by bringing the right tools, the right expertise, and the right support together. We listen first, recommend honestly, and stay with you long after the deal is done.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      <Vision />
 
       <section className="min-h-[65vh] flex items-center justify-center relative snap-start py-6">
         <WhyChooseAxima />
