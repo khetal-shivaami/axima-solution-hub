@@ -14,7 +14,7 @@ const IndiaLocationsMap = () => {
   const mumbai = cities[0];
 
   return (
-    <div className="india-network overflow-hidden rounded-md border border-border/70 bg-card/40 md:grid md:grid-cols-[minmax(135px,0.75fr)_minmax(0,1.4fr)]">
+    <div className="india-network h-full w-full overflow-hidden rounded-md border border-border/70 bg-card/40 md:grid md:grid-cols-[minmax(135px,0.75fr)_minmax(0,1.4fr)]">
       <div className="relative z-10 flex flex-col justify-center border-b border-border/70 px-4 py-5 md:border-b-0 md:border-r md:px-5">
         <span className="text-[10px] font-semibold uppercase text-axima-blue">Our footprint</span>
         <h3 className="mt-2 text-lg font-bold leading-tight text-foreground">Connected across India</h3>
@@ -34,7 +34,7 @@ const IndiaLocationsMap = () => {
           viewBox="0 0 330 365"
           role="img"
           aria-label="Map of India showing Axima locations in Mumbai, Delhi, Bangalore and Chennai, connected by dotted lines"
-          className="relative z-10 mx-auto h-auto w-full max-w-[360px]"
+          className="relative z-10 mx-auto h-full w-full max-w-[360px]"
         >
           <defs>
             <pattern id="india-network-dots" width="7" height="7" patternUnits="userSpaceOnUse">
