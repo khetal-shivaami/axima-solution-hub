@@ -38,7 +38,6 @@ type NavItem = {
   singleColumn?: boolean;
 };
 
-export const categorySlug = (t: string) => t.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 export const navItems: NavItem[] = [
   { label: "About Us", href: "/about" },
