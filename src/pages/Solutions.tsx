@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { Navbar, navItems } from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { BookDemoStrap } from "@/components/BookDemoStrap";
+import BookDemoStrap from "@/components/BookDemoStrap";
 
 const categories = navItems.find((n) => n.label === "Products & Services")?.mega ?? [];
 
