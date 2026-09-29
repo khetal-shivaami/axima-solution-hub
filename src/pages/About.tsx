@@ -124,7 +124,7 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-axima-blue/10 to-transparent border border-axima-blue/20 rounded-2xl p-6"
+              className="min-w-0"
             >
               <div className="flex items-center gap-2 mb-4">
                 <MapPin className="w-5 h-5 text-axima-blue" />
