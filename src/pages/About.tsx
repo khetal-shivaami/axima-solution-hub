@@ -3,12 +3,21 @@ import Footer from "@/components/Footer";
 import { ManagementTeam } from "@/components/ManagementTeam";
 import { WhyChooseAxima } from "@/components/WhyChooseAxima";
 import IndiaLocationsMap from "@/components/IndiaLocationsMap";
+import checkPointLogo from "@/assets/check-point-logo.asset.json";
 import { motion } from "framer-motion";
 import { MapPin, Award, Target, Rocket } from "lucide-react";
 
 const partners = [
-  "Microsoft", "Check Point", "Zoom", "JumpCloud",
-  "Scalefusion", "Spin.AI", "HYCU", "Atera", "1Password", "FlexiSign",
+  { name: "Microsoft", logo: "/lovable-uploads/logos/Microsoft_365.webp" },
+  { name: "Check Point", logo: `https://axima-solution-hub.lovable.app${checkPointLogo.url}` },
+  { name: "Zoom", logo: "/lovable-uploads/logos/Zoom-01.webp" },
+  { name: "JumpCloud", logo: "/lovable-uploads/logos/Jumpcloud-01.webp" },
+  { name: "Scalefusion", logo: "/lovable-uploads/logos/Scalefusion-01.webp" },
+  { name: "Spin.AI", logo: "/lovable-uploads/logos/Spin.ai.webp" },
+  { name: "HYCU", logo: "/lovable-uploads/logos/Hycu-2-01.webp" },
+  { name: "Atera", logo: "/lovable-uploads/logos/Atera-01.webp" },
+  { name: "1Password", logo: "/lovable-uploads/logos/OnePassword-01.webp" },
+  { name: "FlexiSign", logo: "/lovable-uploads/logos/Flexisign-logo-02.webp" },
 ];
 
 const About = () => {
@@ -144,14 +153,15 @@ const About = () => {
                 <Award className="w-5 h-5 text-axima-blue" />
                 <span className="text-xs uppercase tracking-widest text-axima-blue font-medium">Technology Partners</span>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-2 gap-3">
                 {partners.map((p) => (
-                  <span
-                    key={p}
-                    className="text-sm px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:border-axima-blue/40 hover:text-white transition-colors"
+                  <div
+                    key={p.name}
+                    className="min-w-0 h-24 flex flex-col items-center justify-center gap-1 rounded-lg bg-white/5 border border-white/10 hover:border-axima-blue/40 transition-colors"
                   >
-                    {p}
-                  </span>
+                    <img src={p.logo} alt={`${p.name} logo`} loading="lazy" className="w-full h-14 object-contain px-4" />
+                    <span className="text-xs text-gray-300 text-center">{p.name}</span>
+                  </div>
                 ))}
               </div>
             </motion.div>
