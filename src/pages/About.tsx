@@ -28,17 +28,17 @@ const About = () => {
 
       {/* Hero / About */}
       <section className="relative min-h-[65vh] flex items-center justify-center px-4 pt-24 pb-6 snap-start">
-        <div className="max-w-7xl mx-auto w-full">
+        <div className="max-w-7xl mx-auto w-full grid md:grid-cols-[1.4fr_1fr] gap-10 items-center">
+          {/* Left: content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-6"
           >
             <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-3">
               About Axima
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-3">
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-5">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
                 We Help Indian Businesses
               </span>
@@ -47,16 +47,14 @@ const About = () => {
                 Work Smarter and Stay Secure.
               </span>
             </h1>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="space-y-3"
-          >
-            <div className="space-y-3 text-gray-300 leading-relaxed text-base text-center max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              viewport={{ once: true }}
+              className="space-y-3 text-gray-300 leading-relaxed text-base text-left"
+            >
               <p>
                 Axima Corporation is a Mumbai-based technology partner helping businesses across India adopt the right tools for productivity, collaboration, and security.
               </p>
@@ -69,24 +67,29 @@ const About = () => {
               <p>
                 As a Microsoft Solutions Partner, we deliver, implement, and support solutions for businesses of every size. Our certified team is available around the clock to help you evaluate, implement, and get the most from every solution. We don't just sell software. We make sure it works for your business.
               </p>
-            </div>
+            </motion.div>
+          </motion.div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-4 gap-3 mt-6 max-w-4xl mx-auto">
-              {stats.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <div
-                    key={s.label}
-                    className="bg-white/[0.03] border border-white/10 rounded-lg p-4 backdrop-blur-sm hover:border-axima-blue/40 transition-all text-center"
-                  >
-                    <Icon className="w-5 h-5 text-axima-blue mx-auto mb-1" />
-                    <div className="text-2xl font-bold text-white">{s.value}</div>
-                    <div className="text-xs text-gray-400 uppercase tracking-wider">{s.label}</div>
-                  </div>
-                );
-              })}
-            </div>
+          {/* Right: 4 stat boxes */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="grid grid-cols-2 gap-3 md:grid-cols-1 md:max-w-xs md:ml-auto w-full"
+          >
+            {stats.map((s) => {
+              const Icon = s.icon;
+              return (
+                <div
+                  key={s.label}
+                  className="bg-white/[0.03] border border-white/10 rounded-lg p-5 backdrop-blur-sm hover:border-axima-blue/40 transition-all text-center md:text-left"
+                >
+                  <Icon className="w-5 h-5 text-axima-blue mb-2 mx-auto md:mx-0" />
+                  <div className="text-2xl font-bold text-white">{s.value}</div>
+                  <div className="text-xs text-gray-400 uppercase tracking-wider">{s.label}</div>
+                </div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
