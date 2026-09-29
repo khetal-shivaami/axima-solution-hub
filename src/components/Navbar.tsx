@@ -265,14 +265,18 @@ export const Navbar: FC = () => {
 
                     {isOpenMenu && (
                       <div
-                        className="fixed left-1/2 -translate-x-1/2 top-[116px] w-[min(880px,92vw)] bg-black/95 backdrop-blur-md border border-axima-blue/30 rounded-xl shadow-2xl p-5 animate-fade-in"
+                        className={`fixed left-1/2 -translate-x-1/2 top-[116px] bg-black/95 backdrop-blur-md border border-axima-blue/30 rounded-xl shadow-2xl p-5 animate-fade-in ${
+                          item.singleColumn ? "w-[min(300px,92vw)]" : "w-[min(880px,92vw)]"
+                        }`}
                         onMouseEnter={() => handleMegaEnter(item.label)}
                         onMouseLeave={handleMegaLeave}
                       >
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-6">
+                        <div className={item.singleColumn ? "grid grid-cols-1 gap-y-6" : "grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-6"}>
                           {item.mega.map((col, colIndex) => {
                             const ColumnIcon = megaColumnIcons[col.title];
-                            const isLastInRow = colIndex % 3 === 2;
+                            const isLastInRow = item.singleColumn
+                              ? colIndex === item.mega.length - 1
+                              : colIndex % 3 === 2;
                             return (
                               <div
                                 key={col.title}
