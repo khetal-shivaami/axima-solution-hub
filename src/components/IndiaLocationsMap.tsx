@@ -30,10 +30,10 @@ const IndiaLocationsMap = () => {
           strokeWidth="1.7"
           strokeDasharray="2 5"
           strokeLinecap="round"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.25 + index * 0.15 }}
+          transition={{ duration: 0.5, delay: 0.25 + index * 0.15 }}
         />
       ))}
       {cities.map((city) => (
