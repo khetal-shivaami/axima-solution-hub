@@ -171,6 +171,7 @@ export const Navbar: FC = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [openMega, setOpenMega] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
 
@@ -189,7 +190,10 @@ export const Navbar: FC = () => {
   };
   const handleMegaLeave = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setOpenMega(null), 120);
+    closeTimer.current = setTimeout(() => {
+      setOpenMega(null);
+      setOpenCategory(null);
+    }, 120);
   };
 
   return (
@@ -239,7 +243,10 @@ export const Navbar: FC = () => {
                   <div
                     key={item.label}
                     className="relative"
-                    onMouseEnter={() => handleMegaEnter(item.label)}
+                    onMouseEnter={() => {
+                      handleMegaEnter(item.label);
+                      setOpenCategory(null);
+                    }}
                     onMouseLeave={handleMegaLeave}
                   >
                     <button
@@ -263,11 +270,21 @@ export const Navbar: FC = () => {
                             const ColumnIcon = megaColumnIcons[col.title];
                             return (
                               <div key={col.title}>
-                                <h4 className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-axima-blue">
+                                <button
+                                  type="button"
+                                  onMouseEnter={() => setOpenCategory(col.title)}
+                                  onClick={() => setOpenCategory(openCategory === col.title ? null : col.title)}
+                                  aria-expanded={openCategory === col.title}
+                                  className="mb-3 flex w-full cursor-pointer items-center gap-2 text-xs font-semibold uppercase tracking-wider text-axima-blue"
+                                >
                                   {ColumnIcon && <ColumnIcon className="h-4 w-4 shrink-0" aria-hidden="true" />}
                                   <span>{col.title}</span>
-                                </h4>
-                                <ul className="space-y-1">
+                                  <ChevronDown
+                                    className={`ml-auto h-3.5 w-3.5 transition-transform ${openCategory === col.title ? "rotate-180" : ""}`}
+                                  />
+                                </button>
+                                {openCategory === col.title && (
+                                <ul className="space-y-1 animate-fade-in">
                                   {col.items.map((sub) => (
                                   <li key={sub.label}>
                                     {isExternalLink(sub.href) ? (
@@ -300,6 +317,7 @@ export const Navbar: FC = () => {
                                   </li>
                                   ))}
                                 </ul>
+                                )}
                               </div>
                             );
                           })}
@@ -371,7 +389,10 @@ export const Navbar: FC = () => {
                 return (
                   <div key={item.label}>
                     <button
-                      onClick={() => setMobileExpanded(expanded ? null : item.label)}
+                      onClick={() => {
+                        setMobileExpanded(expanded ? null : item.label);
+                        setOpenCategory(null);
+                      }}
                       className="w-full flex items-center justify-between py-2 px-4 text-white hover:text-axima-blue"
                     >
                       <span>{item.label}</span>
@@ -385,10 +406,19 @@ export const Navbar: FC = () => {
                           const ColumnIcon = megaColumnIcons[col.title];
                           return (
                             <div key={col.title} className="mb-2">
-                              <div className="flex items-center gap-2 px-4 py-1 text-xs uppercase tracking-wider text-axima-blue/80">
+                              <button
+                                type="button"
+                                onClick={() => setOpenCategory(openCategory === col.title ? null : col.title)}
+                                aria-expanded={openCategory === col.title}
+                                className="flex w-full items-center gap-2 px-4 py-1 text-xs uppercase tracking-wider text-axima-blue/80"
+                              >
                                 {ColumnIcon && <ColumnIcon className="h-4 w-4 shrink-0" aria-hidden="true" />}
                                 <span>{col.title}</span>
-                              </div>
+                                <ChevronDown
+                                  className={`ml-auto h-3.5 w-3.5 transition-transform ${openCategory === col.title ? "rotate-180" : ""}`}
+                                />
+                              </button>
+                              {openCategory === col.title && (
                               {col.items.map((sub) =>
                               isExternalLink(sub.href) ? (
                                 <a
