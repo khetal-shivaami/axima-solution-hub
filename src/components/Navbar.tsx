@@ -5,6 +5,7 @@ import {
   Menu,
   X,
   ChevronDown,
+  ChevronRight,
   Phone,
   HelpCircle,
   Cloud,
@@ -173,6 +174,7 @@ export const Navbar: FC = () => {
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [openCategory, setOpenCategory] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const catTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -266,57 +268,80 @@ export const Navbar: FC = () => {
                         onMouseLeave={handleMegaLeave}
                       >
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-6">
-                          {item.mega.map((col) => {
+                          {item.mega.map((col, colIndex) => {
                             const ColumnIcon = megaColumnIcons[col.title];
+                            const isLastInRow = colIndex % 3 === 2;
                             return (
-                              <div key={col.title}>
+                              <div
+                                key={col.title}
+                                className="relative"
+                                onMouseEnter={() => {
+                                  if (catTimer.current) clearTimeout(catTimer.current);
+                                  setOpenCategory(col.title);
+                                }}
+                                onMouseLeave={() => {
+                                  if (catTimer.current) clearTimeout(catTimer.current);
+                                  catTimer.current = setTimeout(() => setOpenCategory(null), 150);
+                                }}
+                              >
                                 <button
                                   type="button"
-                                  onMouseEnter={() => setOpenCategory(col.title)}
                                   onClick={() => setOpenCategory(openCategory === col.title ? null : col.title)}
                                   aria-expanded={openCategory === col.title}
-                                  className="mb-3 flex w-full cursor-pointer items-center gap-2 text-xs font-semibold uppercase tracking-wider text-axima-blue"
+                                  className={`mb-3 flex w-full cursor-pointer items-center gap-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
+                                    openCategory === col.title ? "text-white" : "text-axima-blue hover:text-white"
+                                  }`}
                                 >
                                   {ColumnIcon && <ColumnIcon className="h-4 w-4 shrink-0" aria-hidden="true" />}
                                   <span>{col.title}</span>
-                                  <ChevronDown
-                                    className={`ml-auto h-3.5 w-3.5 transition-transform ${openCategory === col.title ? "rotate-180" : ""}`}
+                                  <ChevronRight
+                                    className={`ml-auto h-3.5 w-3.5 transition-transform ${openCategory === col.title ? "translate-x-0.5 text-white" : ""}`}
                                   />
                                 </button>
                                 {openCategory === col.title && (
-                                <ul className="space-y-1 animate-fade-in">
-                                  {col.items.map((sub) => (
-                                  <li key={sub.label}>
-                                    {isExternalLink(sub.href) ? (
-                                      <a
-                                        href={sub.href}
-                                        className="block p-2 rounded-lg hover:bg-white/5 transition-colors group"
-                                        onClick={() => setOpenMega(null)}
-                                      >
-                                        <div className="text-white group-hover:text-axima-blue font-medium text-sm">
-                                          {sub.label}
-                                        </div>
-                                        {sub.description && (
-                                          <div className="text-gray-400 text-xs mt-0.5">{sub.description}</div>
-                                        )}
-                                      </a>
-                                    ) : (
-                                      <Link
-                                        to={sub.href}
-                                        className="block p-2 rounded-lg hover:bg-white/5 transition-colors group"
-                                        onClick={() => setOpenMega(null)}
-                                      >
-                                        <div className="text-white group-hover:text-axima-blue font-medium text-sm">
-                                          {sub.label}
-                                        </div>
-                                        {sub.description && (
-                                          <div className="text-gray-400 text-xs mt-0.5">{sub.description}</div>
-                                        )}
-                                      </Link>
-                                    )}
-                                  </li>
-                                  ))}
-                                </ul>
+                                  <div
+                                    className={`absolute top-0 z-50 min-w-[260px] animate-fade-in rounded-xl border border-axima-blue/30 bg-black/95 p-3 shadow-2xl backdrop-blur-md ${
+                                      isLastInRow ? "right-full mr-3" : "left-full ml-3"
+                                    }`}
+                                  >
+                                    <div className="mb-2 flex items-center gap-2 border-b border-white/10 pb-2 text-xs font-semibold uppercase tracking-wider text-axima-blue">
+                                      {ColumnIcon && <ColumnIcon className="h-4 w-4 shrink-0" aria-hidden="true" />}
+                                      <span>{col.title}</span>
+                                    </div>
+                                    <ul className="space-y-1">
+                                      {col.items.map((sub) => (
+                                        <li key={sub.label}>
+                                          {isExternalLink(sub.href) ? (
+                                            <a
+                                              href={sub.href}
+                                              className="block p-2 rounded-lg hover:bg-white/5 transition-colors group"
+                                              onClick={() => setOpenMega(null)}
+                                            >
+                                              <div className="text-white group-hover:text-axima-blue font-medium text-sm">
+                                                {sub.label}
+                                              </div>
+                                              {sub.description && (
+                                                <div className="text-gray-400 text-xs mt-0.5">{sub.description}</div>
+                                              )}
+                                            </a>
+                                          ) : (
+                                            <Link
+                                              to={sub.href}
+                                              className="block p-2 rounded-lg hover:bg-white/5 transition-colors group"
+                                              onClick={() => setOpenMega(null)}
+                                            >
+                                              <div className="text-white group-hover:text-axima-blue font-medium text-sm">
+                                                {sub.label}
+                                              </div>
+                                              {sub.description && (
+                                                <div className="text-gray-400 text-xs mt-0.5">{sub.description}</div>
+                                              )}
+                                            </Link>
+                                          )}
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
                                 )}
                               </div>
                             );
