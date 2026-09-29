@@ -254,7 +254,12 @@ export const Navbar: FC = () => {
                     }}
                     onMouseLeave={handleMegaLeave}
                   >
-                    <button
+                    <Link
+                      to={item.label === "Products & Services" ? "/solutions" : "#"}
+                      onClick={(e) => {
+                        if (item.label !== "Products & Services") e.preventDefault();
+                        else setOpenMega(null);
+                      }}
                       className="flex items-center gap-1 py-2 text-white hover:text-axima-blue transition-colors duration-200"
                       aria-expanded={isOpenMenu}
                     >
@@ -262,7 +267,7 @@ export const Navbar: FC = () => {
                       <ChevronDown
                         className={`w-4 h-4 transition-transform ${isOpenMenu ? "rotate-180" : ""}`}
                       />
-                    </button>
+                    </Link>
 
                     {isOpenMenu && (
                       <div
