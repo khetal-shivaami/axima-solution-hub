@@ -265,7 +265,7 @@ export const Navbar: FC = () => {
                         onMouseEnter={() => handleMegaEnter(item.label)}
                         onMouseLeave={handleMegaLeave}
                       >
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-6">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-6">
                           {item.mega.map((col) => {
                             const ColumnIcon = megaColumnIcons[col.title];
                             return (
