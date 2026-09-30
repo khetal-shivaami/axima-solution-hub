@@ -46,7 +46,7 @@ const TechPartnersRibbon = () => {
           animate={{ x: [0, -LOOP_DISTANCE] }}
           transition={{
             x: {
-              duration: 65,
+              duration: 32,
               repeat: Infinity,
               ease: "linear",
             },
