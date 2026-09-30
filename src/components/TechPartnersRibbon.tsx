@@ -55,7 +55,7 @@ const TechPartnersRibbon = () => {
             partners.map((partner, idx) => (
               <div
                 key={`${copy}-${partner.name}-${idx}`}
-                className="flex flex-col items-center justify-center gap-2"
+                className="flex shrink-0 flex-col items-center justify-center gap-2"
                 style={{ width: ITEM_WIDTH, marginRight: ITEM_MARGIN }}
               >
                 <img
