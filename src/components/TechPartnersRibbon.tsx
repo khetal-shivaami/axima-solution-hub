@@ -3,16 +3,16 @@ import { Award } from "lucide-react";
 import checkPointLogo from "@/assets/check-point-logo.asset.json";
 
 const partners = [
-  { name: "Microsoft", logo: "/lovable-uploads/logos/Microsoft_365.webp" },
-  { name: "Check Point", logo: `https://axima-solution-hub.lovable.app${checkPointLogo.url}` },
-  { name: "Zoom", logo: "/lovable-uploads/logos/Zoom-01.webp" },
-  { name: "JumpCloud", logo: "/lovable-uploads/logos/Jumpcloud-01.webp" },
-  { name: "Scalefusion", logo: "/lovable-uploads/logos/Scalefusion-01.webp" },
-  { name: "Spin.AI", logo: "/lovable-uploads/logos/Spin.ai.webp" },
-  { name: "HYCU", logo: "/lovable-uploads/logos/Hycu-2-01.webp" },
-  { name: "Atera", logo: "/lovable-uploads/logos/Atera-01.webp" },
-  { name: "1Password", logo: "/lovable-uploads/logos/OnePassword-01.webp" },
-  { name: "FlexiSign", logo: "/lovable-uploads/logos/Flexisign-logo-02.webp" },
+  { name: "Microsoft", logo: "/lovable-uploads/logos/Microsoft_365.webp", color: "#4FC3F7" },
+  { name: "Check Point", logo: `https://axima-solution-hub.lovable.app${checkPointLogo.url}`, color: "#FF7A9A" },
+  { name: "Zoom", logo: "/lovable-uploads/logos/Zoom-01.webp", color: "#58A6FF" },
+  { name: "JumpCloud", logo: "/lovable-uploads/logos/Jumpcloud-01.webp", color: "#2DD4BF" },
+  { name: "Scalefusion", logo: "/lovable-uploads/logos/Scalefusion-01.webp", color: "#6C9BFF" },
+  { name: "Spin.AI", logo: "/lovable-uploads/logos/Spin.ai.webp", color: "#A78BFA" },
+  { name: "HYCU", logo: "/lovable-uploads/logos/Hycu-2-01.webp", color: "#34D399" },
+  { name: "Atera", logo: "/lovable-uploads/logos/Atera-01.webp", color: "#FF9A5A" },
+  { name: "1Password", logo: "/lovable-uploads/logos/OnePassword-01.webp", color: "#4D9FFF" },
+  { name: "FlexiSign", logo: "/lovable-uploads/logos/Flexisign-logo-02.webp", color: "#F472B6" },
 ];
 
 const ITEM_WIDTH = 200;
@@ -56,16 +56,37 @@ const TechPartnersRibbon = () => {
             partners.map((partner, idx) => (
               <div
                 key={`${copy}-${partner.name}-${idx}`}
-                className="flex shrink-0 flex-col items-center justify-center gap-2"
+                className="flex shrink-0 flex-col items-center justify-center gap-3"
                 style={{ width: ITEM_WIDTH, marginRight: ITEM_MARGIN }}
               >
-                <img
-                  src={partner.logo}
-                  alt={`${partner.name} logo`}
-                  loading="eager"
-                  className="h-14 w-40 object-contain"
-                />
-                <span className="text-xs font-medium text-gray-300">{partner.name}</span>
+                <div
+                  className="relative flex h-24 w-40 items-center justify-center rounded-lg overflow-hidden"
+                  style={{
+                    background: `linear-gradient(135deg, ${partner.color}26 0%, ${partner.color}0D 100%)`,
+                    border: `1px solid ${partner.color}33`,
+                    boxShadow: `0 0 24px ${partner.color}1A, inset 0 0 18px ${partner.color}0D`,
+                  }}
+                >
+                  <span
+                    className="pointer-events-none absolute inset-0"
+                    style={{
+                      background: `radial-gradient(circle at 50% 120%, ${partner.color}3D 0%, transparent 70%)`,
+                    }}
+                  />
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    loading="eager"
+                    className="relative h-14 w-36 object-contain"
+                    style={{ filter: `drop-shadow(0 0 10px ${partner.color}59)` }}
+                  />
+                </div>
+                <span
+                  className="text-xs font-medium"
+                  style={{ color: partner.color }}
+                >
+                  {partner.name}
+                </span>
               </div>
             ))
           )}
