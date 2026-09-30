@@ -15,12 +15,15 @@ const partners = [
   { name: "FlexiSign", logo: "/lovable-uploads/logos/Flexisign-logo-02.webp" },
 ];
 
-const ITEM_WIDTH = 260;
-const ITEM_MARGIN = 24;
+const ITEM_WIDTH = 280;
+// Wide gap between logos so only a few are visible at once and the same
+// logo never appears twice on screen (copies sit a full loop apart).
+const ITEM_MARGIN = 260;
 const COPY_WIDTH = partners.length * (ITEM_WIDTH + ITEM_MARGIN);
-// Duplicate the list enough times that the strip always covers the widest
-// screens even mid-animation, so no empty space ever appears.
-const COPIES = 4;
+// Two copies are the minimum for a seamless loop; each copy is far wider
+// than any screen, so duplicates are never visible together and the
+// strip always stays covered.
+const COPIES = 2;
 const LOOP_DISTANCE = COPY_WIDTH;
 
 const TechPartnersRibbon = () => {
@@ -42,7 +45,7 @@ const TechPartnersRibbon = () => {
           animate={{ x: [0, -LOOP_DISTANCE] }}
           transition={{
             x: {
-              duration: 40,
+              duration: 65,
               repeat: Infinity,
               ease: "linear",
             },
@@ -52,8 +55,8 @@ const TechPartnersRibbon = () => {
             partners.map((partner, idx) => (
               <div
                 key={`${copy}-${partner.name}-${idx}`}
-                className="mx-3 flex flex-col items-center justify-center gap-2"
-                style={{ width: ITEM_WIDTH }}
+                className="flex shrink-0 flex-col items-center justify-center gap-2"
+                style={{ width: ITEM_WIDTH, marginRight: ITEM_MARGIN }}
               >
                 <img
                   src={partner.logo}
