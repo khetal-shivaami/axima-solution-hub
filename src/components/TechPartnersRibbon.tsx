@@ -15,8 +15,8 @@ const partners = [
   { name: "FlexiSign", logo: "/lovable-uploads/logos/Flexisign-logo-02.webp" },
 ];
 
-const ITEM_WIDTH = 240;
-const ITEM_MARGIN = 48;
+const ITEM_WIDTH = 260;
+const ITEM_MARGIN = 24;
 const LOOP_DISTANCE = partners.length * (ITEM_WIDTH + ITEM_MARGIN);
 
 const TechPartnersRibbon = () => {
@@ -47,16 +47,16 @@ const TechPartnersRibbon = () => {
           {[...partners, ...partners].map((partner, idx) => (
             <div
               key={`${partner.name}-${idx}`}
-              className="mx-6 flex items-center justify-center gap-3"
+              className="mx-3 flex flex-col items-center justify-center gap-2"
               style={{ width: ITEM_WIDTH }}
             >
               <img
                 src={partner.logo}
                 alt={`${partner.name} logo`}
                 loading="lazy"
-                className="h-12 w-24 object-contain"
+                className="h-14 w-40 object-contain"
               />
-              <span className="text-sm font-medium text-gray-300">{partner.name}</span>
+              <span className="text-xs font-medium text-gray-300">{partner.name}</span>
             </div>
           ))}
         </motion.div>
