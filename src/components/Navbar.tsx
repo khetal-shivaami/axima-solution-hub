@@ -219,7 +219,7 @@ export const Navbar: FC = () => {
               <Phone className="w-3.5 h-3.5" />
               +91 98339 29393
             </a>
-            <Link to="/contact" className="flex items-center gap-1.5 hover:text-axima-blue transition-colors">
+            <Link to="/support" className="flex items-center gap-1.5 hover:text-axima-blue transition-colors">
               <HelpCircle className="w-3.5 h-3.5" />
               Support
             </Link>
