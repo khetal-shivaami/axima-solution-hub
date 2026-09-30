@@ -4,7 +4,7 @@ import checkPointLogo from "@/assets/check-point-logo-new.asset.json";
 
 const partners = [
   { name: "Microsoft", logo: "/lovable-uploads/logos/Microsoft_365.webp", color: "#4FC3F7" },
-  { name: "Check Point", logo: checkPointLogo.url, color: "#EC1A52" },
+  { name: "Check Point", logo: `https://axima-solution-hub.lovable.app${checkPointLogo.url}`, color: "#EC1A52" },
   { name: "Zoom", logo: "/lovable-uploads/logos/Zoom-01.webp", color: "#58A6FF" },
   { name: "JumpCloud", logo: "/lovable-uploads/logos/Jumpcloud-01.webp", color: "#2DD4BF" },
   { name: "Scalefusion", logo: "/lovable-uploads/logos/Scalefusion-01.webp", color: "#6C9BFF" },
