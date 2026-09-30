@@ -17,7 +17,11 @@ const partners = [
 
 const ITEM_WIDTH = 260;
 const ITEM_MARGIN = 24;
-const LOOP_DISTANCE = partners.length * (ITEM_WIDTH + ITEM_MARGIN);
+const COPY_WIDTH = partners.length * (ITEM_WIDTH + ITEM_MARGIN);
+// Duplicate the list enough times that the strip always covers the widest
+// screens even mid-animation, so no empty space ever appears.
+const COPIES = 4;
+const LOOP_DISTANCE = COPY_WIDTH;
 
 const TechPartnersRibbon = () => {
   return (
@@ -44,21 +48,23 @@ const TechPartnersRibbon = () => {
             },
           }}
         >
-          {[...partners, ...partners].map((partner, idx) => (
-            <div
-              key={`${partner.name}-${idx}`}
-              className="mx-3 flex flex-col items-center justify-center gap-2"
-              style={{ width: ITEM_WIDTH }}
-            >
-              <img
-                src={partner.logo}
-                alt={`${partner.name} logo`}
-                loading="lazy"
-                className="h-14 w-40 object-contain"
-              />
-              <span className="text-xs font-medium text-gray-300">{partner.name}</span>
-            </div>
-          ))}
+          {Array.from({ length: COPIES }).flatMap((_, copy) =>
+            partners.map((partner, idx) => (
+              <div
+                key={`${copy}-${partner.name}-${idx}`}
+                className="mx-3 flex flex-col items-center justify-center gap-2"
+                style={{ width: ITEM_WIDTH }}
+              >
+                <img
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  loading="eager"
+                  className="h-14 w-40 object-contain"
+                />
+                <span className="text-xs font-medium text-gray-300">{partner.name}</span>
+              </div>
+            ))
+          )}
         </motion.div>
       </div>
     </div>
