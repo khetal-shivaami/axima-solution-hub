@@ -3,22 +3,9 @@ import Footer from "@/components/Footer";
 import { ManagementTeam } from "@/components/ManagementTeam";
 import { WhyChooseAxima } from "@/components/WhyChooseAxima";
 import IndiaLocationsMap from "@/components/IndiaLocationsMap";
-import checkPointLogo from "@/assets/check-point-logo.asset.json";
+import TechPartnersRibbon from "@/components/TechPartnersRibbon";
 import { motion } from "framer-motion";
-import { MapPin, Award, Target, Rocket } from "lucide-react";
-
-const partners = [
-  { name: "Microsoft", logo: "/lovable-uploads/logos/Microsoft_365.webp" },
-  { name: "Check Point", logo: `https://axima-solution-hub.lovable.app${checkPointLogo.url}` },
-  { name: "Zoom", logo: "/lovable-uploads/logos/Zoom-01.webp" },
-  { name: "JumpCloud", logo: "/lovable-uploads/logos/Jumpcloud-01.webp" },
-  { name: "Scalefusion", logo: "/lovable-uploads/logos/Scalefusion-01.webp" },
-  { name: "Spin.AI", logo: "/lovable-uploads/logos/Spin.ai.webp" },
-  { name: "HYCU", logo: "/lovable-uploads/logos/Hycu-2-01.webp" },
-  { name: "Atera", logo: "/lovable-uploads/logos/Atera-01.webp" },
-  { name: "1Password", logo: "/lovable-uploads/logos/OnePassword-01.webp" },
-  { name: "FlexiSign", logo: "/lovable-uploads/logos/Flexisign-logo-02.webp" },
-];
+import { MapPin, Target, Rocket } from "lucide-react";
 
 const About = () => {
   return (
@@ -127,47 +114,31 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-white">Across India, Backed by Global Technology</h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 items-stretch">
+          <div className="space-y-10">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="min-w-0 flex flex-col"
+              className="min-w-0"
             >
               <div className="flex items-center gap-2 mb-4">
                 <MapPin className="w-5 h-5 text-axima-blue" />
                 <span className="text-xs uppercase tracking-widest text-axima-blue font-medium">Locations</span>
               </div>
-              <div className="flex-1 min-h-0 flex w-full">
+              <div className="h-[420px] md:h-[480px] w-full">
                 <IndiaLocationsMap />
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
               viewport={{ once: true }}
-              className="min-w-0 flex flex-col"
+              className="min-w-0"
             >
-              <div className="flex items-center gap-2 mb-4">
-                <Award className="w-5 h-5 text-axima-blue" />
-                <span className="text-xs uppercase tracking-widest text-axima-blue font-medium">Technology Partners</span>
-              </div>
-              <div className="flex-1 flex flex-col bg-white/[0.03] border border-white/10 rounded-2xl p-6">
-                <div className="grid grid-cols-2 gap-3 flex-1 auto-rows-fr">
-                  {partners.map((p) => (
-                    <div
-                      key={p.name}
-                      className="min-w-0 min-h-24 flex flex-col items-center justify-center gap-1 rounded-lg bg-white/5 border border-white/10 hover:border-axima-blue/40 transition-colors"
-                    >
-                      <img src={p.logo} alt={`${p.name} logo`} loading="lazy" className="w-full h-14 object-contain px-4" />
-                      <span className="text-xs text-gray-300 text-center">{p.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <TechPartnersRibbon />
             </motion.div>
           </div>
         </div>
