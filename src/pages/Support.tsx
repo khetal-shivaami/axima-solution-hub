@@ -7,6 +7,7 @@ const tiers = [
     n: 1,
     icon: Headphones,
     title: "Initial Support",
+    person: "Support Desk Executive",
     lines: [
       { icon: Mail, text: "support@axima.in", href: "mailto:support@axima.in" },
       { icon: Phone, text: "+91 77578 41333", href: "tel:+917757841333" },
@@ -16,15 +17,17 @@ const tiers = [
     n: 2,
     icon: AlertTriangle,
     title: "Priority Escalation",
+    person: "Escalation Manager",
     lines: [
-      { icon: Phone, text: "+91 77578 41333 (Ext: 2)", href: "tel:+917757841333" },
       { icon: Mail, text: "escalation@axima.in", href: "mailto:escalation@axima.in" },
+      { icon: Phone, text: "+91 77578 41333 (Ext: 2)", href: "tel:+917757841333" },
     ],
   },
   {
     n: 3,
     icon: ShieldAlert,
     title: "C-Suite Escalation",
+    person: "Director – Customer Success",
     lines: [{ icon: Mail, text: "management@axima.in", href: "mailto:management@axima.in" }],
   },
 ];
