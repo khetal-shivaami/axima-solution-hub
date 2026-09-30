@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin, Instagram, ChevronDown } from "lucide-react";
+import { Facebook, Twitter, Linkedin, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -64,7 +64,6 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/company/axima-corporation/posts/?feedView=all", label: "LinkedIn" },
-    { icon: Instagram, href: "https://www.instagram.com/axima.in?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
   ];
 
   const address = "1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080";
