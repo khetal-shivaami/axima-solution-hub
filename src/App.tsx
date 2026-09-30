@@ -14,6 +14,7 @@ import Products from "./pages/Products";
 import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import Support from "./pages/Support";
 import FAQ from "./pages/FAQ";
 import PlansAndPricing from "./pages/PlansAndPricing";
 import ProductDetails from "./pages/ProductDetails";
@@ -82,6 +83,7 @@ const App = () => {
                 <Route path="/entity-form" element={<EntityForm />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/support" element={<Support />} />
                 <Route path="/contact-thank-you" element={<ContactThankYou />} />
                 <Route path="/plan-thank-you" element={<PlanThankYou />} />
                 <Route path="/faq" element={<FAQ />} />

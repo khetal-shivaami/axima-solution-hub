@@ -144,6 +144,7 @@ export const navItems: NavItem[] = [
         items: [
           { label: "Upcoming Events", href: "/upcoming-events", description: "Webinars and live sessions" },
           { label: "Contact Sales", href: "/contact", description: "Talk to our experts" },
+          { label: "Support Matrix", href: "/support", description: "Help desk and escalation" },
         ],
       },
     ],
