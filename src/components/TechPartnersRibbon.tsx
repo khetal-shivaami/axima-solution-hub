@@ -15,10 +15,11 @@ const partners = [
   { name: "FlexiSign", logo: "/lovable-uploads/logos/Flexisign-logo-02.webp" },
 ];
 
-const ITEM_WIDTH = 280;
-// Wide gap between logos so only a few are visible at once and the same
-// logo never appears twice on screen (copies sit a full loop apart).
-const ITEM_MARGIN = 260;
+const ITEM_WIDTH = 200;
+// Pitch of 240px so six logos are visible on screen at a time; each copy of
+// the list (10 × 240 = 2400px) is wider than any screen, so the same logo
+// never appears twice at once.
+const ITEM_MARGIN = 40;
 const COPY_WIDTH = partners.length * (ITEM_WIDTH + ITEM_MARGIN);
 // Two copies are the minimum for a seamless loop; each copy is far wider
 // than any screen, so duplicates are never visible together and the
