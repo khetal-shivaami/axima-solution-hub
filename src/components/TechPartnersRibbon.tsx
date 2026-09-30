@@ -56,16 +56,37 @@ const TechPartnersRibbon = () => {
             partners.map((partner, idx) => (
               <div
                 key={`${copy}-${partner.name}-${idx}`}
-                className="flex shrink-0 flex-col items-center justify-center gap-2"
+                className="flex shrink-0 flex-col items-center justify-center gap-3"
                 style={{ width: ITEM_WIDTH, marginRight: ITEM_MARGIN }}
               >
-                <img
-                  src={partner.logo}
-                  alt={`${partner.name} logo`}
-                  loading="eager"
-                  className="h-14 w-40 object-contain"
-                />
-                <span className="text-xs font-medium text-gray-300">{partner.name}</span>
+                <div
+                  className="relative flex h-24 w-40 items-center justify-center rounded-lg overflow-hidden"
+                  style={{
+                    background: `linear-gradient(135deg, ${partner.color}26 0%, ${partner.color}0D 100%)`,
+                    border: `1px solid ${partner.color}33`,
+                    boxShadow: `0 0 24px ${partner.color}1A, inset 0 0 18px ${partner.color}0D`,
+                  }}
+                >
+                  <span
+                    className="pointer-events-none absolute inset-0"
+                    style={{
+                      background: `radial-gradient(circle at 50% 120%, ${partner.color}3D 0%, transparent 70%)`,
+                    }}
+                  />
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    loading="eager"
+                    className="relative h-14 w-36 object-contain"
+                    style={{ filter: `drop-shadow(0 0 10px ${partner.color}59)` }}
+                  />
+                </div>
+                <span
+                  className="text-xs font-medium"
+                  style={{ color: partner.color }}
+                >
+                  {partner.name}
+                </span>
               </div>
             ))
           )}
