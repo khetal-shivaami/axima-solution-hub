@@ -7,6 +7,7 @@ const tiers = [
     n: 1,
     icon: Headphones,
     title: "Initial Support",
+    person: "Support Desk Executive",
     lines: [
       { icon: Mail, text: "support@axima.in", href: "mailto:support@axima.in" },
       { icon: Phone, text: "+91 77578 41333", href: "tel:+917757841333" },
@@ -16,15 +17,17 @@ const tiers = [
     n: 2,
     icon: AlertTriangle,
     title: "Priority Escalation",
+    person: "Escalation Manager",
     lines: [
-      { icon: Phone, text: "+91 77578 41333 (Ext: 2)", href: "tel:+917757841333" },
       { icon: Mail, text: "escalation@axima.in", href: "mailto:escalation@axima.in" },
+      { icon: Phone, text: "+91 77578 41333 (Ext: 2)", href: "tel:+917757841333" },
     ],
   },
   {
     n: 3,
     icon: ShieldAlert,
     title: "C-Suite Escalation",
+    person: "Director – Customer Success",
     lines: [{ icon: Mail, text: "management@axima.in", href: "mailto:management@axima.in" }],
   },
 ];
@@ -84,7 +87,8 @@ const Support = () => (
           <div key={t.n} className="relative border border-white/10 rounded-2xl p-6 bg-white/[0.03] hover:border-axima-blue/50 transition">
             <span className="absolute -top-4 left-6 w-9 h-9 rounded-full bg-axima-blue flex items-center justify-center font-bold">{t.n}</span>
             <t.icon className="w-8 h-8 text-axima-blue mt-3 mb-3" />
-            <h3 className="text-xl font-semibold mb-4">{t.title}</h3>
+            <h3 className="text-xl font-semibold mb-1">{t.title}</h3>
+            <p className="text-gray-400 text-sm mb-4">{t.person}</p>
             <ul className="space-y-2">
               {t.lines.map((l) => (
                 <li key={l.text}>
