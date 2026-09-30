@@ -3,22 +3,9 @@ import Footer from "@/components/Footer";
 import { ManagementTeam } from "@/components/ManagementTeam";
 import { WhyChooseAxima } from "@/components/WhyChooseAxima";
 import IndiaLocationsMap from "@/components/IndiaLocationsMap";
-import checkPointLogo from "@/assets/check-point-logo.asset.json";
+import TechPartnersRibbon from "@/components/TechPartnersRibbon";
 import { motion } from "framer-motion";
-import { MapPin, Award, Target, Rocket } from "lucide-react";
-
-const partners = [
-  { name: "Microsoft", logo: "/lovable-uploads/logos/Microsoft_365.webp" },
-  { name: "Check Point", logo: `https://axima-solution-hub.lovable.app${checkPointLogo.url}` },
-  { name: "Zoom", logo: "/lovable-uploads/logos/Zoom-01.webp" },
-  { name: "JumpCloud", logo: "/lovable-uploads/logos/Jumpcloud-01.webp" },
-  { name: "Scalefusion", logo: "/lovable-uploads/logos/Scalefusion-01.webp" },
-  { name: "Spin.AI", logo: "/lovable-uploads/logos/Spin.ai.webp" },
-  { name: "HYCU", logo: "/lovable-uploads/logos/Hycu-2-01.webp" },
-  { name: "Atera", logo: "/lovable-uploads/logos/Atera-01.webp" },
-  { name: "1Password", logo: "/lovable-uploads/logos/OnePassword-01.webp" },
-  { name: "FlexiSign", logo: "/lovable-uploads/logos/Flexisign-logo-02.webp" },
-];
+import { MapPin, Target, Rocket } from "lucide-react";
 
 const About = () => {
   return (
