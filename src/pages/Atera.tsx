@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FaqSchema } from "@/components/FaqSchema";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -28,30 +29,25 @@ const benefits = [
 
 const faqs = [
   {
-    question: "What makes Atera different from other ITSM tools?",
-    answer:
-      "Atera combines RMM, PSA, remote access, and helpdesk in one platform with flat-rate per-technician pricing instead of per-device billing.",
+    "question": "Why choose an Atera partner?",
+    "answer": "An Atera partner can help businesses evaluate IT management requirements, understand subscription options, and coordinate platform setup."
   },
   {
-    question: "Does Atera support patch management?",
-    answer:
-      "Yes. It automates patch deployment for Windows, macOS, and hundreds of third-party applications with customisable schedules.",
+    "question": "How does Atera support patch management?",
+    "answer": "Atera provides patch management capabilities to help IT teams identify and deploy supported software and operating system updates. Automation and reporting features can help streamline routine maintenance."
   },
   {
-    question: "Can Atera be used by internal IT teams as well as MSPs?",
-    answer:
-      "Yes. Atera has tailored plans and features for both managed service providers and in-house IT departments.",
+    "question": "What is the difference between patch management tools and patch management software?",
+    "answer": "Patch management tools and patch management software help IT teams identify missing updates, deploy patches, and monitor update status. Atera combines patch management with broader IT monitoring and remote management features."
   },
   {
-    question: "How does AI work within Atera?",
-    answer:
-      "Atera's AI suggests ticket resolutions, auto-generates scripts, and summarises device health to reduce manual effort.",
+    "question": "Can Atera help manage multiple devices remotely?",
+    "answer": "Yes, Atera enables IT teams to monitor and manage supported endpoints remotely. Features such as remote access, alerts, and automation help simplify routine IT operations."
   },
   {
-    question: "Is remote access included in Atera?",
-    answer:
-      "Yes. Atera includes integration with Splashtop and AnyDesk for secure, on-demand remote sessions.",
-  },
+    "question": "How can I purchase Atera in India?",
+    "answer": "Businesses can explore Atera subscription options through Axima - Atera reseller in India. Confirm plan availability and included features based on your IT team's requirements."
+  }
 ];
 
 const Atera = () => {
@@ -64,6 +60,16 @@ const Atera = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 relative">
+      <Helmet>
+        <title>{"Atera RMM & PSA Platform in India | IT Management | Axima"}</title>
+        <meta name="description" content={"Run remote monitoring, helpdesk, patching and remote access from one AI-powered platform. Atera offers pay-per-technician pricing for unlimited endpoints."} />
+        <meta property="og:title" content={"Atera RMM & PSA Platform in India | IT Management | Axima"} />
+        <meta property="og:description" content={"Run remote monitoring, helpdesk, patching and remote access from one AI-powered platform. Atera offers pay-per-technician pricing for unlimited endpoints."} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={"Atera RMM & PSA Platform in India | IT Management | Axima"} />
+        <meta name="twitter:description" content={"Run remote monitoring, helpdesk, patching and remote access from one AI-powered platform. Atera offers pay-per-technician pricing for unlimited endpoints."} />
+      </Helmet>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
       <FaqSchema faqs={faqs} />
@@ -81,7 +87,13 @@ const Atera = () => {
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Atera</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              Atera is an all-in-one IT management platform built for managed service providers and internal IT teams that need remote monitoring, helpdesk, and automation in a single tool. Its flat-rate pricing model removes the per-device cost barrier so teams can manage unlimited endpoints.
+              {"Atera is an autonomous IT management platform with built-in AI agents, designed for managed service providers (MSPs), internal IT departments and IT consultants. It combines remote monitoring and management (RMM), professional services automation (PSA), helpdesk ticketing, patch management and remote access in one tool, with pay-per-technician pricing for unlimited endpoints, so your costs don't grow with every new device."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"Atera RMM monitors servers, workstations and networks in real time and runs scripts to fix common issues automatically. Patch management keeps Windows, macOS and Linux devices and third-party applications up to date on your schedule. AI Copilot, included in every plan, summarises tickets, writes scripts from plain-English prompts, troubleshoots devices in real time and turns resolved tickets into knowledge base articles. Robin, Atera's autonomous IT service agent, takes user requests from Microsoft Teams, Slack, email and the customer portal. Remote access works with AnyDesk, Splashtop, TeamViewer or ScreenConnect, and the PSA covers contracts, SLAs, time tracking and billing with QuickBooks and Xero."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"Axima helps MSPs and in-house IT teams move to Atera with a clean setup: agent rollout, monitoring thresholds, alert rules, patch policies and automation scripts that suit your environment. Less firefighting, more planned work, and a partner in India who answers when you call, 24/7."}
             </p>
             <Button
               onClick={() => navigate("/contact")}

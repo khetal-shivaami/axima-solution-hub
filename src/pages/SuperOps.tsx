@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FaqSchema } from "@/components/FaqSchema";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -28,30 +29,29 @@ const benefits = [
 
 const faqs = [
   {
-    question: "Does SuperOps combine PSA and RMM in one platform?",
-    answer:
-      "Yes. SuperOps is built as a unified platform with no need to integrate separate PSA and RMM tools.",
+    "question": "What is SuperOps, and how does it help IT teams?",
+    "answer": "SuperOps is an IT management platform that helps organisations and managed service providers monitor endpoints, automate IT tasks, manage patches, and streamline support operations."
   },
   {
-    question: "How does SuperOps use AI?",
-    answer:
-      "It uses AI to triage incoming tickets, suggest resolutions based on past history, and summarise long ticket threads for faster technician context.",
+    "question": "What are the benefits of using an RMM platform?",
+    "answer": "A Remote Monitoring and Management (RMM) platform helps IT teams monitor device health, detect issues, deploy updates, and troubleshoot systems remotely. It supports proactive IT maintenance and reduces manual work."
   },
   {
-    question: "Is SuperOps suitable for growing MSPs?",
-    answer:
-      "Yes. Its architecture and pricing are designed to scale with MSPs as they add clients and technicians.",
+    "question": "Why choose a SuperOps reseller in India?",
+    "answer": "A SuperOps reseller in India can help businesses evaluate subscription options, understand platform capabilities, and coordinate onboarding based on their IT management requirements."
   },
   {
-    question: "Does SuperOps include client-facing features?",
-    answer:
-      "Yes. The client portal allows end users to raise tickets, track status, and communicate with the IT team directly.",
+    "question": "Is SuperOps suitable for Managed Service Providers (MSPs)?",
+    "answer": "Yes, SuperOps offers MSP-focused capabilities that combine remote monitoring and management with service desk, ticketing, and professional services automation features, depending on the selected solution."
   },
   {
-    question: "Can SuperOps handle billing and invoicing?",
-    answer:
-      "Yes. It includes contract management, time tracking, and automated invoice generation tied directly to service delivery.",
+    "question": "How does SuperOps support patch management?",
+    "answer": "SuperOps helps IT teams automate supported operating system and third-party software updates, configure patch policies, and monitor deployment status to improve endpoint maintenance."
   },
+  {
+    "question": "Can SuperOps manage IT operations from one platform?",
+    "answer": "SuperOps brings together capabilities such as endpoint monitoring, remote access, patch management, and service management. Available features depend on the selected product and subscription."
+  }
 ];
 
 const SuperOps = () => {
@@ -64,6 +64,16 @@ const SuperOps = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 relative">
+      <Helmet>
+        <title>{"SuperOps PSA & RMM for MSPs and IT Teams | Axima"}</title>
+        <meta name="description" content={"Run your MSP or IT team on SuperOps. Unified PSA and RMM, Monica AI, patching, ticketing, projects and billing, set up and supported by Axima."} />
+        <meta property="og:title" content={"SuperOps PSA & RMM for MSPs and IT Teams | Axima"} />
+        <meta property="og:description" content={"Run your MSP or IT team on SuperOps. Unified PSA and RMM, Monica AI, patching, ticketing, projects and billing, set up and supported by Axima."} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={"SuperOps PSA & RMM for MSPs and IT Teams | Axima"} />
+        <meta name="twitter:description" content={"Run your MSP or IT team on SuperOps. Unified PSA and RMM, Monica AI, patching, ticketing, projects and billing, set up and supported by Axima."} />
+      </Helmet>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
       <FaqSchema faqs={faqs} />
@@ -81,7 +91,13 @@ const SuperOps = () => {
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">SuperOps</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              SuperOps is a modern, AI-powered PSA and RMM platform built for the next generation of managed service providers. It replaces legacy tools with a unified, intelligent workspace that handles everything from client management to endpoint monitoring and billing.
+              {"SuperOps is an AI-native IT management platform with two products. MSPSuite is a unified PSA and RMM platform built for managed service providers (MSPs), and ITSuite is an agentic IT management platform for internal IT teams. Founded in 2020 with an office in Chennai, SuperOps now has customers in more than 104 countries."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"Monica, SuperOps' built-in agentic AI assistant, summarises tickets, writes worklogs, generates scripts, recommends solutions from similar past tickets and deflects routine requests before they reach a technician. AI Patch Manager and AI Dispatcher automate patching and ticket assignment. MSPSuite combines professional services automation with remote monitoring and management, network monitoring, project and contract management, quotes, and billing that integrates with QuickBooks, Xero and Stripe, while a client portal lets customers raise tickets and track status, assets and invoices. ITSuite brings endpoint management, service desk, asset management, patching, MDM and IT documentation together across Windows, Mac, Linux, Android and iOS."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"Axima helps MSPs and IT teams move to SuperOps from legacy tools with minimal disruption. We migrate client and asset data, configure SLAs, alerts and billing rules, and train your technicians so the platform is working for you from week one. It is MSP software that grows with your client base, backed by our 24/7 support."}
             </p>
             <Button
               onClick={() => navigate("/contact")}

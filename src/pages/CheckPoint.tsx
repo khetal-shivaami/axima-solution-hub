@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FaqSchema } from "@/components/FaqSchema";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -28,30 +29,29 @@ const benefits = [
 
 const faqs = [
   {
-    question: "What is the Check Point Infinity platform?",
-    answer:
-      "It is Check Point's unified security architecture that consolidates network, cloud, endpoint, mobile, and IoT security under one management layer.",
+    "question": "What are Check Point security solutions?",
+    "answer": "Check Point security solutions help protect networks, cloud environments, email systems, endpoints, and users against cyber threats. Businesses can select solutions based on their security architecture and risk requirements."
   },
   {
-    question: "Does Check Point protect cloud environments?",
-    answer:
-      "Yes. CloudGuard covers workload protection, posture management, and network security across all major cloud platforms.",
+    "question": "Why choose a Check Point Partner for cybersecurity?",
+    "answer": "A Check Point Partner can help organisations evaluate security requirements, identify suitable products, and coordinate implementation. The available deployment and support services depend on the partner's authorisations and expertise."
   },
   {
-    question: "How does Check Point handle zero-day threats?",
-    answer:
-      "Its SandBlast technology uses sandboxing and threat emulation to catch unknown threats before they execute.",
+    "question": "What is the Check Point cyber security platform used for?",
+    "answer": "The Check Point cyber security platform offers security capabilities for network protection, cloud workloads, email, and user access. It helps organisations strengthen threat prevention and security management across their IT environments."
   },
   {
-    question: "Is Check Point suitable for small and mid-sized businesses?",
-    answer:
-      "Yes. Check Point offers scalable solutions including Quantum Spark for SMBs and larger Quantum appliances for enterprise.",
+    "question": "How does a Check Point firewall protect business networks?",
+    "answer": "A Check Point firewall controls network traffic according to configured security policies. Depending on the model and subscription, it can provide capabilities such as intrusion prevention, application control, and threat protection."
   },
   {
-    question: "What support and services does Check Point offer?",
-    answer:
-      "Check Point provides 24/7 technical support, managed security services, and a global network of certified partners.",
+    "question": "How does Check Point Email Security protect business email?",
+    "answer": "Check Point Email Security helps detect and prevent threats such as phishing, malicious attachments, and harmful links. It supports protection for business email environments, including Microsoft 365 and Google Workspace."
   },
+  {
+    "question": "Can Check Point security solutions protect cloud and on-premises environments?",
+    "answer": "Yes, Check Point offers security solutions for cloud and on-premises environments. The appropriate deployment depends on your infrastructure, workloads, network design, and security objectives."
+  }
 ];
 
 const CheckPoint = () => {
@@ -64,6 +64,16 @@ const CheckPoint = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 relative">
+      <Helmet>
+        <title>{"Check Point Cyber Security Solutions in India | Axima"}</title>
+        <meta name="description" content={"Stop attacks before they reach your business with Check Point. Firewalls, email security, cloud and endpoint protection powered by ThreatCloud AI, via Axima."} />
+        <meta property="og:title" content={"Check Point Cyber Security Solutions in India | Axima"} />
+        <meta property="og:description" content={"Stop attacks before they reach your business with Check Point. Firewalls, email security, cloud and endpoint protection powered by ThreatCloud AI, via Axima."} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={"Check Point Cyber Security Solutions in India | Axima"} />
+        <meta name="twitter:description" content={"Stop attacks before they reach your business with Check Point. Firewalls, email security, cloud and endpoint protection powered by ThreatCloud AI, via Axima."} />
+      </Helmet>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
       <FaqSchema faqs={faqs} />
@@ -81,7 +91,10 @@ const CheckPoint = () => {
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Check Point</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              Check Point is a global leader in cyber security, delivering unified threat prevention across network, cloud, endpoint, and mobile environments. Its AI-powered security architecture stops the most sophisticated attacks before they reach your business.
+              {"Check Point is a leading provider of AI-powered, cloud-delivered cybersecurity solutions designed to protect organizations against phishing, ransomware, malware, zero-day attacks, and other advanced cyber threats. As a Check Point partner, we provide security solutions that help businesses safeguard their digital environments. Check Point Email Security protects Microsoft 365 and Google Workspace against email-borne threats through advanced inline and API-based protection, leveraging its patented security architecture to detect phishing, business email compromise (BEC), malicious attachments, and sensitive-data leakage. Powered by ThreatCloud AI, it strengthens email security through intelligent threat detection, malware prevention, and Data Loss Prevention (DLP) capabilities."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"Check Point's comprehensive portfolio also includes Endpoint Security, offering EPP, EDR, and XDR capabilities to prevent, detect, investigate, and respond to endpoint threats; Quantum Network Security, providing next-generation firewall protection, intrusion prevention, application control, and secure connectivity; and CloudGuard, helping protect cloud workloads, applications, and infrastructure across AWS, Microsoft Azure, and Google Cloud. Powered by advanced threat intelligence and centralized security management, Check Point solutions help organizations improve visibility, simplify security operations, and build a stronger defense against evolving cyber threats."}
             </p>
             <Button
               onClick={() => navigate("/contact")}
