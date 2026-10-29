@@ -49,7 +49,7 @@ const About = () => {
                 A sister company of Shivaami, one of India's most recognised cloud technology companies, Axima brings the same depth of expertise to the Microsoft ecosystem and beyond.
               </p>
               <p>
-                We have been in the business for over a decade. We started with Microsoft 365 and have since grown into a multi-product partner working with global technology leaders including Check Point, Microsoft, Zoom, JumpCloud, Scalefusion, Spin.AI, HYCU, Atera, 1Password, and FlexiSign.
+                We have been in the business for over a decade. We started with Microsoft 365 and have since grown into a multi-product partner working with global technology leaders including Check Point, Microsoft, Zoom, JumpCloud, Spin.AI, Atera, 1Password, and FlexiSign.
               </p>
               <p>
                 As a Microsoft Solutions Partner, we deliver, implement, and support solutions for businesses of every size. Our certified team is available around the clock to help you evaluate, implement, and get the most from every solution. We don't just sell software. We make sure it works for your business.
