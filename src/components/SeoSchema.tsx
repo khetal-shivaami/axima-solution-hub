@@ -67,7 +67,7 @@ export const SeoSchema = () => {
       }
     : null;
 
-  const product = PRODUCTS[path];
+  const product = PRODUCTS[path] || (segs[0] === "products" && segs[1] ? toTitle(segs[1]) : undefined);
   const service = product
     ? {
         "@context": "https://schema.org",
