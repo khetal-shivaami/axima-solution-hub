@@ -128,14 +128,12 @@ const Footer = () => {
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-xl font-bold text-white mb-4">Cloud Solutions</h3>
             <ul className="space-y-2">
               {solutionColumns.cloud.map(renderLink)}
             </ul>
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-xl font-bold text-white mb-4">Productivity & Collaboration</h3>
             <ul className="space-y-2">
               <li>
                 <div className="relative">
@@ -186,7 +184,6 @@ const Footer = () => {
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-xl font-bold text-white mb-4">Security & IT Management</h3>
             <ul className="space-y-2">
               {solutionColumns.securityIt.map(renderLink)}
             </ul>
