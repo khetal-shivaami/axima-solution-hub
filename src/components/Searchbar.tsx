@@ -76,12 +76,6 @@ const searchData: SearchResult[] = [
     category: "Products"
   },
   { 
-    title: "HYCU", 
-    description: "Data protection solution",
-    path: "/product/hycu",
-    category: "Products"
-  },
-  { 
     title: "ZOOM", 
     description: "Video conferencing solution",
     path: "/product/zoom",
@@ -99,12 +93,6 @@ const searchData: SearchResult[] = [
   //   path: "/product/scaledino",
   //   category: "Products"
   // },
-  { 
-    title: "Scalefusion", 
-    description: "Mobile device management",
-    path: "/product/scalefusion",
-    category: "Products"
-  },
   { 
     title: "FlexiSign", 
     description: "Digital signature solution",

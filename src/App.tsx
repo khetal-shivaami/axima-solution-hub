@@ -46,14 +46,11 @@ import CheckPoint from "./pages/CheckPoint";
 import JumpCloud from "./pages/JumpCloud";
 import MiniOrange from "./pages/MiniOrange";
 import OnePassword from "./pages/OnePassword";
-import Scalefusion from "./pages/Scalefusion";
 import FlexiSign from "./pages/FlexiSign";
-import Superworks from "./pages/Superworks";
 import Atera from "./pages/Atera";
 import SuperOps from "./pages/SuperOps";
 import Viami from "./pages/Viami";
 import ChromeOS from "./pages/ChromeOS";
-import RecurPost from "./pages/RecurPost";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -103,14 +100,11 @@ const App = () => {
                 <Route path="/jumpcloud" element={<JumpCloud />} />
                 <Route path="/miniorange" element={<MiniOrange />} />
                 <Route path="/onepassword" element={<OnePassword />} />
-                <Route path="/scalefusion" element={<Scalefusion />} />
                 <Route path="/flexisign" element={<FlexiSign />} />
-                <Route path="/superworks" element={<Superworks />} />
                 <Route path="/atera" element={<Atera />} />
                 <Route path="/superops" element={<SuperOps />} />
                 <Route path="/viami" element={<Viami />} />
                 <Route path="/chrome-os" element={<ChromeOS />} />
-                <Route path="/recurpost" element={<RecurPost />} />
                 <Route path="/support-packages" element={<SupportPackages />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />

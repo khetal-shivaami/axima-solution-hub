@@ -12,14 +12,11 @@ const PRODUCTS: Record<string, string> = {
   "/jumpcloud": "JumpCloud",
   "/miniorange": "miniOrange",
   "/onepassword": "1Password",
-  "/scalefusion": "Scalefusion",
   "/flexisign": "FlexiSign",
-  "/superworks": "Superworks",
   "/atera": "Atera",
   "/superops": "SuperOps",
   "/viami": "Viami",
   "/chrome-os": "Chrome OS",
-  "/recurpost": "RecurPost",
   "/copilot": "Microsoft Copilot",
 };
 
