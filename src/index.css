@@ -159,3 +159,7 @@
 @media (prefers-reduced-motion: reduce) {
   .india-network-route, .india-network-beacon { animation: none; }
 }
+html, body {
+  overflow-x: clip;
+  max-width: 100%;
+}
