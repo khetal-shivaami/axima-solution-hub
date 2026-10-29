@@ -362,36 +362,6 @@ export const productDetails: Record<string, ProductDetail> = {
     metaTitle: "Microsoft Teams for Business | Teams Phone India | Axima",
     metaDescription: "Get Microsoft Teams for business from a Microsoft Solutions Partner. Meetings, chat, Copilot, Teams Rooms and Teams Phone set up for India, with 24/7 support.",
   },
-  "hycu": {
-    slug: "hycu",
-    name: "HYCU",
-    category: "Backup Solutions",
-    description:
-      "HYCU is a purpose-built multi-cloud data protection platform that simplifies backup, recovery, and migration across cloud, on-premise, and SaaS environments. It gives IT teams full visibility and control without the complexity of legacy backup tools.",
-    cta: "Start Building Today",
-    features: [
-      "Agentless backup for Google Cloud, AWS, Azure, VMware, and Nutanix workloads",
-      "SaaS backup for Microsoft 365, Google Workspace, Salesforce, and Jira",
-      "Application-consistent snapshots with granular file and object-level recovery",
-      "HYCU Protégé for self-service data protection across distributed environments",
-      "Automated policy-based backup scheduling with customisable retention rules",
-      "Single-pane-of-glass dashboard for backup status, SLA tracking, and alerts",
-    ],
-    benefits: [
-      "Eliminate backup agent management with a fully agentless, API-driven architecture",
-      "Recover faster with instant VM restore and granular item-level recovery options",
-      "Reduce data loss risk with automated, policy-driven protection across every environment",
-      "Simplify multi-cloud backup with one platform instead of separate tools per cloud",
-      "Meet compliance requirements with immutable backups and audit-ready reporting",
-    ],
-    faqs: [
-      { question: "What environments does HYCU support?", answer: "HYCU supports Google Cloud, AWS, Azure, VMware, Nutanix, and a growing list of SaaS applications." },
-      { question: "Is HYCU agentless?", answer: "Yes. HYCU uses API-based integration without requiring agents installed on protected workloads." },
-      { question: "Can HYCU back up SaaS applications?", answer: "Yes. HYCU Protégé covers Microsoft 365, Google Workspace, Salesforce, Jira, Confluence, and more." },
-      { question: "How quickly can data be restored?", answer: "HYCU supports instant VM recovery and granular file-level restore, with recovery times measured in minutes." },
-      { question: "Does HYCU support immutable backups?", answer: "Yes. Immutable storage options protect backup data from ransomware and accidental deletion." },
-    ],
-  },
   "spin-ai": {
     slug: "spin-ai",
     name: "Spin.AI",
@@ -441,36 +411,6 @@ export const productDetails: Record<string, ProductDetail> = {
     ],
     metaTitle: "Spin.AI Backup for Google Workspace & Microsoft 365 | Axima",
     metaDescription: "Protect Google Workspace, Microsoft 365, Salesforce and Slack with SpinOne. Automated SaaS backup, ransomware recovery and app risk control, via Axima.",
-  },
-  "digiboxx": {
-    slug: "digiboxx",
-    name: "Digiboxx",
-    category: "Backup Solutions",
-    description:
-      "Digiboxx is India's homegrown cloud storage and backup platform built for individuals, businesses, and government organisations that need secure, affordable data storage with full data residency within India. It is a Make in India initiative backed by NITI Aayog.",
-    cta: "Start Building Today",
-    features: [
-      "Cloud storage and backup with data centres 100% located within India",
-      "File sharing with password-protected links and expiry controls",
-      "Team collaboration with folder-level access permissions and shared workspaces",
-      "Automatic backup for desktops and mobile devices with scheduled sync",
-      "API access for developers and enterprise integration with existing workflows",
-      "Compliance-ready architecture aligned with Indian data protection requirements",
-    ],
-    benefits: [
-      "Keep all organisational data within Indian borders for regulatory and sovereignty compliance",
-      "Reduce dependency on foreign cloud providers for sensitive business and government data",
-      "Lower storage costs with affordable plans designed for Indian businesses and institutions",
-      "Enable secure file sharing across teams and external stakeholders without data leaving the country",
-      "Support Digital India initiatives with a platform purpose-built for Indian compliance requirements",
-    ],
-    faqs: [
-      { question: "Where is Digiboxx data stored?", answer: "All data is stored exclusively in data centres located within India, ensuring full data residency compliance." },
-      { question: "Is Digiboxx suitable for enterprises?", answer: "Yes. Digiboxx offers enterprise plans with custom storage, admin controls, and API integration capabilities." },
-      { question: "Can I share files securely with external users?", answer: "Yes. Digiboxx allows password-protected, expiry-controlled link sharing with external recipients." },
-      { question: "Is Digiboxx a government-approved platform?", answer: "It is backed by NITI Aayog and positioned as a preferred platform for government and public sector data storage." },
-      { question: "What devices does Digiboxx support?", answer: "It is accessible via web browser, Windows and Mac desktop apps, and iOS and Android mobile apps." },
-    ],
   },
   "checkpoint": {
     slug: "checkpoint",

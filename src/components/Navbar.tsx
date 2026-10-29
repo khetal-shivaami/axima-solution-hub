@@ -72,9 +72,7 @@ export const navItems: NavItem[] = [
       {
         title: "Backup Solutions",
         items: [
-          { label: "HYCU", href: "/products/hycu", description: "Multi-cloud data protection" },
           { label: "Spin.AI", href: "/products/spin-ai", description: "SaaS security and backup" },
-          { label: "Digiboxx", href: "/products/digiboxx", description: "Made-in-India cloud storage" },
         ],
       },
       {
@@ -89,16 +87,11 @@ export const navItems: NavItem[] = [
           { label: "JumpCloud", href: "/jumpcloud", description: "Cloud directory and access" },
           { label: "miniOrange", href: "/miniorange", description: "Identity and access security" },
           { label: "1Password", href: "/onepassword", description: "Secure password management" },
-          { label: "Scalefusion", href: "/scalefusion", description: "Unified endpoint management" },
         ],
       },
       {
         title: "E-Signature",
         items: [{ label: "FlexiSign", href: "/flexisign", description: "Digital signatures made simple" }],
-      },
-      {
-        title: "HRMS",
-        items: [{ label: "Superworks", href: "/superworks", description: "Complete HR management" }],
       },
       {
         title: "ITSM",
@@ -111,10 +104,6 @@ export const navItems: NavItem[] = [
       {
         title: "Operating Systems",
         items: [{ label: "Chrome OS", href: "/chrome-os", description: "Secure cloud-first operating system" }],
-      },
-      {
-        title: "Social Media Management",
-        items: [{ label: "RecurPost", href: "/recurpost", description: "Social media scheduling" }],
       },
       {
         title: "Services",
