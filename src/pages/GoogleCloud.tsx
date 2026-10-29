@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -27,29 +28,34 @@ const benefits = [
 
 const faqs = [
   {
-    question: "What is Google Cloud used for?",
+    question: "What is Google Cloud Platform (GCP), and how can it benefit my business?",
     answer:
-      "It supports a wide range of workloads, including app hosting, data analytics, machine learning, and enterprise migrations.",
+      "Google Cloud Platform (GCP) is a suite of cloud computing services that helps businesses build, deploy, manage, and scale applications and workloads securely. It offers solutions for computing, storage, databases, networking, data analytics, artificial intelligence (AI), and cloud security. By adopting Google Cloud, businesses can improve operational efficiency, support digital transformation, and scale their IT infrastructure based on changing business needs.",
   },
   {
-    question: "Is Google Cloud suitable for small businesses?",
+    question: "Why choose Axima as your Google Cloud Platform reseller in India?",
     answer:
-      "Yes. Pay-as-you-go pricing and free-tier options make it accessible at any scale.",
+      "Axima helps businesses explore and adopt Google Cloud solutions based on their technical requirements and business objectives. As a Google Cloud Platform reseller, Axima can assist with cloud solution selection, subscription and billing guidance, deployment coordination, and ongoing cloud requirements, depending on the services engaged. Businesses looking for a Google Cloud partner in India can work with Axima to identify suitable GCP solutions for infrastructure modernisation, application development, data management, and business growth.",
   },
   {
-    question: "How secure is Google Cloud?",
+    question: "What services does a Google Cloud Platform service provider offer?",
     answer:
-      "It uses the same security infrastructure that protects Google Search and Gmail, with built-in threat detection and encryption at rest and in transit.",
+      "A Google Cloud Platform service provider helps businesses plan, implement, manage, and optimise their cloud environments. Services may include cloud infrastructure setup, virtual machine deployment, storage and database configuration, cloud migration, networking, security implementation, backup planning, performance monitoring, and cost optimisation. The scope depends on the provider's expertise and service portfolio. Working with the right GCP service provider helps businesses align their cloud infrastructure with performance, security, scalability, and budget requirements.",
   },
   {
-    question: "Can I migrate my existing workloads to Google Cloud?",
+    question: "How can Axima help with Google Cloud migration?",
     answer:
-      "Yes. Google offers migration tools, partner support, and a structured migration framework for lift-and-shift or re-architecting.",
+      "Axima can help businesses evaluate their existing IT infrastructure and identify suitable workloads for migration to Google Cloud. A cloud migration project may involve workload assessment, migration planning, data transfer, application deployment, testing, and post-migration optimisation, depending on the agreed scope. Moving workloads to GCP can help organisations improve scalability, modernise applications, and reduce the burden of managing on-premises infrastructure. A structured migration approach also helps minimise disruption and support business continuity.",
   },
   {
-    question: "What support plans are available?",
+    question: "Is Google Cloud Platform secure for business applications and data?",
     answer:
-      "Plans range from basic documentation access to 24/7 technical support with dedicated TAMs.",
+      "Google Cloud Platform provides a range of security capabilities, including identity and access management, data encryption, network security controls, monitoring, and threat detection tools. Businesses can use these capabilities to establish security controls that align with their operational and compliance requirements. A qualified Google Cloud partner in India can help assess security needs, configure appropriate controls, and develop cloud security practices. However, security responsibilities are shared between Google Cloud and the customer, depending on the services and deployment model used.",
+  },
+  {
+    question: "How much does Google Cloud Platform cost, and how can businesses optimise their cloud spending?",
+    answer:
+      "Google Cloud Platform pricing depends on the services used, computing resources, storage capacity, network traffic, region, and usage duration. Businesses can manage costs by selecting appropriate machine types, monitoring resource consumption, identifying idle resources, and using suitable pricing options. A Google Cloud Platform reseller or GCP service provider can help businesses understand their estimated cloud expenditure, review resource requirements, and identify potential cost optimisation opportunities. Contact Axima to discuss your business requirements and explore suitable Google Cloud solutions.",
   },
 ];
 
@@ -63,6 +69,17 @@ const GoogleCloud = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 relative">
+      <Helmet>
+        <title>Google Cloud Partner in India | GCP Services | Axima</title>
+        <meta name="description" content="Run and scale on Google Cloud Platform with Axima. Mumbai and Delhi regions, BigQuery, Gemini AI, Google Cloud migration and 24/7 support in India." />
+        <meta property="og:title" content="Google Cloud Partner in India | GCP Services | Axima" />
+        <meta property="og:description" content="Run and scale on Google Cloud Platform with Axima. Mumbai and Delhi regions, BigQuery, Gemini AI, Google Cloud migration and 24/7 support in India." />
+        <meta property="og:url" content="https://axima-solution-hub.lovable.app/google-cloud" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Google Cloud Partner in India | GCP Services | Axima" />
+        <meta name="twitter:description" content="Run and scale on Google Cloud Platform with Axima. Mumbai and Delhi regions, BigQuery, Gemini AI, Google Cloud migration and 24/7 support in India." />
+      </Helmet>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
       <div className="container mx-auto px-4 py-20 relative z-10">
@@ -79,7 +96,13 @@ const GoogleCloud = () => {
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Google Cloud</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              Google Cloud gives businesses a secure, intelligent infrastructure to run workloads, build applications, and scale without limits. It combines high-performance computing with AI-native tools built into every layer of the stack.
+              Google Cloud is a secure, AI-ready cloud platform that lets businesses run workloads, build applications and scale without limits. Google Cloud Platform (GCP) covers everything from Compute Engine virtual machines and Google Kubernetes Engine (GKE) for containers to BigQuery, Google's autonomous data to AI platform, and Gemini Enterprise Agent Platform (formerly Vertex AI) for building and deploying AI models and agents.
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              For businesses running Google Cloud in India, there are two local regions, Mumbai and Delhi, so you can keep data close to your customers and plan disaster recovery without data leaving the country. Services in both regions are MeitY-empanelled, and Google Cloud publishes compliance guidance for RBI, SEBI and IRDAI requirements. Customer data is encrypted at rest by default, and pay-as-you-go pricing means no upfront costs and no termination fees, with committed use discounts for steady workloads.
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              Axima makes Google Cloud simple to adopt. As your Google Cloud partner in India, we help you design the right architecture, plan your Google Cloud migration with minimal disruption, keep spending under control through cost optimisation, and support you 24/7 once you are live. From your first workload to your hundredth, you deal with one partner who knows your setup.
             </p>
             <Button
               onClick={() => navigate("/contact")}
