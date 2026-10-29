@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FaqSchema } from "@/components/FaqSchema";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -28,30 +29,29 @@ const benefits = [
 
 const faqs = [
   {
-    question: "What protocols does miniOrange support?",
-    answer:
-      "It supports SAML 2.0, OAuth 2.0, OpenID Connect, LDAP, and RADIUS for broad application compatibility.",
+    "question": "What is miniOrange, and what security challenges does it address?",
+    "answer": "miniOrange provides identity and access management (IAM) solutions that help organisations manage authentication and access to applications. Its capabilities include SSO, multi-factor authentication, and user lifecycle management."
   },
   {
-    question: "Can miniOrange integrate with existing Active Directory?",
-    answer:
-      "Yes. It syncs with on-premise AD and Azure AD for seamless identity federation.",
+    "question": "How can a miniOrange partner help my business?",
+    "answer": "A miniOrange partner can help assess identity security requirements, identify suitable solutions, and coordinate configuration for supported applications. Available implementation and support services depend on the partner's capabilities."
   },
   {
-    question: "Does miniOrange offer customer identity management?",
-    answer:
-      "Yes. Its CIAM solution handles registration, login, profile management, and consent for external users.",
+    "question": "What is miniOrange SSO, and how does it work?",
+    "answer": "miniOrange SSO enables users to access multiple connected applications through a central authentication process. It helps simplify sign-ins while allowing administrators to apply consistent access policies."
   },
   {
-    question: "Is miniOrange available on-premise?",
-    answer:
-      "Yes. It supports on-premise, cloud-hosted, and hybrid deployment depending on organisational requirements.",
+    "question": "How does miniOrange support identity and access management (IAM)?",
+    "answer": "miniOrange IAM helps organisations manage user identities, application access, authentication policies, and account provisioning. These capabilities support centralised access control across business systems."
   },
   {
-    question: "How many MFA methods does miniOrange support?",
-    answer:
-      "It offers 15+ authentication factors including OTP, push notifications, biometrics, and hardware tokens.",
+    "question": "Why is multi-factor authentication important for business security?",
+    "answer": "Multi-factor authentication (MFA) requires users to verify their identity using additional authentication factors beyond a password. It helps reduce the risk of unauthorised access caused by stolen or compromised credentials."
   },
+  {
+    "question": "Can miniOrange provide SSO and MFA for cloud and on-premises applications?",
+    "answer": "miniOrange supports authentication integrations for various cloud, enterprise, and legacy applications. Available SSO and MFA options depend on application compatibility, deployment requirements, and the selected solution."
+  }
 ];
 
 const MiniOrange = () => {
@@ -64,6 +64,16 @@ const MiniOrange = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 relative">
+      <Helmet>
+        <title>{"miniOrange SSO & MFA in India | Identity Management | Axima"}</title>
+        <meta name="description" content={"Secure every app with miniOrange single sign-on, adaptive MFA and user provisioning. Cloud, on-premise or hybrid identity security, deployed by Axima."} />
+        <meta property="og:title" content={"miniOrange SSO & MFA in India | Identity Management | Axima"} />
+        <meta property="og:description" content={"Secure every app with miniOrange single sign-on, adaptive MFA and user provisioning. Cloud, on-premise or hybrid identity security, deployed by Axima."} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={"miniOrange SSO & MFA in India | Identity Management | Axima"} />
+        <meta name="twitter:description" content={"Secure every app with miniOrange single sign-on, adaptive MFA and user provisioning. Cloud, on-premise or hybrid identity security, deployed by Axima."} />
+      </Helmet>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
       <FaqSchema faqs={faqs} />
@@ -81,7 +91,13 @@ const MiniOrange = () => {
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">miniOrange</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              miniOrange is an identity and access management platform that helps organisations secure their applications with single sign-on, multi-factor authentication, and user provisioning across cloud and on-premise environments. It is built to work with virtually any existing IT setup.
+              {"miniOrange is an identity and access management (IAM) platform that secures your applications with single sign-on, multi-factor authentication and automated user lifecycle management. Founded in 2012, it serves more than 30,000 premium customers in over 100 countries and has grown beyond IAM into data security, privileged access management and customer identity."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"miniOrange SSO offers 6,000+ integrations across cloud, on-premise and in-house applications, using SAML 2.0, OAuth 2.0, OpenID Connect, JWT and WS-Federation, and it can extend single sign-on to legacy apps through reverse-proxy and header-based authentication. It connects to Active Directory, LDAP, Microsoft Entra ID, Okta and ADFS, so you keep your existing directory. miniOrange MFA supports 15+ authentication methods, from OTP, push notifications and authenticator apps to YubiKey and FIDO2 biometrics, and adaptive MFA checks IP address, location, device and time before asking for more proof. Its customer identity and access management (CIAM) module secures sign-up and login for your external users."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"Axima helps you deploy miniOrange in the cloud, on-premise or in a hybrid model, whichever suits your compliance needs. We map your applications, configure SSO and MFA policies, and set up centralised access governance with audit reporting. Fewer passwords. Fewer tickets. Stronger security."}
             </p>
             <Button
               onClick={() => navigate("/contact")}
