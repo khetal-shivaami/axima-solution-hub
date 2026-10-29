@@ -41,7 +41,7 @@ const ProductPage = () => {
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">{product.name}</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              {product.description}
+              <span className="whitespace-pre-line">{product.description}</span>
             </p>
             <Button
               onClick={() => navigate("/contact")}
