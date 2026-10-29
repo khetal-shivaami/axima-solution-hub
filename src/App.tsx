@@ -1,3 +1,4 @@
+import { SeoSchema } from "@/components/SeoSchema";
 
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -71,6 +72,7 @@ const App = () => {
         <CartProvider>
           <ScrollToTop />
           <TooltipProvider>
+              <SeoSchema />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />

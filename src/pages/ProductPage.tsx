@@ -1,3 +1,4 @@
+import { FaqSchema } from "@/components/FaqSchema";
 import { useState } from "react";
 import { useNavigate, useParams, Navigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
@@ -25,6 +26,7 @@ const ProductPage = () => {
     <div className="min-h-screen bg-gray-900 relative">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
+      <FaqSchema faqs={product.faqs} />
       <div className="container mx-auto px-4 py-20 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
