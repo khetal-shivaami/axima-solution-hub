@@ -168,12 +168,6 @@ const searchData: SearchResult[] = [
     category: "Pages"
   },
   { 
-    title: "FAQ", 
-    description: "Frequently asked questions",
-    path: "/faq",
-    category: "Pages"
-  },
-  { 
     title: "Case Studies", 
     description: "Success stories and implementations",
     path: "/case-studies",
