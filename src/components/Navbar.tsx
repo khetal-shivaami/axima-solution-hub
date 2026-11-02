@@ -123,7 +123,6 @@ export const navItems: NavItem[] = [
         items: [
           { label: "Blog", href: "/blog", description: "Insights and how-tos" },
           { label: "Case Studies", href: "/case-studies", description: "Customer success stories" },
-          { label: "FAQ", href: "/faq", description: "Frequently asked questions" },
         ],
       },
       {

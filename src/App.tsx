@@ -16,7 +16,6 @@ import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Support from "./pages/Support";
-import FAQ from "./pages/FAQ";
 import PlansAndPricing from "./pages/PlansAndPricing";
 import ProductDetails from "./pages/ProductDetails";
 import Copilot from "./pages/Copilot";
@@ -85,7 +84,6 @@ const App = () => {
                 <Route path="/support" element={<Support />} />
                 <Route path="/contact-thank-you" element={<ContactThankYou />} />
                 <Route path="/plan-thank-you" element={<PlanThankYou />} />
-                <Route path="/faq" element={<FAQ />} />
                 <Route path="/plans" element={<PlansAndPricing />} />
                 <Route path="/product/:productId" element={<ProductDetails />} />
                 <Route path="/copilot" element={<Copilot />} />
