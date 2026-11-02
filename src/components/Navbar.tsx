@@ -110,8 +110,6 @@ export const navItems: NavItem[] = [
         items: [
           { label: "All Services", href: "/services", description: "Explore our IT services" },
           { label: "Support Packages", href: "/support-packages", description: "Expert support for your business" },
-          { label: "Plans & Pricing", href: "/plans", description: "Compare available plans" },
-          { label: "All Products", href: "/products", description: "Browse every solution" },
         ],
       },
     ],
@@ -138,7 +136,6 @@ export const navItems: NavItem[] = [
       },
     ],
   },
-  { label: "Shop", href: "https://bv158t-1z.myshopify.com/", external: true },
   { label: "Contact Us", href: "/contact" },
   { label: "Upcoming Events", href: "/upcoming-events", blink: true },
 ];
