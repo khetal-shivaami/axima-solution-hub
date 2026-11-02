@@ -7,7 +7,6 @@ const usefulLinks = [
   { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
   { label: "Services", href: "/services" },
-  { label: "Plans & Pricing", href: "/plans" },
   { label: "Microsoft Copilot", href: "/copilot" },
   { label: "Contact Us", href: "/contact" },
   { label: "Microsoft 365 Landing", href: "/landing" },
