@@ -100,7 +100,7 @@ const reasons = [
     suffix: "",
     label: "Honest Pricing",
     description:
-      "Clear, wholesale pricing with no hidden costs or complex contracts.",
+      "Clear pricing with no hidden costs or complex contracts.",
     icon: BadgeDollarSign,
   },
   {
