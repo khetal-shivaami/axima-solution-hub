@@ -1,3 +1,4 @@
+import { FaqSchema } from "@/components/FaqSchema";
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -716,6 +717,7 @@ const LandingPage = () => {
             <div className="w-24 h-1 bg-axima-blue mx-auto mt-6"></div>
           </motion.div>
 
+          <FaqSchema faqs={faqItems} />
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
             {faqItems.map((item, index) => (
               <Accordion type="single" collapsible key={index}>

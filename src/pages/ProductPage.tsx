@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+import { FaqSchema } from "@/components/FaqSchema";
 import { useState } from "react";
 import { useNavigate, useParams, Navigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
@@ -25,6 +27,13 @@ const ProductPage = () => {
     <div className="min-h-screen bg-gray-900 relative">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
+      <FaqSchema faqs={product.faqs} />
+      <Helmet>
+        <title>{product.metaTitle || `${product.name} | Axima`}</title>
+        {product.metaDescription && <meta name="description" content={product.metaDescription} />}
+        <meta property="og:title" content={product.metaTitle || product.name} />
+        {product.metaDescription && <meta property="og:description" content={product.metaDescription} />}
+      </Helmet>
       <div className="container mx-auto px-4 py-20 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,13 +42,13 @@ const ProductPage = () => {
           className="space-y-16"
         >
           {/* Hero */}
-          <div className="text-center max-w-4xl mx-auto pt-8">
+          <div className="text-left w-full pt-20">
             <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-4">
               {product.category}
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">{product.name}</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              {product.description}
+              <span className="whitespace-pre-line">{product.description}</span>
             </p>
             <Button
               onClick={() => navigate("/contact")}

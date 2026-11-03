@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+import { FaqSchema } from "@/components/FaqSchema";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
@@ -27,30 +29,29 @@ const benefits = [
 
 const faqs = [
   {
-    question: "How does Azure differ from other cloud providers?",
-    answer:
-      "Azure's deep integration with Microsoft's software ecosystem makes it the natural choice for organisations already running Windows, Office 365, or Dynamics.",
+    "question": "What is Microsoft Azure, and how can it benefit my business?",
+    "answer": "Microsoft Azure is a cloud computing platform offering services for computing, storage, networking, databases, AI, and security. It helps businesses scale resources, modernise applications, and improve operational efficiency."
   },
   {
-    question: "Does Azure support hybrid cloud setups?",
-    answer:
-      "Yes. Azure Arc and Azure Stack allow you to manage on-premise servers and edge locations alongside your cloud resources.",
+    "question": "Why choose Axima as your Microsoft Azure reseller in India?",
+    "answer": "Axima helps businesses explore Microsoft Azure solutions based on their IT requirements and budget. Get assistance with subscription options, licensing guidance, and cloud solution selection."
   },
   {
-    question: "What AI capabilities does Azure offer?",
-    answer:
-      "Azure provides access to OpenAI models, Azure Machine Learning, Cognitive Services, and Copilot integrations across its product suite.",
+    "question": "What services does a Microsoft Azure service provider offer?",
+    "answer": "A Microsoft Azure service provider can assist with cloud infrastructure, virtual machines, storage, networking, security, backup, and cost optimisation."
   },
   {
-    question: "Is Azure compliant with Indian data regulations?",
-    answer:
-      "Azure operates data centres in Pune and Chennai, supporting data residency requirements and local compliance frameworks.",
+    "question": "How can Axima help with Azure migration?",
+    "answer": "Azure migration involves moving applications, data, and IT workloads to Microsoft Azure. Axima can help assess cloud requirements and coordinate suitable migration services to support scalability and business continuity."
   },
   {
-    question: "What is Azure Hybrid Benefit?",
-    answer:
-      "It lets existing Microsoft licence holders run Windows Server and SQL Server workloads on Azure at a significantly reduced cost.",
+    "question": "Why choose a Microsoft Azure partner in India?",
+    "answer": "A Microsoft Azure partner in India can help businesses select suitable cloud solutions, understand licensing options, plan deployments, and address technical requirements based on their business objectives."
   },
+  {
+    "question": "How much does Microsoft Azure cost?",
+    "answer": "Microsoft Azure pricing depends on resource usage, storage, services, and deployment region. Businesses can optimise costs by monitoring consumption and selecting suitable pricing options for their workloads."
+  }
 ];
 
 const MSAzure = () => {
@@ -63,8 +64,19 @@ const MSAzure = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 relative">
+      <Helmet>
+        <title>{"Microsoft Azure Reseller in India | Azure Services | Axima"}</title>
+        <meta name="description" content={"Move to Azure with a Microsoft Solutions Reseller. Azure migration, hybrid cloud, Azure Hybrid Benefit and 24/7 support, with four Azure regions in India."} />
+        <meta property="og:title" content={"Microsoft Azure Reseller in India | Azure Services | Axima"} />
+        <meta property="og:description" content={"Move to Azure with a Microsoft Solutions Reseller. Azure migration, hybrid cloud, Azure Hybrid Benefit and 24/7 support, with four Azure regions in India."} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={"Microsoft Azure Reseller in India | Azure Services | Axima"} />
+        <meta name="twitter:description" content={"Move to Azure with a Microsoft Solutions Reseller. Azure migration, hybrid cloud, Azure Hybrid Benefit and 24/7 support, with four Azure regions in India."} />
+      </Helmet>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
+      <FaqSchema faqs={faqs} />
       <div className="container mx-auto px-4 py-20 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,13 +85,19 @@ const MSAzure = () => {
           className="space-y-16"
         >
           {/* Hero */}
-          <div className="text-center max-w-4xl mx-auto pt-8">
+          <div className="text-left w-full pt-20">
             <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-4">
               Cloud Infrastructure
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Microsoft Azure</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              Microsoft Azure is an enterprise-grade cloud platform that integrates seamlessly with existing Microsoft tools, enabling businesses to modernise infrastructure, build intelligent apps, and manage hybrid environments from a single control plane.
+              {"Microsoft Azure is an enterprise-grade cloud computing platform with more than 200 products spanning compute, networking, storage, databases and AI. It connects naturally with the Microsoft tools your business already uses, so you can modernise infrastructure, build intelligent applications and manage hybrid cloud environments from a single control plane."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"There are now four Azure regions in India: Pune, Chennai, Mumbai and Hyderabad, the newest, which went live in 2026. Azure holds MeitY accreditation, which makes Indian data residency and compliance easier to meet. Microsoft Entra ID (formerly Azure Active Directory) secures sign-in across your apps, Azure Arc brings on-premise and multi-cloud servers under one view, and Microsoft Foundry gives your developers Azure OpenAI and thousands of other AI models in a governed environment. Virtual machines spread across availability zones are backed by a 99.99% uptime SLA."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"As a Microsoft Solutions Partner, Axima is a Microsoft Azure partner in India that helps you move to Azure the right way. We assess your workloads, plan your Azure migration, apply Azure Hybrid Benefit so existing Windows Server and SQL Server licences with Software Assurance cost less on Azure, and monitor your environment around the clock. Honest advice. No hidden costs. A team that stays with you after go-live."}
             </p>
             <Button
               onClick={() => navigate("/contact")}

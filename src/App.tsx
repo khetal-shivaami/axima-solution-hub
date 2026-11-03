@@ -1,3 +1,4 @@
+import { SeoSchema } from "@/components/SeoSchema";
 
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -6,7 +7,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "./components/ScrollToTop";
 
-import { ScrollIndicator } from "./components/ScrollIndicator";
 import { CartProvider } from "./contexts/CartContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -14,7 +14,7 @@ import Products from "./pages/Products";
 import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
-import FAQ from "./pages/FAQ";
+import Support from "./pages/Support";
 import PlansAndPricing from "./pages/PlansAndPricing";
 import ProductDetails from "./pages/ProductDetails";
 import Copilot from "./pages/Copilot";
@@ -44,14 +44,11 @@ import CheckPoint from "./pages/CheckPoint";
 import JumpCloud from "./pages/JumpCloud";
 import MiniOrange from "./pages/MiniOrange";
 import OnePassword from "./pages/OnePassword";
-import Scalefusion from "./pages/Scalefusion";
 import FlexiSign from "./pages/FlexiSign";
-import Superworks from "./pages/Superworks";
 import Atera from "./pages/Atera";
 import SuperOps from "./pages/SuperOps";
 import Viami from "./pages/Viami";
 import ChromeOS from "./pages/ChromeOS";
-import RecurPost from "./pages/RecurPost";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -70,6 +67,7 @@ const App = () => {
         <CartProvider>
           <ScrollToTop />
           <TooltipProvider>
+              <SeoSchema />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
@@ -82,9 +80,9 @@ const App = () => {
                 <Route path="/entity-form" element={<EntityForm />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/support" element={<Support />} />
                 <Route path="/contact-thank-you" element={<ContactThankYou />} />
                 <Route path="/plan-thank-you" element={<PlanThankYou />} />
-                <Route path="/faq" element={<FAQ />} />
                 <Route path="/plans" element={<PlansAndPricing />} />
                 <Route path="/product/:productId" element={<ProductDetails />} />
                 <Route path="/copilot" element={<Copilot />} />
@@ -99,14 +97,11 @@ const App = () => {
                 <Route path="/jumpcloud" element={<JumpCloud />} />
                 <Route path="/miniorange" element={<MiniOrange />} />
                 <Route path="/onepassword" element={<OnePassword />} />
-                <Route path="/scalefusion" element={<Scalefusion />} />
                 <Route path="/flexisign" element={<FlexiSign />} />
-                <Route path="/superworks" element={<Superworks />} />
                 <Route path="/atera" element={<Atera />} />
                 <Route path="/superops" element={<SuperOps />} />
                 <Route path="/viami" element={<Viami />} />
                 <Route path="/chrome-os" element={<ChromeOS />} />
-                <Route path="/recurpost" element={<RecurPost />} />
                 <Route path="/support-packages" element={<SupportPackages />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />
@@ -117,7 +112,6 @@ const App = () => {
                 {/* Catch-all route for 404 - must be the last route */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
-            <ScrollIndicator />
           </TooltipProvider>
           <Toaster />
           <Sonner />

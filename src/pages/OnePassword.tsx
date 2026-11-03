@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+import { FaqSchema } from "@/components/FaqSchema";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
@@ -27,30 +29,29 @@ const benefits = [
 
 const faqs = [
   {
-    question: "Is 1Password zero-knowledge?",
-    answer:
-      "Yes. 1Password uses a dual-key encryption model meaning only you hold the keys to decrypt your data.",
+    "question": "What is 1Password for business?",
+    "answer": "1Password is a business password manager that helps organisations securely store, share, and manage passwords, credentials, and other sensitive information. It supports centralised access management for teams."
   },
   {
-    question: "Can 1Password be used for team credential sharing?",
-    answer:
-      "Yes. Shared vaults allow teams to access common credentials with role-based permissions and access logs.",
+    "question": "Why choose a 1Password partner in India?",
+    "answer": "A 1Password partner in India can help businesses evaluate subscription options, plan deployment, and understand administrative controls."
   },
   {
-    question: "Does 1Password support SSO?",
-    answer:
-      "Yes. It integrates with major identity providers including Okta, Azure AD, and Google Workspace via SAML.",
+    "question": "How does an enterprise password manager improve security?",
+    "answer": "An enterprise password manager helps teams generate strong passwords, store credentials securely, and share access through controlled vaults. It can reduce unsafe password practices and improve credential management."
   },
   {
-    question: "What is Watchtower?",
-    answer:
-      "Watchtower monitors your saved credentials against known breach databases and flags weak, reused, or compromised passwords.",
+    "question": "Can 1Password manage employee access to shared credentials?",
+    "answer": "Yes, 1Password supports shared vaults and permission controls that help administrators manage access to business credentials. Available controls depend on the plan and configuration."
   },
   {
-    question: "Can developers use 1Password for secret management?",
-    answer:
-      "Yes. 1Password Secrets Automation manages infrastructure secrets, API tokens, and SSH keys with CI/CD pipeline integration.",
+    "question": "How can I buy 1Password for my organisation in India?",
+    "answer": "Businesses can explore 1Password subscriptions through available purchasing channels or a 1Password reseller in India like Axima. Compare user requirements, administrative features, and plan options before purchasing."
   },
+  {
+    "question": "Is 1Password suitable for enterprise IT environments?",
+    "answer": "1Password offers business and enterprise capabilities for managing credentials across teams. Organisations should evaluate administrative controls, security requirements, integrations, and deployment needs before selecting a plan."
+  }
 ];
 
 const OnePassword = () => {
@@ -63,8 +64,19 @@ const OnePassword = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 relative">
+      <Helmet>
+        <title>{"1Password Business | Business Password Manager | Axima"}</title>
+        <meta name="description" content={"Protect every login with 1Password Business. Zero-knowledge encryption, shared vaults, Watchtower alerts and SSO with Entra ID or Google Workspace, via Axima."} />
+        <meta property="og:title" content={"1Password Business | Business Password Manager | Axima"} />
+        <meta property="og:description" content={"Protect every login with 1Password Business. Zero-knowledge encryption, shared vaults, Watchtower alerts and SSO with Entra ID or Google Workspace, via Axima."} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={"1Password Business | Business Password Manager | Axima"} />
+        <meta name="twitter:description" content={"Protect every login with 1Password Business. Zero-knowledge encryption, shared vaults, Watchtower alerts and SSO with Entra ID or Google Workspace, via Axima."} />
+      </Helmet>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
+      <FaqSchema faqs={faqs} />
       <div className="container mx-auto px-4 py-20 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,13 +85,19 @@ const OnePassword = () => {
           className="space-y-16"
         >
           {/* Hero */}
-          <div className="text-center max-w-4xl mx-auto pt-8">
+          <div className="text-left w-full pt-20">
             <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-4">
               IAM & MDM
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">1Password</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              1Password is a business password manager that keeps every credential, secret, and sensitive document secure, organised, and accessible only to the people who need it. It reduces the risk of breaches caused by weak or reused passwords across your entire organisation.
+              {"1Password is a business password manager that keeps every password, passkey and sensitive document secure, organised and available only to the people who need it. More than 200,000 businesses use 1Password Business to stop password reuse, end the habit of sharing logins over chat and email, and give every employee strong, unique credentials without asking them to remember them."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"Your data is protected with end-to-end AES-256 encryption, and a 128-bit Secret Key stored only on your devices means 1Password holds your encrypted data but never the keys to it. Shared vaults with granular permissions make team password sharing simple and auditable, and Watchtower flags breached, reused and weak passwords, missing two-factor authentication and unsecured websites. Admins can connect single sign-on with Okta, Microsoft Entra ID, Google Workspace or JumpCloud, provision users automatically through SCIM, and review activity in an audit trail. For developers, the 1Password SSH agent, CLI and service accounts keep secrets out of code. 1Password is SOC 2 Type II and ISO 27001 certified."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"Axima helps you roll out 1Password across your organisation, whether you need a password manager for teams of ten or an enterprise password manager for thousands of users. We import existing passwords, set up vaults, connect your identity provider and train employees so adoption sticks. If anyone gets locked out, our 24/7 support is there."}
             </p>
             <Button
               onClick={() => navigate("/contact")}

@@ -64,22 +64,10 @@ export const innovativeSolutions = [
     route: "/products/microsoft-teams"
   },
   {
-    name: "HYCU",
-    description: "Delivers data protection and backup-as-a-service, tailored for multi-cloud and hybrid environments.",
-    image: "https://storage.googleapis.com/axima-website-content/logos/Hycu-2-01.webp",
-    route: "/products/hycu"
-  },
-  {
     name: "Spin AI",
     description: "Enhances cyber resilience, security operations, and cost efficiency with an all-in-one SaaS security platform that protects your SaaS data.",
     image: "https://storage.googleapis.com/axima-website-content/logos/Spin.ai.webp",
     route: "/products/spin-ai"
-  },
-  {
-    name: "Digiboxx",
-    description: "India's homegrown cloud storage and backup platform with full data residency within India, backed by NITI Aayog.",
-    image: "https://storage.googleapis.com/axima-website-content/logos/Digiboxx.webp",
-    route: "/products/digiboxx"
   },
   {
     name: "Check Point",
@@ -104,12 +92,6 @@ export const innovativeSolutions = [
     description: "A secure password manager that helps users store, manage, and share passwords.",
     image: "https://storage.googleapis.com/axima-website-content/logos/OnePassword-01.webp",
     route: "/product/onepassword"
-  },
-  {
-    name: "Scalefusion",
-    description: "Scalefusion is a powerful all-in-one solution that unifies endpoint management, zero trust access, and endpoint security into a single platform with one agent.",
-    image: "https://storage.googleapis.com/axima-website-content/logos/Scalefusion-01.webp",
-    route: "/product/scalefusion"
   },
   {
     name: "FlexiSign",

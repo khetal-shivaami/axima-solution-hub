@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin, Instagram, ChevronDown } from "lucide-react";
+import { Facebook, Twitter, Linkedin, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,7 +7,6 @@ const usefulLinks = [
   { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
   { label: "Services", href: "/services" },
-  { label: "Plans & Pricing", href: "/plans" },
   { label: "Microsoft Copilot", href: "/copilot" },
   { label: "Contact Us", href: "/contact" },
   { label: "Microsoft 365 Landing", href: "/landing" },
@@ -31,9 +30,7 @@ const solutionColumns = {
     { name: "Jio Azure", route: "/microsoft-jioazure" },
     { name: "Google Cloud", route: "/google-cloud" },
     { name: "Amazon Web Services", route: "/products/amazon-web-services" },
-    { name: "HYCU", route: "/products/hycu" },
     { name: "Spin.AI", route: "/products/spin-ai" },
-    { name: "Digiboxx", route: "/products/digiboxx" },
   ],
   productivity: [
     { name: "Microsoft 365", route: "/microsoft-365" },
@@ -42,16 +39,13 @@ const solutionColumns = {
     { name: "Zoho", route: "/products/zoho-mail" },
     { name: "Zoom", route: "/products/zoom" },
     { name: "Microsoft Teams", route: "/products/microsoft-teams" },
-    { name: "Superworks", route: "/superworks" },
     { name: "FlexiSign", route: "/flexisign" },
-    { name: "RecurPost", route: "/recurpost" },
   ],
   securityIt: [
     { name: "Check Point", route: "/check-point" },
     { name: "JumpCloud", route: "/jumpcloud" },
     { name: "miniOrange", route: "/miniorange" },
     { name: "1Password", route: "/onepassword" },
-    { name: "Scalefusion", route: "/scalefusion" },
     { name: "Atera", route: "/atera" },
     { name: "SuperOps", route: "/superops" },
     { name: "Viami", route: "/viami" },
@@ -64,7 +58,6 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/company/axima-corporation/posts/?feedView=all", label: "LinkedIn" },
-    { icon: Instagram, href: "https://www.instagram.com/axima.in?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
   ];
 
   const address = "1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080";
@@ -134,14 +127,12 @@ const Footer = () => {
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-xl font-bold text-white mb-4">Cloud Solutions</h3>
             <ul className="space-y-2">
               {solutionColumns.cloud.map(renderLink)}
             </ul>
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-xl font-bold text-white mb-4">Productivity & Collaboration</h3>
             <ul className="space-y-2">
               <li>
                 <div className="relative">
@@ -192,7 +183,6 @@ const Footer = () => {
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-xl font-bold text-white mb-4">Security & IT Management</h3>
             <ul className="space-y-2">
               {solutionColumns.securityIt.map(renderLink)}
             </ul>

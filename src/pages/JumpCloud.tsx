@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+import { FaqSchema } from "@/components/FaqSchema";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
@@ -27,30 +29,29 @@ const benefits = [
 
 const faqs = [
   {
-    question: "Can JumpCloud replace Active Directory?",
-    answer:
-      "Yes. JumpCloud provides all core directory services including LDAP, RADIUS, and group policy management without on-premise infrastructure.",
+    "question": "What is JumpCloud, and how does it help IT teams?",
+    "answer": "JumpCloud is a cloud-based directory platform that helps organisations manage user identities, devices, and access to business resources. It supports centralised administration across different IT environments."
   },
   {
-    question: "Which operating systems does JumpCloud MDM support?",
-    answer:
-      "JumpCloud manages Windows, macOS, Linux, iOS, and Android from a single console.",
+    "question": "Why work with a JumpCloud partner?",
+    "answer": "A JumpCloud partner can help businesses evaluate directory and access management requirements, plan deployment, and configure suitable capabilities. Implementation and ongoing support depend on the partner's service scope."
   },
   {
-    question: "Does JumpCloud support MFA?",
-    answer:
-      "Yes. It supports push notifications, TOTP authenticators, and FIDO2 hardware security keys.",
+    "question": "How does JumpCloud support identity and access management (IAM)?",
+    "answer": "JumpCloud supports identity and access management (IAM) by helping IT teams manage user accounts, authentication, device access, and permissions. Centralised controls can simplify administration and strengthen access governance."
   },
   {
-    question: "Is JumpCloud suitable for remote teams?",
-    answer:
-      "Yes. Its cloud-native architecture is specifically designed for distributed and hybrid work environments.",
+    "question": "Can JumpCloud replace Active Directory?",
+    "answer": "JumpCloud can serve as a cloud directory alternative for certain Active Directory use cases. The right approach depends on existing applications, authentication requirements, device management, and legacy infrastructure."
   },
   {
-    question: "How does JumpCloud handle user provisioning?",
-    answer:
-      "Admins can automate user creation, group assignment, and app access from a single workflow triggered by HR system changes.",
+    "question": "Does JumpCloud provide a single sign-on (SSO) solution?",
+    "answer": "JumpCloud supports single sign-on (SSO) for compatible applications, allowing users to access multiple services through a central authentication experience. Supported applications and protocols depend on the configuration and subscription."
   },
+  {
+    "question": "Can JumpCloud manage users and devices from one platform?",
+    "answer": "JumpCloud combines directory services with device management capabilities to help IT teams administer user access and supported devices centrally. Available features depend on the selected package and configuration."
+  }
 ];
 
 const JumpCloud = () => {
@@ -63,8 +64,19 @@ const JumpCloud = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 relative">
+      <Helmet>
+        <title>{"JumpCloud Partner in India | Directory, SSO & MDM | Axima"}</title>
+        <meta name="description" content={"Manage identities, access and devices from one console with JumpCloud. Cloud directory, SSO, MFA, device management and patching, deployed by Axima."} />
+        <meta property="og:title" content={"JumpCloud Partner in India | Directory, SSO & MDM | Axima"} />
+        <meta property="og:description" content={"Manage identities, access and devices from one console with JumpCloud. Cloud directory, SSO, MFA, device management and patching, deployed by Axima."} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={"JumpCloud Partner in India | Directory, SSO & MDM | Axima"} />
+        <meta name="twitter:description" content={"Manage identities, access and devices from one console with JumpCloud. Cloud directory, SSO, MFA, device management and patching, deployed by Axima."} />
+      </Helmet>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
+      <FaqSchema faqs={faqs} />
       <div className="container mx-auto px-4 py-20 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,13 +85,19 @@ const JumpCloud = () => {
           className="space-y-16"
         >
           {/* Hero */}
-          <div className="text-center max-w-4xl mx-auto pt-8">
+          <div className="text-left w-full pt-20">
             <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-4">
               IAM & MDM
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">JumpCloud</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              JumpCloud is an open directory platform that centralises identity, access, and device management across operating systems, applications, and networks from a single cloud-based console. It is built for IT teams managing distributed and hybrid workforces.
+              {"JumpCloud is an AI-powered unified IT management platform that brings identity and access management (IAM) and device management together in one cloud console. More than 250,000 organisations in over 160 countries use it to control who gets in, what they can reach and which devices they use, whether their teams work in the office, at home or on the move."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"At its core is a cloud directory with Cloud LDAP and Cloud RADIUS, which makes JumpCloud a practical Active Directory alternative for businesses that want to retire on-premise servers. Single sign-on (SSO) over SAML and OIDC connects users to their apps, and multi-factor authentication (MFA) supports push, TOTP, security keys, Touch ID, Windows Hello and passwordless login with JumpCloud Go. Unified endpoint management covers macOS, Windows, Linux, iOS, iPadOS and Android, with patch management built in. Conditional access checks device trust, network and location before granting access, and Password Vault, privileged access management and SaaS management complete the platform."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"Axima helps you roll out JumpCloud without disrupting your team. We migrate users and groups from Active Directory, connect your HR system and apps, set up zero-touch enrolment for devices, and automate onboarding and offboarding so access is removed as soon as someone leaves. As your JumpCloud partner in India, we stay with you, with support available 24/7."}
             </p>
             <Button
               onClick={() => navigate("/contact")}

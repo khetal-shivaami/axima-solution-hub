@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+import { FaqSchema } from "@/components/FaqSchema";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
@@ -27,30 +29,29 @@ const benefits = [
 
 const faqs = [
   {
-    question: "Is FlexiSign legally valid in India?",
-    answer:
-      "Yes. FlexiSign supports Aadhaar eSign and DSC-based signatures which are legally recognised under the Indian IT Act 2000.",
+    "question": "What is FlexiSign Digital Signature in India?",
+    "answer": "FlexiSign is positioned as a digital signing solution for businesses that want to manage document signing electronically. Evaluate its available signing methods and features against your organisation's document workflows."
   },
   {
-    question: "Can multiple parties sign the same document?",
-    answer:
-      "Yes. FlexiSign supports multi-party workflows with customisable signing order and automatic reminders.",
+    "question": "How does an electronic signature platform help businesses?",
+    "answer": "An electronic signature platform helps businesses send documents for signing, track signing progress, and manage completed agreements digitally. It can reduce manual paperwork and streamline approval workflows."
   },
   {
-    question: "Does FlexiSign work on mobile?",
-    answer:
-      "Yes. Signatories can review and sign documents from any smartphone or tablet without installing an app.",
+    "question": "Why choose an e-signatures provider for business documents?",
+    "answer": "An e-signatures provider can help organisations simplify document execution, reduce printing and scanning, and improve signing workflow visibility. The right solution depends on document types, verification needs, and compliance requirements."
   },
   {
-    question: "Can I integrate FlexiSign with my existing systems?",
-    answer:
-      "Yes. FlexiSign provides API access for embedding signing workflows into CRMs, ERPs, and custom applications.",
+    "question": "Are electronic signatures legally valid in India?",
+    "answer": "Electronic signatures may be legally recognised in India, subject to applicable laws, document types, and signing methods. Businesses should verify whether the chosen platform supports the required signature type and legal requirements."
   },
   {
-    question: "Is there an audit trail for signed documents?",
-    answer:
-      "Yes. Every signing event is logged with timestamps, IP addresses, and identity verification records for legal admissibility.",
+    "question": "Can FlexiSign support remote document signing?",
+    "answer": "Digital signing platforms can enable participants to review and sign documents remotely, depending on the product's capabilities. Confirm FlexiSign's supported workflows, signer verification methods, and audit trail features before deployment."
   },
+  {
+    "question": "How can businesses choose the right electronic signature solution?",
+    "answer": "Businesses should evaluate signer authentication, document tracking, integration options, audit trails, security, and applicable legal requirements. Contact Axima to discuss your document signing needs and confirm FlexiSign's available capabilities."
+  }
 ];
 
 const FFlexiSign = () => {
@@ -63,8 +64,19 @@ const FFlexiSign = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 relative">
+      <Helmet>
+        <title>{"FlexiSign Digital Signature in India | Aadhaar eSign | Axima"}</title>
+        <meta name="description" content={"Sign contracts online with FlexiSign. Aadhaar eSign, IT Act compliance, signing order, reminders and court-admissible audit trails, set up by Axima."} />
+        <meta property="og:title" content={"FlexiSign Digital Signature in India | Aadhaar eSign | Axima"} />
+        <meta property="og:description" content={"Sign contracts online with FlexiSign. Aadhaar eSign, IT Act compliance, signing order, reminders and court-admissible audit trails, set up by Axima."} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={"FlexiSign Digital Signature in India | Aadhaar eSign | Axima"} />
+        <meta name="twitter:description" content={"Sign contracts online with FlexiSign. Aadhaar eSign, IT Act compliance, signing order, reminders and court-admissible audit trails, set up by Axima."} />
+      </Helmet>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
+      <FaqSchema faqs={faqs} />
       <div className="container mx-auto px-4 py-20 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,13 +85,19 @@ const FFlexiSign = () => {
           className="space-y-16"
         >
           {/* Hero */}
-          <div className="text-center max-w-4xl mx-auto pt-8">
+          <div className="text-left w-full pt-20">
             <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-4">
               E-Signature
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">FFlexiSign</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">FlexiSign</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              FFlexiSign is a legally valid digital signature platform built for Indian businesses that need to sign, send, and manage documents securely and compliantly. It simplifies the signing process for contracts, agreements, and approvals without the back-and-forth of physical paperwork.
+              {"FlexiSign is an electronic signature platform that lets you sign documents online, send them for signature and manage every agreement securely, without the delays of printing, scanning and couriering. It is built for contracts, offer letters, vendor agreements and approvals that need to move fast, and its registered office is in Thane, Maharashtra."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"For Indian businesses, FlexiSign supports Aadhaar eSign, where each signer is verified with an OTP sent to their Aadhaar-registered mobile number, and it states full compliance with the Information Technology Act, 2000. Every document carries an audit trail and timestamp that FlexiSign describes as court-admissible, along with document fingerprinting and OTP-based signer authentication. You can set a signing order or let everyone sign at once, send automatic reminders, reuse templates for common agreements, bundle documents and collect in-person signatures, across more than 25 file types. FlexiSign connects with Google Drive, OneDrive and Dropbox, and offers an API, webhooks, Zapier and Pabbly to embed e-signatures in your CRM, ERP or HR system. It lists ISO 27001 and SOC 2 Type II among its certifications."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"Axima helps you set up FlexiSign for your teams, build templates for your most-used documents and connect it to the tools you already use. Close deals faster, cut paper costs and keep every signature legally sound, with our 24/7 support behind you."}
             </p>
             <Button
               onClick={() => navigate("/contact")}

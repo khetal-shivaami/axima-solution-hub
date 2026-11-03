@@ -419,28 +419,6 @@ const productDetails: Record<string, {
       "Role-Based Access Control"
     ]
   },
-  "hycu": {
-    title: "HYCU",
-    description: "HYCU is a Data Protection as a Service (DaaS) platform.HYCU delivers a secure data protection service designed to give you full control, visibility,and availability of your protected applications and databases. HYCU's services include data protection, migration, disaster recovery, and ransomware protection for on-premises,cloud-native, and SaaS environments. HYCU's Protege platform supports a wide range of sources,including VMware, Nutanix, AWS, Microsoft, Azure,and Google Cloud.",
-    image: "https://storage.googleapis.com/axima-website-content/logos/Hycu-2-01.webp",
-    features: [
-      "Backup & Recovery",
-          "Disaster Recovery",
-          "Ransomware Protection",
-          "Security & Compliance",
-          "Hybrid & Multi-Cloud"
-    ],
-    benefits: [
-      "Simple Deployment and Management",
-          "Multi-Cloud Support",
-          "Efficient Data Protection",
-          "Fast and Reliable Recovery",
-          "Cost Efficiency",
-          "Compliance and Security",
-          "Unified Data Management",
-          "No Vendor Lock-In",
-    ]
-  },
   "zoom": {
     title: "ZOOM",
     description: "Zoom Workspace refers to the broader suite of collaboration tools and features offered by Zoom that go beyond just video meetings. It is designed to facilitate communication and collaboration within teams, businesses, and organizations. This includes features that help streamline workflows, communication, and project management. It is part of Zoom's move to provide a more integrated platform for businesses..",
@@ -505,26 +483,6 @@ const productDetails: Record<string, {
   //     "Marketing & Promotions"
   //   ]
   // },
-  "scalefusion": {
-    title: "Scalefusion",
-    description: "Scalefusion is a powerful all-in-one solution that unifies endpoint management, zero trust access, and endpoint security into a single platform with one agent. Scalefusion offers a comprehensive suite of products engineered to simplify endpoint, user, and access management for IT teams.With over 10,000+ businesses in 120+ countries, Scalefusion ensures your business is always one step ahead.",
-    image: "https://storage.googleapis.com/axima-website-content/logos/Scalefusion-01.webp",
-    features: [
-      "Application & Content Management",
-      "Automation & Workflows",
-      "Kiosk Mode",
-      "Conditional SSO",
-      "Device Authentication",
-      "Virtual Private Network Tunnel",
-      "Web Content Filtering (Secure Web Gateway)"
-    ],
-    benefits: [
-      "Unified Endpoint Management",
-      "Enhanced Security",
-      "Cost-Effective",
-      "Scalability"
-    ]
-  },
   "flexisign": {
     title: "Flexisign",
     description: "FlexiSign is a digital signature and document management solution that streamlines the signing process for businesses of all sizes.",

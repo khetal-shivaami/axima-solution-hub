@@ -72,9 +72,7 @@ export const navItems: NavItem[] = [
       {
         title: "Backup Solutions",
         items: [
-          { label: "HYCU", href: "/products/hycu", description: "Multi-cloud data protection" },
           { label: "Spin.AI", href: "/products/spin-ai", description: "SaaS security and backup" },
-          { label: "Digiboxx", href: "/products/digiboxx", description: "Made-in-India cloud storage" },
         ],
       },
       {
@@ -89,16 +87,11 @@ export const navItems: NavItem[] = [
           { label: "JumpCloud", href: "/jumpcloud", description: "Cloud directory and access" },
           { label: "miniOrange", href: "/miniorange", description: "Identity and access security" },
           { label: "1Password", href: "/onepassword", description: "Secure password management" },
-          { label: "Scalefusion", href: "/scalefusion", description: "Unified endpoint management" },
         ],
       },
       {
         title: "E-Signature",
         items: [{ label: "FlexiSign", href: "/flexisign", description: "Digital signatures made simple" }],
-      },
-      {
-        title: "HRMS",
-        items: [{ label: "Superworks", href: "/superworks", description: "Complete HR management" }],
       },
       {
         title: "ITSM",
@@ -113,16 +106,10 @@ export const navItems: NavItem[] = [
         items: [{ label: "Chrome OS", href: "/chrome-os", description: "Secure cloud-first operating system" }],
       },
       {
-        title: "Social Media Management",
-        items: [{ label: "RecurPost", href: "/recurpost", description: "Social media scheduling" }],
-      },
-      {
         title: "Services",
         items: [
           { label: "All Services", href: "/services", description: "Explore our IT services" },
           { label: "Support Packages", href: "/support-packages", description: "Expert support for your business" },
-          { label: "Plans & Pricing", href: "/plans", description: "Compare available plans" },
-          { label: "All Products", href: "/products", description: "Browse every solution" },
         ],
       },
     ],
@@ -136,7 +123,6 @@ export const navItems: NavItem[] = [
         items: [
           { label: "Blog", href: "/blog", description: "Insights and how-tos" },
           { label: "Case Studies", href: "/case-studies", description: "Customer success stories" },
-          { label: "FAQ", href: "/faq", description: "Frequently asked questions" },
         ],
       },
       {
@@ -144,11 +130,11 @@ export const navItems: NavItem[] = [
         items: [
           { label: "Upcoming Events", href: "/upcoming-events", description: "Webinars and live sessions" },
           { label: "Contact Sales", href: "/contact", description: "Talk to our experts" },
+          { label: "Support Matrix", href: "/support", description: "Help desk and escalation" },
         ],
       },
     ],
   },
-  { label: "Shop", href: "https://bv158t-1z.myshopify.com/", external: true },
   { label: "Contact Us", href: "/contact" },
   { label: "Upcoming Events", href: "/upcoming-events", blink: true },
 ];
@@ -218,7 +204,7 @@ export const Navbar: FC = () => {
               <Phone className="w-3.5 h-3.5" />
               +91 98339 29393
             </a>
-            <Link to="/contact" className="flex items-center gap-1.5 hover:text-axima-blue transition-colors">
+            <Link to="/support" className="flex items-center gap-1.5 hover:text-axima-blue transition-colors">
               <HelpCircle className="w-3.5 h-3.5" />
               Support
             </Link>

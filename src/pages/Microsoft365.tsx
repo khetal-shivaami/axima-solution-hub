@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+import { FaqSchema } from "@/components/FaqSchema";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
@@ -27,30 +29,29 @@ const benefits = [
 
 const faqs = [
   {
-    question: "What is included in a Microsoft 365 subscription?",
-    answer:
-      "Plans include Office apps, Exchange email, Teams, OneDrive storage, and security features depending on the tier selected.",
+    "question": "What is Microsoft 365, and what does it include?",
+    "answer": "Microsoft 365 combines productivity applications such as Word, Excel, PowerPoint, and Outlook with cloud storage and collaboration tools. Business plans offer features based on your organisation's requirements."
   },
   {
-    question: "Can Microsoft 365 replace my on-premise Exchange server?",
-    answer:
-      "Yes. Exchange Online delivers the same enterprise email capabilities fully hosted in the cloud.",
+    "question": "Why choose a Microsoft 365 Partner in India?",
+    "answer": "A Microsoft 365 Partner in India can help businesses select suitable licences, understand plan options, and coordinate deployment and migration services according to their requirements."
   },
   {
-    question: "Is Microsoft 365 secure enough for regulated industries?",
-    answer:
-      "Yes. It supports HIPAA, GDPR, ISO 27001, and other compliance frameworks with built-in governance tools.",
+    "question": "Which Microsoft 365 plan is right for my business?",
+    "answer": "Microsoft 365 offers different plans with web and desktop applications, business email, cloud storage, and security features. The right plan depends on your team's workflow, application needs, and security requirements."
   },
   {
-    question: "How many users can be on a single plan?",
-    answer:
-      "Plans are available for individual users up to large enterprises with no hard ceiling on licensed seats.",
+    "question": "How much does Microsoft 365 cost?",
+    "answer": "Microsoft 365 pricing depends on the selected plan, number of users, and subscription terms. Contact Axima to compare available plans and get pricing based on your business requirements."
   },
   {
-    question: "Does Microsoft 365 work offline?",
-    answer:
-      "Yes. Desktop apps and OneDrive sync allow users to work without internet access and sync changes automatically when reconnected.",
+    "question": "Can I buy Microsoft 365 with a custom business email?",
+    "answer": "Yes, eligible Microsoft 365 business plans include professional business email using your company's domain, such as name@yourcompany.com. You can choose a plan based on your email, storage, and productivity requirements."
   },
+  {
+    "question": "Can I migrate my existing business email to Microsoft 365?",
+    "answer": "Yes, email migration can transfer existing mailboxes, messages, and other supported data to Microsoft 365. Migration planning depends on your current email platform, data volume, and business continuity requirements."
+  }
 ];
 
 const Microsoft365 = () => {
@@ -63,8 +64,19 @@ const Microsoft365 = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 relative">
+      <Helmet>
+        <title>{"Microsoft 365 Partner in India | Buy Microsoft 365 | Axima"}</title>
+        <meta name="description" content={"Buy Microsoft 365 business plans from a Microsoft Solutions Partner. Outlook, Teams, OneDrive and Copilot, with setup, migration and 24/7 support in India."} />
+        <meta property="og:title" content={"Microsoft 365 Partner in India | Buy Microsoft 365 | Axima"} />
+        <meta property="og:description" content={"Buy Microsoft 365 business plans from a Microsoft Solutions Partner. Outlook, Teams, OneDrive and Copilot, with setup, migration and 24/7 support in India."} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={"Microsoft 365 Partner in India | Buy Microsoft 365 | Axima"} />
+        <meta name="twitter:description" content={"Buy Microsoft 365 business plans from a Microsoft Solutions Partner. Outlook, Teams, OneDrive and Copilot, with setup, migration and 24/7 support in India."} />
+      </Helmet>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
+      <FaqSchema faqs={faqs} />
       <div className="container mx-auto px-4 py-20 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,13 +85,19 @@ const Microsoft365 = () => {
           className="space-y-16"
         >
           {/* Hero */}
-          <div className="text-center max-w-4xl mx-auto pt-8">
+          <div className="text-left w-full pt-20">
             <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-4">
               Email Collaboration
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Microsoft 365</h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
-              Microsoft 365 brings together email, documents, and team collaboration into one integrated suite built for the modern workplace. It combines the familiarity of Office apps with enterprise-grade cloud infrastructure and AI-powered productivity tools.
+              {"Microsoft 365 brings business email, documents and team collaboration together in one productivity suite built for the modern workplace. It combines the Microsoft 365 apps your team already knows (Word, Excel, PowerPoint and Outlook) with cloud services such as Exchange Online, SharePoint and 1 TB of OneDrive storage per user, plus professional business email on your own domain."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"Microsoft 365 for business comes in three core plans. Microsoft 365 Business Basic and Business Standard, include Copilot Chat for secure AI assistance, while Microsoft 365 Business Premium adds advanced security with Microsoft Defender, Intune, Entra ID and Purview. Each plan is also available with Microsoft 365 Copilot built into Word, Excel, PowerPoint and Teams, and with or without Teams, so you pay only for what your people use. Business plans suit teams of up to 300 users, and for organisations provisioned in India, core data such as email, files and Teams chats is stored at rest in India."}
+            </p>
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8">
+              {"Axima started with Microsoft 365, and it is still at the heart of what we do. As a Microsoft Solutions Partner and Microsoft 365 partner in India, we help you choose the right plan, buy Microsoft 365 at honest prices, handle your Microsoft 365 migration from Google Workspace, Zoho or on-premise Exchange, and secure your tenant from day one. Our certified team supports you 24/7, long after the sale."}
             </p>
             <Button
               onClick={() => navigate("/contact")}
