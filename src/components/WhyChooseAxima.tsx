@@ -108,7 +108,7 @@ const reasons = [
     suffix: "",
     label: "Scales With You",
     description:
-      "From 5 users to 10,000+, solutions that grow as your business grows.",
+      "From 1 users to 10,000+, solutions that grow as your business grows.",
     icon: TrendingUp,
   },
   {
