@@ -85,7 +85,7 @@ const SuperOps = () => {
           className="space-y-16"
         >
           {/* Hero */}
-          <div className="text-left w-full pt-8">
+          <div className="text-left w-full pt-20">
             <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-4">
               ITSM
             </span>
