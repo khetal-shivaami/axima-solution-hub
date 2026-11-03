@@ -1,6 +1,7 @@
 
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BookDemoStrap from "@/components/BookDemoStrap";
 import { motion, useAnimate } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect } from "react";
@@ -225,6 +226,9 @@ const Copilot = () => {
             allowFullScreen
             className="w-full h-full"
           ></iframe>
+        </div>
+        <div className="container mx-auto px-4 pb-16">
+          <BookDemoStrap />
         </div>
       </div>
       <Footer />

@@ -28,6 +28,66 @@ export const microsoftSolutions = [
 
 export const innovativeSolutions = [
   {
+    name: "Google Cloud",
+    description: "Google Cloud gives businesses a secure, intelligent infrastructure to run workloads, build applications, and scale without limits with AI-native tools built into every layer.",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Google-Cloud.webp",
+    route: "/google-cloud"
+  },
+  {
+    name: "Amazon Web Services",
+    description: "The world's most adopted cloud platform, offering the broadest set of infrastructure services to help businesses innovate faster and build with confidence at a global scale.",
+    image: "https://storage.googleapis.com/axima-website-content/logos/AWS.webp",
+    route: "/products/amazon-web-services"
+  },
+  {
+    name: "Google Workspace",
+    description: "A cloud-native collaboration suite that brings Gmail, Meet, Drive, Docs, and more into a unified environment designed for real-time teamwork.",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Google-Workspace.webp",
+    route: "/products/google-workspace"
+  },
+  {
+    name: "Zoho Mail",
+    description: "A privacy-focused, ad-free business email platform that integrates tightly with the broader Zoho ecosystem at a cost that makes sense for growing businesses.",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Zoho.webp",
+    route: "/products/zoho-mail"
+  },
+  {
+    name: "ZOOM",
+    description: "A leading video communication platform that facilitates seamless virtual meetings, webinars, and collaboration.",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Zoom-01.webp",
+    route: "/products/zoom"
+  },
+  {
+    name: "Microsoft Teams",
+    description: "A unified collaboration hub that combines video meetings, persistent chat, file sharing, and app integrations into one workspace.",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Microsoft_365.webp",
+    route: "/products/microsoft-teams"
+  },
+  {
+    name: "HYCU",
+    description: "Delivers data protection and backup-as-a-service, tailored for multi-cloud and hybrid environments.",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Hycu-2-01.webp",
+    route: "/products/hycu"
+  },
+  {
+    name: "Spin AI",
+    description: "Enhances cyber resilience, security operations, and cost efficiency with an all-in-one SaaS security platform that protects your SaaS data.",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Spin.ai.webp",
+    route: "/products/spin-ai"
+  },
+  {
+    name: "Digiboxx",
+    description: "India's homegrown cloud storage and backup platform with full data residency within India, backed by NITI Aayog.",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Digiboxx.webp",
+    route: "/products/digiboxx"
+  },
+  {
+    name: "Check Point",
+    description: "A global leader in cyber security, delivering unified threat prevention across network, cloud, endpoint, and mobile environments.",
+    image: "https://storage.googleapis.com/axima-website-content/logos/Checkpoint.webp",
+    route: "/check-point"
+  },
+  {
     name: "Jumpcloud",
     description: "A directory-as-a-service platform that simplifies user management, authentication, and device control across diverse IT environments.",
     image: "https://storage.googleapis.com/axima-website-content/logos/Jumpcloud-01.webp",
@@ -40,38 +100,14 @@ export const innovativeSolutions = [
     route: "/product/atera"
   },
   {
-    name: "Spin AI",
-    description: "Enhances cyber resilience, security operations, and cost efficiency with an all-in-one SaaS security platform that protects your SaaS data from loss, ransomware, risky apps, misconfigurations, and non-compliance.",
-    image: "https://storage.googleapis.com/axima-website-content/logos/Spin.ai.webp",
-    route: "/product/spin-ai"
-  },
-  {
-    name: "HYCU",
-    description: "Delivers data protection and backup-as-a-service, tailored for multi-cloud and hybrid environments.",
-    image: "https://storage.googleapis.com/axima-website-content/logos/Hycu-2-01.webp",
-    route: "/product/hycu"
-  },
-  {
-    name: "ZOOM",
-    description: "A leading video communication platform that facilitates seamless virtual meetings, webinars, and collaboration.",
-    image: "https://storage.googleapis.com/axima-website-content/logos/Zoom-01.webp",
-    route: "/product/zoom"
-  },
-  {
     name: "1Password",
     description: "A secure password manager that helps users store, manage, and share passwords.",
     image: "https://storage.googleapis.com/axima-website-content/logos/OnePassword-01.webp",
     route: "/product/onepassword"
   },
-  // {
-  //   name: "Scaledino",
-  //   description: "It provides a scalable cloud infrastructure platform designed to optimize and automate Email signatures",
-  //   image: "https://storage.googleapis.com/axima-website-content/logos/ScaleDino.webp",
-  //   route: "/product/scaledino"
-  // },
   {
     name: "Scalefusion",
-    description: "Scalefusion is a powerful all-in-one solution that unifies endpoint management, zero trust access, and endpoint security into a single platform with one agent. Scalefusion offers a comprehensive suite of products engineered to simplify endpoint, user, and access management for IT teams.With over 10,000+ businesses in 120+ countries, Scalefusion ensures your business is always one step ahead.",
+    description: "Scalefusion is a powerful all-in-one solution that unifies endpoint management, zero trust access, and endpoint security into a single platform with one agent.",
     image: "https://storage.googleapis.com/axima-website-content/logos/Scalefusion-01.webp",
     route: "/product/scalefusion"
   },

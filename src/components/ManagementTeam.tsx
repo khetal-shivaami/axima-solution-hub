@@ -27,22 +27,22 @@ const teamMembers = [
 
 export const ManagementTeam = () => {
   return (
-    <section className="space-y-8 py-12">
-      <h2 className="text-3xl font-bold text-center text-white">Our Management Team</h2>
-      <div className="grid md:grid-cols-3 gap-8">
+    <section className="w-full max-w-7xl mx-auto">
+      <h2 className="text-3xl font-bold text-center text-white mb-8">Our Management Team</h2>
+      <div className="grid md:grid-cols-3 gap-6">
         {teamMembers.map((member, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group h-[420px] [perspective:1000px]"
+            className="group h-[320px] [perspective:1000px]"
           >
             <div className="relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
               {/* Front of card */}
               <div className="absolute inset-0 [backface-visibility:hidden]">
-                <div className="h-full p-6 space-y-4 rounded-lg border border-white/10 hover:border-axima-blue/50 bg-black/40 backdrop-blur-sm">
-                  <div className="aspect-square w-48 mx-auto overflow-hidden rounded-full">
+                <div className="h-full p-5 space-y-3 rounded-lg border border-white/10 hover:border-axima-blue/50 bg-black/40 backdrop-blur-sm">
+                  <div className="aspect-square w-36 mx-auto overflow-hidden rounded-full">
                     <img
                       src={member.image}
                       alt={member.name}
@@ -50,24 +50,24 @@ export const ManagementTeam = () => {
                     />
                   </div>
                   <div className="text-center">
-                    <h3 className="text-xl font-semibold text-white">{member.name}</h3>
-                    <p className="text-muted-foreground">{member.position}</p>
+                    <h3 className="text-lg font-semibold text-white">{member.name}</h3>
+                    <p className="text-sm text-muted-foreground">{member.position}</p>
                   </div>
                 </div>
               </div>
 
               {/* Back of card */}
               <div className="absolute inset-0 h-full w-full [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                <div className="h-full p-6 flex flex-col justify-between rounded-lg border border-white/10 hover:border-axima-blue/50 bg-black/40 backdrop-blur-sm">
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-white">{member.name}</h3>
-                    <p className="text-muted-foreground">{member.profile}</p>
+                <div className="h-full p-5 flex flex-col justify-between rounded-lg border border-white/10 hover:border-axima-blue/50 bg-black/40 backdrop-blur-sm">
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-semibold text-white">{member.name}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-6">{member.profile}</p>
                   </div>
                   <a
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 text-white hover:text-axima-blue transition-colors"
+                    className="flex items-center justify-center gap-2 text-sm text-white hover:text-axima-blue transition-colors"
                   >
                     <Linkedin className="h-5 w-5" />
                     <span>Connect on LinkedIn</span>

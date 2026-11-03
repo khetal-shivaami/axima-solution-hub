@@ -11,6 +11,7 @@ import { CartProvider } from "./contexts/CartContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Products from "./pages/Products";
+import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
@@ -23,6 +24,7 @@ import RefundPolicy from "./pages/RefundPolicy";
 import Microsoft365 from "./pages/Microsoft365";
 import MSAzure from "./pages/MSAzure";
 import JioAzure from "./pages/JioAzure";
+import GoogleCloud from "./pages/GoogleCloud";
 import SupportPackages from "./pages/SupportPackages";
 import CaseStudies from "./pages/CaseStudies";
 import ContactThankYou from "./pages/ContactThankYou";
@@ -37,6 +39,19 @@ import EntityForm from "./pages/EntityForm";
 import UpcomingEvents from "./pages/UpcomingEvents";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import ProductPage from "./pages/ProductPage";
+import CheckPoint from "./pages/CheckPoint";
+import JumpCloud from "./pages/JumpCloud";
+import MiniOrange from "./pages/MiniOrange";
+import OnePassword from "./pages/OnePassword";
+import Scalefusion from "./pages/Scalefusion";
+import FlexiSign from "./pages/FlexiSign";
+import Superworks from "./pages/Superworks";
+import Atera from "./pages/Atera";
+import SuperOps from "./pages/SuperOps";
+import Viami from "./pages/Viami";
+import ChromeOS from "./pages/ChromeOS";
+import RecurPost from "./pages/RecurPost";
 
 // Create QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -59,6 +74,7 @@ const App = () => {
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/products" element={<Products />} />
+                <Route path="/solutions" element={<Solutions />} />
                 <Route path="/buy-products" element={<BuyProducts />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/order-confirmation" element={<OrderConfirmation />} />
@@ -78,12 +94,26 @@ const App = () => {
                 <Route path="/microsoft-365" element={<Microsoft365 />} />
                 <Route path="/microsoft-azure" element={<MSAzure />} />
                 <Route path="/microsoft-jioazure" element={<JioAzure />} />
+                <Route path="/google-cloud" element={<GoogleCloud />} />
+                <Route path="/check-point" element={<CheckPoint />} />
+                <Route path="/jumpcloud" element={<JumpCloud />} />
+                <Route path="/miniorange" element={<MiniOrange />} />
+                <Route path="/onepassword" element={<OnePassword />} />
+                <Route path="/scalefusion" element={<Scalefusion />} />
+                <Route path="/flexisign" element={<FlexiSign />} />
+                <Route path="/superworks" element={<Superworks />} />
+                <Route path="/atera" element={<Atera />} />
+                <Route path="/superops" element={<SuperOps />} />
+                <Route path="/viami" element={<Viami />} />
+                <Route path="/chrome-os" element={<ChromeOS />} />
+                <Route path="/recurpost" element={<RecurPost />} />
                 <Route path="/support-packages" element={<SupportPackages />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/landing" element={<LandingPage />} />
                 <Route path="/upcoming-events" element={<UpcomingEvents />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/products/:slug" element={<ProductPage />} />
                 {/* Catch-all route for 404 - must be the last route */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

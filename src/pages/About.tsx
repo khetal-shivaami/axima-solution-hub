@@ -1,90 +1,155 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Vision } from "@/components/Vision";
 import { ManagementTeam } from "@/components/ManagementTeam";
+import { WhyChooseAxima } from "@/components/WhyChooseAxima";
+import IndiaLocationsMap from "@/components/IndiaLocationsMap";
+import TechPartnersRibbon from "@/components/TechPartnersRibbon";
 import { motion } from "framer-motion";
-import { Building2, MapPin } from "lucide-react";
-
-const locations = [
-  { city: "Mumbai", address: "1001, 10th Floor, Runwal R Square, LBS Road, Mulund West" },
-  { city: "Bangalore", address: "Brigade Road, Central Business District" },
-  { city: "Chennai", address: "Ring Road, Surat" },
-  { city: "Delhi", address: "Connaught Place, New Delhi" },
-  { city: "Surat", address: "Ring Road, Surat" }
-];
+import { MapPin, Target, Rocket } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+    <div className="bg-gradient-to-b from-gray-900 via-black to-black relative snap-y snap-mandatory">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       <Navbar />
-      <div className="pt-20 p-8 relative">
-        <div className="max-w-7xl mx-auto space-y-12 animate-fade-in">
+
+      {/* Hero / About */}
+      <section className="relative min-h-[65vh] flex items-center justify-center px-4 pt-24 pb-6 snap-start">
+        <div className="max-w-7xl mx-auto w-full grid md:grid-cols-[1.4fr_1fr] gap-10 items-center">
+          {/* Left: content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
+            transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="p-3 rounded-lg bg-axima-blue/20">
-                <Building2 className="w-8 h-8 text-axima-blue" />
-              </div>
-            </div>
-            <h1 className="text-4xl font-bold text-white mb-4">About Us</h1>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Your trusted partner for Microsoft solutions and digital transformation
-            </p>
-            <div className="w-24 h-1 bg-axima-blue mx-auto mt-6"></div>
-          </motion.div>
-          
-          <Card className="bg-black/40 border-white/10 text-white backdrop-blur-sm hover:bg-black/50 transition-all duration-300">
-            <CardHeader>
-              <CardTitle>Axima Corporation</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-xl text-gray-300">
-                Axima Corporation is a certified Microsoft 365 partner, dedicated to helping businesses leverage the benefits of cloud solutions. In today's competitive landscape, companies seek collaborative tools that provide a strategic advantage. Microsoft 365 delivers exactly that. With Axima's expertise in integrating Microsoft 365, your business gains enhanced flexibility and agility, empowering you to stay ahead in the market.
+            <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-3">
+              About Axima
+            </span>
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-5">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
+                We Help Indian Businesses
+              </span>
+              <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-axima-blue via-blue-400 to-blue-600">
+                Work Smarter and Stay Secure.
+              </span>
+            </h1>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              viewport={{ once: true }}
+              className="space-y-3 text-gray-300 leading-relaxed text-base text-left"
+            >
+              <p>
+                Axima Corporation is a Mumbai-based technology partner helping businesses across India adopt the right tools for productivity, collaboration, and security.
               </p>
-            </CardContent>
-          </Card>
+              <p>
+                A sister company of Shivaami, one of India's most recognised cloud technology companies, Axima brings the same depth of expertise to the Microsoft ecosystem and beyond.
+              </p>
+              <p>
+                We have been in the business for over a decade. We started with Microsoft 365 and have since grown into a multi-product partner working with global technology leaders including Check Point, Microsoft, Zoom, JumpCloud, Scalefusion, Spin.AI, HYCU, Atera, 1Password, and FlexiSign.
+              </p>
+              <p>
+                As a Microsoft Solutions Partner, we deliver, implement, and support solutions for businesses of every size. Our certified team is available around the clock to help you evaluate, implement, and get the most from every solution. We don't just sell software. We make sure it works for your business.
+              </p>
+            </motion.div>
+          </motion.div>
 
-          <Vision />
-
-          <ManagementTeam />
-
-          <Card className="bg-black/40 border-white/10 text-white backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-axima-blue" />
-                Our Presence
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                {locations.map((location, index) => (
-                  <motion.div 
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="p-4 rounded-lg bg-black/40 hover:bg-black/60 transition-all duration-300 group cursor-pointer border border-white/10 hover:border-axima-blue/50"
-                  >
-                    <div className="flex items-center gap-2 mb-2">
-                      <MapPin className="h-5 w-5 text-axima-blue" />
-                      <h3 className="text-xl font-semibold group-hover:text-axima-blue transition-colors">
-                        {location.city}
-                      </h3>
-                    </div>
-                  </motion.div>
-                ))}
+          {/* Right: Vision & Mission */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-4 md:max-w-md md:ml-auto w-full"
+          >
+            <div className="relative bg-gradient-to-br from-axima-blue/10 to-transparent p-6 rounded-2xl border border-axima-blue/20 hover:border-axima-blue/50 transition-all duration-300 overflow-hidden">
+              <div className="absolute -top-16 -right-16 w-48 h-48 bg-axima-blue/10 rounded-full blur-3xl" />
+              <div className="flex items-center gap-3 mb-3 relative">
+                <div className="p-2.5 bg-axima-blue/15 rounded-xl">
+                  <Target className="h-5 w-5 text-axima-blue" />
+                </div>
+                <h2 className="text-xl font-bold text-white">Our Vision</h2>
               </div>
-            </CardContent>
-          </Card>
+              <p className="text-sm text-gray-300 leading-relaxed relative">
+                To be India's most trusted technology partner for businesses that want to work smarter, stay secure, and grow without limits.
+              </p>
+            </div>
+
+            <div className="relative bg-gradient-to-br from-axima-blue/10 to-transparent p-6 rounded-2xl border border-axima-blue/20 hover:border-axima-blue/50 transition-all duration-300 overflow-hidden">
+              <div className="absolute -top-16 -right-16 w-48 h-48 bg-axima-blue/10 rounded-full blur-3xl" />
+              <div className="flex items-center gap-3 mb-3 relative">
+                <div className="p-2.5 bg-axima-blue/15 rounded-xl">
+                  <Rocket className="h-5 w-5 text-axima-blue" />
+                </div>
+                <h2 className="text-xl font-bold text-white">Our Mission</h2>
+              </div>
+              <p className="text-sm text-gray-300 leading-relaxed relative">
+                To simplify technology for Indian businesses by bringing the right tools, the right expertise, and the right support together. We listen first, recommend honestly, and stay with you long after the deal is done.
+              </p>
+            </div>
+          </motion.div>
         </div>
-      </div>
+      </section>
+
+
+      <section className="min-h-[65vh] flex items-center justify-center relative snap-start py-6">
+        <WhyChooseAxima />
+      </section>
+
+      {/* Locations & Partners */}
+      <section className="min-h-[65vh] flex items-center justify-center relative snap-start px-4 py-6">
+        <div className="max-w-7xl mx-auto w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <span className="inline-block px-3 py-1 text-xs font-medium tracking-widest uppercase text-axima-blue border border-axima-blue/30 rounded-full mb-3">
+              Our Reach
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">Across India, Backed by Global Technology</h2>
+          </motion.div>
+
+          <div className="space-y-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="min-w-0"
+            >
+              <div className="flex items-center gap-2 mb-4">
+                <MapPin className="w-5 h-5 text-axima-blue" />
+                <span className="text-xs uppercase tracking-widest text-axima-blue font-medium">Locations</span>
+              </div>
+              <div className="h-[420px] md:h-[480px] w-full">
+                <IndiaLocationsMap />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              viewport={{ once: true }}
+              className="min-w-0"
+            >
+              <TechPartnersRibbon />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="min-h-[65vh] flex items-center justify-center relative snap-start px-4 py-6">
+        <ManagementTeam />
+      </section>
+
       <Footer />
+
     </div>
   );
 };
