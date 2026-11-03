@@ -27,11 +27,11 @@ const About = () => {
             </span>
             <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-5">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
-                We Help Indian Businesses
+                Empowering Businesses with
               </span>
               <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-axima-blue via-blue-400 to-blue-600">
-                Work Smarter and Stay Secure.
+                Smarter IT Solutions.
               </span>
             </h1>
 
@@ -43,16 +43,19 @@ const About = () => {
               className="space-y-3 text-gray-300 leading-relaxed text-base text-left"
             >
               <p>
-                Axima Corporation is a Mumbai-based technology partner helping businesses across India adopt the right tools for productivity, collaboration, and security.
+                Axima Corporation is a Mumbai-based IT solutions and technology provider helping businesses across India simplify operations, strengthen security, and accelerate digital transformation. We work closely with organisations to understand their technology requirements and deliver solutions that improve productivity, enhance collaboration, and support business growth.
               </p>
               <p>
-                A sister company of Shivaami, one of India's most recognised cloud technology companies, Axima brings the same depth of expertise to the Microsoft ecosystem and beyond.
+                Founded in 2014, Axima Corporation is a sister company of Shivaami, one of India's recognised cloud technology companies. Backed by this association and a strong understanding of the evolving IT landscape, we bring together technology expertise, industry knowledge, and a customer-centric approach to business problem-solving.
               </p>
               <p>
-                We have been in the business for over a decade. We started with Microsoft 365 and have since grown into a multi-product partner working with global technology leaders including Check Point, Microsoft, Zoom, JumpCloud, Spin.AI, Atera, 1Password, and FlexiSign.
+                Our expertise spans cloud computing, business productivity, cybersecurity, identity and access management, endpoint management, and digital workplace solutions. We offer a comprehensive portfolio of solutions, including Microsoft Azure, Jio Azure, Google Cloud Platform, Amazon Web Services, Microsoft 365, Microsoft Copilot, Google Workspace, Zoho Mail, Zoom Workplace, Microsoft Teams, Spin.AI, Check Point, JumpCloud, miniOrange, 1Password, Microsoft Intune & EMS, Hexnode, FlexiSign, Atera, SuperOps, Viami, and ChromeOS Enterprise. As an authorised partner for these technology solutions, we work closely with leading global technology providers to help businesses select, implement, and manage the right technologies based on their unique requirements.
               </p>
               <p>
-                As a Microsoft Solutions Partner, we deliver, implement, and support solutions for businesses of every size. Our certified team is available around the clock to help you evaluate, implement, and get the most from every solution. We don't just sell software. We make sure it works for your business.
+                At Axima, we believe technology should solve real business challenges, not add complexity. From technology consulting and solution selection to deployment, integration, and ongoing support, we help organisations build secure, connected, and future-ready IT environments.
+              </p>
+              <p>
+                Our focus is simple: the right technology, thoughtfully implemented, to deliver measurable business value.
               </p>
             </motion.div>
           </motion.div>
